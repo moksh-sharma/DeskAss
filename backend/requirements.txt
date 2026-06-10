@@ -1,0 +1,33 @@
+# --- Web framework ---
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-multipart==0.0.17
+pydantic==2.10.3
+pydantic-settings==2.6.1
+
+# --- HTTP client (Ollama / Vosk) ---
+httpx==0.28.1
+
+# --- System diagnostics ---
+psutil==6.1.0
+WMI==1.5.1 ; sys_platform == "win32"
+pywin32==308 ; sys_platform == "win32"
+
+# --- Database ---
+SQLAlchemy==2.0.36
+
+# --- RAG / Knowledge base ---
+chromadb==0.5.23
+# Chroma 0.5.x calls posthog.capture(distinct_id, event, props); posthog 6+ broke that API.
+posthog>=2.4.0,<6.0.0
+sentence-transformers==3.3.1
+
+# --- OCR ---
+pytesseract==0.3.13
+Pillow==11.0.0
+
+# --- Export ---
+reportlab==4.2.5
+
+# --- Utilities ---
+python-dotenv==1.0.1
