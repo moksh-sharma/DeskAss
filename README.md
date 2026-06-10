@@ -6,12 +6,12 @@ diagnostics, Windows Event Logs, a local RAG knowledge base, and a local Ollama 
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                      Electron + React (UI)                          │
-│   Sidebar · Chat · Toolbar (text/voice/screenshot/scan) · Metrics  │
+│                      Electron + React (UI)                       │
+│   Sidebar · Chat · Toolbar (text/voice/screenshot/scan) · Metrics│
 └───────────────────────────────┬──────────────────────────────────┘
                                  │ HTTP (REST)
-┌───────────────────────────────▼──────────────────────────────────┐
-│                          FastAPI Backend                            │
+┌───────────────────────────────▼─────────────────────────────────-─┐
+│                          FastAPI Backend                          │
 │  ┌────────────┐ ┌────────────┐ ┌──────────┐ ┌──────────────────┐  │
 │  │ Diagnostics│ │ Event Logs │ │   OCR    │ │  Vosk (STT proxy)│  │
 │  └────────────┘ └────────────┘ └──────────┘ └──────────────────┘  │
@@ -19,8 +19,8 @@ diagnostics, Windows Event Logs, a local RAG knowledge base, and a local Ollama 
 │  │  RAG / KB  │ │   Ollama   │ │   Diagnosis Engine (fusion)  │   │
 │  │ (ChromaDB) │ │  (LLM)     │ │ root-cause · confidence · fix│   │
 │  └────────────┘ └────────────┘ └──────────────────────────────┘   │
-│                         SQLite (session history)                    │
-└────────────────────────────────────────────────────────────────────┘
+│                         SQLite (session history)                  │ 
+└───────────────────────────────────────────────────────────────────┘
         │                         │                         │
    ChromaDB store         Ollama @ :11434          Vosk @ :8001
 ```
