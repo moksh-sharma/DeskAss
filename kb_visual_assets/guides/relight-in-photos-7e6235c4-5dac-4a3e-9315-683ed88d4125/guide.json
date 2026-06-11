@@ -1,0 +1,93 @@
+{
+  "id": "relight-in-photos-7e6235c4-5dac-4a3e-9315-683ed88d4125",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "relight",
+    "photos"
+  ],
+  "title": "Relight in Photos",
+  "source_url": "https://support.microsoft.com/en-us/windows/relight-in-photos-7e6235c4-5dac-4a3e-9315-683ed88d4125",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Getting started",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Open the Photos app and select the image you want to relight.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Select Edit then select Relight from the available options.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Choose one of the lighting presets, and optionally customize each light's location, brightness, softness or color, and the overall intensity of the effect.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "How the AI model works",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Local Processing: The AI model runs locally on your device, ensuring that your data is not sent to any external services or servers. This helps protect your privacy and keeps your data secure.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "No biometric data is collected, processed, or stored for use in Relight even if you're using Relight on photos including humans or faces.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Non-generative AI: The AI model used for Relight is not generative. It does not create new content but modifies existing images by adding artificial light sources.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Transparency and control: You have full control over the relighting process and can choose the lighting conditions that best suits your needs. You can always discard the relighting process or simply undo the enhancement with the editor's Undo or Reset options.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Feedback and improvement: We encourage users to provide feedback on the Relight feature. Your feedback helps us improve the AI model and ensure it meets your needs and expectations.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related articles",
+      "steps": [
+        {
+          "step": 9,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-10.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 10,
+  "image_count": 1
+}

@@ -1,0 +1,156 @@
+{
+  "id": "instant-hotspot-9c448dff-509c-4bc5-9c18-a8595511deea",
+  "topic_id": "wifi/support_guide",
+  "domains": [
+    "wifi",
+    "network"
+  ],
+  "keywords": [
+    "instant",
+    "hotspot"
+  ],
+  "title": "Instant Hotspot",
+  "source_url": "https://support.microsoft.com/en-us/windows/instant-hotspot-9c448dff-509c-4bc5-9c18-a8595511deea",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "What are the requirements for using this feature?",
+      "steps": [
+        {
+          "step": 1,
+          "text": "A PC running Windows 11, version 22H2 build 22621 or later.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "A PC with Bluetooth support and Wi-Fi adapter.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Phone Link version 1.22092.211.0 or later",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Samsung mobile device with OneUI 4.1.1 or later.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "HONOR mobile device with HONOR Magic OS 8.1 or later.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "OPPO or OnePlus or Realme mobile device with ColorOS 14.1 or later.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "vivo with Funtouch 15.0 or later.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "SIM card with hotspot capable plan.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Link to Windows app version 1.22093.2.0 or later.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "How to enable this feature?",
+      "steps": [
+        {
+          "step": 10,
+          "text": "Open Phone Link.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Go to Settings > Features > Instant Hotspot .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Select Setup Instant Hotspot .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Follow the directions provided on the pop-up > select Send Notification > go to your Android device.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Select the notification.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Select Allow .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Open Link to Windows application on your Android device.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "Toggle on Instant Hotspot .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Go to your PC's Wi-Fi menu and connect to your mobile phone's hotspot.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Why don't I see the feature available on the Phone Link?",
+      "steps": [
+        {
+          "step": 19,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-20.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 20,
+  "image_count": 1
+}

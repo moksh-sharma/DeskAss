@@ -1,0 +1,80 @@
+{
+  "id": "reset-your-pc-0ef73740-b927-549b-b7c9-e6f2b48d275e",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "reset"
+  ],
+  "title": "Reset your PC",
+  "source_url": "https://support.microsoft.com/en-us/windows/reset-your-pc-0ef73740-b927-549b-b7c9-e6f2b48d275e",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Before you reset your PC",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Back up important files before you begin.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "If your device is encrypted, make sure you have your BitLocker recovery key . For more information see Find your BitLocker recovery key .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Reset options",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Restore preinstalled apps : when enabled, any customizations from the PC manufacturer are applied",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Clean data : when enabled, it removes files and cleans the drive. If you're planning to donate, recycle, or sell your PC, use this option. This might take some time, but it makes it harder for other people to recover files you've removed",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 5,
+          "text": "In the Settings app on your Windows device, select System > Recovery . Open Recovery settings",
+          "caption": "Screenshot of Settings - System - Recovery.",
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/98806510-83f1-4d04-ad8f-c8bc76445d10"
+        },
+        {
+          "step": 6,
+          "text": "Under Recovery options , select Reset PC.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Choose from the options and/or settings in the reset options table​​​​​​​.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Follow the on‑screen instructions to complete the reset.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    }
+  ],
+  "step_count": 8,
+  "image_count": 1
+}

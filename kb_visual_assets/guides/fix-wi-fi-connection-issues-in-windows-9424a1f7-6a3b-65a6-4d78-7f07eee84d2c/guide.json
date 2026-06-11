@@ -1,0 +1,163 @@
+{
+  "id": "fix-wi-fi-connection-issues-in-windows-9424a1f7-6a3b-65a6-4d78-7f07eee84d2c",
+  "topic_id": "network/support_guide",
+  "domains": [
+    "network"
+  ],
+  "keywords": [
+    "fix",
+    "connection",
+    "issues"
+  ],
+  "title": "Fix Wi-Fi connection issues in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/fix-wi-fi-connection-issues-in-windows-9424a1f7-6a3b-65a6-4d78-7f07eee84d2c",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "General troubleshooting",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Step 1. Check your network connection status Select the Network , Sound , or Battery icons ( ) on the right side of the taskbar. Make sure that Wi-Fi is turned on. Check if your network name shows Connected below it. If it displays a status other than Connected , select a Wi-Fi network you recognize from the list of available networks. Then, click on the network and attempt to connect.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Step 2. Check Airplane Mode Go to Settings > Network & Internet > Airplane mode . Ensure Airplane mode is turned off.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Step 3. Forget and reconnect to the Wi-Fi Network In the Settings app on your Windows device, select Network & internet > Wi-Fi , then select Manage known networks . Select your Wi-Fi network and click Forget . Reconnect to the network by selecting it and entering the password.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Step 4. Restart your modem and wireless router Unplug the power cable for the router from the power source. Unplug the power cable for the modem from the power source. Some modems have a backup battery. If you unplug the modem and lights stay on, remove the battery from the modem. Wait at least 30 seconds or so. If you had to remove the battery from the modem, put it back in. Plug the modem back into the power source. The lights on the modem will blink. Wait for them to stop blinking. Plug your router back into the power source. Wait a few minutes for the modem and router to fully power on. You can usually tell when they’re ready by looking at the status lights on the two devices. On your PC, try to connect again.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Step 5. Adjust Wi-Fi channel and frequency Try connecting to a network on a different frequency band. Many consumer Wi-Fi routers broadcast at two different network frequency bands: 2.4 GHz and 5 GHz. These will appear as separate networks in the list of available Wi-Fi networks. If your list of available Wi-Fi networks includes both a 2.4 GHz network and a 5 GHz network, try connecting to the other network. To learn more, check out Wi-Fi and your home layout .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Step 6. Try to connect to the same network on a different device On another laptop or phone, try to connect to the same network. If you can connect, the source of the problem is likely due to your device.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Step 7. Run network commands Select Search on the taskbar, and type command prompt . The Command Prompt button will appear. To the right of it, select Run as administrator > Yes . At the command prompt, run the following commands in the listed order, and then check to see if that fixes your connection problem: Type netsh winsock reset and select Enter . Type netsh int ip reset and select Enter . Type ipconfig /release and select Enter . Type ipconfig /renew and select Enter . Type ipconfig /flushdns and select Enter .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Step 8. Uninstall the network adapter driver and restart Select Search on the taskbar, type device manager , and then select Device Manager from the list of results. Expand Network adapters , and locate the network adapter for your device. Select the network adapter, press and hold (or right-click), and then select Uninstall device > check the Attempt to remove the driver for this device check box > Uninstall . After uninstalling the driver, select Start > Power > Restart .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Step 9. Use the ping test to check if there's a problem with Wi-Fi router connection In the search box on the taskbar, type command prompt . The Command Prompt button will appear. To the right of it, select Run as administrator > Yes . At the command prompt, type ipconfig , and then select Enter . Look for the name of your Wi-Fi network within the results, and then find the IP address listed next to Default gateway for that Wi-Fi network. Write down that address if you need to. For example: 192.168.1.1 At the prompt, type ping <DefaultGateway> and then select Enter . For example, type ping 192.168.1.1 and select Enter . The results should be something like this: Reply from 192.168.1.1: bytes=32 time=5ms TTL=64 Reply from 192.168.1.1: bytes=32 time=5ms TTL=64 Reply from 192.168.1.1: bytes=32 time=5ms TTL=64 Reply from 192.168.1.1: bytes=32 time=5ms TTL=64 Ping statistics for 192.168.1.1: Packets: Sent = 4, Received = 4, Lost = 0 (0% loss), Approximate round trip times in milli-seconds: Minimum = 4ms, Maximum = 5ms, Average = 4ms",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Step 10. Disable power saving for Wi-Fi adapter Open Device Manager and expand Network adapters . Right-click your Wi-Fi adapter and choose Properties . Navigate to the Power Management tab. Uncheck Allow the computer to turn off this device to save power .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Step 11. Check for Windows updates Select Start > Settings > Windows Update > Check for updates. Download and install any new updates.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Step 12. Restart your PC Many updates require you to restart your device. Save your work and close all open applications. Then, select Start > Power , and select Restart .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Step 13. Use network reset Select the Start button, then enter settings . Select Settings > Network & internet ​​​​​​​ On Windows 11, select Advanced network settings > Network reset . ​​​​​​​ On Windows 10, select Status > Network reset. On the Network reset screen, select Reset now > Yes to confirm. Wait for your PC to restart and see if that fixes the problem.​​​​​​​ After using network reset, you might need to reinstall and set up other networking software you might be using, such as VPN client software or virtual switches from Hyper‑V (if you're using that or other network virtualization software). Network reset might set each one of your known network connections to a public network profile. In a public network profile, your PC is not discoverable to other PCs and devices on the network, which can help make your PC more secure. To use a private network profile, see Essential network settings and tasks .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Most common Wi-Fi problems",
+      "steps": [
+        {
+          "step": 14,
+          "text": "Connected to Internet but very slow speed Check Signal Strength: Ensure the device is close to the router and free of obstructions. ​​​​​​​ Disable Background Apps: Open Task Manager ( Ctrl + Shift + Esc ). End processes consuming high network bandwidth. Test Router Performance: Connect another device to the Wi-Fi. If the issue persists, the router may require maintenance or replacement.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Wi-Fi option is missing Check Hardware Switch : Some laptops have a physical Wi-Fi switch; ensure it is turned on. ​​​​​​​ Enable Wi-Fi Adapter: Open Device Manager and expand Network adapters . Right-click your Wi-Fi adapter and select Enable device . Restart WLAN Service: Press Win + R , type services.msc , and press Enter. Find WLAN AutoConfig , right-click, and select Restart .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Wi-Fi connection is dropping frequently Check Power Settings Go to Control Panel > Hardware and Sound > Power Options . Select your plan and click Change plan settings . Click Change advanced power settings and expand Wireless Adapter Settings . Set Power Saving Mode to Maximum Performance . Adjust Router Channel: Access your router’s admin page (refer to its manual) and change the wireless channel to reduce interference.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "You're connected to Wi-Fi, but no Internet connection is detected (also known as limited connectivity) Turn off Wi-Fi and turn it on again and reconnect to your wireless network. Renew IP Configuration Open Command Prompt as Administrator. Type ipconfig /release and press Enter. Type ipconfig /renew and press Enter. Flush DNS Cache Open Command Prompt as Administrator. Type ipconfig /flushdns and press Enter. Check for Proxy Settings Go to Settings > Network & Internet > Proxy . Turn off any manual proxy settings. Check your IP address Find your IP address and make sure it's not something like this —169.254.x.x. If your IP address looks like this, it means that Windows couldn’t get an IP address from your router. If you’re not using static IP addresses on your network, then check to make sure DHCP is enabled on your router. Check the documentation for your router to find out how to do this. If this fixes your Wi-Fi problem, the No connection icon will change to Wi-Fi connected in a few seconds. ​​​​​​​ Check your DNS server. Verify that you have a DNS server listed and that you can ping it. ​​​​​​​To ping the DNS server: Open Command Prompt as Administrator. Type ipconfig /all | findstr /c:\"DNS Servers\" and press Enter. Note the DNS Server IP address. At the command prompt, type ping [DNS server address] . If you have a valid IP address but can’t ping your DNS server, you can change your DNS server to a different address and then try to ping the new address. There are many free public DNS servers. To find them, go to the web and search for public DNS servers. To learn how to change your DNS server in Windows, see Change TCP/IP settings .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Wi-Fi authentication problem Verify Password: Ensure the password is correct and matches the router's configuration. Reset Router : Reboot the router or restore its factory settings. Update Router Firmware: Refer to the router’s manual for steps to update its firmware.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "Your wireless network adapter is recognized, but no Wi-Fi networks are found and you’re not connected to Wi-Fi The physical Wi-Fi switch on your laptop or tablet is turned off. Make sure it’s turned on. Wi-Fi is turned off in Wi-Fi settings . Open Settings , then select Network & internet . Make sure Wi-Fi is turned on. Your adapter doesn’t support the frequency that your network is broadcasting on . For example, your adapter might only support the 2.4 GHz frequency band, but your network is using the 5 GHz band. Check the documentation for your router to find out what frequency it’s using. To learn more about the differences between 2.4 GHz networks and 5 GHz networks, check out the section Wi-Fi and your home layout . Your adapter supports your network frequency, but the wireless network adapter driver is filtering it out. While it’s not common, this has been known to happen. Make sure your wireless network adapter allows the same network frequency as your wireless network by doing the following: Select Search on the taskbar, enter Device Manager , and then select Device Manager from the list of results. In Device Manager, select Network adapters > the wireless network adapter name. Press and hold (or right-click) your wireless network adapter, then select Properties . Select the Advanced tab, look for a Wireless Mode or Band setting, and make sure it allows your network frequency.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "No network adapters are detected or enabled In the wireless network report, find your wireless adapter in the Network Adapters section, and then check to see if a Problem number is listed there. If listed, the number will correspond to the Device Manager error code that tells you why the driver didn’t load. Verify that you have the latest driver by running Windows Update , and check the Driver Version and Driver Date to see if they match the latest driver versions listed on your device manufacturer’s website. To find the driver date and version, in Device Manager , expand Network adapters , press and hold (or right-click) your wireless network adapter, select Properties , and then select the Driver tab. Make sure that the wireless network adapter isn’t disabled in Device Manager. To do this, in Device Manager, expand Network adapters , press and hold (or right-click) your wireless network adapter, and then select Enable device . If your wireless network adapter isn’t listed in Device Manager, then Windows doesn’t detect it. In this case, you might have to manually install the driver. Check your device manufacturer’s website for a driver that works in Windows.",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 21,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 22,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-22.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 22,
+  "image_count": 1
+}

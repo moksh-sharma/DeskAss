@@ -1,0 +1,108 @@
+{
+  "id": "managing-presence-sensing-settings-in-windows-11-82285c93-440c-4e15-9081-c9e38c1290bb",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "managing",
+    "presence",
+    "sensing",
+    "settings"
+  ],
+  "title": "Managing Presence Sensing settings in Windows 11",
+  "source_url": "https://support.microsoft.com/en-us/windows/managing-presence-sensing-settings-in-windows-11-82285c93-440c-4e15-9081-c9e38c1290bb",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "To change your presence settings",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select the Start button, then enter settings . Select Settings > System > Power & battery .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "On the Power & battery screen, select Screen and sleep .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Turn on one or both of the following: To have your screen turn off when you leave, turn on Automatically turn off my screen when I leave .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "To have your device wake when you approach it, turn on Automatically wake up my device when I approach .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "To change Presence Sensing settings , select More options next to Automatically turn off my screen when I leave or Automatically wake up my device when I approach .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "In Presence Sensing settings , you can then change these settings: Consider me gone when I’m this far away: The distance that determines when you have left your PC.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Then, turn off my screen after this amount of time: How long to wait before your screen turns off after you have left your PC.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Lock my device when I leave while an external display is connected: Determines if the screen turns off when you leave and you have an external monitor connected.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Wake my device when I’m this close: Determines how close you need to be for your PC to wake when you approach it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Wake my device when I approach while an external display is connected: Determines if your PC wakes when you approach and you have an external monitor connected.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Don't wake my device when I approach while battery saver is on: Determines if your PC wakes when you approach and your PC is on Battery Saver mode. Note: Some devices might have more than one presence sensor. If so, you can choose which one you want to use. May 2023 update for Windows 11 22H2 and later : Wake on approach can be enabled on systems that support S3 sleep state, such as desktops. For USB-connected presence sensors to work properly on these systems, you'll need to enable USB Wake Support (or a similarly named option) in BIOS settings.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "To control which apps can access your presence sensor",
+      "steps": [
+        {
+          "step": 12,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-13.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 13,
+  "image_count": 1
+}

@@ -1,0 +1,60 @@
+{
+  "id": "use-smart-charging-in-windows-2ac1b4ba-6027-410a-b80e-f6767d867002",
+  "topic_id": "battery/support_guide",
+  "domains": [
+    "battery"
+  ],
+  "keywords": [
+    "smart",
+    "charging"
+  ],
+  "title": "Use Smart charging in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/use-smart-charging-in-windows-2ac1b4ba-6027-410a-b80e-f6767d867002",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Why turn off Smart charging?",
+      "steps": [
+        {
+          "step": 1,
+          "text": "When traveling.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "When working for longer amounts of time in places where you might not be near a power outlet.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "When you think you may need the full capacity of your battery.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "How to turn off Smart charging",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 5,
+  "image_count": 1
+}

@@ -1,0 +1,155 @@
+{
+  "id": "media-feature-pack-for-windows-10-11-n-september-2022-78cfeea5-c7d9-4aa8-b38f-ee4df1392009",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "media",
+    "feature",
+    "pack",
+    "september",
+    "2022"
+  ],
+  "title": "Media Feature Pack for Windows 10/11 N (September 2022)",
+  "source_url": "https://support.microsoft.com/en-us/windows/media-feature-pack-for-windows-10-11-n-september-2022-78cfeea5-c7d9-4aa8-b38f-ee4df1392009",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "How to get the update",
+      "steps": [
+        {
+          "step": 1,
+          "text": "On Windows 10 N : Select , then select > Apps > Apps and Features > Optional features > Add a feature . Find the Media Feature Pack in the list of available optional features.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "On Windows 11 N : Select , then select > Apps > Optional features . Select View features next to Add an optional feature , and then select the Media Feature Pack in the list of available optional features.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Additional steps",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Media codecs for playback of media in apps and in the browser: VP9 Video Extensions",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Web Media Extensions",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "HEIF Image Extensions",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "HEVC Video Extensions",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Skype",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Movies & TV",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Windows Media Player",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Xbox Game Bar",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Windows Voice Recorder",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Update information",
+      "steps": [
+        {
+          "step": 12,
+          "text": "Prerequisites To install this update, you must have Windows 10 N or Windows 11 N installed.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Registry information To apply this update, you don't have to make any changes to the registry.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Restart requirement You must restart your computer after you apply this update.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Update replacement information This update doesn’t replace a previously released update.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "More information about Windows 10/11 N",
+      "steps": [
+        {
+          "step": 16,
+          "text": "Excluded features Windows Media Player application : Enables Windows Media Player features, such as the ability to play media files and audio CDs, manage media in a library, create a playlist, provide metadata (including album art) for media, create an audio CD, transfer music to a portable music player, and play streaming content from a website. Windows Media Player Runtime : Exposes methods and properties to manipulate multimedia playback from a webpage or an application. Windows Media Format : Provides support for the Advanced Systems Format (ASF) file container, the Windows Media audio and video codecs, basic network streaming capability, and digital rights management (DRM). Windows Media DRM : Enables the secure delivery of protected content for playback on a computer, portable device, or network device. Media sharing and Play To : Enables music, pictures, and videos on a networked computer to be shared with other computers and devices on the same network. Also enables computers to find those kinds of files on the network. Media Foundation : Provides support for content protection, audio and video quality, and interoperability for DRM. Windows Portable Devices (WPD) infrastructure : Communicates with attached media and storage devices that include devices that support the Media Transfer Protocol. MPEG, WMA, AAC, FLAC, ALAC, AMR, and Dolby Digital audio codecs : Enable the playback of digital audio content, such as MP3, WMA, MPEG-2 audio, AAC audio, FLAC and ALAC audio, and AC-3 audio. VC-1, MPEG-4, and H.264, H.265, and H.263 codec s: Collectively known as \"Standards-based codec components.\" Enable Windows 10 programs such as Windows Media Player to support activities that include the playback and recording of multimedia files that are encoded with standards-based codecs. Movies & TV : An app that's used to play digital video. Windows Voice Recorder : An app that's used to record sounds. Skype : An app that's used for messaging and communications.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "Effects on other features Alarms and clock : Alarm and timer sounds don't play. Application Sync : This feature doesn't work. Cortana Personal Assistant : Cortana with Voice (speech interaction with Cortana) doesn't work. Features with audio and video functionality . Many features that come as part of Windows can be used to view or play video or audio content. Here are some examples: OneNote app (lets people record or play audio), Microsoft Edge web browser (lets people play audio and video content on the internet), the Photos app, the OneDrive app, and others. If a person tries to access and play video content in any of these apps by opening a video file stored on Microsoft OneDrive (as an example), these media features won’t work on Windows 10/11 N. Group Policy for removable disks : This feature is not available in the N edition of Windows 10 Pro. Live Captions . This feature uses AI to do high-quality, machine speech-to-text conversion. It won’t work without installing the Media Feature Pack. Microsoft Edge browser : Certain video streaming websites may have incomplete functionality when accessed via the new Microsoft Edge browser. Microsoft Teams : Some functionality such as audio or video calling will not work. Narrator : Voice navigation using the Narrator app doesn’t work. Microsoft OneDrive and Photos : These applications cannot play videos. PDF Viewing in Microsoft Edge : This feature doesn’t work on older versions of Microsoft Edge but will work on the New Chromium-based Microsoft Edge browser even without the Media Feature Pack installed. Voice Recorder : This app isn’t available on Windows 10/11 N. After the Media Feature Pack is installed, people can download this app from the Microsoft Store. Voice typing : This feature doesn’t work. Webcam : This feature doesn't work. Windows camera devices : Cameras and apps that can record video and audio don't work. Windows Hello : This feature doesn't work. Windows Mixed Reality : Windows 10/11 N is not compatible with Windows Mixed Reality. Windows Portable Devices : There is no support for media synchronization, image acquisition, or file browsing. Microsoft Store Media Content : Audio and video content that was obtained through the Store cannot be played. Also, the preview of audio or video content in the Store doesn't work. Wireless Display : This feature doesn't work. Xbox : Some functionality that's associated with this app, such as Game Bar, Game DVR, and signing in to Xbox Live, doesn't work. Media Feature Pack list for Windows N editions",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-19.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 19,
+  "image_count": 1
+}

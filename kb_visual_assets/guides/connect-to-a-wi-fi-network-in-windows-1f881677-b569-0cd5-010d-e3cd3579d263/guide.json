@@ -1,0 +1,116 @@
+{
+  "id": "connect-to-a-wi-fi-network-in-windows-1f881677-b569-0cd5-010d-e3cd3579d263",
+  "topic_id": "network/support_guide",
+  "domains": [
+    "network"
+  ],
+  "keywords": [
+    "connect",
+    "network"
+  ],
+  "title": "Connect to a Wi-Fi network in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/connect-to-a-wi-fi-network-in-windows-1f881677-b569-0cd5-010d-e3cd3579d263",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Connect to a Wi-Fi network",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select the Network , Sound , or Battery icons ( ) on the taskbar to open quick settings. The Disconnected icon appears when you’re not connected.",
+          "caption": "The Network Offline icon in Windows 11.",
+          "image": "step-01.png",
+          "image_url": "https://support.microsoft.com/images/en-us/d3ca9c91-0a73-4abc-899e-68ed3feb9933"
+        },
+        {
+          "step": 2,
+          "text": "On the Wi-Fi quick setting, select Manage Wi-Fi connections .",
+          "caption": "Where to find \"Manage Wi-Fi connections\" in the Windows 11 quick settings.",
+          "image": "step-02.png",
+          "image_url": "https://support.microsoft.com/images/en-us/c25f0805-21af-4863-846d-d414961f94ef"
+        },
+        {
+          "step": 3,
+          "text": "Choose the Wi-Fi network you want, then select Connect . If you don't see the network you expect, you can manually start a new Wi-Fi scan by selecting the Refresh network list ​​​ button in the lower right.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Type the network password, and then select Next .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Connecting to a Wi-Fi network with a QR code",
+      "steps": [
+        {
+          "step": 5,
+          "text": "Open the Camera app. Select the barcode mode icon to switch from photo mode to barcode mode.",
+          "caption": "The barcode mode icon in the Windows 11 Camera app.",
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/d283eb6e-c1e8-4989-bc37-c08152e770ea"
+        },
+        {
+          "step": 6,
+          "text": "Point your device's camera at the QR code that contains the Wi-Fi connection information.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Select the link that appears in the Camera app, which will open Settings .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "In Settings, confirm that you want to add and connect to the Wi-Fi network. You can choose if your device will connect automatically to that network when it is in range.",
+          "caption": "Adding a Wi-Fi network to Windows 11.",
+          "image": "step-08.png",
+          "image_url": "https://support.microsoft.com/images/en-us/a3d9b4b1-283e-4c8d-b503-9e5355ec7594"
+        }
+      ]
+    },
+    {
+      "title": "Random hardware addresses",
+      "steps": [
+        {
+          "step": 9,
+          "text": "Use random hardware addresses for all networks In the Settings app on your Windows device, select Network & internet > Wi-Fi . Turn on Random hardware addresses .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Use random hardware addresses for a specific network In the Settings app on your Windows device, select Network & internet > Wi-Fi > Manage known networks . Choose a Wi-Fi network, then turn on Random hardware addresses .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related topics",
+      "steps": [
+        {
+          "step": 11,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-12.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 12,
+  "image_count": 5
+}

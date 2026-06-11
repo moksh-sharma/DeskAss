@@ -1,0 +1,79 @@
+{
+  "id": "bitlocker-drive-encryption-76b92ac9-1040-48d6-9f5f-d14b3c5fa178",
+  "topic_id": "security/support_guide",
+  "domains": [
+    "security"
+  ],
+  "keywords": [
+    "bitlocker",
+    "drive",
+    "encryption"
+  ],
+  "title": "BitLocker Drive Encryption",
+  "source_url": "https://support.microsoft.com/en-us/windows/bitlocker-drive-encryption-76b92ac9-1040-48d6-9f5f-d14b3c5fa178",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Access BitLocker Drive Encryption",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Sign in to Windows with an administrator account",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "From Start , type BitLocker and select Manage BitLocker from the list of results Note: BitLocker Drive Encryption is only available on devices running Windows Pro, Enterprise, or Education editions. It isn't available on Windows Home edition. If Manage BitLocker isn't listed, it means that you don't have the correct Windows edition.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "The BitLocker Drive Encryption applet lists all the drives connected to the Windows device:",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "The Operating system drive is the drive on which Windows is installed",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Additional drives are listed under Fixed data drives",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Removable drives, like USB thumb drives, are listed under Removable data drives - BitLocker To Go",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Manually encrypt a drive",
+      "steps": [
+        {
+          "step": 7,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-08.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 8,
+  "image_count": 1
+}

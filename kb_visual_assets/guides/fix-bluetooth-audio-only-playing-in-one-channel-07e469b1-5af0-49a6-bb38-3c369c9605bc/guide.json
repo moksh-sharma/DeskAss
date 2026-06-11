@@ -1,0 +1,72 @@
+{
+  "id": "fix-bluetooth-audio-only-playing-in-one-channel-07e469b1-5af0-49a6-bb38-3c369c9605bc",
+  "topic_id": "bluetooth/support_guide",
+  "domains": [
+    "bluetooth",
+    "audio"
+  ],
+  "keywords": [
+    "fix",
+    "bluetooth",
+    "audio",
+    "only",
+    "playing",
+    "one",
+    "channel"
+  ],
+  "title": "Fix Bluetooth audio only playing in one channel",
+  "source_url": "https://support.microsoft.com/en-us/windows/fix-bluetooth-audio-only-playing-in-one-channel-07e469b1-5af0-49a6-bb38-3c369c9605bc",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select Start > Settings > Bluetooth & devices .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Find your connected Bluetooth in the list.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "If supported, the battery percentage will be displayed below the device name. Note: Not all devices report battery status to Windows. If it's not shown, check the indicator on the device itself.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Reconnect the device after charging to see if the issue resolves.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related articles",
+      "steps": [
+        {
+          "step": 5,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-06.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 6,
+  "image_count": 1
+}

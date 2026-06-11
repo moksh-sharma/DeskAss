@@ -162,6 +162,22 @@ class RecommendedFix(BaseModel):
     safe_action: Optional[str] = None
 
 
+class VisualGuideStep(BaseModel):
+    step: int
+    text: str
+    caption: Optional[str] = None
+    image_url: Optional[str] = None
+
+
+class VisualGuide(BaseModel):
+    id: str
+    title: str
+    source_url: str
+    attribution: str = "Microsoft Support"
+    section_title: Optional[str] = None
+    steps: list[VisualGuideStep] = Field(default_factory=list)
+
+
 class DiagnosisResult(BaseModel):
     issue_summary: str = ""
     is_conversational: bool = False
@@ -173,6 +189,7 @@ class DiagnosisResult(BaseModel):
     evidence: list[Evidence] = Field(default_factory=list)
     recommended_fixes: list[RecommendedFix] = Field(default_factory=list)
     resolution_steps: list[str] = Field(default_factory=list)
+    visual_guide: Optional[VisualGuide] = None
     prevention_tips: list[str] = Field(default_factory=list)
     knowledge_references: list[KnowledgeReference] = Field(default_factory=list)
     model: str = ""

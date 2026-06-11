@@ -1,0 +1,103 @@
+{
+  "id": "back-up-and-restore-with-windows-backup-87a81f8a-78fa-456e-b521-ac0560e32338",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "back",
+    "restore",
+    "backup"
+  ],
+  "title": "Back up and restore with Windows Backup",
+  "source_url": "https://support.microsoft.com/en-us/windows/back-up-and-restore-with-windows-backup-87a81f8a-78fa-456e-b521-ac0560e32338",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Back up your PC",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Step 1: Sign in with a Microsoft account In the Settings app on your Windows device, select Accounts > Your info or use the following shortcut: Your info Select Sign in with a Microsoft account instead . You’ll see this only if you’re using a local account. If you see Sign in with a local account instead , you’re already using your Microsoft account Important: Currently, the Windows Backup app is focused on consumer devices - for example, devices that can be used by signing into a personal Microsoft account (MSA) such as *@outlook.com , *@live.com, and so forth. Work or school Microsoft accounts won't work. Create a new Microsoft account",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Step 2: Back up your folders Select Start Type backup , and select Windows Backup from the results Expand Folders , and select which of your user folders you want to back up to OneDrive. You can back up your Desktop , Documents , Pictures , Videos , and Music folders by toggling the switch for each folder to On",
+          "caption": "Screenshot of the Windows Backup app in Windows 11.",
+          "image": "step-02.png",
+          "image_url": "https://support.microsoft.com/images/en-us/82846627-212c-4f5a-81a7-971885904c12"
+        },
+        {
+          "step": 3,
+          "text": "Step 3: Back up your settings and preferences Installed apps Accessibility Accounts, Wi-Fi network and passwords Personalization like Wallpaper, color, theme, start layout, etc. Note: Personalization requires OneDrive sign-in and available storage. Personalization preferences will not be backed up if you have insufficient OneDrive storage​​​​​​​. Language preferences and dictionary Other Windows settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Step 4: Time to relax! You're all set! Your folders and settings are backed up and you can access your files on all of the computers that you sign into with this Microsoft account. If you want to check and make sure everything is still backed up, you can open the Windows Backup app and it will display the current state of your backup. You can also check the status in the Settings app , select Accounts > Windows backup ​​​​​​​",
+          "caption": "Screenshot of Settings showing the Windows backup status.",
+          "image": "step-04.png",
+          "image_url": "https://support.microsoft.com/images/en-us/fe2c6a42-9295-405a-8278-7fda65c2108e"
+        }
+      ]
+    },
+    {
+      "title": "Modify your backup configuration",
+      "steps": [
+        {
+          "step": 5,
+          "text": "To change the synchronization of folders to OneDrive, select Manage sync settings under OneDrive folder synching , and toggle the folders that you want to back up",
+          "caption": "Screenshot of OneDrive Backup in Windows 10.",
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/5ce7f5c5-de44-4487-8717-69650619c200"
+        },
+        {
+          "step": 6,
+          "text": "To modify the back up of apps, use the toggle Remember my apps . This setting is not available for work or school accounts, and Windows does not remember your apps for work or school accounts",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "To modify the back up of settings, use the checkboxes that are listed under Remember my preferences , ensuring that the checkboxes for any of the items you wish to back up are checked. If you turn on Other Windows settings , Windows also syncs some device settings (for things like printers and mouse options), File Explorer settings, and notification preferences. This option is available for a work or school account if it’s allowed by your organization. For more information, see Enable Enterprise State Roaming in Microsoft Entra ID",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Restore your PC",
+      "steps": [
+        {
+          "step": 8,
+          "text": "How do I restore a backup? Your apps' pins are restored where you left them. Apps that are available in the Microsoft Store can be restored by selecting on the app pin to get started. For apps that aren’t available in the Store, you’ll be directed to the web to download the installer Your most important settings will also be restored on your new device. For a full list of settings that are supported, see Windows Backup Settings Catalog Files can be restored anytime by signing in to OneDrive with the same Microsoft account you used to make the original backup",
+          "caption": "Screenshot of the Restore option offered durin OOBE.",
+          "image": "step-08.png",
+          "image_url": "https://support.microsoft.com/images/en-us/e4c818b9-8228-48c1-8728-78e10a24854d"
+        }
+      ]
+    },
+    {
+      "title": "Related topics",
+      "steps": [
+        {
+          "step": 9,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-10.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 10,
+  "image_count": 5
+}

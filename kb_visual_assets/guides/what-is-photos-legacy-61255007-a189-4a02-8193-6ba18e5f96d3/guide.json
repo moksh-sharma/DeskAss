@@ -1,0 +1,121 @@
+{
+  "id": "what-is-photos-legacy-61255007-a189-4a02-8193-6ba18e5f96d3",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "what",
+    "photos",
+    "legacy"
+  ],
+  "title": "What is Photos Legacy?",
+  "source_url": "https://support.microsoft.com/en-us/windows/what-is-photos-legacy-61255007-a189-4a02-8193-6ba18e5f96d3",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "How to get the app?",
+      "steps": [
+        {
+          "step": 1,
+          "text": "In the search box on the taskbar, type photos and then select the Photos app from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Select Settings , and under the Photos Legacy section select Open Photos Legacy.",
+          "caption": "Click Open Photos Legacy",
+          "image": "step-02.png",
+          "image_url": "https://support.microsoft.com/images/en-us/63d16240-461e-4766-8fc2-8bd80dcdcbc5"
+        },
+        {
+          "step": 3,
+          "text": "Use a USB cable to connect your device to the PC. Make sure the photos you want to import are actually on the device rather than in the cloud.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Open the Photos Legacy app.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Select Import > From a connected device , then follow the instructions. You can pick the items you want to import and select where to save them. Allow a few moments for detection and transfer.",
+          "caption": "Location of the Import button in the Photos app.",
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/99eee991-7bce-45ce-92b6-a3013755472e"
+        },
+        {
+          "step": 6,
+          "text": "For iPhone: If you are having trouble with your iPhone import, make sure your device is unlocked, and you’ve accepted the permissions.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "For Android and other devices: If you’re using an Android phone or other device and import isn’t working, you might need to change your phone’s USB settings from Charging over USB to Transfer Files or Transfer Photos .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Open Photos app and select Albums .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Select +New album and choose photos or videos from your collection using the checkboxes and select Create .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "You can edit the title of the album as per your need.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Ensure that you're connected to OneDrive in the Photos Legacy app. This allows OneDrive content to sync to the app.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Then, on your iOS or Android device, install the OneDrive app. You can download the latest version from your phone's Android or iOS app store.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "From the OneDrive app on your iOS or Android device, turn on Camera Upload in the OneDrive app’s settings. The latest photos and videos that you take will automatically start uploading to OneDrive.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Copying photos and videos : If you copy a photo, video, or folder in the app, the content remains in its original location and a duplicate is added to the newly specified location.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Moving photos and videos: If you move a photo, video, or folder in the app, the content location on your device will also be moved. For example, the item will no longer exist at its original location.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Remove folders: If you no longer want a folder to appear in the app, you can remove it from Settings > Sources . Removing a folder from the Photos Legacy app does not delete that folder’s contents from your Windows machine—it will just no longer be viewable within the Photos app. Important: When you try to Delete any media files, they are sent to your Window’s recycle bin from the folder they came from on your Windows device. Deleted files are also sent to your OneDrive's recycle bin from your OneDrive account.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    }
+  ],
+  "step_count": 16,
+  "image_count": 2
+}

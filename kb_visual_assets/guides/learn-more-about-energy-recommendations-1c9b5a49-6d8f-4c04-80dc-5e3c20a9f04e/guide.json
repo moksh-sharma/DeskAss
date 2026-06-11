@@ -1,0 +1,54 @@
+{
+  "id": "learn-more-about-energy-recommendations-1c9b5a49-6d8f-4c04-80dc-5e3c20a9f04e",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "learn",
+    "more",
+    "energy",
+    "recommendations"
+  ],
+  "title": "Learn more about energy recommendations",
+  "source_url": "https://support.microsoft.com/en-us/windows/learn-more-about-energy-recommendations-1c9b5a49-6d8f-4c04-80dc-5e3c20a9f04e",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select Start > Settings > System > Power & battery > Energy recommendations .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Apply the setting Set the power mode for best energy efficiency .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related topics",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-04.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 4,
+  "image_count": 1
+}

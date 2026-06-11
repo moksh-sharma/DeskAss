@@ -26,6 +26,12 @@ function resolveApiBase(): string {
 
 const BASE_URL = resolveApiBase();
 
+/** Resolve a backend-relative asset path (e.g. `/api/visual-guides/...`). */
+export function apiAssetUrl(path: string): string {
+  if (path.startsWith("http://") || path.startsWith("https://")) return path;
+  return `${BASE_URL}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
 /** WebSocket URL for live voice transcription (proxied in Vite dev). */
 export type VoiceLanguage = "multi" | "en" | "hi";
 

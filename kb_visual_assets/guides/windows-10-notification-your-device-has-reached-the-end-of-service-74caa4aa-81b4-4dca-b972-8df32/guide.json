@@ -1,0 +1,114 @@
+{
+  "id": "windows-10-notification-your-device-has-reached-the-end-of-service-74caa4aa-81b4-4dca-b972-8df32",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "notification",
+    "device",
+    "has",
+    "reached",
+    "end",
+    "service"
+  ],
+  "title": "Windows 10 notification: “Your device has reached the end of service”",
+  "source_url": "https://support.microsoft.com/en-us/windows/windows-10-notification-your-device-has-reached-the-end-of-service-74caa4aa-81b4-4dca-b972-8df3246d6db5",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "What are the minimum hardware requirements?",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Processor and installed RAM : Select Start > Settings > System > About .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Storage : Select File Explorer on your taskbar, then select This PC . In Devices and drives , look at OSDisk to see total storage space available on your device.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Why else should I consider a new PC?",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Faster performance, start up, and day to day tasks are faster with SSDs.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Longer battery life on laptops and other portable devices.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Windows Hello for easy sign-in on your device.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "More ways to interact with your device with pen and touch.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "I think my device meets the minimum hardware requirements. What can I do?",
+      "steps": [
+        {
+          "step": 7,
+          "text": "Use Windows 10 Update Assistant to help you install the latest updates. For more info, see Windows 10 Update Assistant .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Reinstall Windows 10 to return your PC to a cleaner state and try to fix issues. For instructions, see Reinstall Windows 10 .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Take your PC to a qualified repair technician for help updating.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Learn troubleshooting steps for common problems at Troubleshoot problems updating Windows 10 .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related topics",
+      "steps": [
+        {
+          "step": 11,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-12.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 12,
+  "image_count": 1
+}

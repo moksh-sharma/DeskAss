@@ -1,0 +1,118 @@
+{
+  "id": "windows-location-service-and-privacy-3a8eee0a-5b0b-dc07-eede-2a5ca1c49088",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "location",
+    "service",
+    "privacy"
+  ],
+  "title": "Windows location service and privacy",
+  "source_url": "https://support.microsoft.com/en-us/windows/windows-location-service-and-privacy-3a8eee0a-5b0b-dc07-eede-2a5ca1c49088",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Manage location settings",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Location service Go to Start > Settings > Privacy & security > Location . Do one of the following: If you're an administrator on the device, you can use the Location services setting to control whether the location service can be used on this device. If you're not an admin on this device, you will not see this setting. To control location for just your user account, switch the Let apps access your location setting On or Off . If \"Location services is off\" appears on the settings page, you won't be able to turn on the Let apps access your location setting for an individual user account. You can choose which apps have access to precise location, and view when apps have last accessed your location.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Location history Local storage of location history and the associated settings were removed in March of 2025. If you are signed in with a Microsoft account and have enabled Location services, your location may be periodically saved in the cloud. ​​​​​​​ To clear location history that's been stored in the cloud and is associated with your Microsoft account, go to account.microsoft.com, and make sure you're signed in to your account. Select Clear location activity , and then select Clear .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Default location Go to Start > Settings > Privacy & security > Location . Under Default location , select Set default . Select a point on the map where the device is located or manually type in your address. Select Save . To remove your default location, clear the address box of any text and select Save . Apps and services will no longer be able to use your default location.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Allow location override Go to Start > Settings > Privacy & security > Location . Make sure the Location services setting has been turned On . Make sure the app used for remote connections has been granted access to your location. Go to Start > Settings > Privacy & security > Location . Make sure the Location services setting has been turned On . Turn the Allow location override setting On .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Notify when apps request location ​​​​​​​Go to Start > Settings > Privacy & security > Location . Under Notify when apps request location , turn the setting OFF .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Location for websites in Microsoft Edge When location is turned on for Microsoft Edge, you still have control over which websites can access your device location. Microsoft Edge will ask for your permission the first time you visit a website that requests your location information. You can turn off location permission for a website in Microsoft Edge settings. Learn more about location and privacy in Microsoft Edge",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "To show or hide the location icon:",
+      "steps": [
+        {
+          "step": 7,
+          "text": "Go to Start > Settings > Personalization > Taskbar .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Under Notification area , select Select which icons show on the taskbar .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Turn the Location Notification setting On or Off .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Go to Settings .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Select Privacy > Location .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Turn Show location icon on or off.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "To turn the Windows location settings on or off:",
+      "steps": [
+        {
+          "step": 13,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-14.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 14,
+  "image_count": 1
+}

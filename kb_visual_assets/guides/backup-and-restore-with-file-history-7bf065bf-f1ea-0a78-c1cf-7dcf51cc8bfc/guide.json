@@ -1,0 +1,97 @@
+{
+  "id": "backup-and-restore-with-file-history-7bf065bf-f1ea-0a78-c1cf-7dcf51cc8bfc",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "backup",
+    "restore",
+    "file",
+    "history"
+  ],
+  "title": "Backup and restore with File History",
+  "source_url": "https://support.microsoft.com/en-us/windows/backup-and-restore-with-file-history-7bf065bf-f1ea-0a78-c1cf-7dcf51cc8bfc",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Configure File History",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Connect an external drive or a network location: ensure you have an external drive connected to your computer or a network location configured where you want to save your backups.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "From the Control Panel, under System and Security , select Save backup copies of your files with File History ​​​​​​​.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Select Turn on to enable File History .",
+          "caption": "Screenshot of Windows File history backup setup.",
+          "image": "step-03.png",
+          "image_url": "https://support.microsoft.com/images/en-us/0b278d79-a17c-4d69-a99f-2696d5aacbaa"
+        },
+        {
+          "step": 4,
+          "text": "If no drive is selected by default, you can choose a different one by selecting the option Select drive .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "In the Select a File History drive window, choose the external drive or network location you wish to use for backups and select OK . If prompted, you can choose to move existing files to the new drive or start fresh.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Restore files with File History",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Open File Explorer and navigate to the folder that used to contain the file or folder.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Right-click on the folder name, and then select Restore previous versions . If the folder was at the top level of a drive, for example C:\\, right-click the drive, and then select Restore previous versions . Note: To restore a previous version of a file or folder that's included in a library, right-click the file or folder in the location where it's saved, rather than in the library.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "The Previous Versions tab lists the available previous versions of the file or folder.",
+          "caption": "File history properties dialog screenshot.",
+          "image": "step-08.png",
+          "image_url": "https://support.microsoft.com/images/en-us/58f1e0f5-1abf-40c4-a0b0-e6a67868124c"
+        },
+        {
+          "step": 9,
+          "text": "Select a previous version of the folder that contains the file or folder you want to restore. For example, if a file was deleted today, choose a version of the folder from yesterday, which should contain the file.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "To preview the content of the selected version, expand Open and select Open in File History.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "To restore the content of the selected version, select Restore . To avoid overwriting the current version, you can also restore to a different location by expanding Restore and selecting Restore to... Warning: The file or folder replaces the current version on your computer, and the replacement can't be undone.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    }
+  ],
+  "step_count": 11,
+  "image_count": 2
+}

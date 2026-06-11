@@ -1,0 +1,59 @@
+{
+  "id": "update-a-driver-for-hardware-that-isn-t-working-properly-5c4da477-59fb-355b-45d6-1aa742268c9b",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "update",
+    "driver",
+    "hardware",
+    "that",
+    "isn",
+    "working",
+    "properly"
+  ],
+  "title": "Update a driver for hardware that isn't working properly",
+  "source_url": "https://support.microsoft.com/en-us/windows/update-a-driver-for-hardware-that-isn-t-working-properly-5c4da477-59fb-355b-45d6-1aa742268c9b",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Open Windows Update by clicking the Start button . In the search box, type Update , and then, in the list of results, click Windows Update .",
+          "caption": "Start button icon",
+          "image": "step-01.jpg",
+          "image_url": "https://support.microsoft.com/images/en-us/afb65029-a5d1-4540-c065-9ae2368893c8"
+        },
+        {
+          "step": 2,
+          "text": "In the left pane, click Check for updates . If there are any available updates, click the links to see more information about each update. Windows Update tells you if an update is important, recommended, or optional. Each type of update might include drivers.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "On the Select the updates you want to install page , look for updates for your hardware devices, select the check box for each driver that you want to install, and then click OK . There might not be any available driver updates.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "On the Windows Update page, click Install updates . If you're prompted for an administrator password or confirmation, type the password or provide confirmation. Windows Update will tell you if the updates were successfully installed.",
+          "caption": "Administrator icon",
+          "image": "step-04.png",
+          "image_url": "https://support.microsoft.com/images/en-us/c74675b8-c2a8-2d53-1c07-c4399786f5ac"
+        },
+        {
+          "step": 5,
+          "text": "Some updates require you to restart your computer.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    }
+  ],
+  "step_count": 5,
+  "image_count": 2
+}

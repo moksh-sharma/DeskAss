@@ -1,0 +1,85 @@
+{
+  "id": "additional-features-and-settings-in-phone-link-896a3bb1-97b8-4ba5-a56e-98490573721d",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "additional",
+    "features",
+    "settings",
+    "phone",
+    "link"
+  ],
+  "title": "Additional Features and Settings in Phone Link",
+  "source_url": "https://support.microsoft.com/en-us/windows/additional-features-and-settings-in-phone-link-896a3bb1-97b8-4ba5-a56e-98490573721d",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Setting up audio controls within Phone Link for your Android device",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Go to Settings and select Notifications .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Select the audio app and turn Show notifications toggle On .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "In the Phone Link, go to Settings .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Under Personalization , turn the toggle On for Show audio currently playing from my phone . Note: You will need to have Notifications set up to access this toggle. If you have not yet done so, make sure to set up Notifications in the app.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Once this toggle is on, you can start playing any of your favorite audio app from your Android device, and you will see the audio player show up in the Phone Link menu area.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "From this player, you can select Previous, Play/Pause , and Next track.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "If you would like to listen to audio from a different source, you can start playing that from your Android device and it will automatically switch in the Phone Link player. Use the dropdown to switch between two or more sources of audio as much as you’d like directly from the app.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Why isn't my mobile device's wallpaper showing in Phone Link after I turned the feature on?",
+      "steps": [
+        {
+          "step": 8,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-09.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 9,
+  "image_count": 1
+}

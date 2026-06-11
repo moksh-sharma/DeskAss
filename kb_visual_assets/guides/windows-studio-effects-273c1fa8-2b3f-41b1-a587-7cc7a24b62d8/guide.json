@@ -1,0 +1,58 @@
+{
+  "id": "windows-studio-effects-273c1fa8-2b3f-41b1-a587-7cc7a24b62d8",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "studio",
+    "effects"
+  ],
+  "title": "Windows Studio Effects",
+  "source_url": "https://support.microsoft.com/en-us/windows/windows-studio-effects-273c1fa8-2b3f-41b1-a587-7cc7a24b62d8",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Accessing the Windows Studio Effects settings",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Quick settings Select the Network , Sound , or Battery icon next to the time and date. Select the Studio Effects tile to enable and disable the Windows Studio Effects. Note: If the Windows Studio Effects aren't available in the Bluetooth & devices > Cameras > <Front-facing Camera> window, the Windows device might not have an NPU. If the Window Studio Effects settings need to be reset back to default, select Reset Effects .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Settings app Select Start and then select Settings > Bluetooth & devices > Cameras . Or Select the following Bluetooth & devices > Cameras shortcut: Open Bluetooth & devices > Cameras In the Bluetooth & devices > Cameras window, select the front-facing camera. In the Bluetooth & devices > Cameras > <Front-facing Camera> window, turn on the desired Windows Studio Effects settings. Note: If the Windows Studio Effects aren't available in the Bluetooth & devices > Cameras > <Frong-facing Camera> window, the Windows device might not have an NPU. If the Window Studio Effects settings need to be reset back to default, select Reset Effects .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Camera app Open the Camera app using of the following two methods: Select the following Camera app shortcut: Open Camera Or Right-click on Start and select Search . In the Type here to search text box, enter: camera Under Best match , select the Camera app from the list of results. In the Camera app that opens, select the Windows Studio Effects icon in the top right corner of the app to open the Windows Studio Effects settings. Enabled and disable the different options as desired.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Microsoft's commitment to responsible AI",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 5,
+  "image_count": 1
+}

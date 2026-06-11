@@ -1,0 +1,79 @@
+{
+  "id": "enhanced-sign-in-security-in-windows-936c06ed-4024-4521-921f-faa97925a16e",
+  "topic_id": "account/support_guide",
+  "domains": [
+    "account"
+  ],
+  "keywords": [
+    "enhanced",
+    "sign",
+    "security"
+  ],
+  "title": "Enhanced Sign-in Security in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/enhanced-sign-in-security-in-windows-936c06ed-4024-4521-921f-faa97925a16e",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Configure Enhanced Sign-in Security",
+      "steps": [
+        {
+          "step": 1,
+          "text": "In the Settings app on your Windows device, select Accounts > Sign-in options or use the following shortcut: ​​​​​​​​​​​​​​​​​​​​​ Sign-in options ​​​​​​​​​​​​​​",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "On devices running Windows 11, version 24H2 or newer : Under Additional settings > Enhanced sign-in security , there’s a toggle that allows you to enable or disable ESS if you have relevant sensors available. When the toggle is Off , ESS is disabled and you can use non-ESS Windows Hello compatible peripherals to sign in.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "When the toggle is On , ESS is enabled and you can’t use non-ESS Windows Hello compatible peripherals to sign in. Remember, you can still use external peripherals within apps like Teams when ESS is On.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "If you have no toggle but see Enhanced sign-in security available as set up , the first sensor you enroll will determine your ESS state. For example, if you first enroll an ESS sensor, you will have ESS On. If you enroll a non-ESS sensor first, you will have ESS Off.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "On devices running Windows 11, version 23H2 : Under Additional settings > Sign in with an external camera or fingerprint reader , there's a toggle that allows you to enable or disable ESS: When the toggle is Off , ESS is enabled and you may not be able to use external peripherals to sign in. Remember, you can still use external peripherals within apps like Teams",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "When the toggle is On , ESS is disabled and you can use Windows Hello compatible peripherals to sign in",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "See also",
+      "steps": [
+        {
+          "step": 7,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-08.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 8,
+  "image_count": 1
+}

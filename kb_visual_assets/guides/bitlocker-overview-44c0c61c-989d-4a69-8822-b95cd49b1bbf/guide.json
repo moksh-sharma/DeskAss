@@ -1,0 +1,61 @@
+{
+  "id": "bitlocker-overview-44c0c61c-989d-4a69-8822-b95cd49b1bbf",
+  "topic_id": "security/support_guide",
+  "domains": [
+    "security"
+  ],
+  "keywords": [
+    "bitlocker",
+    "overview"
+  ],
+  "title": "BitLocker overview",
+  "source_url": "https://support.microsoft.com/en-us/windows/bitlocker-overview-44c0c61c-989d-4a69-8822-b95cd49b1bbf",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "BitLocker frequently asked questions (FAQs)",
+      "steps": [
+        {
+          "step": 1,
+          "text": "How does BitLocker protect my data? BitLocker is a built-in encryption feature in Windows that helps protect your data by encrypting your entire drive. When you access your data, Windows normally has protections associated with your sign-in information. However, if someone tries to bypass these protections by physically removing the hard drive and connecting it to a second device, they could potentially access your data without needing your credentials. With BitLocker encryption, when they try to use that method to access the drive, they’ll need to provide a decryption key (which they shouldn’t have) to access anything on the drive. Without the decryption key, the data on the drive appears as gibberish, making it unreadable and secure from unauthorized access.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "What's a BitLocker recovery key? A BitLocker recovery key is a unique 48-digit numerical password that can be used to unlock an encrypted drive.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Why is Windows asking for a recovery key? Windows requires a BitLocker recovery key when it detects a possible unauthorized attempt to access the data. This can also happen if you make changes to the hardware, firmware, or software, which BitLocker cannot distinguish from a possible attack. In these cases, BitLocker might require the extra security of the recovery key even if the user is an authorized owner of the device. For more information, see Find your BitLocker recovery key .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "How was BitLocker activated on my device? Your device automatically enabled Device Encryption : in this case, your BitLocker recovery key is automatically saved to your Microsoft account or work or school account, before protection is activated An administrator on your device manually activated Device Encryption : in this case, the recovery key is automatically saved to their Microsoft account or work or school account, before protection is activated​​​​​​​ An administrator on your device manually activated BitLocker Drive Encryption : in this case, the user activating BitLocker selected where to save the recovery key An organization that is managing your device activated BitLocker protection through policy settings: in this case, the organization might have your BitLocker recovery key",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-06.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 6,
+  "image_count": 1
+}

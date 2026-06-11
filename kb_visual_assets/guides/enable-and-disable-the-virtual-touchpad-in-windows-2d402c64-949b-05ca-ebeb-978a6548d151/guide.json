@@ -1,0 +1,51 @@
+{
+  "id": "enable-and-disable-the-virtual-touchpad-in-windows-2d402c64-949b-05ca-ebeb-978a6548d151",
+  "topic_id": "mouse/support_guide",
+  "domains": [
+    "mouse"
+  ],
+  "keywords": [
+    "enable",
+    "disable",
+    "virtual",
+    "touchpad"
+  ],
+  "title": "Enable and disable the virtual touchpad in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/enable-and-disable-the-virtual-touchpad-in-windows-2d402c64-949b-05ca-ebeb-978a6548d151",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Right-click the taskbar and then select Taskbar settings . Open Taskbar settings Tip: For touch screens, press and hold the taskbar and then select Taskbar settings .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "In the Personalization > Taskbar window, under the System tray icons section, make sure Virtual Touchpad is switched On .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "In the system tray section of the task bar, select the virtual touchpad icon. The system tray is located next to the time and date in the taskbar.",
+          "caption": "How to activate the virtual touchpad in Windows 11.",
+          "image": "step-03.png",
+          "image_url": "https://support.microsoft.com/images/en-us/2a5c35b4-fdd6-4276-8ead-fc5629116fe0"
+        },
+        {
+          "step": 4,
+          "text": "The virtual touchpad appears.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    }
+  ],
+  "step_count": 4,
+  "image_count": 1
+}

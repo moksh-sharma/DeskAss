@@ -1,0 +1,74 @@
+{
+  "id": "pair-a-bluetooth-device-in-windows-2be7b51f-6ae9-b757-a3b9-95ee40c3e242",
+  "topic_id": "bluetooth/support_guide",
+  "domains": [
+    "bluetooth"
+  ],
+  "keywords": [
+    "pair",
+    "bluetooth",
+    "device"
+  ],
+  "title": "Pair a Bluetooth device in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/pair-a-bluetooth-device-in-windows-2be7b51f-6ae9-b757-a3b9-95ee40c3e242",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 1,
+          "text": "On the Windows device, select Start and then select Settings > Bluetooth & devices . Or Select the following Bluetooth & devices shortcut: Open Bluetooth & devices",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "In the Bluetooth & devices window, next to Bluetooth , make sure Bluetooth is switched On .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Select the Network , Sound , or Battery icon next to the time and date.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Select the Bluetooth tile to toggle Bluetooth on and off. If Bluetooth is turned off, the tile isn't highlighted and might say Off .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "If Bluetooth is turned on, the tile is highlighted and either says Connected , Not connected , or shows the device it's connected to via Bluetooth.",
+          "caption": "The Bluetooth button in \"Not connected\" state in Quick Settings.",
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/b79dadee-0bdf-4393-a1b6-16762bd7750a"
+        }
+      ]
+    },
+    {
+      "title": "Related articles",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-07.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 7,
+  "image_count": 2
+}

@@ -24,8 +24,10 @@ from app.services.diagnostics_service import (
     RAM_CRIT,
     RAM_WARN,
 )
+from app.services.issue_parser import parse_issue
 from app.services.ollama_service import OllamaService
 from app.services.rag_service import RagService
+from app.services.visual_guide_service import VisualGuideService
 from app.utils.message_intent import Intent, classify_message
 
 logger = get_logger(__name__)
@@ -107,9 +109,15 @@ _CONVERSATIONAL_REPLIES: dict[Intent, str] = {
 class DiagnosisService:
     """Builds the structured prompt, calls the LLM and assembles the result."""
 
-    def __init__(self, ollama: OllamaService, rag: RagService) -> None:
+    def __init__(
+        self,
+        ollama: OllamaService,
+        rag: RagService,
+        visual_guides: VisualGuideService | None = None,
+    ) -> None:
         self._ollama = ollama
         self._rag = rag
+        self._visual_guides = visual_guides
 
     def conversational_response(self, message: str) -> DiagnosisResult:
         """Short reply for greetings and other non-troubleshooting chat."""
@@ -171,6 +179,15 @@ class DiagnosisService:
         if not result.confidence_reasons:
             result.confidence_reasons = self._default_confidence_reasons(evidence, references)
         result = self._refine_result(problem, result, diagnostics, event_logs)
+        if self._visual_guides:
+            profile = parse_issue(problem, ocr_text)
+            result = self._visual_guides.attach(
+                result,
+                problem,
+                profile.domains,
+                primary_domain=profile.primary_domain,
+                symptoms=profile.symptoms,
+            )
         return result
 
     # ------------------------------------------------------------------ #

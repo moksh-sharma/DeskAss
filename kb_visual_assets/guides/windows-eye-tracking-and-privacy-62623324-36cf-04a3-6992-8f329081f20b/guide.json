@@ -1,0 +1,53 @@
+{
+  "id": "windows-eye-tracking-and-privacy-62623324-36cf-04a3-6992-8f329081f20b",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "eye",
+    "tracking",
+    "privacy"
+  ],
+  "title": "Windows eye tracking and privacy",
+  "source_url": "https://support.microsoft.com/en-us/windows/windows-eye-tracking-and-privacy-62623324-36cf-04a3-6992-8f329081f20b",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "How to control which apps can access your eye tracker",
+      "steps": [
+        {
+          "step": 1,
+          "text": "In Windows 11 Go to Start > Settings > Privacy & security > Eye tracker . Make sure that the options to Allow access to the eye tracker on this device and Let apps access your eye tracker are turned on. Make sure that the individual settings for apps and services you wish to use are turned on.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "In Windows 10 Go to Start > Settings > Privacy > Eye tracker . Make sure that the options to Allow access to the eye tracker on this device and Allow apps to access your eye tracker are turned on. Under Choose which apps can access your eye tracker , make sure that the individual settings for apps and services you wish to use are turned on. The first time an app needs to access your eye tracker, it requests your permission. If you give an app permission, but you change your mind later, you can turn off that app’s access to your eye tracker by following the steps above. Some apps might not work as intended if you choose to block them from accessing the eye tracker on your device.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Exceptions to the eye tracker privacy settings",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-04.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 4,
+  "image_count": 1
+}

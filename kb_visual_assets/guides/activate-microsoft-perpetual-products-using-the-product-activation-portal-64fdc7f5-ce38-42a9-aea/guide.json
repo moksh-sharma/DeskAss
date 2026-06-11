@@ -1,0 +1,185 @@
+{
+  "id": "activate-microsoft-perpetual-products-using-the-product-activation-portal-64fdc7f5-ce38-42a9-aea",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "activate",
+    "microsoft",
+    "perpetual",
+    "products",
+    "product",
+    "activation",
+    "portal"
+  ],
+  "title": "Activate Microsoft perpetual products using the Product Activation portal",
+  "source_url": "https://support.microsoft.com/en-us/windows/activate-microsoft-perpetual-products-using-the-product-activation-portal-64fdc7f5-ce38-42a9-aea8-393020149983",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Sign-in to Product Activation Portal",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Personal Microsoft accounts",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Work or school accounts",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Microsoft Entra ID accounts",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Azure Government tenant accounts",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Open Product Activation portal , or go to: https://visualsupport.microsoft.com",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Complete the Captcha.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Select Proceed to Sign In.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Enter your personal, work, or school account, and then select Next .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "The account is not yet a Microsoft account, or",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "The account is configured as an Azure Government tenant (in this case, follow the steps in the Azure Government tenants below)",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Select Get a new Microsoft account .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Complete the Captcha .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "You will be redirected to the Create your Microsoft account experience.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Confirm the displayed email address, select Next , and complete the setup.",
+          "caption": "Account not registered steps",
+          "image": "step-14.png",
+          "image_url": "https://support.microsoft.com/images/en-us/504a0397-7fb2-406c-864d-4bc592f9b764"
+        },
+        {
+          "step": 15,
+          "text": "Open Product Activation portal​​​​​​​ , or go to: https://visualsupport.microsoft.com",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "In the Government Tenants section, select the relevant tenant.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "Enter your Microsoft Azure Government account's email address. It will automatically verify it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Select Send One Time Password . This will send the password to the email account entered. The verification email will be sent from maccount@microsoft.com.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "Collect the password from your email account, return to the Product Activation Portal, then enter the password and select Verify One Time Password .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "Once successfully verified, select Proceed to Sign-In . ​​​​​​​",
+          "caption": "screenshot of PAportal_GovSignIn",
+          "image": "step-20.png",
+          "image_url": "https://support.microsoft.com/images/en-us/a31df021-b3fe-4be1-afe1-c6fad071c6e6"
+        }
+      ]
+    },
+    {
+      "title": "Product Activation Options",
+      "steps": [
+        {
+          "step": 21,
+          "text": "Activate a Microsoft Product Retail. Original Equipment Manufacturer (OEM). Volume License & Cloud Solution Provider",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 22,
+          "text": "Volume License Key Management Locating, assigning your active Volume Licensing Agreements’ Volume License Key(s). Locating license details Help navigating your Volume License Portal to locate your volume license keys and volume license software. Key limit increases, or MAK or KMS activation exceptions.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 23,
+          "text": "Contact Support Live chat Requesting a call (Microsoft will call you—no need to wait on hold)",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 24,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 25,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-25.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 25,
+  "image_count": 3
+}

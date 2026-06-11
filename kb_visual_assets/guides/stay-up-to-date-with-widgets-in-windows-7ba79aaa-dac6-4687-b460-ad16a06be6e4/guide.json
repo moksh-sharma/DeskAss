@@ -1,0 +1,214 @@
+{
+  "id": "stay-up-to-date-with-widgets-in-windows-7ba79aaa-dac6-4687-b460-ad16a06be6e4",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "stay",
+    "date",
+    "widgets"
+  ],
+  "title": "Stay up to date with Widgets in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/stay-up-to-date-with-widgets-in-windows-7ba79aaa-dac6-4687-b460-ad16a06be6e4",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Summary",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Weather : Current conditions and forecasts for your selected location",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "News : Latest headlines from sources you trust",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Traffic : Real-time traffic updates for your route",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Stocks : Updates on your favorite stocks and market trends",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Photos : A slideshow of your recent photos",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Hovering over or selecting the Widgets area on the taskbar",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Using the Windows key ​​​​​​​ + W shortcut",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Swiping from the side of the screen",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Configure Widgets settings",
+      "steps": [
+        {
+          "step": 9,
+          "text": "Sign in and out Open the Widgets board. Select your user account button . Select Sign Out.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Configure your language and region Open the Widgets board. Select your user account button . From the Language and content dropdown, select your preferred language.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Show or hide your feed Open the Widgets board. Select the settings button . Select the option Show or hide feeds and select the option Feed to Off.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Expand the Widgets board If you want your board to take up more space so you can access more widgets at a glance, use the expand button on the Widgets board. The expand button changes to a collapse button after you use it so you can collapse the size of your Widgets board as needed.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Open on hover Open the Widgets board. Select the settings button . Toggle the option Open Widgets board on hover to Off.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Configure notifications Open the Widgets board. Select the settings button > Notifications. Toggle the option Show notification badges on the taskbar to On to Off. Toggle the option Show announcements on the taskbar to On to Off. Open the Widgets board. Select your user account button . Select the Notifications tab and customize the type of notifications you want to receive.",
+          "caption": "Screenshot of the taskbar showing a finance news.",
+          "image": "step-14.png",
+          "image_url": "https://support.microsoft.com/images/en-us/5b3cf88b-4621-471d-9f44-9061010bf1a4"
+        },
+        {
+          "step": 15,
+          "text": "Remove Widgets from the taskbar Right-click on the taskbar and select taskbar settings . Open Taskbar settings Under Taskbar items , toggle the Widgets switch to On or Off",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Personalize your feed",
+      "steps": [
+        {
+          "step": 16,
+          "text": "Configure your interests and followed sources Open the Widgets board. Select your user account button . In the Discover tab, find the topics of interests and publishers, and select them. View and unfollow your followed topics or publishers in the Following tab. View and unblock any blocked topics or publishers from the Blocked tab.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "Fine-tune your news content To remove an article from your feed, select the Hide this story button in the upper corner of the article. You can then provide feedback that you are not interested in the story, you don't like the source, or that you want to report an issue Select the More like this (thumb up) or Fewer like this (thumb down) buttons in the lower corner of a news story to receive more news of what you care about or less of what you don't. You can also choose to hide stories from the story's publisher",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "View updated content in your feed Updated content will appear in your feed when there is new content that meets your personalization settings. Your feed learns about you over time, so you might not always see changes right away. Signing in to Windows and Widgets with the same Microsoft account helps ensure that your news feed personalization is available across Widgets, apps, and devices.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Customize the Widgets board",
+      "steps": [
+        {
+          "step": 19,
+          "text": "Install and pin a widget You can discover and install new widgets for supported apps by visiting the Widgets page in the Microsoft Store. Pinning a widget keeps the widget in a predictable and easily accessible location. Pinned widgets have a Pin icon in the upper corner. To pin widgets to your Widgets board, select the more options button in the upper corner of the widget, and then select Pin widget .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "Unpin a widget To unpin a widget from the Widgets board, select the more options button in the upper corner of the widget, and then select Unpin widget . Note: A widget that you unpin might still appear on your board when it is relevant to your interests. To completely remove a widget from appearing in your Widgets board, select the more options button in the upper corner of the widget, and then select Hide this widget .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 21,
+          "text": "Move a widget To move a pinned widget to another spot on your Widgets section of the board, select the widget header and drag the widget to a new location within the pinned section.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 22,
+          "text": "Resize a widget To make a widget larger or smaller in the pinned section, select the more options button in the upper corner of the widget, and then select Small , Medium , or Large . Note: Some widgets might only offer one or two sizes.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 23,
+          "text": "Customize a widget To edit a widget, select the more options button in the upper corner of the widget, and then select Customize widget . Editing a widget gives you access to customization options like changing the city for your weather widget or updating the watchlist for your stocks' widget.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 24,
+          "text": "Hide a widget To hide a widget from appearing in your Widgets board, select the more options button in the upper corner of the widget, and then select Hide this widget . Note: Hiding a widget signs you out of its associated app or service. You will no longer have the widget on the Widgets board unless you pin it again through the Widgets gallery.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Frequently asked questions",
+      "steps": [
+        {
+          "step": 25,
+          "text": "What can I do if the widgets aren't working well? How To Update the Windows Web Experience Pack Microsoft Edge update settings .​​​​​​​​​​​​​​",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 26,
+          "text": "What data does Microsoft collect? The Widgets board is a personalized experience, powered by MSN​​​​​​​ , that shows you the most relevant widgets and content based on your usage. To access and manage the data associated with your Microsoft account and used to personalize the Widgets board, go to the Microsoft privacy dashboard . Or, to stop the collection of this data, you can sign out of the Widgets board. Windows diagnostic data is collected from the Widgets board and is determined by the diagnostic data settings you choose in the Windows Settings app. Learn more about diagnostic data in Windows . Since each widget is powered by a different app or service, individual widgets might also collect data. To review what's powering a widget, select More on the widget, and check the Signed in by message. Each widget is an extension of its corresponding app or service, and it's controlled by the settings for that app or service. This means the way to change your privacy settings for a widget is to change them for the app or service that powers that widget. Note: Some apps or services that power your widgets might tailor content based on your location estimation to provide you with the most contextually relevant experience. Location estimation can come from the Windows Location service if enabled, otherwise it may fall back on using the IP address of your internet connection. SUBSCRIBE RSS FEEDS",
+          "caption": null,
+          "image": "step-26.png",
+          "image_url": "https://support.microsoft.com/images/en-us/1ada3b4b-62ef-42da-a682-33397a01f5b9"
+        },
+        {
+          "step": 27,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 28,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-28.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 28,
+  "image_count": 3
+}

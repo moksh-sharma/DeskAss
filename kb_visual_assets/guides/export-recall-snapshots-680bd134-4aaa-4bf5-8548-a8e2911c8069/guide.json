@@ -1,0 +1,128 @@
+{
+  "id": "export-recall-snapshots-680bd134-4aaa-4bf5-8548-a8e2911c8069",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "export",
+    "recall",
+    "snapshots"
+  ],
+  "title": "Export Recall snapshots",
+  "source_url": "https://support.microsoft.com/en-us/windows/export-recall-snapshots-680bd134-4aaa-4bf5-8548-a8e2911c8069",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "How to export Recall snapshots",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Export past snapshots Go to Settings > Privacy & security > Recall & snapshots > Advanced settings > Export snapshots > Export past snapshots > Export . Choose the time range that you want to export snapshots for, then choose Next . You can choose from: Past 7 days Past 30 days Everything Choose a folder to export your snapshots to. You can create your own folder, such as C:\\Recall\\Exported . Confirm that you want to export your snapshots to the chosen folder by selecting Export . You’ll be prompted to authorize the export by using Windows Hello.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Export snapshots from now on Go to Settings > Privacy & security > Recall & snapshots > Advanced settings > Export snapshots > Export . In the Export snapshots from now on setting, move the toggle switch to On . Select Next , then choose a folder to store the exported Recall snapshots, such as C:\\Recall\\Exported . Confirm that you want to export your snapshots to the chosen folder by selecting Export . You’ll be prompted to authorize the continuous export of Recall snapshots by using Windows Hello. Go to Settings > Privacy & security > Recall & snapshots > Advanced settings > Export snapshots > Export . In the Export snapshots from now on setting, move the toggle switch to Off . You’ll be prompted to authorize changing the export setting by using Windows Hello.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Sharing the exported Recall information and snapshots",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Your Recall export code",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "The folder path where the Recall and snapshots were exported to, such as C:\\Recall\\Exported .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Reset Recall",
+      "steps": [
+        {
+          "step": 5,
+          "text": "Go to Settings > Privacy & security > Recall & snapshots > Advanced settings , then select Reset Recall .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Confirm that you want to delete all your snapshots and reset your Recall settings by selecting Reset .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Authorize the reset by using Windows Hello.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Export FAQ",
+      "steps": [
+        {
+          "step": 8,
+          "text": "How should I keep my Recall export code safe? Taking a photo Writing down your code in a safe place Saving it to a file located somewhere safe",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "What happens if I lose my Recall export code? If you lose your code, the app or website won’t be able to decrypt the snapshots that you exported and shared. Not having a code won’t impact your ability to use Recall. If you wish to export and share your snapshots, you’ll need to generate a new code. You can generate a new code by resetting Recall . However, a reset will delete all of your Recall snapshots and reset all your settings for Recall. A reset won’t delete snapshots you’ve previously exported to a folder, or snapshots that have been shared previously with an app or website which have been saved by that third party. If you suspect someone has unauthorized access to your export code or if you lose it, you should reset Recall. After you reset, a new code will be generated when you turn on saving snapshots again.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Why is the code shown only once during setup? Following industry best practices, the export code is shown only once during the initial set up to help ensure that you and only you have control over the export of your Recall data. Microsoft does not have access to your export code and cannot help you recover it if it is lost.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Why are the exported snapshots encrypted? Exported Recall information and snapshots are encrypted because there might be sensitive information in them. Encrypting this data helps maintain the security of the information, ensuring that your snapshots are only accessible to the app or website that you share your export code with.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "How are the exported snapshots encrypted? Recall information and snapshots are encrypted using industry wide encryption standards. Once decrypted, snapshots are .jpg files. The associated metadata for each .jpg is a .json file.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related articles",
+      "steps": [
+        {
+          "step": 13,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-14.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 14,
+  "image_count": 1
+}

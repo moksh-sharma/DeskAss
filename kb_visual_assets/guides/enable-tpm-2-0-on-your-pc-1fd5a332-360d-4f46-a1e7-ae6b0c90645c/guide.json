@@ -1,0 +1,70 @@
+{
+  "id": "enable-tpm-2-0-on-your-pc-1fd5a332-360d-4f46-a1e7-ae6b0c90645c",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "enable",
+    "tpm"
+  ],
+  "title": "Enable TPM 2.0 on your PC",
+  "source_url": "https://support.microsoft.com/en-us/windows/enable-tpm-2-0-on-your-pc-1fd5a332-360d-4f46-a1e7-ae6b0c90645c",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "How to know if my PC can run TPM 2.0",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Run Settings > Update & Security > Windows Security > Device Security If you do not see a Security processor section on this screen your PC may have a TPM that is disabled. see How to enable TPM for more information or check your PC manufacturer’s support information for instructions. to enable the TPM. If you are able to enable a TPM, complete the next step to verify that it is a TPM 2.0.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "If you see an option for Security processor details under Security processor , select that and verify that your Specification version is 2.0. If it is less than 2.0, your device does not meet the Windows 11 requirements.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Press [ Windows Key ] + R or select Start > Run .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Type “tpm.msc” (do not use quotation marks) and choose OK . If you see a message saying a “Compatible TPM cannot be found,” your PC may have a TPM that is disabled. See How to enable TPM for more information or check your PC manufacturer’s support information for instructions to enable the TPM. If you are able to enable the TPM, complete the next step to verify that it is a TPM 2.0.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "If you see a message confirming TPM is ready to use, check Specification Version under TPM Manufacturer Information to verify it is 2.0. If it is less than 2.0 your device does not meet the Windows 11 requirement.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related Articles",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-07.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 7,
+  "image_count": 1
+}

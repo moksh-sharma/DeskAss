@@ -1,0 +1,95 @@
+{
+  "id": "recovery-options-in-windows-31ce2444-7de3-818c-d626-e3b5a3024da5",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "recovery",
+    "options"
+  ],
+  "title": "Recovery options in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/recovery-options-in-windows-31ce2444-7de3-818c-d626-e3b5a3024da5",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Frequently asked questions (FAQs)",
+      "steps": [
+        {
+          "step": 1,
+          "text": "What should I do before starting any recovery process? Backup your data: Always try to back up important files to an external drive or cloud service before proceeding with recovery options. Some options, like Reset or Reinstall, may result in data loss. For more information, see Choose a backup solution in Windows .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "What is the difference between \"Reset\" and \"Reinstall Windows\"? Reinstall Windows using the recovery drive Reinstall Windows using the installation media",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "How do I create a recovery drive for future use? Go to Control Panel > Backup and Restore > Create a system repair disc . You will need a USB drive with at least 8GB of free space to create the recovery media. For more information, see how to create a recovery drive .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Can I recover my files if I choose to Reset or Reinstall Windows? Reinstall Windows using the recovery drive Reinstall Windows using the installation media",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Can I perform a System Restore if my PC doesn't start? Yes, if your PC can still boot into the Windows Recovery Environment (WinRE), you can access System Restore. If Windows won’t start, but you have a recovery drive, you can use it to restore your system. For more information, see System Restore .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "How long does recovery take? Typically, 30 minutes to 2 hours, depending on the method.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "What if I suspect a virus or malware infection? If you suspect your device has been infected, use installation media to reinstall Windows, which will remove any malware. Before reinstalling, you may also want to run a virus scan using Windows Defender or a trusted antivirus tool.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Can I go back to a previous version of Windows after upgrading? Yes, you can roll back to a previous version of Windows if you encounter issues after upgrading. This option is available within 10 days after upgrading to a new version of Windows.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "What if my PC won’t start, and none of the recovery options work? If your PC isn't responding to recovery options like Startup Repair or System Restore , you may need to use installation media (e.g., USB or DVD) to reinstall Windows completely. For more information, see Reinstall Windows using the installation media.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "What if I don't have a recovery drive or installation media? If you're unable to access any recovery options and don't have a recovery drive, you will need to create installation media using another working PC. You can download Windows 10 or 11 from Microsoft’s official website and use a USB drive to create the bootable media. For more information, see Reinstall Windows using the installation media. SUBSCRIBE RSS FEEDS",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-12.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 12,
+  "image_count": 1
+}

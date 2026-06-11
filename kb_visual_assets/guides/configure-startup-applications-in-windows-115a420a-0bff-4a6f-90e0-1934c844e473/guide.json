@@ -1,0 +1,90 @@
+{
+  "id": "configure-startup-applications-in-windows-115a420a-0bff-4a6f-90e0-1934c844e473",
+  "topic_id": "boot/support_guide",
+  "domains": [
+    "boot"
+  ],
+  "keywords": [
+    "configure",
+    "startup",
+    "applications"
+  ],
+  "title": "Configure Startup applications in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/configure-startup-applications-in-windows-115a420a-0bff-4a6f-90e0-1934c844e473",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Summary",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Any applications that are registered in Windows with a startup task can be configured from Settings or from Task Manager.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Other applications can be configured using File Explorer.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 3,
+          "text": "​​​​​​​Select Start > Settings > Apps > Startup. Open Startup settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "For any of the applications in the list: Set the toggle to On to start the app automatically when you sign in.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Set the toggle to Off to prevent the app from starting automatically.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "If you want to change the advanced settings for that app, select the chevron and make changes as desired",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Fix the error: We couldn’t find this app",
+      "steps": [
+        {
+          "step": 7,
+          "text": "Startup apps in the registry For applications that run at startup for all users, the registry paths are: HKLM\\Software\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Run HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run For applications that run at startup for the current user, the registry path is: HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-09.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 9,
+  "image_count": 1
+}

@@ -1,0 +1,77 @@
+{
+  "id": "classic-outlook-troubleshooters-086e3d66-5404-4034-9cc5-545909dcc166",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "classic",
+    "outlook",
+    "troubleshooters"
+  ],
+  "title": "Classic Outlook troubleshooters",
+  "source_url": "https://support.microsoft.com/en-us/windows/classic-outlook-troubleshooters-086e3d66-5404-4034-9cc5-545909dcc166",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Available classic Outlook troubleshooters",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Classic Outlook profile setup troubleshooter Start the Get Help app. In the Search bar, enter Set up Microsoft 365 email in Outlook. Follow the steps provided.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Classic Outlook startup troubleshooter Select the button below to start the troubleshooter. Start Click Open if you get a pop-up window indicating This site is trying to open Get Help . Follow the steps in the Get Help window. You need to be on Windows 10 or higher to run the troubleshooter. You need to be on the same Windows PC as classic Outlook to run the troubleshooter. The troubleshooter won't work with new Outlook for Windows.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Classic Outlook authentication check troubleshooter Start the Get Help app. In the Search bar, enter Outlook password problem. Follow the steps provided.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Classic Outlook connectivity troubleshooter Select the button below to start the troubleshooter. Start Click Open if you get a pop-up window indicating This site is trying to open Get Help . Follow the steps in the Get Help window. You need to be on Windows 10 or higher to run the troubleshooter. You need to be on the same Windows PC as classic Outlook to run the troubleshooter. The troubleshooter won't work with new Outlook for Windows.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Classic Outlook advanced diagnostics troubleshooter Select the button below to start the troubleshooter. Start Click Open if you get a pop-up window indicating This site is trying to open Get Help . Follow the steps in the Get Help window. You need to be on Windows 10 or higher to run the troubleshooter. You need to be on the same Windows PC as classic Outlook to run the troubleshooter. The troubleshooter won't work with new Outlook for Windows.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Classic Outlook calendar check troubleshooter Start the Get Help app. In the Search bar, enter Problem finding Outlook calendar. Follow the steps provided.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related topics",
+      "steps": [
+        {
+          "step": 7,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-08.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 8,
+  "image_count": 1
+}

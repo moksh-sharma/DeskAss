@@ -1,0 +1,87 @@
+{
+  "id": "troubleshooting-offline-printer-problems-in-windows-9f5e98ed-0ac8-50ff-a13b-d79bf7710061",
+  "topic_id": "network/support_guide",
+  "domains": [
+    "network",
+    "printer"
+  ],
+  "keywords": [
+    "troubleshooting",
+    "offline",
+    "printer",
+    "problems"
+  ],
+  "title": "Troubleshooting offline printer problems in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/troubleshooting-offline-printer-problems-in-windows-9f5e98ed-0ac8-50ff-a13b-d79bf7710061",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "General troubleshooting",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Step 1. Unplug and restart your printer Sometimes power-cycling your printer can resolve the issue. Turn off your printer and unplug it, wait 30 seconds, plug your printer back in, and then turn the printer back on.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Step 2. Make sure printer is connected to same Wi-Fi network as your device: To find out if your printer is connected to Wi-Fi, see if your printer's built-in menu has options for checking its Wi-Fi connection, or check the printer's manual for instructions about how to add it to a Wi-Fi network.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Step 3. Set your printer as the default printer: Select Start > Settings > Bluetooth & devices > Printers & scanners . Open Printers & scanners settings Select your printer and then select Set as default . If you don't see the Set as default option, the Let Windows manage my default printer option may be selected. You'll need to turn that off before you can choose a default printer manually.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Step 4. Check the printer queue: Select Start > Settings > Bluetooth & devices > Printers & scanners. Select your printer and on the page that opens, select Open print queue . Click on ... (ellipsis) and select Cancel all if there are any pending jobs.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Step 5. Reset the service that manages the printing queue: Go to Search in the taskbar, type services , and then select Services in the list of results. Scroll down to the Print Spooler service, select and hold (right-click) it, and select Restart .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Step 6. Remove and reinstall your printer to your device: Select Start > Settings > Bluetooth & devices > Printers & scanners . Open Printers & scanners settings Select the printer you want to uninstall, select Remove , and then select Yes . Select Start > Settings > Bluetooth & devices > Printers & scanners . Open Printers & scanners settings Make sure your printer is turned on and connected. Next to Add a printer or scanner , select Add device and follow the instructions to add your printer.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Step 7. Restart your PC Restarting your PC can sometimes help to refresh the services and components necessary for your device to communicate with your printer. Support for Windows 10 has ended on October 14, 2025 After October 14, 2025, Microsoft will no longer provide free software updates from Windows Update, technical assistance, or security fixes for Windows 10. Your PC will still work, but we recommend moving to Windows 11.​​​​​​​​​​​​​​​​​​​​​ Learn more ​​​​​​​ If the printer appears as Offline even though it is powered on and connected, follow the below troubleshooting steps to resolve.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related topics",
+      "steps": [
+        {
+          "step": 8,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-09.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 9,
+  "image_count": 1
+}

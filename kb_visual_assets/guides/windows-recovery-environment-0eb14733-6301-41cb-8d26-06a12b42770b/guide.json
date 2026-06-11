@@ -1,0 +1,113 @@
+{
+  "id": "windows-recovery-environment-0eb14733-6301-41cb-8d26-06a12b42770b",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "recovery",
+    "environment"
+  ],
+  "title": "Windows recovery environment",
+  "source_url": "https://support.microsoft.com/en-us/windows/windows-recovery-environment-0eb14733-6301-41cb-8d26-06a12b42770b",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Access to Windows Recovery Environment",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Start your device and wait for the Windows logo (or the manufacturer's logo) to appear",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "As soon as the Windows logo appears, press and hold the power button until the device shuts down",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Turn your device on again and repeat step 2",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Turn your device on a third time. Windows should display the Automatic Repair screen",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Select Advanced options",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "In the Settings app on your Windows device, select System > Recovery or use the following shortcut: Recovery Note: In Windows 10, you can access from Update & Security > Recovery",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Under Recovery options , next to Advanced startup , select Restart now",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "On a working PC, create the installation media for Windows",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Connect the installation media you created to your nonfunctional PC, and then turn it on",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "On the initial setup screen, enter your language and other preferences, and then select Next . If you don't see the setup screen, your PC might not be set up to boot from a drive. Check your PC manufacturer's website for info on how to change your PC's boot order, and then try again",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Select Repair my PC ​​​​​​​ ​​​​​​​",
+          "caption": "Screenshot of the Windows 11 setup with the selection to repair the PC.",
+          "image": "step-11.png",
+          "image_url": "https://support.microsoft.com/images/en-us/54129e41-0a4f-4506-8f03-bd5930ccddc7"
+        },
+        {
+          "step": 12,
+          "text": "Select Next , and you'll access Windows RE",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "​​​​​​​​​​​Windows RE tools",
+      "steps": [
+        {
+          "step": 13,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-14.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 14,
+  "image_count": 2
+}

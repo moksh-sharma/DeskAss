@@ -131,7 +131,7 @@ export function Toolbar() {
           </button>
         </div>
       )}
-      
+
       <div className="flex items-end gap-3 max-w-4xl mx-auto">
         <input ref={fileRef} type="file" accept="image/*" hidden onChange={handleScreenshot} />
 
@@ -146,11 +146,10 @@ export function Toolbar() {
               type="button"
               disabled={recorder.isRecording}
               onClick={() => setVoiceLanguage(lang)}
-              className={`rounded-lg px-2 py-1.5 text-[9px] font-bold uppercase tracking-wider transition-colors ${
-                voiceLanguage === lang
+              className={`rounded-lg px-2 py-1.5 text-[9px] font-bold uppercase tracking-wider transition-colors ${voiceLanguage === lang
                   ? "bg-accent/25 text-accent shadow-sm"
                   : "text-content-muted hover:text-content-secondary"
-              } disabled:opacity-40`}
+                } disabled:opacity-40`}
             >
               {lang === "multi" ? "Auto" : lang === "en" ? "EN" : "हि"}
             </button>
@@ -169,11 +168,10 @@ export function Toolbar() {
                   ? "Voice input — Hindi"
                   : "Voice input — English"
           }
-          className={`h-11 w-11 shrink-0 flex items-center justify-center rounded-xl transition-all duration-200 relative ${
-            recorder.isRecording
+          className={`h-11 w-11 shrink-0 flex items-center justify-center rounded-xl transition-all duration-200 relative ${recorder.isRecording
               ? "bg-severity-critical text-white shadow-lg shadow-severity-critical/30 animate-pulse scale-105"
               : "bg-base-700 hover:bg-base-600 text-gray-300 hover:text-white border border-base-600/30"
-          }`}
+            }`}
         >
           {recorder.isRecording ? (
             <MicOffIcon className="h-5 w-5" />

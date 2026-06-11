@@ -1,0 +1,155 @@
+{
+  "id": "virus-and-threat-protection-in-the-windows-security-app-1362f4cd-d71a-b52a-0b66-c2820032b65e",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "virus",
+    "threat",
+    "protection",
+    "security",
+    "app"
+  ],
+  "title": "Virus and Threat Protection in the Windows Security App",
+  "source_url": "https://support.microsoft.com/en-us/windows/virus-and-threat-protection-in-the-windows-security-app-1362f4cd-d71a-b52a-0b66-c2820032b65e",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Current threats",
+      "steps": [
+        {
+          "step": 1,
+          "text": "See any threats currently found on your device",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "See the last time a scan was run on your device, how long it took, and how many files were scanned",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Start a new quick scan or go open Scan options to run a more extensive or custom scan",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "See threats that have been quarantined before they can affect you and anything identified as a threat that you have allowed to run on your device",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 5,
+          "text": "Quick scan : This option is useful when you don’t want to spend the time running a full scan on all your files and folders. If Windows Security recommends that you run one of the other types of scans, you'll be notified when the quick scan is done Start a quick scan",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Full scan : Scans every file and program on your device Start a full scan",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Custom scan : Scans only files and folders that you select Start a custom scan",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Microsoft Defender Antivirus (offline scan) : Uses the latest definitions to scan your device for the latest threats. This happens after a restart, without loading Windows, so any persistent malware has a more difficult time hiding or defending itself. Run it when you are concerned that your device has been exposed to malware or a virus, or if you want to scan your device without being connected to the Internet. This will restart your device, so be sure to save files you may have open. Microsoft Defender Offline will load and perform a quick scan of your PC in the Windows Recovery Environment. When the scan completes, your PC automatically restarts Start an offline scan Note: To see the results of the offline scan, open the Windows Security app on your Windows device and select Protection history .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Virus & threat protection settings",
+      "steps": [
+        {
+          "step": 9,
+          "text": "Real-time protection If you just want to exclude a single file or folder from antivirus scanning, you can do that by adding an exclusion. This is safer than turning the entire antivirus protection off If you install a compatible non-Microsoft antivirus program Microsoft Defender antivirus will automatically turn itself off If tamper protection is turned on, you'll need to turn it off before you can turn Real-time protection off",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Dev Drive protection You can turn Dev Drive protection On or Off using the toggle button Select See volumes to review the list of volumes that have Dev Drive protection enabled",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Cloud-delivered protection This setting allows Microsoft Defender to get constantly updated improvements from Microsoft while you're connected to the internet. This will result in more accurately identifying, stopping, and fixing threats.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Automatic sample submission If you’re connected to the cloud with cloud-delivered protection, you can have Defender automatically send suspicious files to Microsoft to check them for potential threats. Microsoft will notify you if you need to send additional files, and alert you if a requested file contains personal information so you can decide whether or not you want to send that file or not. If you're concerned about a file and want to make sure it was submitted for evaluation you can select Submit a sample manually to send us any file you want.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Tamper protection Tamper protection is a feature that helps prevent malicious apps from changing important Microsoft Defender Antivirus settings. This includes settings such as real-time protection and cloud-delivered protection. By ensuring these settings remain unchanged, tamper protection helps maintain the integrity of your device's security configuration and prevents malicious apps from disabling critical security features. If tamper protection is turned on and you're an administrator on your device, you can still change these settings in the Windows Security app. However, other apps can't change these settings. You can turn tamper protection On or Off using the toggle button. Note: Tamper protection doesn't affect how third-party antivirus apps work or how they register with Windows Security.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Controlled folder access Use the Controlled folder access setting to manage which folders untrusted apps can make changes to. You can also add additional apps to the trusted list so they can make changes in those folders. This is a powerful tool to make your files safer from ransomware. When you turn on Controlled folder access, many of the folders you use most often are protected by default. This means that content in any of these folders cannot be accessed or changed by any unknown or untrusted apps. If you add additional folders, they become protected as well. Learn more about using Controlled folder access",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Exclusions Select Add or remove exclusions Choose one of the four options depending upon the type of exclusion you're trying to add: File: Excludes a specific file Folder: Excludes a specific folder (and all of the files within that folder) File type: Excludes all files of a specified type, such as .docx , or .pdf Process: Adding an exclusion for a process means that any file opened by that process will be excluded from real-time scanning. These files will still be scanned by any on-demand or scheduled scans, unless a file or folder exclusion has also been created that exempts them Tip: It's recommended that you use the full path and file name to exclude a specific process. This makes it less likely that malware could use the same filename as a trusted and excluded process and evade detection. Select Add or remove exclusions Select the exclusion that you want to remove and select Remove In file type exclusions: If you use an asterisk in the file extension it acts as a wildcard for any number of characters. \" *st \" will exclude .test , .past , .invest , and any other file types where the extension ends in a st In process exclusions: C:\\MyProcess\\* will exclude files opened by all processes, located in C:\\MyProcess , or any subfolders of C:\\MyProcess test.* will exclude files opened by all processes named test , regardless of the file extension %ALLUSERSPROFILE%\\CustomLogFiles\\test.exe",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Ransomware protection",
+      "steps": [
+        {
+          "step": 16,
+          "text": "Controlled folder access Blocking unauthorized changes: Only trusted apps are allowed to make changes to files in protected folders. If an app is determined to be malicious or suspicious, it will be blocked from making any changes Protecting important folders: By default, Controlled Folder Access protects common folders such as Documents, Pictures, Videos, Music, and Desktop. You can also add additional folders to be protected Providing notifications: If an app is blocked from making changes, you will receive a notification, allowing you to take appropriate action Take note of the path of the blocked app Select the message, and then select Add an allowed app Browse for the program to which you want to allow access",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "Ransomware data recovery The Ransomware Data Recovery section is designed to help you recover your files in case of a ransomware attack. It provides several key functionalities to ensure that your data remains safe and can be restored if it gets encrypted or blocked by ransomware. The Ransomware Data Recovery section is integrated with Microsoft OneDrive. This allows you to back up your important files to OneDrive, ensuring that you have a secure copy of your data that can be restored in case of a ransomware attack. If your files are affected by ransomware, the Windows Security app will guide you through the process of restoring your files from OneDrive. This helps you quickly recover your data without having to pay the ransom. You will receive notifications and alerts if ransomware is detected or if there are any issues with your OneDrive backup. This ensures that you are always aware of the status of your data protection. SUBSCRIBE RSS FEEDS",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-19.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 19,
+  "image_count": 1
+}

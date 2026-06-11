@@ -1,0 +1,231 @@
+{
+  "id": "analyze-the-wireless-network-report-76da0daa-1db2-6049-d154-7bb679eb03ed",
+  "topic_id": "wifi/support_guide",
+  "domains": [
+    "wifi",
+    "network"
+  ],
+  "keywords": [
+    "analyze",
+    "wireless",
+    "network",
+    "report"
+  ],
+  "title": "Analyze the wireless network report",
+  "source_url": "https://support.microsoft.com/en-us/windows/analyze-the-wireless-network-report-76da0daa-1db2-6049-d154-7bb679eb03ed",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "To create the wireless network report",
+      "steps": [
+        {
+          "step": 1,
+          "text": "In the search box on the taskbar, type Command prompt , press and hold (or right-click) Command prompt , and then select Run as administrator > Yes .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "At the command prompt, type netsh wlan show wlanreport. This will generate a wireless network report that’s saved as an HTML file, which you can open in your favorite web browser. The report shows all the Wi-Fi events from the last three days and groups them by Wi-Fi connection sessions. It also shows the results of several network-related command line scripts and a list of all the network adapters on your PC.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Report output",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Wi-Fi summary chart: This chart shows the Wi-Fi connection sessions that are available in the report. Select a section in the chart to go to the corresponding Wi-Fi session shown in the report. A red circle indicates an error. If you see one, select it to get info about the error.",
+          "caption": "Wireless network events and errors shown in the wireless network report",
+          "image": "step-03.png",
+          "image_url": "https://support.microsoft.com/images/en-us/a8d0a756-52e9-80ed-6ce2-da61e6759324"
+        },
+        {
+          "step": 4,
+          "text": "Report Info: Shows the date the report was created and how many days it covers.",
+          "caption": "General info about the wireless network report",
+          "image": "step-04.png",
+          "image_url": "https://support.microsoft.com/images/en-us/11a5cf42-2c78-47d3-6c9b-907e98ad03f3"
+        },
+        {
+          "step": 5,
+          "text": "General System Info: Contains details about your PC. It includes the computer name, system manufacturer, system product name, BIOS date, BIOS version, OS build, Machine ID, and info about if it’s MDM joined.",
+          "caption": "General system info shown in the wireless network report",
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/e564484d-4f5c-2ad3-d904-ec2a7b793bdf"
+        },
+        {
+          "step": 6,
+          "text": "User Info: Contains general information about the person who is currently signed in to the PC. It contains: Username. Current user signed in to the PC.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "User Domain. The domain the PC is joined to.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "User DNS Domain.",
+          "caption": "User info shown in the wireless network report",
+          "image": "step-08.png",
+          "image_url": "https://support.microsoft.com/images/en-us/3e5f7d46-5913-709b-a8f6-0bcb2808f105"
+        },
+        {
+          "step": 9,
+          "text": "Network adapters: Contains a detailed list of all the network adapters on your PC. This includes any hidden adapters. Device: This is the friendly name of the adapter.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "PnP ID: The PnP ID the PC uses to identify the adapter.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Guid: The Unique identifier of this adapter on your PC.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Current driver version: Current driver version the adapter is using.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Driver date: The date the driver was installed.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "DevNode flags.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Problem number: If there’s a problem with your adapter, the problem number will be listed here.",
+          "caption": "Network adapters info shown in the wireless network report",
+          "image": "step-15.png",
+          "image_url": "https://support.microsoft.com/images/en-us/7440dc3e-d39f-15a1-f8ee-66b61cfd333e"
+        },
+        {
+          "step": 16,
+          "text": "Script output IPConfig /all: Shows detailed information about the state of the adapters on the system. This includes the physical (MAC) address, IP address, DNS server, if DHCP is enabled, and much more.",
+          "caption": "Script output info shown in the wireless network report",
+          "image": "step-16.png",
+          "image_url": "https://support.microsoft.com/images/en-us/eb0bb4f3-1442-9e09-c07b-bd806b38a4f7"
+        },
+        {
+          "step": 17,
+          "text": "NetSh WLAN Show All: Shows detailed information about your Wi-Fi adapter including the adapter’s capabilities, the Wi-Fi profiles on your PC (not including security keys or passwords), and a list of the Wi-Fi networks that were found when you ran the report.",
+          "caption": "Output info shown in the wireless network report",
+          "image": "step-17.png",
+          "image_url": "https://support.microsoft.com/images/en-us/ab7d06b1-33a1-627b-1153-dd095add2b92"
+        },
+        {
+          "step": 18,
+          "text": "CertUtil -store -silent My & certutil -store -silent -user My: Contains a list of the current certificates on your PC.",
+          "caption": "Output for certutil shown in the wireless network report",
+          "image": "step-18.png",
+          "image_url": "https://support.microsoft.com/images/en-us/8adfca0e-45ed-0f4b-45c2-540254f7dec7"
+        },
+        {
+          "step": 19,
+          "text": "Profile Output: A detailed list of all the Wi-Fi profiles stored on your PC. Security keys and passwords are encrypted and aren’t displayed.",
+          "caption": "Network profile info shown in the wireless network report",
+          "image": "step-19.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f69bd299-4d5d-aa5f-afcd-0e2b7d7425e7"
+        },
+        {
+          "step": 20,
+          "text": "Summary Session Success/Failures: Summary of the successes, failures, and warnings that are reported for the different Wi-Fi sessions.",
+          "caption": "Summary info shown in the wireless network report",
+          "image": "step-20.png",
+          "image_url": "https://support.microsoft.com/images/en-us/3fe55aaf-cc20-5db1-1ba3-51d893ec9779"
+        },
+        {
+          "step": 21,
+          "text": "Disconnect Reasons: Lists the different reasons you were disconnected from the Wi-Fi network.",
+          "caption": "Disconnect reasons shown in the wireless network report",
+          "image": "step-21.png",
+          "image_url": "https://support.microsoft.com/images/en-us/82c89e67-9942-33b0-680d-7421503b927b"
+        },
+        {
+          "step": 22,
+          "text": "Session Durations: A chart that shows how long each of the following sessions lasted.",
+          "caption": "Session duration info shown in the wireless network report",
+          "image": "step-22.png",
+          "image_url": "https://support.microsoft.com/images/en-us/2a521272-a039-be61-1c62-2b6149b812a7"
+        },
+        {
+          "step": 23,
+          "text": "Wireless Sessions: All the Wi-Fi events associated with each Wi-Fi session. Interface name: Friendly name for the adapter.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 24,
+          "text": "Interface Guid: Unique identifier for the adapter.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 25,
+          "text": "Connection Mode: How your device connected to the network—Manual, Auto with a profile, and so forth.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 26,
+          "text": "Profile: Profile used in the connection (when a profile is used).",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 27,
+          "text": "SSID: The name of the Wi-Fi network.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 28,
+          "text": "BSS Type: Type of network—Infrastructure, Independent (adhoc), or any (either Infrastructure or Adhoc).",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 29,
+          "text": "Session Duration: How long the session lasted.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 30,
+          "text": "Disconnection Reason: Reason why you were disconnected.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 31,
+          "text": "Events: All the Wi-Fi events for this session. To get more info about an event, select it. These events are color coded and can help you to diagnose problems. The summary chart has a definition for each of the different colors.",
+          "caption": "Info for an event shown in the wireless network report",
+          "image": "step-31.png",
+          "image_url": "https://support.microsoft.com/images/en-us/1772eaf0-90e4-6e15-6d8c-f6cecdaafc25"
+        }
+      ]
+    }
+  ],
+  "step_count": 31,
+  "image_count": 13
+}

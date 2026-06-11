@@ -1,0 +1,271 @@
+{
+  "id": "use-an-esim-to-get-a-cellular-data-connection-on-your-windows-pc-0e255714-f8be-b9ef-9e84-f75b05e",
+  "topic_id": "network/support_guide",
+  "domains": [
+    "network"
+  ],
+  "keywords": [
+    "esim",
+    "get",
+    "cellular",
+    "data",
+    "connection"
+  ],
+  "title": "Use an eSIM to get a cellular data connection on your Windows PC",
+  "source_url": "https://support.microsoft.com/en-us/windows/use-an-esim-to-get-a-cellular-data-connection-on-your-windows-pc-0e255714-f8be-b9ef-9e84-f75b05ed98a3",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "What you need",
+      "steps": [
+        {
+          "step": 1,
+          "text": "A PC that supports cellular connectivity: To check whether your PC supports cellular networks: Select Start > Settings > Network & internet .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Look for a Cellular page. If Cellular is listed, your PC supports cellular connectivity.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "A PC with an eSIM selected: To check whether your PC has an eSIM: Select Start > Settings > Network & internet .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Look for Use this SIM for cellular data .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Select the drop-down list and check for eSIM , SIM2 , or a similar option. Select eSIM to use it for cellular data.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "An eSIM profile : An eSIM profile connects your PC to a mobile network. To check whether a profile is already installed: Select Start > Settings > Network & internet > Cellular > eSIM profiles .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "​​​​​​​If you see a profile from your mobile operator or organization, you’re ready to connect. If not, add a profile using one of the methods below.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Adding an eSIM profile",
+      "steps": [
+        {
+          "step": 8,
+          "text": "Download an eSIM profile from the web Go to your mobile operator’s website and find the section for activating eSIMs on Windows. During activation, you may be asked to share cellular identifiers such as EID and IMEI. Only share this information with websites you trust. When prompted, confirm the download in Windows Settings. Select Start > Settings > Network & internet > Cellular > eSIM profiles . Verify that the new profile appears in the list.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Add an eSIM profile by searching for available profiles Select the Start > Settings > Network & internet > Cellular > eSIM profiles . Under Add an eSIM profile from your mobile operator , select Add profile . Select Search for available profiles , then select Next . ​​​​​​​​​​​​​​When a profile is found, select Download . ​​​​​​​If prompted, enter the confirmation code from your mobile operator, then select Download . Select Continue to search for additional profiles, or select Close when finished.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Add an eSIM using an activation or QR code Select the Start > Settings > Network & internet > Cellular > eSIM profiles . Under Add an eSIM profile from your mobile operator , select Add profile . Select Let me enter an activation code I have from my mobile operator > Next . Scan the QR code using your devices camera or enter the activation code manually. The activation code should appear in the corresponding Activation code box. Select Next . For the dialog box that asks Do you want to download this profile? , enter the confirmation code from your mobile operator into the corresponding box, and then select Download . Select Close .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Connecting and managing eSIM",
+      "steps": [
+        {
+          "step": 11,
+          "text": "Select the Start > Settings > Network & internet > Cellular. If you see Insert SIM , select your eSIM under Use this SIM for cellular data .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Select eSIM profiles , choose the profile you want, and then select Use .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Select Yes to This will use cellular data from your data plan and may incur charges. Do you want to continue?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "​​​​​​​​​​​​​​​​​​ You’ll be connected to a cellular data network and ready to go.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Select the Start > Settings > Network & internet > Cellular > eSIM profiles .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Under Profiles for cellular data , select the profile you want to stop using, and then select Stop using .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "Select Yes for You'll be disconnected from this cellular network. Continue?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Select the other profile you want to use, then select Use .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "Select the Start > Settings > Network & internet > Cellular > eSIM profiles .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "Under Profiles for cellular data , select the profile.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 21,
+          "text": "Select Delete , then select Yes to confirm.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 22,
+          "text": "Cellular settings in Windows",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 23,
+          "text": "A PC running Windows 10, Version 1703 or later. To see which version of Windows 10 your device uses, select the Start button, then select Settings > System > About .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 24,
+          "text": "A PC with an eSIM in it. Here's how you can tell if your PC has an eSIM: Select the Start button, then select Settings > Network & Internet > Cellular .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 25,
+          "text": "On the Cellular screen, look for a link near the bottom of the page that says Manage eSIM profiles . If that link appears, your PC has an eSIM.",
+          "caption": "Manage eSIM profiles",
+          "image": "step-25.png",
+          "image_url": "https://support.microsoft.com/images/en-us/85d6409f-965d-ae08-9182-34a04bd2e299"
+        }
+      ]
+    },
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 26,
+          "text": "Select the Start button, then select Settings > Network & Internet > Cellular > Manage eSIM profiles .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 27,
+          "text": "Under eSIM profiles, select Add a new profile .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 28,
+          "text": "To search for available profiles or use an activation code you have from your mobile operator, do one of the following: Search for available profiles Select Search for available profiles > Next .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 29,
+          "text": "When a profile you want to use is found, select Download .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 30,
+          "text": "Enter the confirmation code from your mobile operator in the corresponding box, then select Download .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 31,
+          "text": "After the profile is downloaded and installed, select Continue to find other profiles you might want and then repeat the previous steps.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 32,
+          "text": "Select Close when you have downloaded the profiles you want.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 33,
+          "text": "Use an activation code you have from your mobile operator Select Let me enter an activation code I have from my mobile operator > Next .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 34,
+          "text": "If you have a QR code to scan for the activation code, choose which camera to use on your PC, and then scan the QR code.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 35,
+          "text": "The activation code should appear in the corresponding Activation code box. Select Next .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 36,
+          "text": "For the dialog box that asks Do you want to download this profile? , enter the confirmation code from your mobile operator into the corresponding box, and then select Download .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 37,
+          "text": "Select Close .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 38,
+          "text": "Optional: To give the profile a friendly name (for example, Work or Personal) to help you remember it, select the profile, select Edit name , type a name you'll remember, and then select Save .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    }
+  ],
+  "step_count": 38,
+  "image_count": 1
+}

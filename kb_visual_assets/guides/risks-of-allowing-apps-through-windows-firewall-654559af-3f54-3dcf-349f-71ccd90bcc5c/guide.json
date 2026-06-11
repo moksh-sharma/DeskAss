@@ -1,0 +1,139 @@
+{
+  "id": "risks-of-allowing-apps-through-windows-firewall-654559af-3f54-3dcf-349f-71ccd90bcc5c",
+  "topic_id": "security/support_guide",
+  "domains": [
+    "security"
+  ],
+  "keywords": [
+    "risks",
+    "allowing",
+    "apps",
+    "through",
+    "firewall"
+  ],
+  "title": "Risks of Allowing Apps Through Windows Firewall",
+  "source_url": "https://support.microsoft.com/en-us/windows/risks-of-allowing-apps-through-windows-firewall-654559af-3f54-3dcf-349f-71ccd90bcc5c",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Summary",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Add an app to the list of allowed apps (less risky)",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Open a port (more risky)",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Only allow an app or open a port when you really need to, and follow the steps to remove apps from the list of allowed apps or close ports that you no longer need",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Never allow an app that you don't recognize to communicate through the firewall",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Add or remove an app from the list of allowed apps",
+      "steps": [
+        {
+          "step": 5,
+          "text": "Open the Windows Security app, then select Firewall & network protection . Firewall & network protection ​​​​​​​",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Select Allow an app through firewall .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Select Change settings . You might be asked for an administrator password or to confirm your choice",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "To add an app, select the check box next to the app, or select Allow another app and enter the path for the app",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "To remove an app, clear the check box next to the app, and then select OK",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Open or close a port",
+      "steps": [
+        {
+          "step": 10,
+          "text": "Open the Windows Security app, then select Firewall & network protection . Firewall & network protection ​​​​​​​",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Select Advanced settings . You might be asked for an administrator password or to confirm your choice.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Select Inbound Rules .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "To open a port, under Actions , select New Rule... and complete the instructions.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "To close a port, select the rule you want to disable, and then under Actions , select Disable Rule .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "See also",
+      "steps": [
+        {
+          "step": 15,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-16.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 16,
+  "image_count": 1
+}

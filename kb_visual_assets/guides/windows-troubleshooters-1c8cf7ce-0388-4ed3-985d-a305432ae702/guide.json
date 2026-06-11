@@ -1,0 +1,99 @@
+{
+  "id": "windows-troubleshooters-1c8cf7ce-0388-4ed3-985d-a305432ae702",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "troubleshooters"
+  ],
+  "title": "Windows troubleshooters",
+  "source_url": "https://support.microsoft.com/en-us/windows/windows-troubleshooters-1c8cf7ce-0388-4ed3-985d-a305432ae702",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Available Windows troubleshooters",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Audio troubleshooter Open the Get Help app. In the Search bar, enter audio troubleshooter . If asked to consent to proceed with diagnostics, select Yes . Allow a few moments for the scan to complete. Follow prompts or steps until issues are resolved.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Background Intelligent Transfer Service (BITS) troubleshooter Open the Get Help app. In the Search bar, enter Background Intelligent Transfer Service​​​​​​​ troubleshooter . Follow the steps provided.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Bluetooth troubleshooter Open the Get Help app. In the Search bar, enter Bluetooth troubleshooter . Follow the steps provided.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Camera troubleshooter Open the Get Help app. In the Search bar, enter camera troubleshooter . Follow the steps provided.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Network and internet troubleshooter Open the Get Help app. In the Search bar, enter connect to network and internet . Select Run network diagnostics . Complete any troubleshooting steps provided until you can connect successfully.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Printer troubleshooter Open the Get Help app. In the Search bar, enter printer troubleshooter . Follow the prompts to scan for printers and troubleshoot your configuration.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Program compatibility troubleshooter Open the Get Help app. In the Search bar, enter Run the Windows Program Compatibility troubleshooter . Follow the steps provided.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Video playback troubleshooter Open the Get Help app. In the Search bar, enter Video playback troubleshooter . Follow the steps provided.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Windows Media Player troubleshooter Open the Get Help app. In the Search bar, enter Windows Media Player troubleshooter . Follow the steps provided.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Windows Update troubleshooter Open the Get Help app. In the Search bar, enter windows update troubleshooter . Follow the steps provided.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related topics",
+      "steps": [
+        {
+          "step": 11,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-12.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 12,
+  "image_count": 1
+}

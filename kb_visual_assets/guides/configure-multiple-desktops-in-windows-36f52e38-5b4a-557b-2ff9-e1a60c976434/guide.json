@@ -1,0 +1,140 @@
+{
+  "id": "configure-multiple-desktops-in-windows-36f52e38-5b4a-557b-2ff9-e1a60c976434",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "configure",
+    "multiple",
+    "desktops"
+  ],
+  "title": "Configure Multiple Desktops in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/configure-multiple-desktops-in-windows-36f52e38-5b4a-557b-2ff9-e1a60c976434",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Why multiple desktops are useful",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Work and personal separation : Keep your work applications and documents on one desktop and personal apps on another, ensuring a clear boundary between work and personal life.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Project management : Manage multiple projects simultaneously by dedicating a desktop to each project, making it easier to focus and stay organized.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Meeting preparation : Quickly switch to a desktop with all the necessary applications and documents open before a meeting, ensuring a smooth and professional presentation.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Create a new desktop",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Hover over the Task view icon on the taskbar, or press the Windows key ​​​​​​​ + Tab .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Select New desktop .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Once created, you can select the name of the desktop and rename it to your liking.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Configure backgrounds for each desktop",
+      "steps": [
+        {
+          "step": 7,
+          "text": "Hover over the Task view icon on the taskbar, or press the Windows key ​​​​​​​ + Tab .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Right-click on the desktop that you want to customize and select Choose background .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "In the Personalize your background section, select Picture from the dropdown menu and choose the image you want to set as the background.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Customize your multiple desktop experience",
+      "steps": [
+        {
+          "step": 10,
+          "text": "In the Settings app on your Windows device, select System > Multitasking , or use the following link: Open multitasking settings ​​​​​​​",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Expand Desktops .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Under On the taskbar, show all the open windows , you can configure how open windows are displayed on the taskbar across multiple desktops. Here are the available options: Only on the desktop I'm using : This setting will show only the open windows from the current desktop on the taskbar. This helps keep your taskbar less cluttered and focused on the tasks at hand on the active desktop.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "On all desktops ​​​​​​​: This setting will show all open windows from all desktops on the taskbar, regardless of which desktop you are currently using. This can be useful if you want quick access to all your open applications without switching desktops.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Under Show all open windows when I press Alt+Tab , you can choose whether to display open windows from all desktops or only from the desktop you're currently using.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Multitask with multiple desktops",
+      "steps": [
+        {
+          "step": 15,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-16.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 16,
+  "image_count": 1
+}

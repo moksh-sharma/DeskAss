@@ -1,0 +1,126 @@
+{
+  "id": "change-your-screen-resolution-and-layout-in-windows-5effefe3-2eac-e306-0b5d-2073b765876b",
+  "topic_id": "display/support_guide",
+  "domains": [
+    "display",
+    "performance"
+  ],
+  "keywords": [
+    "change",
+    "screen",
+    "resolution",
+    "layout"
+  ],
+  "title": "Change your screen resolution and layout in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/change-your-screen-resolution-and-layout-in-windows-5effefe3-2eac-e306-0b5d-2073b765876b",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Change the size of text and apps in Windows 11",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Stay in, or open, Display settings. Open your Display settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Scroll to the Scale & layout section.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Select Scale , then select an option. Typically, it's best to choose the one that's marked (Recommended).",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Change the display resolution",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Stay in, or open, Display settings. Open your Display settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "In the Display resolution row, select the list and choose an option. It's usually best to stick with the one that's marked (Recommended). Monitors can support resolutions that are lower than their native resolutions, but text won't look as sharp and the display might be small, centered on the screen, edged with black, or stretched.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Change the display orientation",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Select Start > Settings > System > Display , and look at the Rearrange your displays section.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Select the display you want to change. When that's done, follow the instructions below.",
+          "caption": null,
+          "image": "step-07.png",
+          "image_url": "https://support.microsoft.com/images/en-us/8cf463d5-a06e-4584-9c44-3f23a81b43da"
+        }
+      ]
+    },
+    {
+      "title": "Change the size of text and apps in Windows 10",
+      "steps": [
+        {
+          "step": 8,
+          "text": "Stay in, or open, Display settings. Open your Display settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Scroll to Scale and layout .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Next, in Change the size of text, apps, and other items , select an option. Typically, it's best to choose the one that's marked (Recommended).",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Change the screen resolution",
+      "steps": [
+        {
+          "step": 11,
+          "text": "Stay in, or open, Display settings. Open your Display settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Scroll to Scale and layout .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Find Display resolution , and then choose an option. It's usually best to stick with the one that's marked (Recommended). Monitors can support resolutions that are lower than their native resolutions, but text won't look as sharp and the display might be small, centered on the screen, edged with black, or stretched.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    }
+  ],
+  "step_count": 13,
+  "image_count": 1
+}

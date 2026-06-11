@@ -1,0 +1,66 @@
+{
+  "id": "find-your-way-with-maps-51ece9fb-a0f2-9853-4164-6940865085c8",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "find",
+    "way",
+    "maps"
+  ],
+  "title": "Find your way with Maps",
+  "source_url": "https://support.microsoft.com/en-us/windows/find-your-way-with-maps-51ece9fb-a0f2-9853-4164-6940865085c8",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select Start , enter Maps and select Maps .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Select Directions .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "If you like, change the transportation mode—for example, Walking or Transit —and select Route options to avoid things like tolls or traffic while driving, or for a transit route with less walking.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "In the A (Starting point) and B (Destination) boxes, start typing an address, city, business name, or the name of a contact. Select from the results that appear as you type.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Need to make several stops? Select Add destination . Or, press and hold (or right-click) on the map, and select Add destination from there. Drag destinations up or down to rearrange them in the list.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Select Get directions . Note: For driving and transit directions, sometimes you'll get several alternate routes to choose from. Select one to see more details.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "To hear step-by-step directions as you travel, select Go . Or, to print them out, select More > Print .",
+          "caption": "Getting directions",
+          "image": "step-07.png",
+          "image_url": "https://support.microsoft.com/images/en-us/d6772647-2624-44a5-b746-767b1f11a891"
+        }
+      ]
+    }
+  ],
+  "step_count": 7,
+  "image_count": 1
+}

@@ -1,0 +1,65 @@
+{
+  "id": "windows-10-anniversary-update-loss-of-music-and-video-1174afac-df2d-cd8c-aa08-11c7732cfabf",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "getting",
+    "ready",
+    "upgrade"
+  ],
+  "title": "Getting ready for the Windows 11 upgrade",
+  "source_url": "https://support.microsoft.com/en-us/windows/windows-10-anniversary-update-loss-of-music-and-video-1174afac-df2d-cd8c-aa08-11c7732cfabf",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Install Windows 11",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select Start and then select Settings > Update & Security > Windows Update . Or Select the following Windows Update shortcut: Open Windows Update",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "In the Windows Update window that opens, select the Check for updates button. Note: If there are updates available for the current version of Windows, the Windows 11 upgrade might not be made available until those updates are installed. Install any updates for the current version of Windows, restart the device, and then try checking for the Windows 11 upgrade again.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "If Windows 11 is ready to be installed on the device, a message is displayed in the Windows Update window showing that Windows 11 is ready.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "To proceed with the upgrade to Windows 11, select the Download and install button.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related articles",
+      "steps": [
+        {
+          "step": 5,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-06.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 6,
+  "image_count": 1
+}

@@ -1,6 +1,5 @@
 import type { ChatMessage } from "@/types";
 import { DiagnosisCard } from "@/components/DiagnosisCard";
-import { InvestigationPanel } from "@/components/InvestigationPanel";
 import { RaiseTicketButton } from "@/components/RaiseTicketButton";
 import { formatTime } from "@/lib/format";
 
@@ -53,9 +52,8 @@ export function MessageBubble({
       {/* Message Body Container */}
       <div className={`flex max-w-[85%] flex-col ${isUser ? "items-end" : "items-start"}`}>
         {message.diagnosis ? (
-          <div className="space-y-3 w-full">
+          <div className="w-full max-w-3xl space-y-3">
             <DiagnosisCard d={message.diagnosis} />
-            {message.investigation && <InvestigationPanel report={message.investigation} />}
             {userIssue && !message.pending && (
               <RaiseTicketButton userIssue={userIssue} message={message} />
             )}
@@ -64,10 +62,10 @@ export function MessageBubble({
           <>
             <div
               className={`rounded-2xl px-5 py-3 text-sm leading-relaxed shadow-md ${isUser
-                  ? "bg-gradient-to-br from-accent to-accent-hover text-white rounded-tr-none font-medium"
-                  : message.pending
-                    ? "animate-pulse bg-base-850 text-content-muted border border-base-700/30"
-                    : "bg-base-850 text-content-primary border border-base-700/40 rounded-tl-none font-medium"
+                ? "bg-gradient-to-br from-accent to-accent-hover text-white rounded-tr-none font-medium"
+                : message.pending
+                  ? "animate-pulse bg-base-850 text-content-muted border border-base-700/30"
+                  : "bg-base-850 text-content-primary border border-base-700/40 rounded-tl-none font-medium"
                 }`}
             >
               {message.content}

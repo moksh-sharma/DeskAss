@@ -1,0 +1,176 @@
+{
+  "id": "mobile-device-in-start-menu-21676d6a-3bc3-439a-aaa3-7463b91cda79",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "mobile",
+    "device",
+    "start",
+    "menu"
+  ],
+  "title": "Mobile device in Start Menu",
+  "source_url": "https://support.microsoft.com/en-us/windows/mobile-device-in-start-menu-21676d6a-3bc3-439a-aaa3-7463b91cda79",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Requirements",
+      "steps": [
+        {
+          "step": 1,
+          "text": "A PC running Windows 11 or later.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Phone Link version 1.25032.82.0.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Your Android device and PC both need to be connected via Wi-Fi.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Your iPhone® and PC connected via Bluetooth LE",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "A Microsoft Account",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "How do I connect my Android or iPhone® to my Windows PC from the Start menu?",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Open the Start menu.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Select your device type (Android or iPhone®) from the pane.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Follow the on-screen instructions to complete the connection.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "How do I enable or disable mobile device content from showing in the Start menu?",
+      "steps": [
+        {
+          "step": 9,
+          "text": "Open Settings on your PC.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Select Personalization > Start .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Scroll to Show mobile device in Start toggle on or off to hide or show your mobile device in Start menu.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "What features are available for connected Android users?",
+      "steps": [
+        {
+          "step": 12,
+          "text": "View battery and connectivity status.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Access Messages, Calls, and Photos.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "See recent activities.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Send Files.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "What features are available for connected iPhone® users?",
+      "steps": [
+        {
+          "step": 16,
+          "text": "View battery and connectivity status.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "Access Messages and Calls.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "See recent activities.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "Send Files.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Where can I give feedback?",
+      "steps": [
+        {
+          "step": 20,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 21,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-21.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 21,
+  "image_count": 1
+}

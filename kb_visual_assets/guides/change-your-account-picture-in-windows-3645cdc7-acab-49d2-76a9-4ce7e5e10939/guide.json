@@ -1,0 +1,55 @@
+{
+  "id": "change-your-account-picture-in-windows-3645cdc7-acab-49d2-76a9-4ce7e5e10939",
+  "topic_id": "performance/support_guide",
+  "domains": [
+    "performance"
+  ],
+  "keywords": [
+    "change",
+    "account",
+    "picture"
+  ],
+  "title": "Change Your Account Picture in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/change-your-account-picture-in-windows-3645cdc7-acab-49d2-76a9-4ce7e5e10939",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Change your user account picture",
+      "steps": [
+        {
+          "step": 1,
+          "text": "In the Settings app on your Windows device, select Accounts > Your info or use the following shortcut: Your info",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Under Adjust your photo , select Choose a file > Browse files to select an existing photo. Or, if your device has a camera, select Open camera and take a new photo",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Delete a user account picture",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-04.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 4,
+  "image_count": 1
+}

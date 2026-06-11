@@ -1,0 +1,38 @@
+{
+  "id": "get-help-with-microsoft-photos-app-702104c6-7541-6757-d624-c0846b3bdbd3",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "get",
+    "help",
+    "microsoft",
+    "photos",
+    "app"
+  ],
+  "title": "Get help with Microsoft Photos app",
+  "source_url": "https://support.microsoft.com/en-us/windows/get-help-with-microsoft-photos-app-702104c6-7541-6757-d624-c0846b3bdbd3",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Create videos using Clipchamp",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-02.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 2,
+  "image_count": 1
+}

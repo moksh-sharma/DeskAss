@@ -1,0 +1,108 @@
+{
+  "id": "use-your-mobile-device-s-camera-7d3f9cc3-ccdc-44be-9b49-015d2cb3be05",
+  "topic_id": "webcam/support_guide",
+  "domains": [
+    "webcam"
+  ],
+  "keywords": [
+    "mobile",
+    "device",
+    "camera"
+  ],
+  "title": "Use your mobile device's camera",
+  "source_url": "https://support.microsoft.com/en-us/windows/use-your-mobile-device-s-camera-7d3f9cc3-ccdc-44be-9b49-015d2cb3be05",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "What are the requirements for using this feature?",
+      "steps": [
+        {
+          "step": 1,
+          "text": "A PC running Windows 11 or later.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Android device running Android 10 or later.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Link to Windows app version 1.24022.0 or later.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "How to enable this feature?",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Open Settings .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Navigate to Bluetooth & devices .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Scroll down to Mobile devices .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Click on Manage devices .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "If your Android device isn't linked yet, click on Add device to initiate the linking process.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Your linked Android device will appear under My devices .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Toggle on Use as connected camera to enable this feature.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "My video is being blocked my background. What should I do?",
+      "steps": [
+        {
+          "step": 11,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-12.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 12,
+  "image_count": 1
+}

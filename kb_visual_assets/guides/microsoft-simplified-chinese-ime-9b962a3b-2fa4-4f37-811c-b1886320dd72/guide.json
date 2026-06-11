@@ -1,0 +1,115 @@
+{
+  "id": "microsoft-simplified-chinese-ime-9b962a3b-2fa4-4f37-811c-b1886320dd72",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "microsoft",
+    "simplified",
+    "chinese",
+    "ime"
+  ],
+  "title": "Microsoft Simplified Chinese IME",
+  "source_url": "https://support.microsoft.com/en-us/windows/microsoft-simplified-chinese-ime-9b962a3b-2fa4-4f37-811c-b1886320dd72",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "User interface",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Double Pinyin can assign longer vowel groups to consonant keys as shortcuts and zh, ch, sh to vowel keys as shortcuts. In this way, when the input method expects a vowel, these shortcuts can be used to speed up typing. Find Double Pinyin settings in Microsoft Pinyin settings > General .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Fuzzy Pinyin helps input Chinese characters more accurately by allowing for slight variations in Pinyin input. It accounts for common mistakes or uncertainties in typing Pinyin and suggests the correct characters based on context. Find Fuzzy Pinyin settings in Microsoft Pinyin settings > General .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Trigger People name input with ; (semicolon) + R to help find characters used for people's names more easily. When in Double Pinyin mode, press Shift + ; (semicolon) , then the R key. Find this feature in Microsoft Pinyin settings > Advanced .",
+          "caption": "Activating Pinyin people name input.",
+          "image": "step-03.png",
+          "image_url": "https://support.microsoft.com/images/en-us/509fe78c-5f0a-489f-b025-b80b4e7dc765"
+        },
+        {
+          "step": 4,
+          "text": "U-mode input can be used to input Chinese characters based on their stroke or component, or to input a symbol. When in Double Pinyin Mode, U-mode can be triggered by pressing Shift + U . Find this feature in Microsoft Pinyin settings > Advanced .",
+          "caption": "Activating Pinyin U-mode input.",
+          "image": "step-04.png",
+          "image_url": "https://support.microsoft.com/images/en-us/ef711f26-6281-4ba6-9ce7-ece8c04bac8d"
+        },
+        {
+          "step": 5,
+          "text": "V-mode input can be used to input Chinese format numbers, dates, times, formulas, and more. It also supports inputting Unicode and GB-18030 code points. When in Double Pinyin mode, V-mode can be triggered by pressing Shift + V . Find this feature in Microsoft Pinyin settings > Advanced .",
+          "caption": "Activating Pinyin V-mode input.",
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f77b03b3-9d87-4c7a-94b8-bd90bad3cf6d"
+        }
+      ]
+    },
+    {
+      "title": "Text suggestions from Bing",
+      "steps": [
+        {
+          "step": 6,
+          "text": "For Windows 11, make sure Try text suggestions from Bing is switched On .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "For Windows 10, make sure Cloud service is switched On .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Pinyin/Wubi IME settings",
+      "steps": [
+        {
+          "step": 8,
+          "text": "IME options icon in the taskbar Right-click on the IME options icon in the system tray area of the taskbar and then select Settings .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Microsoft Pinyin/Wubi in Settings app Select Start and then select Settings > Time & language > Language & region . Or Select the following Time & language > Language & region shortcut: Open Time & language > Language & region In the Time & language > Language & region window, under the Language section, select the ellipses next to the desired Chinese simplified language, and then select Language options . In the Time & language > Language & region > Options window, under the Keyboards section, select the ellipses next to either Microsoft Pinyin or Microsoft Wubi , and then select Keyboard options . Note: If either Microsoft Pinyin or Microsoft Wubi aren't available in the Time & language > Language & region > Options window, they need to be added as a keyboard layout. For more information, see Manage the language and keyboard/input layout settings in Windows: Add a keyboard layout . Select Start and then select Settings > Time & language > Language . Or Select the following Language shortcut: Open Language In the Language window, under the Preferred languages section, select the desired Chinese simplified language, and then select the Options button. In the Language options: <Chinese Simplified> window, under the Keyboards section, select either Microsoft Pinyin or Microsoft Wubi , and then select the Options button. Note: If either Microsoft Pinyin or Microsoft Wubi aren't available in the Time & language > Language & region > Options window, they need to be added as a keyboard layout. For more information, see Manage the language and keyboard/input layout settings in Windows: Add a keyboard layout .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Microsoft Pinyin/Wubi shortcut Use the following Microsoft Pinyin or Microsoft Wubi shortcut to directly open the Microsoft Pinyin/Wubi settings in the Settings app: Open Microsoft Pinyin Open Microsoft Wubi Note: If the above shortcuts don't go directly to the Microsoft Pinyin or Microsoft Wubi settings, then the corresponding keyboard layout probably isn't installed. To install the keyboard layout for either Microsoft Pinyin or Microsoft Wubi , see Manage the language and keyboard/input layout settings in Windows: Add a keyboard layout .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "How can I give feedback?",
+      "steps": [
+        {
+          "step": 11,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-12.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 12,
+  "image_count": 4
+}

@@ -1,0 +1,101 @@
+{
+  "id": "protect-your-pc-from-unwanted-software-074a2d74-02db-03dd-8340-9e1822377856",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "protect",
+    "from",
+    "unwanted",
+    "software"
+  ],
+  "title": "Protect your PC from unwanted software",
+  "source_url": "https://support.microsoft.com/en-us/windows/protect-your-pc-from-unwanted-software-074a2d74-02db-03dd-8340-9e1822377856",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Reduce the chances of getting unwanted software",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Download apps only from trusted sources, such as Microsoft Store, and be thoughtful about which apps you install.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Make sure you're running a regularly updated antivirus product such as Microsoft Defender Antivirus, which is built into all modern versions of Windows.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Windows 11 includes Smart App Control which can help to protect your device from potentially unwanted apps.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Use a modern browser, such as the new Microsoft Edge . Microsoft Edge uses Microsoft Defender SmartScreen , which helps block potentially unwanted apps.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Keep your device up-to-date with the latest updates for Windows, your browser, and your apps.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "If you believe you already have unwanted software",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Uninstall software you don’t need using Settings > Apps > Apps & features ( Add or Remove Programs in older versions of Windows). Open Apps & features",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "In Windows Security , get the latest security intelligence and then run a full scan with Microsoft Defender Antivirus . Learn how",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "If the unwanted software persists, you can submit the files to Microsoft .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Perform an offline scan with Microsoft Defender Offline .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Report a download you believe has been incorrectly flagged",
+      "steps": [
+        {
+          "step": 10,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-11.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 11,
+  "image_count": 1
+}

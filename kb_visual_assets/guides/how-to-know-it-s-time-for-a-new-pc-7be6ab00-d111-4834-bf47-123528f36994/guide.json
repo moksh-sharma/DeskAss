@@ -1,0 +1,36 @@
+{
+  "id": "how-to-know-it-s-time-for-a-new-pc-7be6ab00-d111-4834-bf47-123528f36994",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "know",
+    "time",
+    "new"
+  ],
+  "title": "How to know it's time for a new PC",
+  "source_url": "https://support.microsoft.com/en-us/windows/how-to-know-it-s-time-for-a-new-pc-7be6ab00-d111-4834-bf47-123528f36994",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "What to try if you notice poor PC performance",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-02.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 2,
+  "image_count": 1
+}

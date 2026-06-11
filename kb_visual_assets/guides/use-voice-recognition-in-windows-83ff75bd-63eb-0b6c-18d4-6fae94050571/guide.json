@@ -1,0 +1,64 @@
+{
+  "id": "use-voice-recognition-in-windows-83ff75bd-63eb-0b6c-18d4-6fae94050571",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "voice",
+    "recognition"
+  ],
+  "title": "Use voice recognition in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/use-voice-recognition-in-windows-83ff75bd-63eb-0b6c-18d4-6fae94050571",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Set up a microphone",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select Start > Settings > Time & language > Speech .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Under Microphone , select the Get started button.",
+          "caption": "The speech settings menu in Windows 11",
+          "image": "step-02.png",
+          "image_url": "https://support.microsoft.com/images/en-us/50120f33-9bec-4c45-90fa-4e09055ab268"
+        },
+        {
+          "step": 3,
+          "text": "The Speech wizard window opens, and the setup starts automatically. If the wizard detects issues with your microphone, they will be listed in the wizard dialog box. You can select options in the dialog box to specify an issue and help the wizard solve it.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Help your PC recognize your voice",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Press Windows key+ Ctrl ​​​​​​​ + S . The Set up Speech Recognition wizard window opens with an introduction on the Welcome to Speech Recognition page. Tip: If you've already set up speech recognition, pressing Windows key +Ctrl+S opens speech recognition and you're ready to use it. If you want to retrain your computer to recognize your voice, press the Windows ​​​​​​​ key, type Control Panel , and select Control Panel in the list of results. In Control Panel , select Ease of Access > Speech Recognition > Train your computer to better understand you .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Select Next . Follow the instructions on your screen to set up speech recognition. The wizard will guide you through the setup steps.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "After the setup is complete, you can choose to take a tutorial to learn more about speech recognition. To take the tutorial, select Start Tutorial in the wizard window. To skip the tutorial, select Skip Tutorial . You can now start using speech recognition.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    }
+  ],
+  "step_count": 6,
+  "image_count": 1
+}

@@ -1,0 +1,325 @@
+{
+  "id": "fix-bluetooth-problems-in-windows-723e092f-03fa-858b-5c80-131ec3fba75c",
+  "topic_id": "bluetooth/support_guide",
+  "domains": [
+    "bluetooth"
+  ],
+  "keywords": [
+    "fix",
+    "bluetooth",
+    "problems"
+  ],
+  "title": "Fix Bluetooth problems in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/fix-bluetooth-problems-in-windows-723e092f-03fa-858b-5c80-131ec3fba75c",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "General Bluetooth troubleshooting in Windows 11",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Check in quick settings: Select the Network , Sound , or Battery icons ( ) on the right side of the taskbar, look for the Bluetooth quick setting, then select Bluetooth to turn it on. You’ll see “Not connected” if your Windows 11 device isn’t connected to any Bluetooth accessories.",
+          "caption": "The Bluetooth button in \"Not connected\" state in Quick Settings.",
+          "image": "step-01.png",
+          "image_url": "https://support.microsoft.com/images/en-us/b79dadee-0bdf-4393-a1b6-16762bd7750a"
+        },
+        {
+          "step": 2,
+          "text": "Check in Settings: Select Start > Settings > Bluetooth & devices . Make sure Bluetooth is turned on.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "When you turn Bluetooth on in Settings, the following message appears immediately:",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "\"Discoverable as < computer_name> \"",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Turn off your Bluetooth device, wait a few seconds, then turn it back on.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Make sure your Bluetooth device is in range. If your Bluetooth device is unresponsive or sluggish, check to make sure it’s not too close to any other USB device that’s plugged into a USB 3.0 port. Unshielded USB devices can sometimes interfere with Bluetooth connections.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Select Start > Settings > Bluetooth & devices > Devices .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Under Device settings > Bluetooth devices discovery , choose one of the following from the drop-down list: Default —displays common Bluetooth devices",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Advanced —displays all types of Bluetooth devices",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "If you still don't see your Bluetooth device displayed after choosing the Advanced setting, try the solutions listed below.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Make sure airplane mode is off: Select the Network , Sound , or Battery icons ( ) on the right side of the taskbar, then make sure the Airplane mode quick setting is turned off.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Turn Bluetooth on and off: Select Start > Settings > Bluetooth & devices . Turn off Bluetooth , wait a few seconds, then turn it back on.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Remove the Bluetooth device, then add it again: Select Start > Settings > Bluetooth & devices > Devices . In Devices , select More options for the Bluetooth device you’re having problems connecting to, and then select Remove device > Yes . To learn more about pairing your Bluetooth device again, see Pair a Bluetooth device .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Select Search on the taskbar, type for device manager , and then select Device Manager from the list of results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "In Device Manager, select Bluetooth , and then select the Bluetooth adapter name, which may include the word “radio.”",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Press and hold (or right-click) the Bluetooth adapter, and then select Update driver > Search automatically for updated driver software . Follow the steps, then select Close .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "After installing the updated driver, select Start > Power > Restart if you're prompted to restart, and then check whether that fixes the connection issue.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "If you downloaded an executable (.exe) file, just double-click the file to run it and install the drivers. That should be all you need to do.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "If you downloaded individual files, and at least one file has an .inf file name extension and another has a .sys extension, do the following: Select Search on the taskbar, type device manager , and then select Device Manager from the list of results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "In Device Manager, select Bluetooth > the Bluetooth adapter name. (If it’s not listed there, check in Other devices .)",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 21,
+          "text": "Press and hold (or right-click) the network adapter, and then select Update driver > Browse my computer for drivers .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 22,
+          "text": "Select Browse , select the location where the driver files are stored, and then select OK .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 23,
+          "text": "Select Next , and follow the steps to install the driver. When the installation is finished, select Close .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 24,
+          "text": "After you've updated the driver, select Start > Power > Restart if you're prompted to restart, and check whether that fixes the connection issue.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 25,
+          "text": "Select Search on the taskbar, enter device manager , then select Device Manager from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 26,
+          "text": "In Device Manager, select Bluetooth . Press and hold (or right-click) the Bluetooth adapter name (which may include the word “radio”), and select Uninstall device > Uninstall .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 27,
+          "text": "Select Start , then select Power > Shut down .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 28,
+          "text": "After your device shuts down, wait a few seconds, and then turn it back on. Windows will try to reinstall the driver.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 29,
+          "text": "If Windows doesn't reinstall the driver automatically, open Device Manager and select Action > Scan for hardware changes .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Common Bluetooth issues in Windows 11",
+      "steps": [
+        {
+          "step": 30,
+          "text": "Fix Bluetooth disappeared in Windows",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 31,
+          "text": "Troubleshoot Bluetooth not connecting in Windows",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 32,
+          "text": "Troubleshoot transferring files using Bluetooth",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 33,
+          "text": "Fix Bluetooth connected but no sound issue on Windows",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 34,
+          "text": "Bluetooth keeps disconnecting in Windows",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 35,
+          "text": "Update Bluetooth drivers in Windows ​​​​​​​",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 36,
+          "text": "Fix Bluetooth audio only playing in one channel",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "General Bluetooth troubleshooting in Windows 10",
+      "steps": [
+        {
+          "step": 37,
+          "text": "Before you start",
+          "caption": "Your browser does not support video. Install Microsoft Silverlight, Adobe Flash Player, or Internet Explorer 9.",
+          "image": "step-37.png",
+          "image_url": "https://support.microsoft.com/images/en-us/4873755a-8b1e-497e-bc54-101d1e75d3e7"
+        },
+        {
+          "step": 38,
+          "text": "Step 1. Verify Bluetooth compatibility for your Windows 10 device If you’re setting up a new device and Bluetooth is missing, check the product specifications to make sure it has Bluetooth capabilities. Some devices don’t have Bluetooth.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 39,
+          "text": "Step 2. Make sure Bluetooth is turned on Check in the taskbar. Select action center ( or ). If you don’t see Bluetooth, select Expand to reveal Bluetooth , then select Bluetooth to turn it on. You’ll see “Not connected” if your Windows 10 device isn’t paired to any Bluetooth accessories. Check in Settings. Select Select the Start button, then select Settings > Devices > Bluetooth & other devices . Make sure Bluetooth is turned on. Turn on Bluetooth in Settings When you turn Bluetooth on in Settings, the following message appears immediately: \"Now discoverable as < computer_name> \"",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 40,
+          "text": "Step 3. Check your Bluetooth device Turn off your Bluetooth device, wait a few seconds, then turn it back on. Make sure your Bluetooth device is in range. If your Bluetooth device is unresponsive or sluggish, check to make sure it’s not too close to any other USB device that’s plugged into a USB 3.0 port. Unshielded USB devices can sometimes interfere with Bluetooth connections.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 41,
+          "text": "Step 4. Change the Bluetooth devices discovery setting Select Start > Settings > Bluetooth & other devices. In the Bluetooth settings window, click More Bluetooth options (on the right or under Related Setting \"). The Bluetooth Settings dialog box will open.​​​​​​​​​​​​​​ Go to the Options tab. Check the box labeled Allow Bluetooth devices to find this PC for the PC to be discoverable.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 42,
+          "text": "Step 5. Verify Bluetooth hardware and settings on your Windows 10 PC Make sure airplane mode is off: Select Start , then select Settings > Network & Internet > Airplane mode . Make sure Airplane mode is turned off. Turn Bluetooth on and off: Select Start , then select Settings > Devices > Bluetooth & other devices . Turn off Bluetooth , wait a few seconds, then turn it back on. Remove the Bluetooth device, then add it again: Select Start , then select Settings > Devices > Bluetooth & other devices .. In Bluetooth , select the device you’re having problems connecting to, and then select Remove device > Yes . To learn more about pairing your Bluetooth device again, see Pair a Bluetooth device .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 43,
+          "text": "Step 6. Run the Bluetooth troubleshooter Select Start , then select Settings > Update & Security > Troubleshoot . In Find and fix other problems , select Bluetooth , and then select Run the troubleshooter and follow the instructions. Open Troubleshoot settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 44,
+          "text": "Step 7. Make sure you have the latest drivers In the search box on the taskbar, search for Device Manager , and then select Device Manager from the list of results. In Device Manager, select Bluetooth , and then select the Bluetooth adapter name, which may include the word “radio.” Press and hold (or right-click) the Bluetooth adapter, and then select Update driver > Search automatically for updated driver software . Follow the steps, then select Close . After installing the updated driver, select the Start button, select Power > Restart if you're prompted to restart, and then check whether that fixes the connection issue. If you downloaded an executable (.exe) file, just double-click the file to run it and install the drivers. That should be all you need to do. If you downloaded individual files, and at least one file has an .inf file name extension and another has a .sys extension, do the following: In the search box on the taskbar, type Device Manager , and then select Device Manager from the list of results. In Device Manager, select Bluetooth > the Bluetooth adapter name. (If it’s not listed there, check in Other devices .) Press and hold (or right-click) the network adapter, and then select Update driver > Browse my computer for driver software . Select Browse , select the location where the driver files are stored, and then select OK . Select Next , and follow the steps to install the driver. When the installation is finished, select Close . After you've updated the driver, select the Start button, select Power > Restart if you're prompted to restart, and check whether that fixes the connection issue.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 45,
+          "text": "Step 8. Uninstall the Bluetooth adapter in Device Manager In the search box on the taskbar, enter device manager , then select Device Manager from the results. In Device Manager, select Bluetooth . Press and hold (or right-click) the Bluetooth adapter name (which may include the word “radio”), and select Uninstall device . Select Start , then select Power > Shut down . After your device shuts down, wait a few seconds, and then turn it back on. Windows will try to reinstall the driver. If Windows doesn't reinstall the driver automatically, open Device Manager and select Action > Scan for hardware changes .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Common Bluetooth issues in Windows 10",
+      "steps": [
+        {
+          "step": 46,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 47,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-47.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 47,
+  "image_count": 3
+}

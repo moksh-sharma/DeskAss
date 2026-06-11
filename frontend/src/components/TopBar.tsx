@@ -47,11 +47,10 @@ export function TopBar() {
             <button
               key={t.id}
               onClick={() => setView(t.id)}
-              className={`flex items-center gap-2 rounded-lg px-4 py-1.5 text-xs font-semibold tracking-wide uppercase transition-all duration-200 ${
-                active
+              className={`flex items-center gap-2 rounded-lg px-4 py-1.5 text-xs font-semibold tracking-wide uppercase transition-all duration-200 ${active
                   ? "bg-accent/15 text-accent shadow-inner border border-accent/20"
                   : "text-content-body border border-transparent hover:bg-base-700/50 hover:text-content-primary"
-              }`}
+                }`}
             >
               <Icon className={`h-4 w-4 ${active ? "text-accent" : "text-content-muted"}`} />
               {t.label}

@@ -1,0 +1,61 @@
+{
+  "id": "personalize-your-windows-experience-with-device-usage-settings-347661a5-7d7a-4b6d-951a-287612461",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "personalize",
+    "experience",
+    "device",
+    "usage",
+    "settings"
+  ],
+  "title": "Personalize Your Windows Experience With Device Usage Settings",
+  "source_url": "https://support.microsoft.com/en-us/windows/personalize-your-windows-experience-with-device-usage-settings-347661a5-7d7a-4b6d-951a-287612461f40",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Change usage settings",
+      "steps": [
+        {
+          "step": 1,
+          "text": "In the Settings app on your Windows device,select Personalization or use the following shortcut: Personalization",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Select Device usage",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Choose the ways you'll use your PC by switching the toggles to On ​​​​​​​",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "What does Microsoft do with this data?",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 5,
+  "image_count": 1
+}

@@ -1,0 +1,78 @@
+{
+  "id": "windows-search-and-privacy-99fb8251-7260-1cd6-1bbb-15c2370eb168",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "search",
+    "privacy"
+  ],
+  "title": "Windows Search and privacy",
+  "source_url": "https://support.microsoft.com/en-us/windows/windows-search-and-privacy-99fb8251-7260-1cd6-1bbb-15c2370eb168",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Manage Windows Search settings",
+      "steps": [
+        {
+          "step": 1,
+          "text": "SafeSearch Do one of the following: In Windows 10, go to Start > Settings > Search > Permissions & History . In Windows 11, go to Start > Settings > Privacy & security > Search permissions . Under SafeSearch , select your preference: If you select Strict , your setting will be shared with Bing in your browser. Bing will respect the Strict setting on the device regardless of your Bing SafeSearch setting on the Bing.com Settings page . If you select Moderate or Off , Bing search will default to using your Bing SafeSearch setting on the Bing.com Settings page .",
+          "caption": "Screen shot of the preview pane when results include sensitive content.",
+          "image": "step-01.png",
+          "image_url": "https://support.microsoft.com/images/en-us/191f41eb-1b09-89c7-df49-386a323feec8"
+        },
+        {
+          "step": 2,
+          "text": "Cloud content search Go to Start > Settings > Accounts > Email & accounts . Under Accounts used by other apps , select an option : To add your personal account, select Add a Microsoft account . To add your organizational account, select Add a work or school account . Select the search box on the taskbar in Windows 10 or the magnifying glass icon on the taskbar in Windows 11, and then, in the upper-right corner of the window that appears, select Options ( ). The account name and account type appear under Connected accounts .",
+          "caption": "Screen shot of the Connected accounts list.",
+          "image": "step-02.png",
+          "image_url": "https://support.microsoft.com/images/en-us/0417b96c-f391-4605-3319-278223c0542f"
+        },
+        {
+          "step": 3,
+          "text": "Search history on this device Do one of the following: In Windows 10, go to Start > Settings > Search > Permissions & History . In Windows 11, go to Start > Settings > Privacy & security > Search permissions . Under History , select the Clear device search history button.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Search history in the cloud Make sure you're signed in to Windows with your Microsoft account. Do one of the following: In Windows 10, go to Start > Settings > Search > Permissions & History . In Windows 11, go to Start > Settings > Privacy & security > Search permissions . Under Cloud content search , make sure Microsoft account is turned On .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Searching Windows In Windows 10, go to Start > Settings > Search > Searching Windows . In Windows 11, go to Start > Settings > Privacy & security > Searching Windows .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Improved Windows Search",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Microsoft's commitment to responsible AI Microsoft has been working to advance AI responsibly since 2017, when we first defined our AI principles and later operationalized our approach through our Responsible AI Standard. Privacy and security are core principles as we develop and deploy AI systems. We work to help our customers use our AI products responsibly, sharing our learnings, and building trust-based partnerships. For more about our responsible AI efforts, the principles that guide us, and the tools and capabilities we've created to assure that we develop AI technology responsibly, see​​​​​​​ Responsible AI . SUBSCRIBE RSS FEEDS",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-08.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 8,
+  "image_count": 3
+}

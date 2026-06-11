@@ -1,0 +1,79 @@
+{
+  "id": "get-help-with-windows-10-mail-and-calendar-apps-89958611-9617-43b8-6f4b-f10efc229aaf",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "outlook",
+    "future",
+    "mail",
+    "calendar",
+    "people"
+  ],
+  "title": "Outlook for Windows: The Future of Mail, Calendar, and People on Windows 11",
+  "source_url": "https://support.microsoft.com/en-us/windows/get-help-with-windows-10-mail-and-calendar-apps-89958611-9617-43b8-6f4b-f10efc229aaf",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Why use new Outlook",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Streamline accounts. Now everyone can access their emails—in one spot—on every Windows device. That's Gmail, Yahoo! and even a place for that account you use for shopping.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Stay on top of things. Organize your appointments, share availability and events with a click, and ensure time for important people and events.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Feel secure. Trust in Microsoft's security to help keep your emails and documents safe from phishing and scams.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Accomplish more. Enjoy Microsoft 365 free on the web and use Word, Excel, PowerPoint and OneDrive with the click of a button.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Stay organized. File your valuable content neatly or find it simply with universal search, make your calendar yours with multiple options and personalization capabilities, and know when your packages will arrive with package tracking.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Unify your accounts. New Outlook brings several advantages when it comes to managing your emails and calendars. For example, you can now view your various emails and calendar events in one place, making it easier to stay organized. This is also great for people who have accounts from multiple providers, as they can access them all from one unified inbox. '",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "See also",
+      "steps": [
+        {
+          "step": 7,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-08.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 8,
+  "image_count": 1
+}

@@ -12,6 +12,7 @@ backend/chroma_store/
 backend/logs/
 backend/uploads/
 
+
 # Node / Electron / Vite
 node_modules/
 dist/

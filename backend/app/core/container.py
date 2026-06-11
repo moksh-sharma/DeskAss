@@ -24,6 +24,7 @@ from app.services.session_service import SessionService
 from app.services.ticket_service import TicketService
 from app.services.troubleshooter_service import TroubleshooterService
 from app.services.deepgram_service import DeepgramService
+from app.services.visual_guide_service import VisualGuideService
 
 logger = get_logger(__name__)
 
@@ -42,6 +43,7 @@ class Container:
         self.tickets = TicketService(self.settings)
         self.machine_scan_history = MachineScanHistoryService()
         self.inventory = SystemInventory()
+        self.visual_guides = VisualGuideService()
 
         # External clients.
         self.audio = AudioService()
@@ -53,7 +55,7 @@ class Container:
         self.rag = RagService(self.settings)
 
         # Composite services.
-        self.diagnosis = DiagnosisService(self.ollama, self.rag)
+        self.diagnosis = DiagnosisService(self.ollama, self.rag, self.visual_guides)
         self.troubleshooter = TroubleshooterService(self.rag)
         self.machine_scan = MachineScanService(
             inventory=self.inventory,
@@ -66,6 +68,7 @@ class Container:
             use_llm=self.settings.investigation_use_llm,
             inventory=self.inventory,
             machine_scan=self.machine_scan,
+            visual_guides=self.visual_guides,
         )
 
         logger.info("Service container initialised.")

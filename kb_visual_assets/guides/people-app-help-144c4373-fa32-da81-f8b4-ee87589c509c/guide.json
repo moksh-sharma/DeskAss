@@ -1,0 +1,659 @@
+{
+  "id": "people-app-help-144c4373-fa32-da81-f8b4-ee87589c509c",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "people",
+    "app",
+    "help"
+  ],
+  "title": "People app help",
+  "source_url": "https://support.microsoft.com/en-us/windows/people-app-help-144c4373-fa32-da81-f8b4-ee87589c509c",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Related topics",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Getting started with the new Outlook for Windows",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Getting started",
+      "steps": [
+        {
+          "step": 2,
+          "text": "Select the Start button, then select Microsoft Store .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Select See more next to your account profile picture.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Select Downloads and updates .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Select Get updates , or turn on automatic updates .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Select Get Started .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "You'll then be prompted to allow the People app access to your email and calendar.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "If you already have your Microsoft account added to your Windows 10 PC, the app will automatically import contacts from that account. You can also select Import contacts to add another account such as Outlook, Exchange, Google, and iCloud.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "When you're done, select Ready to go .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Select the Start button, then select People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Select Settings .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Select Add an account , choose the type of account you want to add, and follow the instructions.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Select the Start button, then select Settings .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Select Accounts > Email & accounts .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Select the email account you want to remove.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Select Manage .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "Select Delete account from this device and follow the on-screen instructions.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Select the Start button, then select People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "Select Settings .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "Select Add an account , choose the type of account you want to add, and follow the on-screen instructions to import contacts.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 21,
+          "text": "Select the Start button, then select People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 22,
+          "text": "Select the New contact button.",
+          "caption": "Add contact in People app",
+          "image": "step-22.png",
+          "image_url": "https://support.microsoft.com/images/en-us/4a28cb39-8719-ff64-c2ba-49826303dea0"
+        },
+        {
+          "step": 23,
+          "text": "If you're asked, choose which account to use for saving new contacts. If you've entered more than one email account in Mail, the People app asks you to decide which account should receive the new contact.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 24,
+          "text": "Fill out the New Contact form.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 25,
+          "text": "Select Save .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 26,
+          "text": "Select the Start button, then select Mail .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 27,
+          "text": "Choose a message. Select the name of the person who sent it or any of the recipients.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 28,
+          "text": "Select Save .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 29,
+          "text": "If you've entered more than one email account in Mail, the People app asks you to decide which account should receive the new contact. Choose which account to use.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 30,
+          "text": "Add any additional information, then select Save .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 31,
+          "text": "Select the Start button, then select People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 32,
+          "text": "In the search box, type the name of the contact you want to delete. You'll see a list of contacts as you type. Select the one you want to delete.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 33,
+          "text": "Select the trash can icon , then select Delete .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 34,
+          "text": "Select the Start button, then select People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 35,
+          "text": "In the search box, type the name of the contact you want to delete. You'll see a list of contacts as you type. Select the one you want to delete.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 36,
+          "text": "Press and hold (or right-click) the contact, select Delete , and follow the on-screen directions.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 37,
+          "text": "Select the Start button, then select People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 38,
+          "text": "Select a person from your contacts who you want to get to quickly.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 39,
+          "text": "Press and hold (or right-click) the contact, and select Pin to Start .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 40,
+          "text": "In the box that appears, select Yes .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 41,
+          "text": "Select the Start button, then select People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 42,
+          "text": "In the search box, type the name of the contact whose info you want to edit. You'll see a list of contacts as you type. Select the one you want.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 43,
+          "text": "Select Edit , and then select Add .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 44,
+          "text": "Make the changes you want, and then select Save .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 45,
+          "text": "Select the Start button, then select People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 46,
+          "text": "In the search box, type the name of the contact whose photo you want to add or change. You'll see a list of contacts as you type. Select the one you want.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 47,
+          "text": "Select Edit .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 48,
+          "text": "Select Add photo if the contact has no photo. Select the contact's photo if there is one.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 49,
+          "text": "Select a photo from your device. Then, on the dialog that appears, adjust how the photo will be cropped. When you're finished, select Done .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 50,
+          "text": "Select the Start button, then select People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 51,
+          "text": "In the search box, type the name of the contact whose info you want to combine. You'll see a list of contacts as you type. Choose the one you want.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 52,
+          "text": "Select Find a contact to combine .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 53,
+          "text": "In the search box, type the name of the contact whose info you want to combine with the one you selected. You'll see a list of contacts as you type. Choose the one you want to combine with the one you selected.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 54,
+          "text": "Select the Start button, then select People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 55,
+          "text": "In the search box, type the name of the contact whose info you want to share. You'll see a list of contacts as you type. Choose the one you want to share.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 56,
+          "text": "At the upper right, select Share .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 57,
+          "text": "Select Share contact .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 58,
+          "text": "Select a person to share the contact with and follow the instructions to send the contact via email, or select an app to share the contact with and follow the instructions to share the contact.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 59,
+          "text": "Select the Start button, then select People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 60,
+          "text": "In the search box, type the name of the contact you want to email. You'll see a list of contacts as you type. Choose the one you want.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 61,
+          "text": "Select Email .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 62,
+          "text": "Select the Start button, then select People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 63,
+          "text": "In the search box, type the name of the contact whose conversations you want to view. You'll see a list of contacts as you type. Choose the one you want.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 64,
+          "text": "Under Conversations , you’ll see recent email messages and other conversations you’ve exchanged. Select any of these to open them.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 65,
+          "text": "Select the Start button, then select People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 66,
+          "text": "In the search box, type the name of the contact whose organization chart you want to view. You'll see a list of contacts as you type. Choose the one you want.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 67,
+          "text": "Under Org chart , select See more to view the organization chart for the contact.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 68,
+          "text": "Select the Start button, then select People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 69,
+          "text": "Select Filter contacts .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 70,
+          "text": "Use the check boxes to select the accounts whose contacts you want to see on your contact list. When you're finished, select Done .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 71,
+          "text": "On the toolbar, select the People icon .",
+          "caption": "People icon",
+          "image": "step-71.jpg",
+          "image_url": "https://support.microsoft.com/images/en-us/62fd1995-0a3d-48ef-ad8f-1e605cd5e2a8"
+        },
+        {
+          "step": 72,
+          "text": "Select Export contacts.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 73,
+          "text": "Select a destination folder and Save . Your contacts are saved as a .csv file.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 74,
+          "text": "Select People on the taskbar.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 75,
+          "text": "Select one of your contacts, or select Find and pin contacts to see all your contacts.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 76,
+          "text": "After you select a contact, they'll appear on the taskbar next to People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 77,
+          "text": "Select a pinned contact on the taskbar, or select People and then select a contact.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 78,
+          "text": "Select Skype .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 79,
+          "text": "To start a voice call, select Audio call . To start a video call, select Video call . (Both you and the person you're trying to reach must have a webcam to start a video call.)",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 80,
+          "text": "Select a pinned contact on the taskbar, or select People and then select a contact.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 81,
+          "text": "Select Skype .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 82,
+          "text": "Type your message and select Send .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 83,
+          "text": "Select a pinned contact on the taskbar, or select People and then select a contact.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 84,
+          "text": "Select Mail .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 85,
+          "text": "At the bottom of the window, select New .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 86,
+          "text": "Type your email and select Send when you're finished.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 87,
+          "text": "Select People > Apps , and then select Get more apps in the Store .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 88,
+          "text": "Choose an app from the list, and on its description page select Get .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 89,
+          "text": "After the app is done installing, select People > Apps and select the app to import contacts.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 90,
+          "text": "On Start, tap or click People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 91,
+          "text": "Swipe in from the right edge of the screen, and then tap Settings . (If you're using a mouse, point to the lower-right corner of the screen, move the mouse pointer up, and then click Settings .)",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 92,
+          "text": "Tap or click Accounts .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 93,
+          "text": "Tap or click Add an account , choose the type of account you want to add, and then follow the on-screen instructions.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 94,
+          "text": "On Start, tap or click People .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 95,
+          "text": "Swipe in from the bottom edge to see the app commands. (If you're using a mouse, right-click within the app.)",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 96,
+          "text": "Tap or click New contact .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 97,
+          "text": "Enter the info you want for this contact, and then tap or click the save button .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 98,
+          "text": "On Start, tap or click Mail .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 99,
+          "text": "Tap or click a message and then tap or click the name of the person who sent it or any of the recipients.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 100,
+          "text": "Tap or click Add contact .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 101,
+          "text": "Add any additional info (if possible) and then tap or click the save button .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Keyboard shortcuts for the People app",
+      "steps": [
+        {
+          "step": 102,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 103,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-103.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 103,
+  "image_count": 3
+}

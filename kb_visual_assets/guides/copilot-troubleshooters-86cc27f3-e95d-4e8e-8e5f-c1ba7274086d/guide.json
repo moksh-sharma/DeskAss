@@ -1,0 +1,52 @@
+{
+  "id": "copilot-troubleshooters-86cc27f3-e95d-4e8e-8e5f-c1ba7274086d",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "copilot",
+    "troubleshooters"
+  ],
+  "title": "Copilot troubleshooters",
+  "source_url": "https://support.microsoft.com/en-us/windows/copilot-troubleshooters-86cc27f3-e95d-4e8e-8e5f-c1ba7274086d",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Available Copilot troubleshooters",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Copilot license troubleshooter Start the Get Help app. In the Search bar, enter Copilot License Troubleshooter. Follow the steps provided.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Copilot connectivity troubleshooter Start the Get Help app. In the Search bar, enter Copilot connectivity troubleshooter. Follow the steps provided.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related topics",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-04.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 4,
+  "image_count": 1
+}

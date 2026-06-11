@@ -1,0 +1,146 @@
+{
+  "id": "snap-your-windows-885a9b1e-a983-a3b1-16cd-c531795e6241",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "snap"
+  ],
+  "title": "Snap Your Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/snap-your-windows-885a9b1e-a983-a3b1-16cd-c531795e6241",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Snap to side : Drag a window to the left or right edge of the screen to snap it to that side.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Snap to corner : Drag a window to a corner to snap it to that quarter of the screen.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Maximize vertically : Drag a window to the top of the screen to expand it vertically, filling the entire height while maintaining its current width.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Snap Assist",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Snap the first window : Select and drag a window to the edge of the screen until a translucent overlay appears. Release the window to snap it into place",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Snap the second window : Select another open window from the thumbnails displayed by Snap Assist to snap it to the other half of the screen",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Snap layouts",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Snap flyout Hover over the restore or maximize button of a window, or press Windows key ​​​​​​​ + Z . Select the desired layout. Snap Assist is then triggered, allowing you to fill out the rest of the layout with the windows of your choice.",
+          "caption": "Screenshot of a Snap flyout while selecting a layout.",
+          "image": "step-06.png",
+          "image_url": "https://support.microsoft.com/images/en-us/9425a8bb-b0cd-4a1e-97f5-e6feb7bf194b"
+        },
+        {
+          "step": 7,
+          "text": "Snap bar Drag a window towards the top of the screen. Select the desired layout. Snap Assist is then triggered, allowing you to fill out the rest of the layout with the windows of your choice.",
+          "caption": "Screenshot of Snap assist prompting to select a layout.",
+          "image": "step-07.png",
+          "image_url": "https://support.microsoft.com/images/en-us/ae508b17-a0e9-4e1f-96b7-90feb8f29d45"
+        }
+      ]
+    },
+    {
+      "title": "Configure Snap settings",
+      "steps": [
+        {
+          "step": 8,
+          "text": "In the Settings app on your Windows device, select System > Multitasking , or use the following link: Open Multitasking settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Use the Snap windows toggle to turn Snap On or Off .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "To customize Snap, expand the Snap windows section and select the options you prefer by using the checkboxes:",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "When I snap a window, show what I can snap next to it : Enables or disables Snap Assist.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Show snap layouts when I hover over a window's maximize button : Enables or disables the Snap flyout.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Show snap layouts when I drag a window to the top of my screen : Enables or disables the Snap bar.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Show my snapped windows when I hover over the taskbar apps, in Task View, and when I press Alt + Tab : Enables or disables Snap groups.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "​​​​​​​ When I drag a window, let me snap it without dragging all the way to the screen edge : Enables snapping windows without having to drag them all the way to the edge of the screen.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related topics",
+      "steps": [
+        {
+          "step": 16,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-17.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 17,
+  "image_count": 3
+}

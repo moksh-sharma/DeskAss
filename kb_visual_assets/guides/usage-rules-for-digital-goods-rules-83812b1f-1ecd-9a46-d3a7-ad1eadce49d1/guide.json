@@ -1,0 +1,126 @@
+{
+  "id": "usage-rules-for-digital-goods-rules-83812b1f-1ecd-9a46-d3a7-ad1eadce49d1",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "usage",
+    "rules",
+    "digital",
+    "goods"
+  ],
+  "title": "Usage rules for Digital Goods (“Rules”)",
+  "source_url": "https://support.microsoft.com/en-us/windows/usage-rules-for-digital-goods-rules-83812b1f-1ecd-9a46-d3a7-ad1eadce49d1",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "General Rules",
+      "steps": [
+        {
+          "step": 1,
+          "text": "(a) all license terms, license limitations, codes of conduct, and payment terms in the Terms,",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "(b) your payment in full for the applicable Digital Good,",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "(c) these Rules, and",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "(d) any additional terms provided when you acquire your license.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "(a) you violate the Terms or these Rules,",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "(b) you use or try to use Digital Goods in a manner inconsistent with the Terms, these Rules, or the limited license granted to you,",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "(c) you circumvent, or try to circumvent, any technical measures designed to limit access or enforce license limitations,",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "(d) you fail to pay a recurring subscription fee,",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "(e) you fail to maintain a current payment method for your account,",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "(f) you change your country or region,",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "(g) you fail to maintain a current email address associated with your account,",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "(h) you fail to log into a given Service sufficiently frequently to refresh your Digital Goods electronic licenses as described in the Additional Service-Specific Rules below,",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "(i) we cancel or terminate the applicable Service or cease supporting the applicable device, or",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "(j) we lose our rights to continue to distribute the Digital Good to you, or to distribute it to you in the same manner. Except as may be permitted below, you may not transfer or resell any licenses to any Digital Goods. If you sell any device containing Digital Goods, the purchaser will not acquire any right to use the Digital Goods. We may use technologies to verify your compliance with these Rules.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Additional Service-Specific Rules and Descriptions",
+      "steps": [
+        {
+          "step": 15,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-16.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 16,
+  "image_count": 1
+}

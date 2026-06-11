@@ -1,0 +1,69 @@
+{
+  "id": "use-a-pen-with-windows-1fb0a437-e31b-4d3a-8810-9cb6f0f11207",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "pen"
+  ],
+  "title": "Use a pen with Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/use-a-pen-with-windows-1fb0a437-e31b-4d3a-8810-9cb6f0f11207",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select Start > Settings > Bluetooth & devices . ​​​​​​​ Open Bluetooth & devices",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Make sure your pen is in pairing mode. This action varies among pen types. For example, with the Surface Pen , press and hold the top button of your pen for 5-7 seconds until the LED flashes white to turn on Bluetooth pairing mode.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Select Add device . In the Add a device window, select Bluetooth .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Select the name of your pen. For example, \"Surface Pen.\"",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "After it connects, select Done to close the window.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related articles",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-07.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 7,
+  "image_count": 1
+}

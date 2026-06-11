@@ -1,0 +1,67 @@
+{
+  "id": "defragment-optimize-your-data-drives-in-windows-54d4fed1-c96e-46db-b843-8c6b34bd27a4",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "defragment",
+    "optimize",
+    "data",
+    "drives"
+  ],
+  "title": "Defragment / optimize your data drives in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/defragment-optimize-your-data-drives-in-windows-54d4fed1-c96e-46db-b843-8c6b34bd27a4",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Manually defragment or optimize your data drives",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select the Search bar on the taskbar and enter defrag.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Select Defragment and Optimize Drives from the list of results. ​​​​​​​",
+          "caption": "The Optimize Drives app in Windows 11.",
+          "image": "step-02.png",
+          "image_url": "https://support.microsoft.com/images/en-us/d994caed-8a85-4f76-a4cd-196eb82eddc1"
+        },
+        {
+          "step": 3,
+          "text": "Select the drive you want to work with.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "If it's a hard disk drive, select Analyze for Windows to check the drive to see if it needs optimization, or select Optimize for Windows to run optimization on the drive. Note: ​​​​​​​Hard drives are defragmented, which is reorganizing the files so that they are all lined up and easier for the drive to read. Solid-state drives (SSDs) are what's known as \"trimmed,\" which is basically telling the drive where it can safely do cleanup work when it's not busy doing more important things like saving or loading your files. It's all optimization.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Change the optimization schedule",
+      "steps": [
+        {
+          "step": 5,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-06.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 6,
+  "image_count": 2
+}

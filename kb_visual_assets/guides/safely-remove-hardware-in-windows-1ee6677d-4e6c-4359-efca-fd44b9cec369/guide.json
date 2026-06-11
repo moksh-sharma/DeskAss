@@ -1,0 +1,84 @@
+{
+  "id": "safely-remove-hardware-in-windows-1ee6677d-4e6c-4359-efca-fd44b9cec369",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "safely",
+    "remove",
+    "hardware"
+  ],
+  "title": "Safely remove hardware in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/safely-remove-hardware-in-windows-1ee6677d-4e6c-4359-efca-fd44b9cec369",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 1,
+          "text": "In the system tray area of the taskbar, right-click the Safely Remove Hardware and Eject Media icon. If the Safely Remove Hardware and Eject Media icon isn't visible, select Show hidden icons first, and then right-click the Safely Remove Hardware and Eject Media icon. Tip: If the Safely Remove Hardware and Eject Media icon still isn't visible after selecting Show hidden icons , then see the section Add the Safely Remove Hardware and Eject Media icon to the system tray below to add it to the system tray.",
+          "caption": "Screenshot of Safely Remove USB device icon in notification tray.",
+          "image": "step-01.png",
+          "image_url": "https://support.microsoft.com/images/en-us/32e21789-2cf4-48e0-a89d-51dfdd05225a"
+        },
+        {
+          "step": 2,
+          "text": "In the menu that pops up, select Eject <device> for the hardware device that needs to be removed.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "The notification Safe To Remove Hardware displays and the hardware device disappears from the Safely Remove Hardware and Eject Media menu. The hardware device can be safely removed.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Right-click on the taskbar and select Taskbar settings . Or Select the following Personalization > Taskbar shortcut: Open Personalization > Taskbar",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "In the Personalization > Taskbar window, select Other system tray icons to expand it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Scroll to find Safely Remove Hardware and Eject Media .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Make sure Safely Remove Hardware and Eject Media is turned On .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "The Safely Remove Hardware and Eject Media icon should now appear in the system tray area of the taskbar.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "A removable hardware device isn't connected to the Windows device.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "The Window device doesn't recognize the hardware device that needs to be removed.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    }
+  ],
+  "step_count": 10,
+  "image_count": 1
+}

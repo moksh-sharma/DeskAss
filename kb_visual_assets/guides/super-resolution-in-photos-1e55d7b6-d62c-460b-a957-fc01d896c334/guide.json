@@ -1,0 +1,113 @@
+{
+  "id": "super-resolution-in-photos-1e55d7b6-d62c-460b-a957-fc01d896c334",
+  "topic_id": "display/support_guide",
+  "domains": [
+    "display"
+  ],
+  "keywords": [
+    "super",
+    "resolution",
+    "photos"
+  ],
+  "title": "Super resolution in Photos",
+  "source_url": "https://support.microsoft.com/en-us/windows/super-resolution-in-photos-1e55d7b6-d62c-460b-a957-fc01d896c334",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "How it works",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Upscaling the resolution : This increases the number of pixels in the image, transforming it from a lower resolution to a higher resolution. For example, it might transform a photo that’s 256x256 pixels to 1012x1012 pixels. This makes the image larger and suitable for high-resolution displays.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Enhancing image sharpness : The AI model analyzes the image and fills in missing details, making the photo look sharper and more defined.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Getting started",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Open the Photos app and select the image you want to enhance.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Select Edit then select Super resolution from the available options.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Choose the desired level of enhancement such as 1x, 2x, 4x, or 8x.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Once the image is enhanced, you’ll see a visual comparison of the original and the enhanced image through a before and after preview.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "How the AI model works​​​​​​​",
+      "steps": [
+        {
+          "step": 7,
+          "text": "Local Processing : The AI model runs locally on your device, ensuring that your data is not sent to any external services or servers. This helps protect your privacy and keeps your data secure.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Non-generative AI: The AI model used for super resolution is not generative. It does not create new content but enhances existing images by filling in missing details and improving clarity.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Transparency and control : You have full control over the enhancement process and can choose the level of enhancement that best suits your needs. You can always discard the enhancement process or simply undo the enhancement with the editors Undo or Reset options.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Feedback and improvement : We encourage users to provide feedback on the super resolution feature. Your feedback helps us improve the AI model and ensure it meets your needs and expectations.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Troubleshooting",
+      "steps": [
+        {
+          "step": 11,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-12.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 12,
+  "image_count": 1
+}

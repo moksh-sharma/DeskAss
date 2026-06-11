@@ -1,0 +1,140 @@
+{
+  "id": "connect-to-a-vpn-in-windows-3d29aeb1-f497-f6b7-7633-115722c1009c",
+  "topic_id": "network/support_guide",
+  "domains": [
+    "network"
+  ],
+  "keywords": [
+    "connect",
+    "vpn"
+  ],
+  "title": "Connect to a VPN in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/connect-to-a-vpn-in-windows-3d29aeb1-f497-f6b7-7633-115722c1009c",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Summary",
+      "steps": [
+        {
+          "step": 1,
+          "text": "If it’s for work, look for VPN settings or a VPN app on your company’s intranet site while you’re at work, or contact your company's support person.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "If it’s for a VPN service you subscribe to for personal use, visit the Microsoft Store to see if there’s an app for that service, or go to the VPN service’s website to see if the VPN connection settings to use are listed there.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "In the Settings app on your Windows device, select​​​​​​ Network & internet > VPN > Add VPN .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Under Add a VPN connection , do the following: For VPN provider , choose Windows (built-in) .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "In the Connection name box, enter a name you'll recognize (for example, My Personal VPN). This is the VPN connection name you'll look for when connecting.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "In the Server name or address box, enter the address for the VPN server.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "For VPN type , choose the type of VPN connection you want to create. You’ll need to know which kind of VPN connection your company or VPN service uses.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "For Type of sign-in info , choose the type of sign-in info (or credentials) to use. This might be a username and password, one-time password, certificate, or a smart card if you’re connecting to a VPN for work. Enter your username and password in the respective boxes (if required).",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Select Save .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "From the VPN settings page, select the VPN connection you want to edit, select Advanced options , then select Edit next to the details you want to update. Once you've made the updates needed select either Save or Apply .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "On your taskbar, select the Network, Volume, Battery icon > VPN .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "If you have one VPN configured, you can turn it on and off by toggling the left side of the VPN quick setting, marked with a (1), below.",
+          "caption": "The quick settings VPN toggle in Windows 11.",
+          "image": "step-12.png",
+          "image_url": "https://support.microsoft.com/images/en-us/3e367ebd-fcde-460a-afb3-bc852124c97a"
+        },
+        {
+          "step": 13,
+          "text": "If there are multiple VPNs configured, you will need to select one to connect to. Select Manage VPN connections (marked with a (2) in the image), select the one you want from the list of connections, and then select Connect .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "If prompted, enter your username and password or other sign in info.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "In the Settings app on your Windows device, select Network & internet > VPN .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Next to the VPN connection you want to use, select Connect .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "If prompted, enter your username and password or other sign in info.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "On the VPN settings page, the VPN connection name will display Connected underneath it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "On the taskbar, a blue shield will display when you're connected to a recognized VPN.",
+          "caption": "When you",
+          "image": "step-19.png",
+          "image_url": "https://support.microsoft.com/images/en-us/fbcb3928-c962-4151-b1fe-749c502dc612"
+        }
+      ]
+    }
+  ],
+  "step_count": 19,
+  "image_count": 2
+}

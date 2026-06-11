@@ -1,0 +1,61 @@
+{
+  "id": "fix-touchpad-problems-in-windows-30b498e5-0caa-9740-2b21-336ea75ee756",
+  "topic_id": "mouse/support_guide",
+  "domains": [
+    "mouse"
+  ],
+  "keywords": [
+    "fix",
+    "touchpad",
+    "problems"
+  ],
+  "title": "Fix touchpad problems in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/fix-touchpad-problems-in-windows-30b498e5-0caa-9740-2b21-336ea75ee756",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Windows Update The recommended method to update the touchpad drivers is by using Windows Update. For information on how to update drivers using Windows Update, see the following article: Automatically get recommended and updated hardware drivers",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Device Manager Although the recommended method to update the touchpad drivers is by using Windows Update , the touchpad drivers can also be updating using Device Manager. For information on how to update drivers using Device Manager, see the following article: Update drivers through Device Manager in Windows When using Device Manager to update touchpad drivers, search for the touchpad in Device Manager under one of the following categories: Human Interface Devices .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Mice and other pointing devices .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Additional Help",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 5,
+  "image_count": 1
+}

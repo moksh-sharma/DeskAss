@@ -1,0 +1,90 @@
+{
+  "id": "manage-settings-for-mobile-apps-on-windows-000f97e8-8c20-490e-9ef4-cd90d903f847",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "manage",
+    "settings",
+    "mobile",
+    "apps"
+  ],
+  "title": "Manage settings for mobile apps on Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/manage-settings-for-mobile-apps-on-windows-000f97e8-8c20-490e-9ef4-cd90d903f847",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "System tab",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Files Select Files in the settings app. Your mobile app files will appear in the settings window under Subsystem for Android™ so you can browse any images, videos, audio, documents, and downloads that are saved in the subsystem. To save a file to your PC, right-click the file you want to save, then select Open with > Using Windows default . The selected file will open in the default Windows app for the file type, and the file will get copied to the Downloads folder in Windows.",
+          "caption": "A screenshot of the files window in the Windows Subsystem for Android settings app.",
+          "image": "step-01.png",
+          "image_url": "https://support.microsoft.com/images/en-us/5e151a2e-eecc-4383-a611-c050e37bb3ba"
+        },
+        {
+          "step": 2,
+          "text": "Subsystem Screen Reader If touch input isn't working, make sure the Subsystem Screen Reader is turned off. For more info, go to Accessibility for mobile apps on Windows . If the Subsystem Screen Reader doesn't turn on or off when you press the Windows logo key + Ctrl + T on your keyboard, turn this setting on and off.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Block installation of malicious apps The subsystem will block the installation of malicious apps as identified by any (default) installed antivirus software on your device.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Advanced settings tab",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Developer mode If you're a developer and need to test or debug your mobile app, make sure Developer mode is turned On . To control specific Android developer settings, select Manage developer settings . Devices on the same private network will be able to access the subsystem with Developer mode on. For more info, go to Microsoft Docs .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Memory and performance If there are no other mobile apps open, the first mobile app you open might take a little longer to start. System resources are only used when mobile apps are in use. The subsystem will have minimal resources, but apps launch quicker than if you were in As needed mode. Mobile apps open fastest. System resources that are used for mobile apps are always in use, even if there aren't any mobile apps open.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Graphics and performance If your PC has more than one graphics processing unit (GPU), you can select which GPU your mobile apps will use under Specific GPU . High performance Mobile apps will use the GPU (if multiple are available) that maximizes graphics performance. Power saving Mobile apps will use the GPU (if multiple are available) that maximize power saving.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Experimental features Lets you try upcoming and new subsystem features. Advanced networking This setting allows Android apps to connect to other devices on the same network as your Windows PC. When this setting is turned on, you can play content wirelessly. For example, you can play music on a speaker that's connected to the same network or set up hardware (like a security camera) with a compatible Android app. If you’re experiencing network issues in your mobile apps, turning this off might help. When advanced networking is turned off, it might prevent mobile apps from accessing other devices on your network. Changes will take effect when you restart the Subsystem. Share user folders Windows folders, like Documents and Pictures, will be shared and accessible with the Subsystem. Only files in your Windows user profile folder are available to the Subsystem. Windows system folders, program files, other users' folders, external drives, etc. are not supported.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related",
+      "steps": [
+        {
+          "step": 8,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-09.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 9,
+  "image_count": 2
+}

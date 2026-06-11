@@ -1,0 +1,107 @@
+{
+  "id": "privacy-with-windows-subsystem-for-android-and-amazon-appstore-123fad73-f524-4151-bb42-ad7c8e252",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "privacy",
+    "subsystem",
+    "android",
+    "amazon",
+    "appstore"
+  ],
+  "title": "Privacy with Windows Subsystem for Android™ and Amazon Appstore",
+  "source_url": "https://support.microsoft.com/en-us/windows/privacy-with-windows-subsystem-for-android-and-amazon-appstore-123fad73-f524-4151-bb42-ad7c8e252dd4",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Change how your data is shared",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select Start and enter Windows Subsystem for Android , then open the app from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "In the Windows Subsystem for Android settings app, go to System > Optional diagnostic data . Turn on Send data if you want to send optional diagnostic data to Microsoft. To stop sending this data, set it to Off .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "If you want to be able to view the optional diagnostic data that is sent, set Enable view option to On .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "When Enable viewing option is turned On , you will get access to the Diagnostic data viewer option. This provides a link to the folder where you can view all diagnostic data files saved on your device.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Permissions for mobile apps",
+      "steps": [
+        {
+          "step": 5,
+          "text": "Adjust the permissions for the Windows Subsystem for Android Select Start > Settings > Apps > Installed apps , find the Windows Subsystem for Android, then select Advanced options . In App permissions , turn the settings On or Off for the permissions you want to adjust.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Adjust an individual app's permissions and settings Select Start > Settings > Apps > Installed apps , find the mobile app you want to adjust, then select Modify. The settings for that app will open in the Windows Subsystem for Android and allow you to adjust privacy settings for features like your camera, location, and notifications.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "If a mobile app requests permissions",
+      "steps": [
+        {
+          "step": 7,
+          "text": "If you give the requested permission, this is recorded in the Subsystem. This also prompts a Windows notification indicating that the Windows Subsystem for Android also needs permission.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Select the notification to go to the privacy page in Windows settings, where you can turn on this permission for the Windows Subsystem for Android. You only need to give permission to the Windows Subsystem for Android once. After this, you’ll be able to give permission to individual mobile apps as soon as they request it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "If you remove permissions for a privacy setting to the Windows Subsystem for Android, this also removes permissions for all mobile apps that request that permission.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related",
+      "steps": [
+        {
+          "step": 10,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-11.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 11,
+  "image_count": 1
+}

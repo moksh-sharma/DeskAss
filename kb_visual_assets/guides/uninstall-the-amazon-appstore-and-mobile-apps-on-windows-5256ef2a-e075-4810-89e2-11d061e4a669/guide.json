@@ -1,0 +1,78 @@
+{
+  "id": "uninstall-the-amazon-appstore-and-mobile-apps-on-windows-5256ef2a-e075-4810-89e2-11d061e4a669",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "uninstall",
+    "amazon",
+    "appstore",
+    "mobile",
+    "apps"
+  ],
+  "title": "Uninstall the Amazon Appstore and mobile apps on Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/uninstall-the-amazon-appstore-and-mobile-apps-on-windows-5256ef2a-e075-4810-89e2-11d061e4a669",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Uninstall a mobile app",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select Start > Settings > Apps > Apps & features .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Find the mobile app you want to remove, then select More > Uninstall .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Uninstall everything",
+      "steps": [
+        {
+          "step": 3,
+          "text": "When you uninstall the Windows Subsystem for Android™, you'll also uninstall the Amazon Appstore and all mobile apps from your PC.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Select Start > Settings > Apps > Apps & features .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Find Windows Subsystem for Android™ , select More > Uninstall . Uninstalling the Subsystem will also uninstall the Amazon Appstore and all mobile apps on your PC.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-07.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 7,
+  "image_count": 1
+}

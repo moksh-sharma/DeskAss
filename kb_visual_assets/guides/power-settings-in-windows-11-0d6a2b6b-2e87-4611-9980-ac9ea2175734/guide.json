@@ -1,0 +1,52 @@
+{
+  "id": "power-settings-in-windows-11-0d6a2b6b-2e87-4611-9980-ac9ea2175734",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "power",
+    "settings"
+  ],
+  "title": "Power settings in Windows 11",
+  "source_url": "https://support.microsoft.com/en-us/windows/power-settings-in-windows-11-0d6a2b6b-2e87-4611-9980-ac9ea2175734",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Key settings to help save power",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Turn on Lower screen brightness when using energy saver .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Use Turn my screen off after and Make my device sleep after dropdowns.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related articles",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-04.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 4,
+  "image_count": 1
+}

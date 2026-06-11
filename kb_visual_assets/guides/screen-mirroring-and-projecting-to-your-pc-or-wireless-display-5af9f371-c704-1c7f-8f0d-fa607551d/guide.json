@@ -1,0 +1,170 @@
+{
+  "id": "screen-mirroring-and-projecting-to-your-pc-or-wireless-display-5af9f371-c704-1c7f-8f0d-fa607551d",
+  "topic_id": "wifi/support_guide",
+  "domains": [
+    "wifi",
+    "display",
+    "network"
+  ],
+  "keywords": [
+    "screen",
+    "mirroring",
+    "projecting",
+    "wireless",
+    "display"
+  ],
+  "title": "Screen mirroring and projecting to your PC or wireless display",
+  "source_url": "https://support.microsoft.com/en-us/windows/screen-mirroring-and-projecting-to-your-pc-or-wireless-display-5af9f371-c704-1c7f-8f0d-fa607551d09c",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Cast to an external display from your Windows 11 PC",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Turn on your TV, projector, or other display. If you're using a Miracast dongle or adapter, make sure it's plugged in to the display.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Press the Windows logo key + K , then select the display you'd like to cast to from the list of available devices.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Follow any additional instructions on the screen. Otherwise, you're done.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Cast to another Windows PC from your Windows 11 PC",
+      "steps": [
+        {
+          "step": 4,
+          "text": "On the PC you'd like to project to : Select Start > Settings > System > Projecting to this PC .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Under Add the “Wireless Display” optional feature to project to this PC , select Optional features .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Next to Add an optional feature , select View features , then enter “wireless display.”",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Select the check box next to Wireless Display from the list of results, select Next , then select Install .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "After “Wireless Display” is installed, select Back to manage your projection preferences on the Projecting to this PC page in Settings.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Launch the Wireless Display app by entering “wireless display” in the search box on the taskbar and select Wireless Display in the list of results. Note: The Wireless Display app is available on devices running Windows 11, version 22H2 and later. If you're running an earlier version of Windows, launch the Connect app by entering connect in the search box on the taskbar, and selecting Connect in the list of results. To find out which version of Windows you're running, see Which version of Windows operating system am I running?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "On the PC you’re projecting from , select Windows logo key + K and select the PC you’d like to connect to. Or you can search for Cast in the Windows Search bar, then select Connect to a wireless display . On the Display settings page, under Multiple displays , select Connect to a wireless display , then select Connect . Note: If you can't find the PC you want to project to, make sure it has Wi-Fi turned on and has the wireless display app installed and launched.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Connect to an external display using a WiGig dock",
+      "steps": [
+        {
+          "step": 11,
+          "text": "Turn on your TV or projector.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Turn on your WiGig dock and make sure it's connected to the display.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Make sure your PC supports WiGig and that it's turned on. If your PC supports WiGig, you'll see a WiGig control in Settings > Network & Internet > Airplane mode .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Press the Windows logo key + K , then select your dock.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Follow any additional instructions on the screen. Otherwise, you're done.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "​​​​​​​Cast to an external display from your Windows 10 PC",
+      "steps": [
+        {
+          "step": 16,
+          "text": "Turn on your TV, projector, or other display. If you're using a Miracast dongle or adapter, make sure it's plugged in to the display.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "Press the Windows logo key + K , then select the display you'd like to cast to from the list of available devices.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Follow any additional instructions on the screen. Otherwise, you're done.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Cast to another Windows PC from your Windows 10 PC",
+      "steps": [
+        {
+          "step": 19,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-20.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 20,
+  "image_count": 1
+}

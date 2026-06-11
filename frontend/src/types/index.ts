@@ -127,6 +127,22 @@ export interface RecommendedFix {
   safe_action: string | null;
 }
 
+export interface VisualGuideStep {
+  step: number;
+  text: string;
+  caption?: string | null;
+  image_url?: string | null;
+}
+
+export interface VisualGuide {
+  id: string;
+  title: string;
+  source_url: string;
+  attribution: string;
+  section_title?: string | null;
+  steps: VisualGuideStep[];
+}
+
 export interface DiagnosisResult {
   issue_summary: string;
   is_conversational?: boolean;
@@ -138,6 +154,7 @@ export interface DiagnosisResult {
   evidence: Evidence[];
   recommended_fixes: RecommendedFix[];
   resolution_steps: string[];
+  visual_guide?: VisualGuide | null;
   prevention_tips: string[];
   knowledge_references: KnowledgeReference[];
   model: string;

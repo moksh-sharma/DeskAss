@@ -1,0 +1,80 @@
+{
+  "id": "-we-can-t-sign-in-to-your-account-error-message-3e08c5c8-92cc-48dc-80a4-f66d072c6edb",
+  "topic_id": "account/support_guide",
+  "domains": [
+    "account"
+  ],
+  "keywords": [
+    "can",
+    "sign",
+    "account",
+    "error",
+    "message"
+  ],
+  "title": "\"We can't sign in to your account\" error message",
+  "source_url": "https://support.microsoft.com/en-us/windows/-we-can-t-sign-in-to-your-account-error-message-3e08c5c8-92cc-48dc-80a4-f66d072c6edb",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Basic troubleshotoing steps",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Restart your device in safe mode and sign in with your original profile. Check to see if your settings and files are restored",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Restart your device in normal mode and sign in again with your original profile. Check to see if your settings and files are restored. (You might need to restart your device more than once.)",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "More troubleshooting steps",
+      "steps": [
+        {
+          "step": 3,
+          "text": "If multiple restarts don't help, try temporarily disabling your antivirus software or any other app that might scan your device during sign-in. Note: Some antivirus products may have additional components that affect the system and may only be disabled after complete removal and a system reboot.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "If you continue to experience issues signing in with your original profile, disable Windows Defender services: Open the Services app by typing services in the search box on the taskbar and selecting it from the list of results. Then, find the Windows Defender Advanced Threat Protection and Microsoft Defender Antivirus services, right-click each of them, select Properties , and change Startup Type to Disabled , selecting OK after each change. Restart your device in normal mode and try to sign in with your original profile. Note: After troubleshooting and resolving the issue, remember to set the Windows Defender services back to Automatic .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "If you still can't sign in, try creating a new local administrator account , sign in to that new account, then follow the steps in Fix a corrupted user profile to copy your personal data from the old profile into the newly created one.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "See also",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-07.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 7,
+  "image_count": 1
+}

@@ -1,0 +1,132 @@
+{
+  "id": "fix-a-missing-camera-roll-in-windows-3f403e32-d879-b2cd-4a24-80338f6ea9d6",
+  "topic_id": "webcam/support_guide",
+  "domains": [
+    "webcam"
+  ],
+  "keywords": [
+    "fix",
+    "missing",
+    "camera",
+    "roll"
+  ],
+  "title": "Fix a missing Camera Roll in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/fix-a-missing-camera-roll-in-windows-3f403e32-d879-b2cd-4a24-80338f6ea9d6",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Change where new pictures and videos are saved",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select Start > Settings > System > Storage Open Storage settings For Windows 11, select Advanced storage settings then Where new content is saved .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "For Windows 10, select Change where new content is saved .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Look to see what's listed under New photos and videos will save to . This is usually a name with a disk drive letter, such as This PC (C:) or, on mobile, This device . If pictures and videos are being saved to an external device, make sure that device is connected.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Under New photos and videos will save to , select the current save location. Then, if other options are available in the drop-down menu, select another location, select Apply , change it back to the original location or to This PC (C:) , and then select Apply again.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Try taking a picture. If you see the same error message, try the next solution.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Create a new Camera Roll folder",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Select Start > File Explorer .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "In File Explorer, select This PC , and then select your OS disk, usually called OSDisk (C:) . For Windows 11, select New > Folder , and then type Camera Roll as the name of the new folder.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "For Windows 10, under Home , select New folder , and then type Camera Roll as the name of the new folder.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Press and hold (or right-click) the Camera Roll folder you just created, and then select Include in library > Camera Roll . (In Windows 11, you'll need to select Show More Options first.)",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Try taking a picture. If you see the same error message, try the next solution.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Check file permissions on the Camera Roll folder",
+      "steps": [
+        {
+          "step": 11,
+          "text": "In File Explorer , select Pictures , and then press and hold (or right-click) Camera Roll , and select Properties .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "In Security > Group or user names , select the user name that you’re currently signed in with. Then in the permissions box below, next to Write , make sure that Allow is selected.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Try taking a picture. If you see the same error message, try finding answers in the Microsoft Community forums.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Need more help?",
+      "steps": [
+        {
+          "step": 14,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-15.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 15,
+  "image_count": 1
+}

@@ -1,0 +1,114 @@
+{
+  "id": "windows-10-support-has-ended-on-october-14-2025-2ca8b313-1946-43d3-b55c-2b95b107f281",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "support",
+    "has",
+    "ended",
+    "october",
+    "2025"
+  ],
+  "title": "Windows 10 support has ended on October 14, 2025",
+  "source_url": "https://support.microsoft.com/en-us/windows/windows-10-support-has-ended-on-october-14-2025-2ca8b313-1946-43d3-b55c-2b95b107f281",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "What are my options for staying supported on a Windows operating system?",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Installing Windows 11 on your current PC - If your PC meets the minimum system requirements for Windows 11 and is eligible to upgrade directly to Windows 11, you might have already received a notification about upgrading. To check if your PC is eligible for the free upgrade go to Start > Settings > Update & Security > Windows Update and select Check for updates .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "New PC with Windows 11 - If your PC is not eligible, or if you want a new PC with Windows 11 pre-installed, you might want to start by exploring the latest Windows 11 PCs . This tool will help you find the right PC based on your unique needs. ​​​​​​​",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Extended Security Updates (ESU) program - If you need more time before moving to a Copilot+ PC or other new Windows 11 device, the consumer Extended Security Updates (ESU) program can protect your Windows 10 device up to a year after October 14, 2025. If you're an IT pro, see Extended Security Updates (ESU) program for Windows 10.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Is my PC running Windows 10?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "PC Health Check",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Install Windows 11",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Help me choose",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Extended Security Updates",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 9,
+          "text": "Technical support of any issue",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Software updates",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Security updates or fixes",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related articles",
+      "steps": [
+        {
+          "step": 12,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-13.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 13,
+  "image_count": 1
+}

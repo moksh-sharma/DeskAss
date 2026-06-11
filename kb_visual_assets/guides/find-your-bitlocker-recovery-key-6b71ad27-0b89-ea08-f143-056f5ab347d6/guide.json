@@ -1,0 +1,106 @@
+{
+  "id": "find-your-bitlocker-recovery-key-6b71ad27-0b89-ea08-f143-056f5ab347d6",
+  "topic_id": "security/support_guide",
+  "domains": [
+    "security"
+  ],
+  "keywords": [
+    "find",
+    "bitlocker",
+    "recovery",
+    "key"
+  ],
+  "title": "Find your BitLocker recovery key",
+  "source_url": "https://support.microsoft.com/en-us/windows/find-your-bitlocker-recovery-key-6b71ad27-0b89-ea08-f143-056f5ab347d6",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Step 2. Find your recovery key",
+      "steps": [
+        {
+          "step": 1,
+          "text": "From another device, open a web browser and go to https://aka.ms/myrecoverykey",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Sign in with your Microsoft account and locate the key ID:",
+          "caption": "Screenshot of the BitLocker recovery keys for a Microsoft account.",
+          "image": "step-02.png",
+          "image_url": "https://support.microsoft.com/images/en-us/6ef3ec86-2ab8-49fb-95cd-bb1e5a64af2d"
+        },
+        {
+          "step": 3,
+          "text": "Use the related recovery key to unlock the drive​​​​​​​​​​​​​​",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "If the device was set up, or if BitLocker was turned on, by somebody else, the recovery key might be stored in that person’s Microsoft account.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Starting in Windows 11, version 24H2, the BitLocker recovery screen shows a hint of the Microsoft account associated with the recovery key.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "From another device, open a web browser and go to https://aka.ms/aadrecoverykey",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Sign in with your work or school account",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Select Devices and expand the device for which you need to retrieve the recovery key",
+          "caption": "Screenshot of the BitLocker recovery keys for a work or school account.",
+          "image": "step-08.png",
+          "image_url": "https://support.microsoft.com/images/en-us/64f1807c-f513-406d-8821-6528cea76345"
+        },
+        {
+          "step": 9,
+          "text": "Select the option View BitLocker Keys",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Using the key ID, find the related recovery key and use it to unlock the drive",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "What if I can't find the recovery key?",
+      "steps": [
+        {
+          "step": 11,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-12.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 12,
+  "image_count": 3
+}

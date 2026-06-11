@@ -1,0 +1,129 @@
+{
+  "id": "troubleshoot-problems-updating-windows-188c2b0f-10a7-d72f-65b8-32d177eb136c",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "troubleshoot",
+    "problems",
+    "updating"
+  ],
+  "title": "Troubleshoot problems updating Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/troubleshoot-problems-updating-windows-188c2b0f-10a7-d72f-65b8-32d177eb136c",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "General troubleshooting",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Step 1. Run the Windows Update troubleshooter Select Start > Settings > System . Select Troubleshoot and choose Other troubleshooters . Locate Windows Update and select Run . Follow the on-screen instructions to complete the process.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Step 2: Verify that your device is properly plugged in and connected to the Internet Select Start > Settings > Network & Internet > Wi-Fi . Verify your network status. If disconnected, reconnect to your Wi-Fi or Ethernet network.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Step 3. Make sure you have Administrator access Some updates require administrator access. If your account doesn't have administrator access, see how to Create a local user or administrator account in Windows . Or if someone else at home or in your office has an administrator account on your device, try asking them to install the updates.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Step 4. Disconnect external hardware Remove any external storage devices and drives, docks, and other hardware plugged into your device that aren't needed for basic functionality. Then try to run updates again and see if this resolved your issue. If it didn't, continue to the next step.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Step 5. Clear the Windows Update Cache Press Win + R , type services.msc , and press Enter. Locate the Windows Update service, right-click it, and select Stop . Navigate to C:\\Windows\\SoftwareDistribution . Delete all files and folders inside this directory. Go back to the Services window, right-click Windows Update , and select Start .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Step 6. Verify Date and Time settings Select Start > Settings > Time & language . Select Date & time and enable Set time automatically and Set time zone automatically . If needed, select Sync now under Additional settings .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Step 7. Update third-party drivers If you've added hardware to your device, check for third-party driver updates and installation instructions on the hardware manufacturer’s website. Update any drivers, then try to run updates again and see if this resolved your issue. If it didn't, continue to the next tip",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Step 8. Free up some space so you can run updates Make sure that your device has enough space: Your device requires at least 16 GB of free space to upgrade a 32-bit OS, or 20 GB for a 64-bit OS. If your device has a small hard drive, you may need to insert a USB drive to update it. If your PC is running low on storage, try the techniques at Free up drive space in Windows .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Step 9. Run Windows Update again Even if you have downloaded some updates, there may be more available. After trying the preceding steps, run Windows Update again by selecting Start > Settings > Windows Update > Check for updates . Download and install any new updates. Check for updates in Settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Step 10. Restart to apply installed updates Many updates require you to restart your device. Save your work and close all open applications. Then, select Start > Power , and select either Update and restart or Update and shut down .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Most common Windows Update problems",
+      "steps": [
+        {
+          "step": 11,
+          "text": "Error codes and their potential causes Select Start > Settings > System . Select Troubleshoot and choose Other troubleshooters . Locate Windows Update and select Run . Follow the on-screen instructions to complete the process. Press Win + R , type services.msc , and press Enter. Locate the Windows Update service, right-click it, and select Stop . Navigate to C:\\Windows\\SoftwareDistribution . Delete all files and folders inside this directory. Go back to the Services window, right-click Windows Update , and select Start . Select Start > Settings > Network & Internet > Wi-Fi . Verify your network status. If disconnected, reconnect to your Wi-Fi or Ethernet network. Open the antivirus or firewall application from the Start menu. Look for an option to disable or pause protection, often found in the Settings, Tools, or Protection tab. Select a duration for the temporary disable (e.g., 10 minutes, 1 hour). Update your antivirus software. Press Win + R , type services.msc , and press Enter. Locate the Windows Update service and check if its running. Select Start > Settings > System > Troubleshoot > Other troubleshooters . Locate Windows Update and select Run . Follow the on-screen instructions to complete the process. Select Start > Settings > System , Select Troubleshoot and choose Other troubleshooters . Locate Windows Update and select Run . Follow the on-screen instructions to complete the process. Open Device Manager , expand Network adapters or Display adapters and right-click on the adapter you want to uninstall and select Uninstall device . After uninstalling the drivers, restart your computer for changes to take effect. Open Device Manager , expand Network adapters or Display adapters and right-click on the adapter you want to uninstall and select Update driver and choose Search automatically for drivers . Select Start > Settings > System . Select Troubleshoot and choose Other troubleshooters . Locate Windows Update and select Run . Follow the on-screen instructions to complete the process. Press Win + R , type services.msc , and press Enter. Locate the Windows Update service, right-click and select Start . Open the antivirus or firewall application from the Start menu. Look for an option to disable or pause protection, often found in the Settings, Tools, or Protection tab. Select a duration for the temporary disable (e.g., 10 minutes, 1 hour). Update your antivirus software. Select Start > Settings > System . Select Troubleshoot and choose Other troubleshooters . Locate Windows Update and select Run . Follow the on-screen instructions to complete the process. Select Start > Settings > Network & Internet > Wi-Fi . Verify your network status. If disconnected, reconnect to your Wi-Fi or Ethernet network.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 12,
+          "text": "In the search box on the taskbar, type command prompt , then select Run as administrator from the list of options. Select Yes . Next, in the window that appears, type the following commands one at a time, including the spaces as shown. After you type each command, press Enter . Then let each command complete before you type the next command. net stop bits net stop wuauserv ren %systemroot%\\softwaredistribution softwaredistribution.bak ren %systemroot%\\system32\\catroot2 catroot2.bak net start bits net start wuauserv",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "After all these commands are completed, close the Command Prompt window and restart your computer.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related articles",
+      "steps": [
+        {
+          "step": 14,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-15.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 15,
+  "image_count": 1
+}

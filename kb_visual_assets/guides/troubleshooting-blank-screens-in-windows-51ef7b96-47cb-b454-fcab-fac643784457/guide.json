@@ -1,0 +1,73 @@
+{
+  "id": "troubleshooting-blank-screens-in-windows-51ef7b96-47cb-b454-fcab-fac643784457",
+  "topic_id": "display/support_guide",
+  "domains": [
+    "display"
+  ],
+  "keywords": [
+    "troubleshooting",
+    "blank",
+    "screens"
+  ],
+  "title": "Troubleshooting blank screens in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/troubleshooting-blank-screens-in-windows-51ef7b96-47cb-b454-fcab-fac643784457",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Here's some basic steps you can try to fix blank screen problems in Windows:",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Check connections: Make sure your device is fully charged and/or plugged in. If you are using an external monitor, make sure the monitor is connected, plugged in, and powered on.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Wake the screen: Press Windows + Ctrl + Shift + B to reset the graphics driver. You should hear a beep or see a screen flicker if successful.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Check display mode: Press Windows + P , then tap P again and press Enter to cycle through display modes (e.g., PC screen only, duplicate, extend)",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Use Ctrl + Alt + Del: If you see the security screen, try launching Task Manager and restarting Windows Explorer .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Force restart: Free the power button for 20 seconds.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Here's more advanced step-by-step for troubleshooting a blank screen in Windows:",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-07.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 7,
+  "image_count": 1
+}

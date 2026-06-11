@@ -1,0 +1,36 @@
+{
+  "id": "go-passwordless-in-windows-585a71d7-2295-4878-aeac-a014984df856",
+  "topic_id": "account/support_guide",
+  "domains": [
+    "account"
+  ],
+  "keywords": [
+    "passwordless"
+  ],
+  "title": "Go passwordless in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/go-passwordless-in-windows-585a71d7-2295-4878-aeac-a014984df856",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Learn more",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-02.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 2,
+  "image_count": 1
+}

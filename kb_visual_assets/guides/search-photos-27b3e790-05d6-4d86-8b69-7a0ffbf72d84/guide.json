@@ -1,0 +1,46 @@
+{
+  "id": "search-photos-27b3e790-05d6-4d86-8b69-7a0ffbf72d84",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "search",
+    "photos"
+  ],
+  "title": "Search photos",
+  "source_url": "https://support.microsoft.com/en-us/windows/search-photos-27b3e790-05d6-4d86-8b69-7a0ffbf72d84",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Location search",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Microsoft's Location Service Your photos include latitude and longitude as part of their embedded data. Microsoft uses this information to determine where your photo or video was taken. Microsoft does not store this information. You can find out more information about Microsoft's Location technology here .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Name, Date, and File Type search",
+      "steps": [
+        {
+          "step": 2,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-03.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 3,
+  "image_count": 1
+}

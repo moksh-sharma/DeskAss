@@ -1,0 +1,67 @@
+{
+  "id": "homegroup-removed-from-windows-10-version-1803-07ca5db1-7bca-4d11-68a3-a31ff4a09979",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "homegroup",
+    "removed",
+    "from",
+    "version",
+    "1803"
+  ],
+  "title": "HomeGroup removed from Windows 10 (Version 1803)",
+  "source_url": "https://support.microsoft.com/en-us/windows/homegroup-removed-from-windows-10-version-1803-07ca5db1-7bca-4d11-68a3-a31ff4a09979",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "What’s changed?",
+      "steps": [
+        {
+          "step": 1,
+          "text": "HomeGroup won’t appear in File Explorer.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "HomeGroup won’t appear in Control Panel, which means that you can’t create, join, or leave a homegroup.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "HomeGroup won’t appear on the Troubleshoot screen when you go to Settings > Update & Security > Troubleshoot .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "You won’t be able to share new files and printers using HomeGroup.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "What hasn’t changed?",
+      "steps": [
+        {
+          "step": 5,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-06.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 6,
+  "image_count": 1
+}

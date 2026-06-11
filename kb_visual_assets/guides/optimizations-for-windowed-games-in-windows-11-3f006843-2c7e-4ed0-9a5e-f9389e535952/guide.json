@@ -1,0 +1,42 @@
+{
+  "id": "optimizations-for-windowed-games-in-windows-11-3f006843-2c7e-4ed0-9a5e-f9389e535952",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "optimizations",
+    "windowed",
+    "games"
+  ],
+  "title": "Optimizations for windowed games in Windows 11",
+  "source_url": "https://support.microsoft.com/en-us/windows/optimizations-for-windowed-games-in-windows-11-3f006843-2c7e-4ed0-9a5e-f9389e535952",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "To use optimizations for windowed games",
+      "steps": [
+        {
+          "step": 1,
+          "text": "To turn optimizations off for a specific app or game Select the Start button, then select Settings . In Settings , select System > Display > Graphics . Under Custom options for apps , select the app or game you want to change the graphics settings for, then select Options . In Graphics preference , do one or more of the following: If your PC has more than one graphics processor (GPU), select one of the graphics performance setting to use for the app or game: Let Windows decide (Power saving) Power saving High performance . To turn off optimizations for windowed games, select the Optimizations for windowed games switch. To turn off Auto HDR for the selected app or game, select the Don’t use Auto HDR checkbox. Select Save . Restart your game or app.",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-03.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 3,
+  "image_count": 1
+}

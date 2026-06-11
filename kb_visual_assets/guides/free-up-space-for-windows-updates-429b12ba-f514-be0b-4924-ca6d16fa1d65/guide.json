@@ -1,0 +1,191 @@
+{
+  "id": "free-up-space-for-windows-updates-429b12ba-f514-be0b-4924-ca6d16fa1d65",
+  "topic_id": "storage/support_guide",
+  "domains": [
+    "storage",
+    "windows_update"
+  ],
+  "keywords": [
+    "free",
+    "space",
+    "updates"
+  ],
+  "title": "Free up space for Windows updates",
+  "source_url": "https://support.microsoft.com/en-us/windows/free-up-space-for-windows-updates-429b12ba-f514-be0b-4924-ca6d16fa1d65",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Use Storage Sense to free up space (recommended)",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select Start > Settings > System > Storage .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Turn on Storage Sense .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Select Cleanup recommendations , review the suggested files, and then select Clean up .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Use Cleanup recommendations",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Select Start > Settings > System > Storage .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Select Cleanup recommendations .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Review the file categories, select the items you want to remove, and then select Clean up .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Use external storage to complete an update",
+      "steps": [
+        {
+          "step": 7,
+          "text": "An external storage device with at least 10 GB of free space",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "An internet connection",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Connect the external storage device to your PC.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Select Start > Settings > Windows Update .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "If you don't have enough free disk space to install updates, you should see an option on the Windows Update tab called Fix Issues . If so, select Fix issues . This will launch a tool that lets you update your PC using an external storage device.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Before you use an external storage device for updating, make sure you back up any important files.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Connect your external storage device and select it from the drop-down menu.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Select Next and follow the instructions to finish installing the update.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Once the installation is complete, you can safely remove your external storage device.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Frequently asked questions",
+      "steps": [
+        {
+          "step": 16,
+          "text": "How will I know if I don’t have enough free disk space to install updates? When there isn’t enough free space available to install an update, a pop-up notification will prompt you that additional space is required to install the update. When you select Fix issues , you'll be informed about how much additional space is needed. You'll also be notified that you can use an external storage device so that you don’t need to free up quite as much space on your system drive. The total free disk space your device requires to complete an update varies. Typically, feature updates require 6 GB – 11 GB or more of free space, while quality updates require 2 GB – 3 GB or more. Learn about the difference between a feature update and a quality update.",
+          "caption": "Windows needs more space to update message",
+          "image": "step-16.png",
+          "image_url": "https://support.microsoft.com/images/en-us/3c56d09d-da95-8eb3-c1bb-4fd9f8af9c24"
+        },
+        {
+          "step": 17,
+          "text": "Why does Windows require additional space during the update process? You need disk space to download the update, download new versions of any optional features and languages that are currently installed, and to apply the update. Additional space is temporarily required to support removal of the update (typically for 10 days). This space can be reclaimed after the update is completed. To do this, select Start > Settings > System > Storage > Cleanup recommendations . After you've selected items to remove, select the Clean up button for that section. Open Storage settings The update is compressed to reduce download size. Note: For devices with reserved storage, an update will first use the reserved storage space before using other disk space. For more info, see How reserved storage works in Windows .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Why does the amount of space required to update Windows vary so much? For PCs with plenty of free disk space Windows automatically tries to complete more of the update process in the background while you use your PC. This significantly reduces the time your PC will be offline (or unusable) during the update, although it might temporarily use more disk space to complete the update. Learn more about our efforts to reduce offline time during updates (English only at this time). For PCs with limited free space but still enough to complete the update automatically Windows will automatically optimize for reducing the amount of free disk space required to install the update. This will result in a longer offline install time. For PCs that don't have enough space to automatically install the update Windows will prompt you to free up disk space or use external storage to temporarily extend the storage on your PC. If you use an external storage device, Windows won’t need as much free space on the system drive as it temporarily uses your external storage. Optional features . Many optional features available for Windows are pre-installed or acquired on demand by the system, or manually by you. You can see which ones are installed on your PC by going to Start > Settings > Apps > Optional features . Open Optional features settings These features range in size from less than 1 MB to almost 2 GB for the Windows Mixed Reality portal. You can reduce the amount of space required to install a feature update on your PC by uninstalling optional features you aren’t using. Languages installed . Windows is localized into many languages. Although many people only use one language at a time, some people switch between two or more languages. You can see which languages are installed on your PC by selecting Start > Settings > Time & language > Language & region . Open Language settings During each update, all language resources and any associated typing, text-to-speech, speech-to-text, and handwriting recognition resources must be updated. The content for each language can range from about 175 MB to more than 300 MB. You can reduce the amount of space required to install a feature update on your PC by uninstalling languages you aren’t using. Driver updates . OEMs and other hardware partners sometimes publish new graphics, networking, audio, and other drivers in conjunction with the new OS update. The size of these drivers can vary significantly, depending on your PC and on which drivers have been updated. OS quality updates . During a feature update, Windows tries to download and automatically install the latest quality update so that your PC is fully up to date when you start using it. Shortly after the feature update is released, the quality update for that feature update could be as small as a few hundred MB, but as more quality and security changes are implemented, the quality update can increase in size to 1 GB or more. If your PC is short on disk space, you can download and install the quality update after the feature update is complete.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "My hard drive is getting full. How will I know if my Windows is up to date? Windows Update automatically offers updates to eligible devices. To double check that your device is up to date, select Start > Settings > Windows Update , and then select Check for updates . Check for updates Learn more about Windows Update",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "If I'm considering buying a new device, what should I keep in mind when thinking about Windows updates and storage space? Windows 11 requires a 64-bit processor to run. When considering what storage hardware to use in your device, don't look only at the hardware's storage capacity. Often, the speed of the storage is more important than its size. Devices with slow storage hardware, such as those labeled \"HDD\" are typically slower to use than those using faster storage hardware, such as those labeled \"SSD\" or \"eMMC.\"",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 21,
+          "text": "Do I need to clear everything off my hard drive before I run an update, or just some things? You don't need to remove everything from your hard drive to update your device, but you'll need to free up enough space to complete the update. Support for Windows 10 has ended on October 14, 2025 After October 14, 2025, Microsoft will no longer provide free software updates from Windows Update, technical assistance, or security fixes for Windows 10. Your PC will still work, but we recommend moving to Windows 11.​​​​​​​​​​​​​​​​​​​​​ Learn more ​​​​​​​",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Use Disk cleanup",
+      "steps": [
+        {
+          "step": 22,
+          "text": "In the search box, type Disk Cleanup , and then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 23,
+          "text": "Select the drive you want to clean up, and then select OK .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 24,
+          "text": "Select the file types you want to remove, and then select OK .​​​​​​​",
+          "caption": null,
+          "image": null
+        }
+      ]
+    }
+  ],
+  "step_count": 24,
+  "image_count": 1
+}

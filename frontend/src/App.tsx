@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useStore } from "@/store/useStore";
 import { Sidebar } from "@/components/Sidebar";
+import { IssueScanSidebar } from "@/components/IssueScanSidebar";
 import { Toolbar } from "@/components/Toolbar";
 import { ChatView } from "@/components/ChatView";
 import { Dashboard } from "@/components/Dashboard";
@@ -39,6 +40,8 @@ export default function App() {
           {view === "machine-scan" && <MachineScanView />}
         </main>
       </div>
+
+      <IssueScanSidebar />
 
       <Toast />
     </div>

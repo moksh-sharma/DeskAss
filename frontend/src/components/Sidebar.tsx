@@ -119,7 +119,7 @@ export function Sidebar() {
 
       {/* Scrollable History lists */}
       <div className="flex min-h-0 flex-1 flex-col py-3 space-y-4">
-        
+
         {/* Session History */}
         <div className="flex flex-col min-h-0 flex-1">
           <div className="px-5 text-label flex items-center justify-between">
@@ -135,11 +135,10 @@ export function Sidebar() {
               sessions.map((s) => (
                 <div
                   key={s.id}
-                  className={`group relative mb-0.5 cursor-pointer rounded-lg px-3 py-2.5 transition-all duration-150 ${
-                    currentSessionId === s.id
+                  className={`group relative mb-0.5 cursor-pointer rounded-lg px-3 py-2.5 transition-all duration-150 ${currentSessionId === s.id
                       ? "bg-base-700/90 text-white shadow-md border-l-2 border-accent"
                       : "hover:bg-base-750 text-content-body"
-                  }`}
+                    }`}
                   onClick={() => loadSession(s.id)}
                 >
                   <div className="flex items-center justify-between gap-2">
@@ -207,11 +206,10 @@ export function Sidebar() {
               machineScanHistory.map((s) => (
                 <div
                   key={s.id}
-                  className={`group relative mb-0.5 cursor-pointer rounded-lg px-3 py-2.5 transition-all duration-150 ${
-                    currentMachineScanId === s.id
+                  className={`group relative mb-0.5 cursor-pointer rounded-lg px-3 py-2.5 transition-all duration-150 ${currentMachineScanId === s.id
                       ? "bg-base-700/90 text-white shadow-md border-l-2 border-accent"
                       : "hover:bg-base-750 text-content-body"
-                  }`}
+                    }`}
                   onClick={() => loadMachineScan(s.id)}
                 >
                   <div className="flex items-center justify-between gap-2">

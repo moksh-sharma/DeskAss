@@ -1,0 +1,71 @@
+{
+  "id": "go-back-to-the-previous-version-of-windows-4fdf8a9e-ddc9-4f65-971f-47e7debab6e1",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "back",
+    "previous",
+    "version"
+  ],
+  "title": "Go back to the previous version of Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/go-back-to-the-previous-version-of-windows-4fdf8a9e-ddc9-4f65-971f-47e7debab6e1",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Steps to go back",
+      "steps": [
+        {
+          "step": 1,
+          "text": "In the Settings app on your Windows device, select System > Recovery or use the following shortcut: Open Recovery settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "If the option is available, select Go back . This will keep your personal files, but it'll remove apps and drivers installed after the upgrade, as well as any changes you made to Settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Keep everything in the windows.old and $windows.~bt folders after the upgrade",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Remove any user accounts you added after the upgrade",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Have the USB drive you used to upgrade to Windows (if you used one)​​​​​​​",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Information for Windows Insider",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-07.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 7,
+  "image_count": 1
+}

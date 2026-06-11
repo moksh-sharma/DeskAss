@@ -1,0 +1,183 @@
+{
+  "id": "exploring-windows-settings-56bdfb5a-b809-4e65-9c90-4bab76745e19",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "exploring",
+    "settings"
+  ],
+  "title": "Exploring Windows Settings",
+  "source_url": "https://support.microsoft.com/en-us/windows/exploring-windows-settings-56bdfb5a-b809-4e65-9c90-4bab76745e19",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Getting around in Settings",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Use search : use the search bar to find settings by entering a keyword, such as \" display \" or \" notifications \". On Copilot+ PCs , the search experience is enhanced with AI-powered suggestions that help surface the most relevant settings based on your intent. On these devices, you can search by describing a problem, like \" my mouse pointer is too small \" or \" how to control my PC using voice \".",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Browse by category : Use the navigation panel to select a category. Each category opens a dedicated page with grouped settings or cards that provide controls and information for specific Windows features. Some pages also include links to subpages for more detailed options.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "AI-empowered search",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Improved search \" Change my theme \" \" View storage usage \"",
+          "caption": "Screenshot of a search in settings.",
+          "image": "step-03.png",
+          "image_url": "https://support.microsoft.com/images/en-us/28221b44-775c-471d-b7d4-fb23130a23b0"
+        },
+        {
+          "step": 4,
+          "text": "Agent in Settings \" My mouse pointer is too small \" \" How can I share internet with other devices \"​​​​​​​ Language: Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, and Spanish. Geography: All countries, except China​​​​​​​ ​​​​​​​",
+          "caption": "Screenshot of Settings showing an AI-based search using the agent.",
+          "image": "step-04.png",
+          "image_url": "https://support.microsoft.com/images/en-us/16ddbeac-80f6-4b15-bb6d-b6490163df91"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft's commitment to responsible AI and privacy",
+      "steps": [
+        {
+          "step": 5,
+          "text": "The model runs locally on your device, analyzing your query to match it with relevant settings already available in the Settings app.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "If the model cannot confidently classify your query to a specific setting, you’ll see the standard search results instead.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "The agent only suggests settings; it doesn't make any changes automatically. You must select the Apply button to enable or disable a setting. If needed, you can easily undo the change.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Settings categories",
+      "steps": [
+        {
+          "step": 8,
+          "text": "Home When you open Settings, Home is typically the first page displayed. The Home page surfaces account-related actions and simplifies access to frequently used device settings through interactive cards like Recommended Settings, Personalization, Bluetooth, Storage, and more.",
+          "caption": "Home icon",
+          "image": "step-08.png",
+          "image_url": "https://support.microsoft.com/images/en-us/5b2d6ef8-ee73-47b2-8b87-89102525a71a"
+        },
+        {
+          "step": 9,
+          "text": "System The System page in Settings provides a comprehensive overview of your PC's core functionalities and configurations. It includes options for managing display settings, notifications, power and sleep settings, storage, optional features, and more. You can use the following link to access the page: System To learn more: Display settings in Windows.",
+          "caption": "system icon",
+          "image": "step-09.png",
+          "image_url": "https://support.microsoft.com/images/en-us/8dfe00a9-695e-4f7e-9c66-ed445f70a081"
+        },
+        {
+          "step": 10,
+          "text": "Bluetooth & devices​​​​​​​ From the Bluetooth & devices page you can manage connected devices such as printers, scanners, and Bluetooth devices. It also includes settings for mouse, keyboard, pen, and touchpad configurations. You can use the following link to access the page: Bluetooth & devices To learn more: Hardware in Windows .",
+          "caption": "Bluetooth & devices icon.",
+          "image": "step-10.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f5ff92f1-c40e-4483-9f59-8317447f30c9"
+        },
+        {
+          "step": 11,
+          "text": "​​​​Network & internet The Network & internet page covers settings related to Wi-Fi, Ethernet, VPN, mobile hotspot, and data usage. Use this page to connect to networks, manage connections, and monitor data consumption. You can use the following link to access the page: Network & Internet To learn more: Essential Network Settings and Tasks in Windows .",
+          "caption": "network-internet icon",
+          "image": "step-11.png",
+          "image_url": "https://support.microsoft.com/images/en-us/d2389d19-c127-4b6b-8f79-8352238df41c"
+        },
+        {
+          "step": 12,
+          "text": "Personalization Use the Personalization page to customize the appearance of your PC, including themes, backgrounds, colors, lock screen, Start menu, and taskbar settings. You can use the following link to access the page: Personalization To learn more: Windows personalization help.",
+          "caption": "Personalization icon",
+          "image": "step-12.png",
+          "image_url": "https://support.microsoft.com/images/en-us/4c895484-7a31-4707-ac68-3cfd4d51c36c"
+        },
+        {
+          "step": 13,
+          "text": "Apps ​​​​​​​ The Apps page lets you manage all your applications effortlessly. You can view, install, uninstall, and update apps, choose default apps, configure startup apps and actions, all in one place. You can use the following link to access the page: Apps To learn more: Uninstall or remove apps and programs in Windows.",
+          "caption": "Apps icon",
+          "image": "step-13.png",
+          "image_url": "https://support.microsoft.com/images/en-us/2dddf915-7891-418d-9cd3-87b73569ce3b"
+        },
+        {
+          "step": 14,
+          "text": "Accounts From the Accounts page you can manage your Microsoft account, work or school account, family settings, and sign-in options. It also includes settings for email and app accounts. You can use the following link to access the page: Accounts To learn more: Help for accounts in Windows .",
+          "caption": "accounts icon",
+          "image": "step-14.png",
+          "image_url": "https://support.microsoft.com/images/en-us/7aab16c5-a722-4a2b-9290-7c313476cbfc"
+        },
+        {
+          "step": 15,
+          "text": "Time & Language Use the Time & Language page to adjust date and time settings, language preferences, and region settings. You can use the following link to access the page: Time & Language To learn more: Set time, date, and time zone settings in Windows.",
+          "caption": "Time & language icon",
+          "image": "step-15.png",
+          "image_url": "https://support.microsoft.com/images/en-us/ac513d87-39e2-4066-84ce-ebd9285d731e"
+        },
+        {
+          "step": 16,
+          "text": "Gaming The Gaming page includes settings for the game bar, game mode, and game streaming. You can use the following link to access the page: Gaming To learn more: Windows gaming features and tips.",
+          "caption": "Gaming icon.",
+          "image": "step-16.png",
+          "image_url": "https://support.microsoft.com/images/en-us/9bc43a61-d2e1-45b5-b36b-47bd639f995a"
+        },
+        {
+          "step": 17,
+          "text": "Accessibility From the Accessibility page you can change Windows accessibility options to make your PC easier to use, including settings for vision, hearing, and interaction. You can use the following link to access the page: Accessibility To learn more: Discover Windows accessibility features.",
+          "caption": "accessibility icon",
+          "image": "step-17.png",
+          "image_url": "https://support.microsoft.com/images/en-us/8030b532-b867-4c2b-850b-0b680482fbb9"
+        },
+        {
+          "step": 18,
+          "text": "Privacy & security The Privacy & security page covers settings related to location, camera, microphone, and other privacy options. You can control app permissions, manage diagnostic data, configure encryption, and find a lost or stolen device. You can use the following link to access the page: Privacy & security To learn more: Change privacy settings in Windows.",
+          "caption": "Security & privacy icon.",
+          "image": "step-18.png",
+          "image_url": "https://support.microsoft.com/images/en-us/9c528ab5-306e-4319-b8f9-e2d9490406c9"
+        },
+        {
+          "step": 19,
+          "text": "Windows Update Use the Windows Update page to configure Windows updates, active hours, and other update options. You can also enroll in the Windows Insider Program to get preview builds of Windows. You can use the following link to access the page: Windows Update ​​​​​​​ To learn more: Install Windows Updates.",
+          "caption": "Windows Update icon.",
+          "image": "step-19.png",
+          "image_url": "https://support.microsoft.com/images/en-us/876df6be-159a-4195-9dfe-fa331a7f7d18"
+        }
+      ]
+    },
+    {
+      "title": "Other configuration options",
+      "steps": [
+        {
+          "step": 20,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 21,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-21.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 21,
+  "image_count": 15
+}

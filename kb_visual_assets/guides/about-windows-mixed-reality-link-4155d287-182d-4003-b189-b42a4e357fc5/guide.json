@@ -1,0 +1,112 @@
+{
+  "id": "about-windows-mixed-reality-link-4155d287-182d-4003-b189-b42a4e357fc5",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "mixed",
+    "reality",
+    "link"
+  ],
+  "title": "About Windows Mixed Reality Link",
+  "source_url": "https://support.microsoft.com/en-us/windows/about-windows-mixed-reality-link-4155d287-182d-4003-b189-b42a4e357fc5",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Frequently asked questions and issues",
+      "steps": [
+        {
+          "step": 1,
+          "text": "I cannot connect my Quest 3 to my Windows 11 PC Please verify that your Quest 3 and Windows 11 PC are on the same network. If both the PC and Quest 3 are on Wi-Fi, make sure they are both connected to the same wireless network, or SSID. If your PC is Ethernet-connected (wired), make sure that your Quest 3 Wi-Fi network is on the same subnet as your Ethernet-connected PC. Also, when trying to reconnect after an initial connection, please ensure when you are trying to reconnect that your Windows 11 PC is unlocked and / or not asleep. For security reasons, a headset cannot connect to a locked PC.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "I get an error “The connection was closed as a streaming connection could not be established.” This usually happens when network communication between the PC and headset is blocked, often by firewall or proxy settings. Please refer to the network port requirements above. If you are testing on a personal network, review your firewall or antivirus settings to ensure they are not blocking the connection. If you are on a managed network (such as a corporate or school environment), contact your network administrator to confirm that the required connections are allowed.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "My remote desktop display is highly pixelated. Please verify that your signal strength is at least 75% and/or that neither your PC or Quest 3 are connected at 2.4GHz frequency; rather, you should be connected at the 5GHz or 6GHz frequencies. You can determine your Wi-Fi signal strength from your PC by opening a command prompt and entering netsh wlan show interfaces . From here, locate the value next to Signal ., which should be higher than 75%. You can also check the entry next to Band to determine which wireless band you are on; if it says 2.4GHz, then you need to move to the 5GHz or 6GHz bands. If you are on a wired connection, disconnect the Ethernet cable, and then run the command above to get a representation of what your Quest 3 would be seeing for Wi-Fi.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "When following the \"Providing Feedback\" directions below, I try to capture Windows App logs, but my PC doesn’t see the Quest 3 internal storage. With your Quest 3 on your head, disconnect and reconnect the USB cable. Watch carefully for the toast that displays regarding USB connection. (The toast might not always show up, but keep plugging and unplugging your USB cable until you see it.) When you see it, quickly select it. At that point your PC should be able to see the Quest 3 internal storage. You will need to repeat this process every time you connect your Quest 3 to your PC via USB.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "I moved my PC and Quest 3 to a different location and I can’t reconnect. On some networks your Quest may not be able to find your PC that you previously paired on a different network. If this happens, select Add Computer and establish a new connection.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "I can’t do an initial connection or connect from an existing connection. Please press Alt+Shift+W on your PC's keyboard to launch Mixed Reality Link and validate if the QR code appears. If you are still unable to establish a connection between the Quest 3 and the Windows 11 PC, please follow the filing feedback section below.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "I get an error when trying to reconnect or do an initial connection. (i.e. error -3001, -5001, -7001). Please try reconnecting or setting up the initial connection again. If you still are getting the above errors, please follow the filing feedback section below.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "My Bluetooth keyboard and/or mouse lags. Turn off your mouse and keyboard, then turn them on again. See My remote desktop display is highly pixelated to check your network setup for lag issues.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Known issues",
+      "steps": [
+        {
+          "step": 9,
+          "text": "Three active displays may restrict the quality if the PC doesn't meet the PC graphics requirements above.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Providing feedback",
+      "steps": [
+        {
+          "step": 10,
+          "text": "Sending feedback from your Meta Quest 3 / 3S Press the Meta button on your right controller five times. Select Include on the panel to include all logs and diagnostics. Under Category , select Remote Desktop . Under Type of problem , select the appropriate problem type. In the description box, enter [PrP] and then a brief description of the problem. When you are finished, select Send Report .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Sending feedback from your Windows PC Launch the Camera application. Select the Record Video button. A red dot will appear in your vision to indicate recording has started. Capture what you are seeing that you want to provide feedback for. Audio will be captured as well, so feel free to tell us what you are seeing also. When you are done recording, go back to the Camera application and select the button again (it now reads Recording ) to stop the recording. The red dot will disappear. Shortly after stopping the video recording you will see a notification indicating that the video has been saved to your Quest 3. You also may see the video appear in Recents . Connect a USB-C cable to the side of your Quest 3. If you have a battery pack, you will need to disconnect that USB-C connector. Connect that cable to your PC. You should see a notification appear on your screen stating USB Connected . You will need to select that notification in order for the Windows 11 PC to see your Quest 3 internal storage. You might need to repeat Step 6 if you do not select the notification in time. On the PC, open File Explorer , then scroll down the left pane and select This PC . Under Devices and drives , double-click (or long-press) your Quest 3 device, then navigate to your Internal shared storage\\Oculus\\VideoShots folder. Locate the video that you just recorded. Copy and paste that video to a folder on your Windows 11 PC. Launch the Windows App on your Quest 3. Select the account icon in the upper-left corner of the Windows App and you'll see a menu on the left side. Select Troubleshoot . You will see another set of options. Under Mixed Reality Service Logs , select Export logs to Documents folder . Connect a USB-C cable to the side of your Quest 3. If you have a battery pack, you will need to disconnect that USB-C connector. Connect that cable to your PC. You should see a notification appear on your headset stating USB Connected . You will need to select that notification in order for the Windows 11 PC to see your Quest 3 internal storage. You might need to repeat Step 4 if you do not select the notification in time. On the PC, open File Explorer , then scroll down the left pane and select This PC . Under Devices and drives , double-click (or long-press) your Quest 3 device, then navigate to your Internal shared storage \\Documents\\WindowsAppLogs folder. Copy all of the log files to a folder on your Windows 11 PC. (If you did Step 1 above, you probably want to do this in the same folder you saved the video to) In the folder you copied the files to, right-click (or long-press), then select New > Compressed (zipped) Folder . Give it an appropriate name if you like, then move all of the log files into that folder. Open Feedback Hub by selecting the button below. If your browser warns you that the link is trying to open Feedback Hub, well, that's what we want, so select Open . ​​​​​​​ Open Feedback Hub For Step 1 in Feedback Hub: Please fill out a summary under Summarize your feedback and then Explain in more detail as best you can, including the approximate date and time that the incident occurred. This will help us identify where in the log files to look for the incident. Then, select Next . For Step 2 in Feedback Hub: If you clicked on the link above, the default categories should be set. However, please confirm that the primary category is set to Apps and the secondary category is set to Mixed Reality Link . It’s important to use those categories or the proper logging from the PC won’t occur. Select Next . For Step 3 in Feedback Hub: Just select Next . For Step 4 in Feedback Hub: Under Which of the following best describes your problem? , if you were able to complete Steps 1 (Capture video of what you are seeing through your headset) and Steps 2 (Capture logs from the Windows App), select Other, Then select Attach a file and attach the recording and .ZIP file from the Windows App (the compressed folder) that you created in the two parts above. If you can recreate the issue, then select Recreate my problem , then Start recording. Let it record until you are able to reproduce the issue, and after the issue occurs, continue recording for five seconds before selecting Stop recording . Finally, select the Submit button to send your feedback.",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-13.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 13,
+  "image_count": 1
+}

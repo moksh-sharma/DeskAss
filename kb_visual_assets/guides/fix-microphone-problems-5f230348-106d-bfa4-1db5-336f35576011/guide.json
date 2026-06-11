@@ -1,0 +1,166 @@
+{
+  "id": "fix-microphone-problems-5f230348-106d-bfa4-1db5-336f35576011",
+  "topic_id": "audio/support_guide",
+  "domains": [
+    "audio"
+  ],
+  "keywords": [
+    "fix",
+    "microphone",
+    "problems"
+  ],
+  "title": "Fix microphone problems",
+  "source_url": "https://support.microsoft.com/en-us/windows/fix-microphone-problems-5f230348-106d-bfa4-1db5-336f35576011",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Make sure apps have access to the microphone",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select Start > Settings > Privacy & security > Microphone and make sure Microphone access is turned on.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Make sure Let apps access your microphone is turned on, then choose which apps have access. Desktop apps won't appear in this list.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Others can't hear me",
+      "steps": [
+        {
+          "step": 3,
+          "text": "If your headset has a Mute button, make sure it isn't active.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Make sure that your microphone or headset is connected correctly to your computer. If your headset is a wireless Bluetooth device, make sure your Bluetooth device is paired and connected by following the steps at Pair a Bluetooth device in Windows .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Make sure that your microphone or headset is the system default recording device. Here's how to do this in Windows 11: Select Start > Settings > System > Sound .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "In Input , go to Choose a device for speaking or recording and select the device to use.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "To test your microphone, select > to the right of the device. On the properties page, select Start test under Microphone test and speak into the microphone. Select Stop test and choose Play under Recorded sample to hear what it sounds like.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Run the Recording Audio Troubleshooter. Select Settings > System > Sound. ​​​​​​​ Scroll down to Advanced and choose Output devices or Input devices under Troubleshoot common sound problems . Select All sound devices under Advanced for additional options.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Windows isn't detecting the headset, camera, or microphone",
+      "steps": [
+        {
+          "step": 9,
+          "text": "​​​​​​​​​​​​​​​​​​​Right-click the Start button and select Device Manager .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Expand the Sound, video and game controllers section.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Look for any audio devices or drivers. Right-click the audio device and select Uninstall device . Make sure to check the box that says Attempt to remove the driver for this device and then select Uninstall . Repeat this process for any other audio devices.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Restart your computer. Windows will attempt to reinstall your audio devices and drivers automatically. If it does not, right-click the Start button and select Device Manager . Right-click the Sound, video and game controllers section and select Scan for hardware changes .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Update your drivers. Once your computer restarts, go back to Device Manager. Expand the Sound, video and game controllers section. Right-click your audio driver and select Update driver .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "The microphone volume is too low or does not appear to be working at all",
+      "steps": [
+        {
+          "step": 14,
+          "text": "Make sure that the microphone or headset is connected correctly to your computer.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Make sure that the microphone is positioned correctly.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Increase the volume of your microphone. Here's how to do this in Windows 11: Select Start > Settings > System > Sound .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "In Input , select a microphone to see its properties.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Under Input settings , select Start test and speak normally. Select Stop test and choose Play to hear your recorded sample. Adjust the Input volume slider if needed.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Others cannot hear me in Skype calls",
+      "steps": [
+        {
+          "step": 19,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-20.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 20,
+  "image_count": 1
+}

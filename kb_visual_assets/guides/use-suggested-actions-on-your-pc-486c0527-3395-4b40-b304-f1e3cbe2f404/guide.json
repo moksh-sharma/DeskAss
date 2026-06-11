@@ -1,0 +1,86 @@
+{
+  "id": "use-suggested-actions-on-your-pc-486c0527-3395-4b40-b304-f1e3cbe2f404",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "suggested",
+    "actions"
+  ],
+  "title": "Use suggested actions on your PC",
+  "source_url": "https://support.microsoft.com/en-us/windows/use-suggested-actions-on-your-pc-486c0527-3395-4b40-b304-f1e3cbe2f404",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "How to use suggested actions to make a call",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Highlight and copy a phone number.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Next to Call number , select your desired calling app, and follow the app's on-screen instructions to make the call.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "How to use suggested actions to create a calendar event",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Highlight and copy a future date or time.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Next to Create event , select your desired calendar app, and enter the other event details.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "How to navigate suggested actions with your keyboard",
+      "steps": [
+        {
+          "step": 5,
+          "text": "Press Alt + A to set focus to the first option in the Suggested actions menu.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Then, press Tab to move forward through menu options or Shift + Tab to move back through previous menu options.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Manage suggested actions in Settings",
+      "steps": [
+        {
+          "step": 7,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-08.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 8,
+  "image_count": 1
+}

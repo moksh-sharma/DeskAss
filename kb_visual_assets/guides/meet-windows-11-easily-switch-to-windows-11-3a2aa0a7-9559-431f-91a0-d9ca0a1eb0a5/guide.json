@@ -1,0 +1,68 @@
+{
+  "id": "meet-windows-11-easily-switch-to-windows-11-3a2aa0a7-9559-431f-91a0-d9ca0a1eb0a5",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "meet",
+    "basics"
+  ],
+  "title": "Meet Windows 11: The Basics",
+  "source_url": "https://support.microsoft.com/en-us/windows/meet-windows-11-easily-switch-to-windows-11-3a2aa0a7-9559-431f-91a0-d9ca0a1eb0a5",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "User experience",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Sign in and access to the desktop The user experience begins at the lock screen. If your device has a biometric sensor, you can conveniently sign in using your face or fingerprint. Alternatively, you can use a PIN or password. The user profile pictures on the side allow you to switch between different user accounts. After you successfully sign in, you are taken to the desktop.",
+          "caption": "Screenshot of the Windows 11 lock screen.",
+          "image": "step-01.png",
+          "image_url": "https://support.microsoft.com/images/en-us/ebdbb073-7851-49f3-875b-cf9734f6894b"
+        },
+        {
+          "step": 2,
+          "text": "Desktop Components The desktop is your main workspace in Windows 11. It includes several key components: Start Menu : Located at the center of the taskbar, the Start Menu provides quick access to your applications, settings, and files. You can pin your favorite apps, search for files, and access system settings from here. To open Start, press the Windows key on your keyboard, typically located between the Ctrl and Alt keys, or select it with your mouse. On a touch device, you can open the Start menu by tapping the Start button or swiping up from the bottom of the screen. Taskbar and Quick Setting ​​​​​​​ The taskbar runs along the bottom of the screen and includes icons for open applications, system notifications, and the Start Menu. You can customize the taskbar by pinning apps, adjusting its position, and changing its appearance. Quick Settings allow you to access essential system controls, such as Wi-Fi, volume, and display settings, with just a few clicks. You can open Quick Settings by clicking the network, volume, or battery icon in the system tray. ​​​​​​​ Files, Folders, and Shortcuts : The desktop is also a convenient place to save files, folders, and shortcuts to frequently used applications and documents. You can organize these items by dragging and dropping them to your preferred locations on the desktop.",
+          "caption": "Screenshot of the Start menu expanded, with emphasis on the button on the taskbar.",
+          "image": "step-02.png",
+          "image_url": "https://support.microsoft.com/images/en-us/c42c22b0-7ce1-47d7-bf54-02f8ae286556"
+        },
+        {
+          "step": 3,
+          "text": "File Explorer Opening File Explorer : Click the folder icon on the taskbar or press the Windows key ​​​​​​​ + E to open File Explorer. Navigating Folders : Use the side panel to navigate through your folders and drives. You can expand folders by clicking the arrow next to them. Managing Files : You can create new folders, move files, and delete items by right-clicking on them and selecting the appropriate option. You can also use the toolbar for common actions like copying, pasting, and renaming files. Searching for Files : Use the search bar to find files and folders. Enter keywords or file names to locate specific items.",
+          "caption": "Screenshot of File Explorer.",
+          "image": "step-03.png",
+          "image_url": "https://support.microsoft.com/images/en-us/2a994d55-6ed9-4b22-beed-21d86df40804"
+        },
+        {
+          "step": 4,
+          "text": "Microsoft Edge Opening Edge : Click the Edge icon on the taskbar or search for \" Microsoft Edge \" in the Start menu to open the browser. Browsing the Web : Use the address bar to enter URLs and search for content. You can open multiple tabs by selecting the \" + \" button next to the current tab. Managing Tabs : Right-click on a tab to access options like closing the tab, pinning it, or opening it in a new window. You can also use the tab groups feature to organize related tabs.",
+          "caption": "Screenshot of Microsoft Edge.",
+          "image": "step-04.png",
+          "image_url": "https://support.microsoft.com/images/en-us/b71e915d-bc00-48fa-8a25-a5a1cb6725ec"
+        }
+      ]
+    },
+    {
+      "title": "​​​​​​​​​​​​​​​​​​Keep learning about Windows",
+      "steps": [
+        {
+          "step": 5,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-06.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 6,
+  "image_count": 5
+}

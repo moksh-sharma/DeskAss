@@ -1,0 +1,148 @@
+{
+  "id": "make-a-wi-fi-network-public-or-private-in-windows-0460117d-8d3e-a7ac-f003-7a0da607448d",
+  "topic_id": "network/support_guide",
+  "domains": [
+    "network"
+  ],
+  "keywords": [
+    "essential",
+    "network",
+    "settings",
+    "tasks"
+  ],
+  "title": "Essential Network Settings and Tasks in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/make-a-wi-fi-network-public-or-private-in-windows-0460117d-8d3e-a7ac-f003-7a0da607448d",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Summary",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select the Start > Settings > Network & internet .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Right-click the Network or Wi-Fi icon on the taskbar, then select Network and internet settings .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Find your IP address",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Go to Network & internet settings and then select the appropriate option: For Wi-Fi connection, select Wi-Fi , then select the Wi-Fi network you're connected to.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "For an Ethernet connection, select Ethernet .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Look for your IP address listed next to IPv4 address .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Set your data limit",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Select Start > Settings > Network & internet > Wi-Fi .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Select the Wi-Fi network you're connected to.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Select Set a data limit to help control data usage on this network .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "To enter a data limit for that network, select Enter limit , choose the Limit type you have for your data plan, enter other limit info, and then select Save .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Turn airplane mode on or off",
+      "steps": [
+        {
+          "step": 10,
+          "text": "Select the Network, volume, or battery icon on the taskbar, then select Airplane mode .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Go to Network & internet settings > Airplane mode , then select the toggle for On or Off .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Make a network public or private",
+      "steps": [
+        {
+          "step": 12,
+          "text": "To change a network to public or private Go to Network & internet settings, and then select the appropriate option: For Wi-Fi connection, select Wi-Fi , then select the Wi-Fi network you're connected to. For an Ethernet connection, select Ethernet . On the network screen, under Network profile type , select Public network (Recommended) or Private network .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Change TCP/IP Settings",
+      "steps": [
+        {
+          "step": 13,
+          "text": "To specify IPv4 settings manually Under Edit IP settings , choose Manual , then turn on IPv4 . To specify an IP address, in the IP address, Subnet mask , and Gateway boxes, type the IP address settings. To specify a DNS server address, in the Preferred DNS and Alternate DNS boxes, type the addresses of the primary and secondary DNS servers. To specify if you want to use an encrypted (DNS over HTTPS) or unencrypted connection to the DNS server or servers you specify, for DNS over HTTPS , choose the setting you want: Note: DNS over HTTPS setting is not available in Windows 10. Off : All DNS queries will be sent to the DNS server unencrypted in plaintext over HTTP. On (automatic template) : DNS queries will be encrypted and sent to the DNS server over HTTPS. DNS queries will use the default settings for the automatic template or try to discover them automatically. On (manual template) : DNS queries will be encrypted and sent to the DNS server over HTTPS. They’ll use the settings you enter in the DNS over HTTPS template box. If you use DNS over HTTPS (automatic or manual template), turn Fallback to plaintext on or off: When it’s turned on, a DNS query will be sent unencrypted if it can’t be sent over HTTPS. When it’s turned off, a DNS query won’t be sent if it can’t be sent over HTTPS.​​​​​​​​​​​​​​ When you’re done, select Save .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "To specify IPv6 settings manually Under Edit network IP settings or Edit IP settings , choose Manual , then turn on IPv6 . To specify an IP address, in the IP address , Subnet prefix length , and Gateway boxes, type the IP address settings. To specify a DNS server address, in the Preferred DNS and Alternate DNS boxes, type the addresses of the primary and secondary DNS servers. To specify if you want to use an encrypted (DNS over HTTPS) or unencrypted connection to the DNS server or servers you specify, for DNS over HTTPS , choose the setting you want: Note: DNS over HTTPS setting is not available in Windows 10. Off : All DNS queries will be sent to the DNS server unencrypted in plaintext over HTTP. On (automatic template) : DNS queries will be encrypted and sent to the DNS server over HTTPS. DNS queries will use the default settings for the automatic template or try to discover them automatically. On (manual template) : DNS queries will be encrypted and sent to the DNS server over HTTPS. They’ll use the settings you enter in the DNS over HTTPS template box. If you use DNS over HTTPS (automatic or manual template), turn Fallback to plaintext on or off: When it’s turned on, a DNS query will be sent unencrypted if it can’t be sent over HTTPS. When it’s turned off, a DNS query won’t be sent if it can’t be sent over HTTPS.​​​​​​​​​​​​​​ When you’re done, select Save .",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-16.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 16,
+  "image_count": 1
+}

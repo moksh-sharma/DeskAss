@@ -1,0 +1,67 @@
+{
+  "id": "device-performance-and-health-in-the-windows-security-app-59d8499d-b6fd-6930-7667-ebf8ae10e08d",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "device",
+    "performance",
+    "health",
+    "security",
+    "app"
+  ],
+  "title": "Device performance and health in the Windows Security App",
+  "source_url": "https://support.microsoft.com/en-us/windows/device-performance-and-health-in-the-windows-security-app-59d8499d-b6fd-6930-7667-ebf8ae10e08d",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "View the health report for your device in Windows Security",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Storage capacity : It checks if your system is running low on disk space and provides recommendations to free up space if needed",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Battery life : For devices with batteries, it checks if anything is putting an extra strain on your battery and offers suggestions to improve battery life",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Apps and software : It monitors your software for any failures or updates required to ensure everything is running smoothly",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Windows Time service : It ensures your system clock is synchronized correctly, which is important for many system processes. If the service is off or failing, it provides steps to fix it",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "What if the health report detects problems?",
+      "steps": [
+        {
+          "step": 5,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-06.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 6,
+  "image_count": 1
+}

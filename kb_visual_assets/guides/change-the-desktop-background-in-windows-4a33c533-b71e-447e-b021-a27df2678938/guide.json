@@ -1,0 +1,166 @@
+{
+  "id": "change-the-desktop-background-in-windows-4a33c533-b71e-447e-b021-a27df2678938",
+  "topic_id": "performance/support_guide",
+  "domains": [
+    "performance"
+  ],
+  "keywords": [
+    "change",
+    "desktop",
+    "background"
+  ],
+  "title": "Change the desktop background in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/change-the-desktop-background-in-windows-4a33c533-b71e-447e-b021-a27df2678938",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Change your background",
+      "steps": [
+        {
+          "step": 1,
+          "text": "In Windows Settings , select Personalization or use the following shortcut: Personalization Tip: You can also right-click on the desktop and select Personalize .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Select Background",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Under Personalize your background , select one of the following options:",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Picture : Select a single image as your desktop background. You can choose from the default images or select Browse to select an image from your device. Tip: You can set a picture as your desktop background by right-clicking on the image file and selecting Set as desktop background . Alternatively, if you're viewing the picture in the Photos app, select the three-dot menu > Set as > Background .​​​​​​​",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Solid Color : Choose a single color for your background.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Slideshow : Select a folder of images to cycle through as your desktop background. You can set the interval for how often the images change, and if you want to shuffle the pictures. Additionally, you can right-click on the desktop and select Next desktop background to move to the next picture.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Windows spotlight : This option displays a new image from around the world every day. To learn more, see Windows spotlight .​​​​​​​",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Choose a fit for the desktop images",
+      "steps": [
+        {
+          "step": 8,
+          "text": "Fill : this option enlarges the image to fill the entire screen. Parts of the image might be cropped to ensure it covers the screen completely.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Fit : this option adjusts the image to fit within the screen while maintaining its aspect ratio. If the image's aspect ratio doesn't match the screen's, you might see bars on the sides or top and bottom.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Stretch : this option stretches the image to cover the entire screen, which may distort the image if its aspect ratio differs from the screen's.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Tile : this option repeats the image across the screen. This is useful for smaller images that you want to display multiple times.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Center : this option places the image in the center of the screen without resizing it. If the image is smaller than the screen, you will see a border around it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Span : This option spans the image across multiple monitors. This is ideal for multi-monitor setups where you want a single image to cover all screens.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Desktop background and multiple displays",
+      "steps": [
+        {
+          "step": 14,
+          "text": "If you select Picture as background, you can set the same picture for all displays, or a different picture for each display. Right-click on the image and select your preference. Note: this option isn't available if you use multiple desktops .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "If you select Slideshow as background, each screen will display a different picture from the folder you select.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Desktop background and multiple desktops",
+      "steps": [
+        {
+          "step": 16,
+          "text": "You can select a different background picture for each desktop. To do so, right-click on the image preview under Recent images , then select Set for all desktops or select a specific desktop to apply the background to.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "Configuring a background picture per monitor isn't supported.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Slideshow as a background isn't supported.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "You might also like...",
+      "steps": [
+        {
+          "step": 19,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-20.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 20,
+  "image_count": 1
+}

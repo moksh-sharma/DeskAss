@@ -1,0 +1,22 @@
+{
+  "guides": [
+    {
+      "id": "wifi_connect_windows11",
+      "topic_id": "networking/wifi_problems",
+      "url": "https://support.microsoft.com/en-us/windows/connect-to-a-wi-fi-network-in-windows-1f881677-b569-0cd5-010d-e3cd3579d263",
+      "sections_include": ["Connect to a Wi-Fi network"]
+    },
+    {
+      "id": "wifi_fix_problems",
+      "topic_id": "networking/wifi_problems",
+      "url": "https://support.microsoft.com/en-us/windows/fix-wi-fi-connection-issues-in-windows-9424a1f7-6a3b-65a6-4d78-7f07eee84d2c",
+      "sections_include": ["General troubleshooting"]
+    },
+    {
+      "id": "printer_fix_windows",
+      "topic_id": "peripherals/printer_offline",
+      "url": "https://support.microsoft.com/en-us/windows/fix-printer-connection-and-printing-problems-in-windows-fb830bff-7702-6349-33cd-9443fe987f73",
+      "sections_include": ["General troubleshooting"]
+    }
+  ]
+}

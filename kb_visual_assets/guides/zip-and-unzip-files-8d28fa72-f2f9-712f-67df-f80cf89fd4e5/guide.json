@@ -1,0 +1,106 @@
+{
+  "id": "zip-and-unzip-files-8d28fa72-f2f9-712f-67df-f80cf89fd4e5",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "zip",
+    "unzip",
+    "files"
+  ],
+  "title": "Zip and unzip files",
+  "source_url": "https://support.microsoft.com/en-us/windows/zip-and-unzip-files-8d28fa72-f2f9-712f-67df-f80cf89fd4e5",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "To zip (compress)",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Locate the file or folder that you want to zip.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Right-click (or press and hold) the file or folder, select Show more options > Send to > Compressed (zipped) folder . A new zipped folder with the same name is created in the same location. To rename it, press and hold (or right-click) the folder, select Rename , and then type the new name.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "To unzip (extract)",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Locate the zipped folder that you want to unzip (extract) files or folders from.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Do one of the following: To unzip a single file or folder, open the zipped folder, then drag the file or folder from the zipped folder to a new location.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "To unzip all the contents of the zipped folder, right-click (or press and hold) the folder, select Extract All... , and then follow the instructions.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "To add files or folders to a zipped folder you created earlier, drag them to the zipped folder.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "If you add encrypted files to a zipped folder, they'll be unencrypted when they're unzipped, which might result in unintentional disclosure of personal or sensitive information. For that reason, we recommend that you avoid zipping encrypted files.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Some types of files, like JPEG images, are already highly compressed. If you zip several JPEG pictures into a folder, the total size of the folder will be about the same as the original collection of pictures.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Frequently asked questions",
+      "steps": [
+        {
+          "step": 9,
+          "text": "Which archive formats are supported? Windows 11, version 24H2 supports ZIP, RAR. 7z and TAR archive formats.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Are encrypted compressed files supported? Windows 11, version 24H2 supports compression and decompression of various formats, including 7-Zip. However, it does not support operations on encrypted archive files. To create/decompress encrypted archives, consider using non-Microsoft applications such as 7-zip or WinRAR. SUBSCRIBE RSS FEEDS",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-12.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 12,
+  "image_count": 1
+}

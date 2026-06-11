@@ -1,0 +1,322 @@
+{
+  "id": "automatic-super-resolution-5d6d95fa-cc02-4673-b62c-2c50f06385aa",
+  "topic_id": "display/support_guide",
+  "domains": [
+    "display"
+  ],
+  "keywords": [
+    "automatic",
+    "super",
+    "resolution"
+  ],
+  "title": "Automatic Super Resolution",
+  "source_url": "https://support.microsoft.com/en-us/windows/automatic-super-resolution-5d6d95fa-cc02-4673-b62c-2c50f06385aa",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Quick Start Guide",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Launch your game: You may see a notification that Auto SR is available.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Enable Auto SR: Open the Auto SR tab in the Display widget by clicking the notification or press or Win + G and go to Widgets Menu > Display > Auto SR . Turn on the following toggles: Always use with this game",
+          "caption": "GameBar Widget",
+          "image": "step-02.png",
+          "image_url": "https://support.microsoft.com/images/en-us/dea01e7a-3780-4e64-9537-c0ccf714aa49"
+        },
+        {
+          "step": 3,
+          "text": "Show in-game status indicator",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Adjust resolution and display mode (if needed): Auto SR applies only when the toggle from step 2 is on and you're using a supported resolution and display mode. In the game settings, select a supported resolution",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Set the display mode to Fullscreen or Exclusive Fullscreen.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Check display settings (if Auto SR is still off) : In the General tab of the Display widget, change the display resolution to a supported value.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Confirm Auto SR is being applied: Look for the Auto SR status indicator in the game window and enjoy! If the indicator is not visible, check the Auto SR tab in the Display widget for details about what needs to be fixed.",
+          "caption": "GameStatusEnabled",
+          "image": "step-07.png",
+          "image_url": "https://support.microsoft.com/images/en-us/787560fa-8467-49d8-b7b2-5ae6f89f179c"
+        }
+      ]
+    },
+    {
+      "title": "Auto SR Game Bar Widget Overview",
+      "steps": [
+        {
+          "step": 8,
+          "text": "On : Auto SR is actively enhancing your game.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Off, Action Required : Auto SR is enabled for the game, but not currently active due to an unsupported resolution or needing to restart your game.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Off : Auto SR is turned off for the game and not actively running.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Advanced Configuration with Windows Settings and Notifications",
+      "steps": [
+        {
+          "step": 11,
+          "text": "The first time you launch a supported game, you'll see a Use Auto SR opt-in notification.",
+          "caption": "UseAutoSR",
+          "image": "step-11.png",
+          "image_url": "https://support.microsoft.com/images/en-us/09d1c05c-3090-4833-b347-dc06b8f9384b"
+        },
+        {
+          "step": 12,
+          "text": "Select Turn on to enable Auto SR for that game.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "If your resolution and display mode are at a compatible setting, Auto SR turns on immediately and shows an Auto SR is on notification.",
+          "caption": "AutoSRisON",
+          "image": "step-13.png",
+          "image_url": "https://support.microsoft.com/images/en-us/ab695410-c627-4dcc-916f-69fe86130e85"
+        },
+        {
+          "step": 14,
+          "text": "Otherwise, a follow-up notification prompts you to adjust the resolution or restart the game if you have previously turned Auto SR off (shown below).",
+          "caption": "AdjustResolution.",
+          "image": "step-14.png",
+          "image_url": "https://support.microsoft.com/images/en-us/eae6cf39-8372-4135-bf0a-a9ccd872a0b1"
+        },
+        {
+          "step": 15,
+          "text": "Launch the game, and you'll see an Auto SR is on notification.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Select Turn off to disable Auto SR.",
+          "caption": "AutoSRisON",
+          "image": "step-16.png",
+          "image_url": "https://support.microsoft.com/images/en-us/ab695410-c627-4dcc-916f-69fe86130e85"
+        },
+        {
+          "step": 17,
+          "text": "​​​​​​​Select Start > Settings > System > Display > Graphics > Custom settings for applications and find the game (or add the game’s .exe file).",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Select the game and set the Automatic super resolution toggle to On or Off .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "Select Start > Settings > System > Display > Graphics.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "Under Default settings , turn Automatic super resolution On or Off ​​​​​​​.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 21,
+          "text": "Enable Auto SR for all but a few games: Turn on the Auto SR default setting, then turn Auto SR off for the specific games you want to exclude.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 22,
+          "text": "To enable Auto SR for only select games only: Turn off the Auto SR default setting, then turn on Auto SR for the specific games you want to include.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 23,
+          "text": "Go to Start > Settings > System > Display > Graphics > Custom settings for applications and select your game.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 24,
+          "text": "Under Maximum display resolution setting , the drop-down options will show Auto SR-capable resolutions.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 25,
+          "text": "Choose one of the listed Auto SR-capable resolutions.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 26,
+          "text": "When configured, this setting will change your display to the set resolution when the game is launched, and limit the game from seeing higher resolutions. When the game exits, your original display resolution will be restored.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "We want to hear from you!",
+      "steps": [
+        {
+          "step": 27,
+          "text": "Open Feedback Hub .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 28,
+          "text": "Select Report a problem or Suggest a feature .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 29,
+          "text": "Provide details about your feedback and include the words Auto SR in the summary.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 30,
+          "text": "Select Gaming and Xbox > Game Performance .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 31,
+          "text": "If possible, select Recreate my problem in Add more details step, then select Submit !",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Frequently asked questions",
+      "steps": [
+        {
+          "step": 32,
+          "text": "Is Auto SR on by default? Auto SR is not on by default, it is an opt-in feature. Note: On legacy devices with Snapdragon X Series processor, Auto SR was applied by default to a set of games verified by Microsoft including BeamNG.drive, Borderlands 3, Control (dx11), Dark Souls III, God of War, Kingdom Come: Deliverance, Resident Evil 2, Resident Evil 3, Sekiro Shadows Die Twice, Sniper Ghost Warrior Contracts 2 and The Witcher 3.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 33,
+          "text": "Why isn't Auto SR enhancing my game? Look for a setting named Resolution or Render resolution . This setting is typically found under Graphics or Display . Set a Maximum display resolution for the game in Windows graphics settings. Change the display resolution in the Xbox Game Bar Display widget. Go to Start > Settings > System > Display and adjust the resolution before launching the game.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 34,
+          "text": "Which resolutions does Auto SR support on my device? The Game Bar widget status (Auto SR tab in the Display widget) The Maximum display resolution drop-down in Windows Settings ( Settings > System > Display > Graphics > Custom settings for applications ). The drop-down lists only Auto SR-capable resolutions.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 35,
+          "text": "How do I make sure I have the latest version of Auto SR? To check if you have the latest version of Auto SR, open the Microsoft Store app on your device to check if an update is available for the Auto Super Resolution Package. Tip: To ensure Auto SR is always up to date, turn on automatic app updates.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 36,
+          "text": "Does Auto SR work with games that support HDR? Auto SR does not currently support HDR content. To utilize HDR in games that support it, you must turn off Auto SR.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 37,
+          "text": "I want my display resolution to change automatically when I launch my game. Can I do that? Yes, this is controlled by the Maximum display resolution per-game setting. The default setting is Off. To enable automatic resolution changes when launching your game, select one of the available resolutions from the drop-down menu. All resolution options support Auto SR on the device.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 38,
+          "text": "Why do text or UI elements sometimes not look ideal when Auto SR is enabled? Auto SR is designed to upscale from low render resolution to high output resolution. Some games might have challenges rendering fine text or UI elements at the low resolution. Microsoft has a verified list of games that avoid these types of problems. If you feel the quality loss is detrimental, you may be able to find an alternate resolution that works better, or you can turn off Auto SR.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 39,
+          "text": "Why do I see a weird rendering effect when Auto SR is enabled? The Auto SR AI model has been trained on a wide range of games and game styles. However, there may be times when it is not perfect in a particular rendering situation. Microsoft has a verified list of games that look great, and we find the model does well on most games. Of course, if you find a game for which you do not like Auto SR, you can submit feedback about the game or turn off Auto SR.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 40,
+          "text": "How does Auto SR interact with other in-game super scaling technologies? Auto SR is integrated into the Windows operating system and display pipeline, functioning independently of the game's own scaling technologies. While enabling or disabling in-game scaling can impact quality or frame rate, the specific results vary based on the game, settings, and your system.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 41,
+          "text": "Why am I getting low-resolution screen captures? Capture tools like Game Bar, Snipping Tool, and others are based on capturing the contents of a window. Due to how Auto SR integrates with your PC display, these capture tools will generally not capture the Auto SR image that you see on the screen because it is larger than the game’s window.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 42,
+          "text": "Can I turn on Auto SR for x64 Windows games? Yes, Auto SR supports x64 games both natively and via emulation on arm64 devices. Note: For an evolving list of games that work with Auto SR on arm64, visit http://www.worksonwoa.com , a third-party open-source site that Microsoft has contributed compatibility data to. From the games page, select Auto SR filter and then select “Yes, out-of-box” and “Yes, opt-in” for the complete list of Auto SR games.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 43,
+          "text": "Can I turn off Auto SR notifications? To turn off Auto SR Game Bar notifications, go to Game Bar Settings > More Settings > Widgets , and turn off Show Auto SR notifications . To turn off Windows notifications, either click … > Turn off all notifications for Automatic super resolution from the notification itself, or go to Settings > System > Notifications and turn off Automatic super resolution .",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 44,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 45,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-45.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 45,
+  "image_count": 7
+}

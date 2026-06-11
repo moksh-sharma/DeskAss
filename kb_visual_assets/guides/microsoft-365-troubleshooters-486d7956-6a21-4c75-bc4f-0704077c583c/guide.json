@@ -1,0 +1,89 @@
+{
+  "id": "microsoft-365-troubleshooters-486d7956-6a21-4c75-bc4f-0704077c583c",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "microsoft",
+    "365",
+    "troubleshooters"
+  ],
+  "title": "Microsoft 365 troubleshooters",
+  "source_url": "https://support.microsoft.com/en-us/windows/microsoft-365-troubleshooters-486d7956-6a21-4c75-bc4f-0704077c583c",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Available Microsoft 365 troubleshooters",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Excel check troubleshooter Select the button below to start the Excel check troubleshooter. Start Click Open if you get a pop-up window indicating This site is trying to open Get Help . Follow the prompts in the Get Help window. You need to be on Windows 10 or higher to run the troubleshooter. You need to be on the same Windows PC as Excel to run the troubleshooter.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Microsoft 365 uninstall troubleshooter Select the button below to start the uninstall troubleshooter. Start Click Open if you get a pop-up window indicating This site is trying to open Get Help . Follow the prompts in the Get Help window. When prompted, restart your computer. You need to be on Windows 10 or higher to run the troubleshooter. You need to be on the same Windows PC with the Microsoft 365 or Office product you want to uninstall to run the troubleshooter.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Microsoft 365 setup troubleshooter Select the button below to start the setup troubleshooter. Start Click Open if you get a pop-up window indicating This site is trying to open Get Help . Follow the prompts in the Get Help window. When prompted, restart your computer. You need to be on Windows 10 or higher to run the troubleshooter. You need to be on the same Windows PC with the Microsoft 365 or Office product you want to uninstall to run the troubleshooter.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Microsoft 365 activation troubleshooter Select the button below to start the activation troubleshooter. Start Click Open if you get a pop-up window indicating This site is trying to open Get Help . Follow the prompts in the Get Help window. When prompted, restart your computer. You need to be on Windows 10 or higher to run the troubleshooter. You need to be on the same Windows PC with the Microsoft 365 or Office product you want to uninstall to run the troubleshooter.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Microsoft 365 sign-in troubleshooter Start the Get Help app. In the Search bar, enter sign in to Microsoft Office. Follow the steps provided.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Microsoft 365 shared computer activation (SCA) troubleshooter Start the Get Help app. In the Search bar, enter shared computer activation. Follow the steps provided.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Microsoft 365 inventory scan troubleshooter Start the Get Help app. In the Search bar, enter full Microsoft Office scan. Follow the steps provided.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Microsoft 365 network connectivity test troubleshooter Start the Get Help app. In the Search bar, enter Microsoft 365 network connectivity test. Follow the steps provided.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related topics",
+      "steps": [
+        {
+          "step": 9,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-10.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 10,
+  "image_count": 1
+}

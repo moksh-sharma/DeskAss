@@ -48,7 +48,16 @@ def format_diagnosis_plain_text(d: DiagnosisResult) -> str:
                 lines.append(f"    Action: {fix.safe_action}")
         lines.append("")
 
-    if d.resolution_steps:
+    if d.visual_guide and d.visual_guide.steps:
+        lines.append("Step-by-Step Resolution Guide")
+        lines.append("-" * 40)
+        lines.append(f"  Source: {d.visual_guide.title} ({d.visual_guide.source_url})")
+        for step in d.visual_guide.steps:
+            lines.append(f"  {step.step}. {step.text}")
+            if step.caption:
+                lines.append(f"     ({step.caption})")
+        lines.append("")
+    elif d.resolution_steps:
         lines.append("Step-by-Step Resolution Guide")
         lines.append("-" * 40)
         for i, step in enumerate(d.resolution_steps, start=1):

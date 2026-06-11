@@ -1,0 +1,157 @@
+{
+  "id": "group-photos-by-faces-1ab09703-f0a6-5835-d27b-58672b23fdd2",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "group",
+    "photos",
+    "faces"
+  ],
+  "title": "Group photos by faces",
+  "source_url": "https://support.microsoft.com/en-us/windows/group-photos-by-faces-1ab09703-f0a6-5835-d27b-58672b23fdd2",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Manage the People feature",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Windows 10 (2019.19061.17310.0, the July 2019 Photos app version, or later).",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Windows 11 (some versions of Windows 11 if you are running the Photos Legacy app).",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "In the search box on the taskbar, type photos and then select the Photos app from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Select the People tab.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "If you see a welcome screen asking for your permission to turn on the People setting in the Photos app, do one of the following: Select Yes to leave the People setting turned on and preserve previously determined facial groupings.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Select No thanks to delete any previously determined facial groupings. When asked whether you’re sure you want to turn off this setting, select Yes .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "In the search box on the taskbar, type photos and then select the Photos app from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Select the People tab.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "In the upper-right corner of the Photos app, select See more > Settings .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Under the Viewing and editing section, toggle the People setting from Off to On .",
+          "caption": "Shows the on and off toggle for the People setting.",
+          "image": "step-10.png",
+          "image_url": "https://support.microsoft.com/images/en-us/2cc89e52-d403-4f2c-af5f-ad0f18901d2f"
+        },
+        {
+          "step": 11,
+          "text": "In the search box on the taskbar, type photos and then select the Photos app from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Select the People tab.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "In the upper-right corner of the Photos app, select See more > Settings .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Under the Viewing and editing section, toggle the People setting to Off and then confirm that you want to turn off the setting by selecting Accept . Note: If you decide to turn on this setting again later, your collection will be scanned again, and facial grouping data will be regenerated.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Use facial grouping",
+      "steps": [
+        {
+          "step": 15,
+          "text": "Select Start tagging if you see it. If you don't see it, your photos have probably already been grouped and tagged, and you can skip this step.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Select Add name under a grouping and select a contact. If no contact exists for that person yet, you can always add one.",
+          "caption": "Screenshot of the list that you can use to link contacts to facial groupings.",
+          "image": "step-16.png",
+          "image_url": "https://support.microsoft.com/images/en-us/29c44883-9554-6629-1aa7-8d0c4d4ee042"
+        },
+        {
+          "step": 17,
+          "text": "Select the facial group you want to unlink. A page will open showing the contact's profile picture and photos of the contact.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Select the pencil icon next to a contact's name, then select Remove name to unlink the contact from the facial grouping. Note: You can select Open contact details to see the contact record from the People app in Windows.",
+          "caption": "Screenshot of a contact showing the Remove name option.",
+          "image": "step-18.png",
+          "image_url": "https://support.microsoft.com/images/en-us/2c93c134-4525-0cd5-0e13-04cb1f83b35a"
+        }
+      ]
+    },
+    {
+      "title": "Related topics",
+      "steps": [
+        {
+          "step": 19,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-20.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 20,
+  "image_count": 4
+}

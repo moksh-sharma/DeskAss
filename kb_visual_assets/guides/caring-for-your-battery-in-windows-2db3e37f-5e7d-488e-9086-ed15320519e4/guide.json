@@ -1,0 +1,60 @@
+{
+  "id": "caring-for-your-battery-in-windows-2db3e37f-5e7d-488e-9086-ed15320519e4",
+  "topic_id": "battery/support_guide",
+  "domains": [
+    "battery"
+  ],
+  "keywords": [
+    "caring",
+    "battery"
+  ],
+  "title": "Caring for your battery in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/caring-for-your-battery-in-windows-2db3e37f-5e7d-488e-9086-ed15320519e4",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Maximize battery health",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Try not to use your device or charge it at high temperatures. Excessive heat can cause lithium‑ion batteries to deteriorate more quickly, permanently reducing their capacity.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "If you plan to store your device, keep the battery charged to around 40–60% and avoid storing it fully charged or completely drained. Batteries stored at higher charge levels tend to lose capacity faster over time. For long‑term storage, place the device in a cool, dry location and check the battery level periodically to prevent deep discharge.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Get a detailed battery report in Windows 11",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Related topics Battery saving tips in Windows",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 5,
+  "image_count": 1
+}

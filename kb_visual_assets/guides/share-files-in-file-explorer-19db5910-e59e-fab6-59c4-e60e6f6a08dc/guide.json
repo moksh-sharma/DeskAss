@@ -1,0 +1,58 @@
+{
+  "id": "share-files-in-file-explorer-19db5910-e59e-fab6-59c4-e60e6f6a08dc",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "share",
+    "files"
+  ],
+  "title": "Share files in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/share-files-in-file-explorer-19db5910-e59e-fab6-59c4-e60e6f6a08dc",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Use OneDrive",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Get a link you can share. Select a OneDrive file or folder and select Share . Choose who you would like the link to work for, select Apply , and then select Copy link .",
+          "caption": "Screenshot of OneDrive FileSharing",
+          "image": "step-01.png",
+          "image_url": "https://support.microsoft.com/images/en-us/e0f43397-feb3-460f-a738-d1e28c5d7da8"
+        },
+        {
+          "step": 2,
+          "text": "Email a link. Select a OneDrive file or folder and select Share . Choose who you would like the link to work for, then select Apply . In the To: field, enter the names, groups, or email addresses of the people you want to share to. You can also add an optional message. Select Send to send the email.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Share in your workgroup or domain",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Select the file or folder you want to share.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Go to the Share tab, and then in the Share with section, select Specific people .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Enter email addresses for the people you want to share the file with, select Add for each one, then select Share .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    }
+  ],
+  "step_count": 5,
+  "image_count": 1
+}

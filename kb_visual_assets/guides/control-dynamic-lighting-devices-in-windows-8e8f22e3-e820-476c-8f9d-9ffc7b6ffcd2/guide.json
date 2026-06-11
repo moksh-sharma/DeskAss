@@ -1,0 +1,92 @@
+{
+  "id": "control-dynamic-lighting-devices-in-windows-8e8f22e3-e820-476c-8f9d-9ffc7b6ffcd2",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "control",
+    "dynamic",
+    "lighting",
+    "devices"
+  ],
+  "title": "Control Dynamic Lighting Devices in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/control-dynamic-lighting-devices-in-windows-8e8f22e3-e820-476c-8f9d-9ffc7b6ffcd2",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Access Dynamic Lighting",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Configure individual devices When connected, compatible devices show up as cards along the top of the page. Select a card to configure the specific settings for that device. When you configure individual settings for a device, those settings override the global settings for that specific device. This allows for more granular control and customization, ensuring that specific devices can have unique configurations while still maintaining a consistent overall setup through global settings. Note: For a list of compatible devices, see Dynamic lighting devices .",
+          "caption": "Screenshot of Settings app showing the Dynamic Lighting properties of a keyboard.",
+          "image": "step-01.png",
+          "image_url": "https://support.microsoft.com/images/en-us/d69ee702-1aa4-4886-bcfa-6cd2aef1695f"
+        },
+        {
+          "step": 2,
+          "text": "Configure global settings After the device's cards, you can configure global settings, where changes affect all connected devices.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Dynamic Lighting settings",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Use Dynamic Lighting on my devices Turns Dynamic Lighting On or Off . When Dynamic Lighting is off, devices function with their default non-Dynamic Lighting behavior.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Compatible apps in the foreground always control lighting When set to On , an active application can take control of your device's lighting. For example, if you're playing a game, the game's lighting effects can override any background applications, ensuring an immersive experience. Once you minimize or close the game, the background application's lighting effects resumes control.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Background light control This section lets you prioritize installed apps that have registered themselves as ambient background controllers. Dragging an app to the top of the list will prioritize it, ensuring that it can control devices before other apps in the list. Ambient background settings are tied to a device and the port it's connected on. If you unplug and then plug the device into a different (USB) port, it will appear as a different device. Note: For more info about ambient controllers, see: Dynamic Lighting - UWP applications .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Brightness Set the LED brightness on your devices. Selecting Reset for all devices will reset the brightness to a default value.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Effects ​​​​​​​ Select colors and effects for your devices. Selecting Reset for all devices will reset effects to the devices' default behaviors.",
+          "caption": "Screenshots of the effects available for Dynamic Lighting.",
+          "image": "step-07.png",
+          "image_url": "https://support.microsoft.com/images/en-us/a166236d-9138-44c8-b42b-ae82e8926937"
+        },
+        {
+          "step": 8,
+          "text": "My Brightness and Effects sliders aren’t changing the behavior on my device. How do I fix this? It’s likely that you have a background RGB controller app running that’s higher priority than the Dynamic Lighting Background Controller . Expand the Background light control section in Dynamic Lighting Settings to check, and if needed drag that controller to the top of the list. SUBSCRIBE RSS FEEDS",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-10.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 10,
+  "image_count": 3
+}

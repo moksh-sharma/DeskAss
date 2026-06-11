@@ -1,0 +1,98 @@
+{
+  "id": "fix-issues-by-reinstalling-the-current-version-of-windows-497ac6da-7cac-4641-82a5-f50398d879a0",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "fix",
+    "issues",
+    "reinstalling",
+    "current",
+    "version"
+  ],
+  "title": "Fix issues by reinstalling the current version of Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/fix-issues-by-reinstalling-the-current-version-of-windows-497ac6da-7cac-4641-82a5-f50398d879a0",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Steps to reinstall Windows",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select Start > Settings > System > Recovery or use the following shortcut: Open Recovery settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Under Fix problems using Windows Update , select Reinstall now.",
+          "caption": "Screenshot of Settings - System - Recovery.",
+          "image": "step-02.png",
+          "image_url": "https://support.microsoft.com/images/en-us/98806510-83f1-4d04-ad8f-c8bc76445d10"
+        },
+        {
+          "step": 3,
+          "text": "In the Fix problems using Windows Update window, choose if you want to allow the PC to automatically restart 15 minutes after the installation completes.",
+          "caption": "Screenshot of the Windows Update reinstall option.",
+          "image": "step-03.png",
+          "image_url": "https://support.microsoft.com/images/en-us/36234eff-b200-4432-8a36-7df87ba0fd02"
+        },
+        {
+          "step": 4,
+          "text": "Select OK when you’re ready to start the installation.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "The reinstall will take you to the Windows Update page in Settings . It will start downloading a repair version of the last operating system update that was successfully installed on your PC. Once the download is complete, the repair version of the update installs.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Once the reinstall is complete, restart your PC if you didn’t choose to allow it to restart automatically.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Windows Update recommends a reinstall after an update installation fails",
+      "steps": [
+        {
+          "step": 7,
+          "text": "Selecting the Reinstall now option opens Fix problems using Windows Update . Choose if you want to allow the PC to automatically restart 15 minutes after the installation completes.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Select OK when you’re ready to start the installation. Once the reinstall is complete, restart your PC if you didn’t choose to allow it to restart automatically.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Information for IT professionals",
+      "steps": [
+        {
+          "step": 9,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-10.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 10,
+  "image_count": 3
+}

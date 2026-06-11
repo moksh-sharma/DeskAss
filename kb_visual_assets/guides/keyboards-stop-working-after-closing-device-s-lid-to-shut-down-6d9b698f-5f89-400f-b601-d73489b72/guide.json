@@ -1,0 +1,115 @@
+{
+  "id": "keyboards-stop-working-after-closing-device-s-lid-to-shut-down-6d9b698f-5f89-400f-b601-d73489b72",
+  "topic_id": "keyboard/support_guide",
+  "domains": [
+    "mouse",
+    "keyboard"
+  ],
+  "keywords": [
+    "mouse",
+    "keyboard",
+    "problems"
+  ],
+  "title": "Mouse and keyboard problems in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/keyboards-stop-working-after-closing-device-s-lid-to-shut-down-6d9b698f-5f89-400f-b601-d73489b72ad6",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "First, try checking your hardware",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Unplug USB cables and wait for a little while for the device driver to be unloaded by Windows, and then plug the device back in.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Try using a different USB port on your PC.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "If you use a USB hub between the device and the PC, make sure the hub has power. If it’s still not working, try removing the USB hub and plugging the device directly into a USB port on the PC.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Make sure that the cables on your device aren't damaged in any way.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Check any battery-powered devices to see if they are fully charged or have fresh batteries.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Make sure there’s no dirt blocking keys or sensors.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Check your wireless connections",
+      "steps": [
+        {
+          "step": 7,
+          "text": "Look on the bottom of the wireless device for a Reset button. Resetting the device will disconnect and then reconnect the wireless connection. There might also be a Reset button on the USB receiver for your device.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "For USB wireless devices, this might be as simple as unplugging the USB wireless receiver, waiting for about 10 seconds, and then plugging the USB wireless receiver back into the USB port. The wireless connection should be reestablished.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "If your wireless device uses a Bluetooth connection, also see Fix Bluetooth problems in Windows for possible solutions.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Hardware Troubleshooter Drivers",
+      "steps": [
+        {
+          "step": 10,
+          "text": "Update a device driver using Windows Update In the search box on the taskbar, type check for updates , then select Check for updates from the list of results. Under Windows Update , select Check for updates . Windows Update will tell you if you need any updates or not, and whether the latest updates were successfully installed. There might not be any driver updates available.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Download and install a driver yourself In the search box on the taskbar, type device manager , then select Device Manager from the list of results. In the list of hardware categories, find the device that you want to update, and then double-click the device name. Click the Driver tab, click Update Driver , and then follow the instructions.",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-13.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 13,
+  "image_count": 1
+}

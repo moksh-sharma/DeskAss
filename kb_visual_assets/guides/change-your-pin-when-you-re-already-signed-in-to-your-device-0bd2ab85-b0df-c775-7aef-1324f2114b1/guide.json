@@ -1,0 +1,102 @@
+{
+  "id": "change-your-pin-when-you-re-already-signed-in-to-your-device-0bd2ab85-b0df-c775-7aef-1324f2114b1",
+  "topic_id": "performance/support_guide",
+  "domains": [
+    "performance",
+    "account"
+  ],
+  "keywords": [
+    "change",
+    "reset",
+    "pin"
+  ],
+  "title": "Change or reset your PIN in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/change-your-pin-when-you-re-already-signed-in-to-your-device-0bd2ab85-b0df-c775-7aef-1324f2114b19",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "How to reset your PIN if you aren't signed in",
+      "steps": [
+        {
+          "step": 1,
+          "text": "If the option I forgot my PIN is available, select it and follow the instructions to reset your PIN. If there are multiple accounts on the device, choose the one you need to reset. This option is only available for Microsoft accounts, not for local accounts",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "If the option I forgot my PIN ​​​​​​​ is not available, you must sign in with your password and then reset the PIN from the Settings app. Select Sign-in options and then select Enter your password .​​​​​​​ Sign-in options",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 3,
+          "text": "At the sign-in screen, select I forgot my password .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "At the sign-in screen, select Sign-in options then select Web sign-in . Follow the prompts to sign in then select Forgot my password .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "From any browser, go to Reset password .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Change or reset your PIN when you're already signed in",
+      "steps": [
+        {
+          "step": 6,
+          "text": "In the Settings app on your Windows device, select Accounts > Sign-in options or use the following shortcut: Sign-in options",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Select PIN (Windows Hello) > Change PIN and then follow the instructions. You must enter your old PIN in order to change to a new one",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "If you forgot your PIN, select I forgot my PIN and follow the directions to verify your account and create a new one.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Need more help?",
+      "steps": [
+        {
+          "step": 9,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-10.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 10,
+  "image_count": 1
+}

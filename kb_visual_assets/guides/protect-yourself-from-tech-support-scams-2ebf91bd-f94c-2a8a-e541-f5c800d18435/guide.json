@@ -1,0 +1,115 @@
+{
+  "id": "protect-yourself-from-tech-support-scams-2ebf91bd-f94c-2a8a-e541-f5c800d18435",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "protect",
+    "yourself",
+    "from",
+    "tech",
+    "support",
+    "scams"
+  ],
+  "title": "Protect yourself from tech support scams",
+  "source_url": "https://support.microsoft.com/en-us/windows/protect-yourself-from-tech-support-scams-2ebf91bd-f94c-2a8a-e541-f5c800d18435",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "How to protect against tech support scams",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Microsoft does not send unsolicited email messages or make unsolicited phone calls to request personal or financial information, or to provide technical support to fix your computer. If you didn't ask us to, we won't call you to offer support.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "If a pop-up or error message appears with a phone number, don’t call the number. Error and warning messages from Microsoft never include a phone number.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Microsoft will never ask that you pay for support in the form of cryptocurrency like Bitcoin, or gift cards.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Download software only from official Microsoft partner websites or the Microsoft Store. Be wary of downloading software from third-party sites, as some of them might have been modified without the author’s knowledge to bundle malware and other threats.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Use Microsoft Edge when browsing the internet. It blocks known support scam sites using Microsoft Defender SmartScreen. Also, Microsoft Edge can stop pop-up dialog loops used by these attackers.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "What to do if a tech support scammer already has your info",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Uninstall any applications that scammers have asked you to install. For more info on how to uninstall applications, see Repair or remove programs in Windows .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "If you have given scammers access to your device, consider resetting it. To learn how, see Recovery options in Windows . Note: Performing serious recovery methods like resetting your device can be a bit time-consuming, but this may be your best option in some situations—for example, if fake error codes and messages pop up continually, all but preventing you from using your device.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Run a full scan with Windows Security to remove any malware. Learn how.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Apply all security updates as soon as they are available. To see available updates, select the Start button, then select Settings > Update & Security > Windows Update . For more info, see Update Windows .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Change your passwords. Learn how to change your Microsoft account password",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Call your credit card provider to contest the charges if you've already paid. Let them know what happened; they'll probably want to cancel and replace your affected cards to prevent the scammers from using them again.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Learn more",
+      "steps": [
+        {
+          "step": 12,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-13.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 13,
+  "image_count": 1
+}

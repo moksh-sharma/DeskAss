@@ -1,0 +1,74 @@
+{
+  "id": "deprecation-of-microsoft-support-diagnostic-tool-msdt-and-msdt-troubleshooters-0c5ac9a2-1600-453",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "deprecation",
+    "microsoft",
+    "support",
+    "diagnostic",
+    "tool",
+    "msdt",
+    "troubleshooters"
+  ],
+  "title": "Deprecation of Microsoft Support Diagnostic Tool (MSDT) and MSDT Troubleshooters",
+  "source_url": "https://support.microsoft.com/en-us/windows/deprecation-of-microsoft-support-diagnostic-tool-msdt-and-msdt-troubleshooters-0c5ac9a2-1600-4539-b9d0-069e71f9040a",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "What does retiring the legacy inbox troubleshooters mean?",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Devices running the next release of Windows 11 and newer Go to Start > Settings > System > Troubleshoot > Other Troubleshooters and select the correct troubleshooter for your issue. Open Troubleshoot Settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Devices running Windows 11 version 22H2 and older If you're running Windows 11 version 22H2 and older, Windows 10, Windows 8.1, Windows 7 or any other earlier OS version, your device will not be affected by the MSDT Troubleshooter retirement. Earlier OS systems will continue to run the legacy inbox troubleshooters.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Troubleshooter retirement plan",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Troubleshooters being redirected In 2023-2024, Microsoft will redirect the following legacy inbox troubleshooters from devices running Windows 11 version 22H2. Troubleshooter name New Get Help troubleshooter Audio Open Get Help for Audio Background Intelligent Transfer Service (BITS) Open Get Help for BITS Bluetooth Open Get Help for Bluetooth Camera Open Get Help for Camera Network and Internet Open Get Help for Network and Internet Printer Open Get Help for Printer Program Compatibility Open Get Help for Program Compatibility Video Playback Open Get Help for Video Playback Windows Media Player Open Get Help for Windows Media Player Windows Update Link coming soon for Windows Update",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Troubleshooters being removed In 2024, Microsoft will remove the following legacy inbox troubleshooters from devices beginning with the next release of Windows 11. Troubleshooter name Connection to a Workplace using DirectAccess Devices and Printers Hardware and Devices HomeGroup Incoming Connections Internet Explorer Performance Internet Explorer Safety Keyboard Power Search and Indexing Speech System Maintenance Shared Folders Windows Store Apps",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Send us feedback",
+      "steps": [
+        {
+          "step": 5,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-06.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 6,
+  "image_count": 1
+}

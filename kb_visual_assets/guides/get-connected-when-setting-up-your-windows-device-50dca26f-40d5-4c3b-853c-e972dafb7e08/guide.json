@@ -1,0 +1,186 @@
+{
+  "id": "get-connected-when-setting-up-your-windows-device-50dca26f-40d5-4c3b-853c-e972dafb7e08",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "get",
+    "connected",
+    "when",
+    "setting",
+    "device"
+  ],
+  "title": "Get connected when setting up your Windows device",
+  "source_url": "https://support.microsoft.com/en-us/windows/get-connected-when-setting-up-your-windows-device-50dca26f-40d5-4c3b-853c-e972dafb7e08",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "On your home Wi-Fi router",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Restart your modem and Wi-Fi router at home . This helps create a new connection to your internet service provider (ISP). When you do this, everyone that is connected to your Wi-Fi network will be temporarily disconnected. The steps you take to restart your modem and router can vary, but here are the general steps. Note: If you have a cable modem/Wi-Fi router combo device, you only need to follow the steps for the single device.) Unplug the power cable for the Wi-Fi router from the power outlet.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Unplug the power cable for the modem from the power outlet. Some modems have a backup battery. If you unplug the modem and lights stay on, remove the battery from the modem.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Wait at least 10 seconds or so. If you had to remove the battery from the modem, put it back in.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Plug the modem back into the power outlet. The lights on the modem will blink. Wait for them to stop blinking.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Plug your router back into the power outlet. Wait a few minutes for the modem and router to fully power on. You can usually tell when they’re ready by looking at the status lights on the two devices.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "On your device, try to connect again.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Make sure your Wi-Fi router is set to broadcast the network name (SSID) . Check this if you don’t see your Wi-Fi network name appear in the list of available networks on your PC. To learn how to make sure your router is broadcasting the network name, check the documentation for your router.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "On your PC",
+      "steps": [
+        {
+          "step": 8,
+          "text": "Make sure the physical Wi‑Fi switch on your laptop is turned on . An indicator light usually shows when it's on. Not all devices have a physical Wi-Fi switch.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Move closer to your Wi-Fi router or access point . This helps to make sure you’re in range of your network at home or work and can help improve signal strength. Five full signal bars indicate the strongest connection.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Make sure you have the correct Wi-Fi network password . Double check your Wi-Fi network password and confirm you’re joining the correct network.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Try connecting to a network on a different frequency band . Many Wi-Fi routers broadcast at two different frequency bands: 2.4 GHz and 5 GHz. These can appear as separate networks in the list of available Wi-Fi networks on your PC. If the list of available Wi-Fi networks includes both a 2.4 GHz network and a 5 GHz network, try connecting to the other network.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Connect to a different Wi-Fi network . If there’s a different Wi-Fi network that you trust, try to connect to it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Use a wired Ethernet connection . If your device has an Ethernet port, plug in an Ethernet cable, and then plug the other end into an Ethernet port on your router. If your device doesn’t have an Ethernet port but you want to try this option, you might consider getting a USB to Ethernet adapter.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Connect to a cellular network instead . If your device has a SIM card slot or built-in eSIM, try to connect to cellular a network with your PC and see if you can get an internet connection that way. For more info, see Cellular settings in Windows .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Check and reinstall the Wi-Fi network adapter drivers (for advanced users) . If you don’t see any Wi-Fi networks listed when you’re setting up your device and see an error message, you might need to reinstall Wi-Fi network adapter drivers. Here’s how: On a different device, download the necessary Wi-Fi network adapter drivers from the manufacturer’s website.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Unzip and copy the drivers to a USB flash drive. The .inf file must be in the root of the flash drive and not in any subfolders. Note: This assumes your drivers came in the form of a compressed (zipped) folder, or .ZIP file. If your drivers came in the form of an executable (or .EXE ) file (or if that's all you see once you open the .ZIP), you may just need to open that file to install the drivers. Contact your hardware manufacturer if you have further questions.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "On the device you’re setting up, plug the USB flash drive into a USB port.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Press Shift + F10 to open a Command Prompt window from setup.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "Type diskpart and press Enter . If prompted, select Yes to allow it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "In the new DiskPart window, type list volume and press Enter . Note: The letter of the USB drive is listed in the column under Ltr .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 21,
+          "text": "Press Shift + F10 to open a Command Prompt window from setup.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 22,
+          "text": "In the command prompt, type pnputil /add-driver <USBDriveLetter> :\\*.inf , and then press Enter . The full command should look like this: pnputil /add-driver D:\\*.inf Note: Replace <USBDriveLetter>:\\ with the drive letter for your USB flash drive, such as D:\\ .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 23,
+          "text": "You might need to scan for devices afterwards. To do this, at the command prompt, type pnputil /scan-devices , and then press Enter .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "On another device",
+      "steps": [
+        {
+          "step": 24,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 25,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-25.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 25,
+  "image_count": 1
+}

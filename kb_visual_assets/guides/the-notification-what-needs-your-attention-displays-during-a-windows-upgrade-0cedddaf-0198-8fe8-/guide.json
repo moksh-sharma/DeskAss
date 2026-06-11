@@ -1,0 +1,110 @@
+{
+  "id": "the-notification-what-needs-your-attention-displays-during-a-windows-upgrade-0cedddaf-0198-8fe8-",
+  "topic_id": "display/support_guide",
+  "domains": [
+    "display"
+  ],
+  "keywords": [
+    "notification",
+    "what",
+    "needs",
+    "attention",
+    "displays",
+    "during",
+    "upgrade"
+  ],
+  "title": "The notification \"What needs your attention\" displays during a Windows upgrade",
+  "source_url": "https://support.microsoft.com/en-us/windows/the-notification-what-needs-your-attention-displays-during-a-windows-upgrade-0cedddaf-0198-8fe8-3b75-5f83dc7a4c77",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "No action is needed",
+      "steps": [
+        {
+          "step": 1,
+          "text": "This message is intentional. Windows Update upgrade encountered a known issue with the Windows upgrade on the current Windows device. Nothing needs to be done.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Microsoft recommends staying on the current version of Windows.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Windows Update automatically offers the Windows upgrade if the issue is eventually resolved.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Flight signing",
+      "steps": [
+        {
+          "step": 4,
+          "text": "An attempt is being made to install a pre-release copy of Windows. Either Join the Windows Insider Program or to allow the Windows device to trust Insider builds, select the Enable button.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Incompatible privacy settings",
+      "steps": [
+        {
+          "step": 5,
+          "text": "This issue can be resolved by changing privacy settings. To learn more, see Change privacy settings in Windows .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Incompatible app",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Update the app . Make sure the Windows device is connected to the internet and then select the Learn more or update instead link to visit an article explaining the compatibility issue. The article directs to the software provider's website where the app can be updated to a version that's compatible with the latest version of Windows. After the app is updated, return to the What needs your attention message and select Refresh . The Windows upgrade can proceed if there are no additional compatibility issues.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Automatically uninstall the app . If the app isn't needed, select the Uninstall button to automatically uninstall it. After the app is removed, the page should automatically refresh. The Windows upgrade can proceed if there are no additional compatibility issues.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Manually uninstall the app . In some cases, the app can't be updated or automatically uninstalled. In this case, the app needs to be manually uninstalled. You can try the steps in the article Repair apps and programs in Windows . However, if there are any difficulties with manually uninstalling the app, contact support . After the app is removed, return to the What needs your attention message and select Refresh . The Windows upgrade can proceed if there are no additional compatibility issues.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Windows device not meeting minimum system requirements to upgrade",
+      "steps": [
+        {
+          "step": 9,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-10.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 10,
+  "image_count": 1
+}

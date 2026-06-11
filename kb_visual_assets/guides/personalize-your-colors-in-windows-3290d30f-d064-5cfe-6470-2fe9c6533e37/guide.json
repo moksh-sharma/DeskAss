@@ -1,0 +1,88 @@
+{
+  "id": "personalize-your-colors-in-windows-3290d30f-d064-5cfe-6470-2fe9c6533e37",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "personalize",
+    "colors"
+  ],
+  "title": "Personalize your Colors in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/personalize-your-colors-in-windows-3290d30f-d064-5cfe-6470-2fe9c6533e37",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Color mode",
+      "steps": [
+        {
+          "step": 1,
+          "text": "In the Settings app on your Windows device, select Personalization > Colors . Open Color settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Under Choose your mode , you can select Light , Dark , or Custom mode:",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "The dark mode has colors that are designed to work well in a low-lit environment. This option is for the Start menu, taskbar, and action center.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "The light modeis designed to work well during daylight hours. Note: The light mode doesn't personalize the color of the Start menu, taskbar, and action center (that option is only available fordark and custom modes).",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "The custom mode gives you options between light and dark.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Accent Color",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Show accent color on Start and taskbar This option allows you to personalize your Windows experience by applying your chosen accent color to the Start menu, taskbar, and action center. When enabled, the accent color you select will be prominently displayed on these elements, giving your desktop a cohesive and customized look. This setting is only available if you select dark or custom as your Windows color mode.",
+          "caption": "Screenshot of the Windows desktop with an accent color applied to the Start meny and taskbar.",
+          "image": "step-06.png",
+          "image_url": "https://support.microsoft.com/images/en-us/ba79d3e3-e91e-431a-9868-0eb9dd48d6ec"
+        },
+        {
+          "step": 7,
+          "text": "Show accent color on title bars and window borders This option lets you apply your selected accent color to the title bars and borders of windows. When enabled, the accent color will appear on the horizontal bar at the top of each window and the borders around the windows, providing a consistent and personalized appearance across your desktop.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Color filters and contrast themes",
+      "steps": [
+        {
+          "step": 8,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-09.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 9,
+  "image_count": 2
+}

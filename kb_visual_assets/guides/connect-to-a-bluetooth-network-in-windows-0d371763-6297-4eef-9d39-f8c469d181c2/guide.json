@@ -1,0 +1,104 @@
+{
+  "id": "connect-to-a-bluetooth-network-in-windows-0d371763-6297-4eef-9d39-f8c469d181c2",
+  "topic_id": "bluetooth/support_guide",
+  "domains": [
+    "bluetooth",
+    "network"
+  ],
+  "keywords": [
+    "connect",
+    "bluetooth",
+    "network"
+  ],
+  "title": "Connect to a Bluetooth network in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/connect-to-a-bluetooth-network-in-windows-0d371763-6297-4eef-9d39-f8c469d181c2",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Summary",
+      "steps": [
+        {
+          "step": 1,
+          "text": "The Windows device needs to have Bluetooth built in or added via a Bluetooth adapter.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "A secondary device needs to have Bluetooth and support hotspot functionality.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Turn on Bluetooth on both the Windows device and the hotspot device, and ensure the devices are paired via Bluetooth to each other. For more information, see Pair a Bluetooth device in Windows .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "On the hotspot device, activate the hotspot and set it to share over Bluetooth.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "On the Windows device, select Start > Settings > Bluetooth & devices > Devices . Open Bluetooth & devices settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "In the Bluetooth & devices window under Other devices , select the hotspot device to expand it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Under the hotspot device next to Personal Area Network (PAN) , select the Join button.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "In the Bluetooth Personal Area Network window that opens, make sure Access Point is selected in the drop-down menu, and then select the Connect button. Note: Access Point might be the only option available in the drop-down menu. If it is, then Access Point is automatically selected, and the drop-down menu is greyed out.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "After selecting the Connect button, Windows will attempt to connect to the hotspot device. If it's successful, a Connection successful message is displayed. Select the OK button to close the Bluetooth Personal Area Network window.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "The status of the connection is displayed in Other devices under the hotspot device's name. To disconnect from the Bluetooth Personal Area Network, follow the same steps to connect to the hotspot device, but select the Disconnect PAN button instead of the Connect button.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related articles",
+      "steps": [
+        {
+          "step": 11,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-12.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 12,
+  "image_count": 1
+}

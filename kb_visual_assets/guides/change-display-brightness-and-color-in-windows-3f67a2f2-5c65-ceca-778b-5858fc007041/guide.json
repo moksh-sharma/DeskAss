@@ -1,0 +1,122 @@
+{
+  "id": "change-display-brightness-and-color-in-windows-3f67a2f2-5c65-ceca-778b-5858fc007041",
+  "topic_id": "display/support_guide",
+  "domains": [
+    "display",
+    "performance"
+  ],
+  "keywords": [
+    "change",
+    "display",
+    "brightness",
+    "color"
+  ],
+  "title": "Change display brightness and color in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/change-display-brightness-and-color-in-windows-3f67a2f2-5c65-ceca-778b-5858fc007041",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Adjust display brightness",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Change brightness manually To adjust display brightness, select the Network icon on the right side of the taskbar, and then move the Brightness slider to adjust the brightness. Alternatively, you can adjust the display brightness from Settings > System > Display . Important: You might not see the Brightness slider on desktop PCs that have an external monitor. To change the brightness on an external monitor, use the buttons on it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Change brightness automatically based on lighting conditions Select Start > Settings > System > Display . Select Brightness , and enable the toggle brightness automatically when lighting changes .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Change brightness automatically based on content Select the Start button, then type settings . Select Settings > System > Display . In Display settings, select Brightness , then set the Change brightness based on content drop-down as needed: Off: Adaptive brightness control will be turned off and screen brightness and contrast will not be adjusted. This can result in shorter battery life. Always: Adaptive brightness control will always run regardless of whether the device is plugged in or on battery. On Battery Only: Adaptive brightness control will only be activated when the device is on battery power.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Night light",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Turn Night light on or off Select the Network or Speakers icon on the right side of the taskbar, use down arrow on right to scroll and locate Night light , and select it to toggle it on or off. Select Start > Settings > System > Display . Turn on Night light .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Adjust Night light strength Select Start , then type settings in the search box. Select Settings > System > Display > Night light . Move the Strength slider to adjust the intensity of the blue light reduction.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Schedule Night light Select Start , then type settings in the search box. Select Settings > System > Display > Night light . Turn on Schedule night light . Then, either select Sunset to sunrise , or select Set hours and enter custom times for the night light to turn on and off.",
+          "caption": "Shows the Night light page, with the \"Schedule night light\" toggle turned on, and the \"Set hours\" selected below that.",
+          "image": "step-06.png",
+          "image_url": "https://support.microsoft.com/images/en-us/38d648e6-3c7f-4839-bb29-bd08b27a9e2e"
+        }
+      ]
+    },
+    {
+      "title": "Color profile management",
+      "steps": [
+        {
+          "step": 7,
+          "text": "Automatic color management Select the Start button, then select Settings > System > Display > Color profile . Select your display near the top, then check for the following setting: Automatically manage color for apps . Select Automatically manage color for apps to turn it on.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Add a color profile ​​​Go to Settings > System > Display > Color profile . ​In the Color management settings page, select the display you want to manage color profiles for. ​Add a new color profile by selecting Add profile and locate a color profile.​",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Remove a color profile Go to Settings > System > Display > Color profile . ​In the Color management settings page, select the display you want to manage color profiles for. ​Expand the color profile that you want to remove and click Remove at the bottom.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Set a default color profile Go to Settings > System > Display > Color profile . ​In the Color management settings page, select the display you want to manage color profiles for. ​Set one of the color profiles as the default by selecting Set profile .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Color calibration Go to Settings > System > Display > Color profile . ​Select Calibrate display and follow the display calibration steps. This will create a new color profile for the display where the calibration tool is located.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Calibrate display color",
+      "steps": [
+        {
+          "step": 12,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-13.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 13,
+  "image_count": 2
+}

@@ -1,0 +1,167 @@
+{
+  "id": "diagnostics-feedback-and-privacy-in-windows-28808a2b-a31b-dd73-dcd3-4559a5199319",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "diagnostics",
+    "feedback",
+    "privacy"
+  ],
+  "title": "Diagnostics, feedback, and privacy in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/diagnostics-feedback-and-privacy-in-windows-28808a2b-a31b-dd73-dcd3-4559a5199319",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "What data is collected and why",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Required diagnostic data is information about your device, its settings and capabilities, and whether it is performing properly. This is the minimum level of diagnostic data needed to help keep your device reliable, secure, and operating normally.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Optional diagnostic data includes additional details about your device and its settings, capabilities, and device health. Optional diagnostic data may also include information about the websites you browse, device activity (sometimes referred to as usage), and enhanced error reporting. Optional diagnostic data can also include the memory state of your device when a system or app crash occurs (which may unintentionally include parts of a file you were using when a problem occurred). Required diagnostic data will always be included when you choose to send Optional diagnostic data. If you choose to send optional diagnostic data, Microsoft may use or combine Windows diagnostic data with data from other Microsoft products to help keep Windows and those products secure and up to date, troubleshoot problems, and make product improvements. While your device will be just as secure and operate normally when only sending Required diagnostic data, the additional information we collect when you've chosen to send Optional diagnostic data makes it easier for us to identify and fix issues and make product improvements that benefit all Windows customers.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Windows 11 at Start > Settings > Privacy & security > Diagnostics & feedback .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Windows 10 at Start > Settings > Privacy > Diagnostics & feedback",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Basic error information to help determine whether problems your device is experiencing can be addressed by the update process.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Information about your device, its settings and capabilities, including applications and drivers installed on your device, to ascertain whether your device is ready for and compatible with the next operating system or app release and ready for update.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Logging information from the update process itself to understand how well your device's updates are proceeding through the stages of downloading, pre-installation, post-installation, post-reboot, and setup.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Data about the performance of updates on all Windows devices to assess the success of an update's deployment and to learn device characteristics (e.g., hardware, peripherals, settings, and applications) that are associated with the success or failure of an update.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Data about which devices have had upgrade failures and why to determine whether to offer the same upgrade again.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Comprehend the immense number of hardware, system, and software combinations customers use.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Analyze issues based on specific hardware, system, and software combinations and identify where problems or issues occur with a specific or limited set of devices.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Determine whether an app or process experiences a performance issue (e.g., the app crashes or hangs) and when a crash-dump file is created on the device (crash dumps themselves are not collected without additional permissions, such as choosing to send Optional diagnostic data).",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Understand the effectiveness and fix problems with the diagnostic transmission system itself.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Information about app activity to understand what the user was doing in an app that caused a problem in conjunction with what we learn about the impact of other apps or processes running on a device.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Information about device health, such as battery level or how quickly applications respond to input, to better understand the data we collect about application performance issues and make corrections.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Information contained in enhanced error reporting and crash dumps to better understand the data related to the specific conditions under which an error or crash occurred.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "Information about customers' devices, peripherals, and settings (and their configurations) is used to prioritize product improvements by determining which improvements will have the greatest positive impact to the most Windows customers.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Information about which apps are installed on devices is used to prioritize app-compatibility testing and feature improvements for the most popular apps.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "App activity information helps us prioritize app-compatibility testing and make feature improvements to apps and features that are used the most.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "Information about the impact of device characteristics, configuration, and app activity on device health (for example on battery life) is used to analyze and make changes that improve the performance of Windows devices.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 21,
+          "text": "Aggregate information about browsing history in Microsoft browsers is used to tune Bing's search algorithms to provide more effective search results.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "How to control your diagnostics and feedback settings",
+      "steps": [
+        {
+          "step": 22,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 23,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-23.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 23,
+  "image_count": 1
+}

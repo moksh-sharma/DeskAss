@@ -1,0 +1,81 @@
+{
+  "id": "troubleshoot-external-monitor-connections-in-windows-5b46f4a4-9634-06bb-7622-f960facdfd49",
+  "topic_id": "network/support_guide",
+  "domains": [
+    "network",
+    "display"
+  ],
+  "keywords": [
+    "troubleshoot",
+    "external",
+    "monitor",
+    "connections"
+  ],
+  "title": "Troubleshoot external monitor connections in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/troubleshoot-external-monitor-connections-in-windows-5b46f4a4-9634-06bb-7622-f960facdfd49",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Disconnect all accessories from your PC. Connected docks, dongles, adapters and other hardware can cause conflicts.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Make sure the cable connecting your PC to your external monitor is secure.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Try changing the cable connecting the external monitor. If the new one works, you know the previous cable was faulty.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Try using the external monitor with a different system. This can help to isolate whether the issue is with the monitor or the primary system",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "If your system has more than one video output port, try plugging your external monitor into one of the other video output ports. Typical ports are HDMI, VGA, DVI, and DisplayPort.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "If your system has more than one display adapter, also called a graphics card, you can try switching your system’s default display adapter. For example, on some systems, you can right click your desktop and select the software associated with your additional display adapter. Steps to change the default display adapter vary by device, so contact the manufacturer for more information.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Still having issues?",
+      "steps": [
+        {
+          "step": 7,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-08.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 8,
+  "image_count": 1
+}

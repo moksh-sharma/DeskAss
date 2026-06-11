@@ -1,0 +1,77 @@
+{
+  "id": "give-feedback-about-get-help-54a5b02a-071c-4b02-83d0-00c6ed99845b",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "give",
+    "feedback",
+    "get",
+    "help"
+  ],
+  "title": "Give feedback about Get Help",
+  "source_url": "https://support.microsoft.com/en-us/windows/give-feedback-about-get-help-54a5b02a-071c-4b02-83d0-00c6ed99845b",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Giving feedback",
+      "steps": [
+        {
+          "step": 1,
+          "text": "On any screen in the Get Help app, select the Give Feedback button at the top right of the screen.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Select the type of feedback you wish to give.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Types of feedback",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Give a complement: Did you have a great experience using Get Help? Were you able to quickly solve your problem? Let us know so we can help others find the same resolution.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Report a problem: Found an issue with the Get Help app? Report it to help improve the Get Help experience. The more detail you can give us about the problem, the more it helps us to find a resolution. Note: Submit feedback for issues with Get Help. If you have issues with Microsoft Office apps, please contact support.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Make a suggestion: Have an idea to make Get Help better or more useful? We'd love to hear it! Let us know.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related topics",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-07.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 7,
+  "image_count": 1
+}

@@ -1,0 +1,291 @@
+{
+  "id": "camera-doesn-t-work-in-windows-32adb016-b29c-a928-0073-53d31da0dad5",
+  "topic_id": "webcam/support_guide",
+  "domains": [
+    "webcam"
+  ],
+  "keywords": [
+    "camera",
+    "doesn",
+    "work"
+  ],
+  "title": "Camera doesn't work in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/camera-doesn-t-work-in-windows-32adb016-b29c-a928-0073-53d31da0dad5",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "General troubleshooting",
+      "steps": [
+        {
+          "step": 1,
+          "text": "If you're using an external camera, ensure it is securely connected to the USB port. Check for any loose cords or cables and confirm all connections are properly plugged in.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "To rule out hardware issues, test the camera on a different device.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "A button on the keyboard that's activated with the Fn key",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "A dedicated camera button on the keyboard",
+          "caption": "Shows the keyboard key that turns off the camera. It",
+          "image": "step-04.png",
+          "image_url": "https://support.microsoft.com/images/en-us/3e97be97-0942-4b28-82eb-da3b51f78614"
+        },
+        {
+          "step": 5,
+          "text": "A sliding switch on the side of a laptop",
+          "caption": "Shows the on/off slide switch on the right side of the device.",
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/428dd811-5afc-41ba-a9e7-1a0cab071f5d"
+        },
+        {
+          "step": 6,
+          "text": "A small slider for a shutter, built right into the camera",
+          "caption": "Shows the slide switch that covers the camera, It",
+          "image": "step-06.png",
+          "image_url": "https://support.microsoft.com/images/en-us/86f69a6e-87f3-48c2-b4e7-d01b9ba1ecc0"
+        },
+        {
+          "step": 7,
+          "text": "Select Start > Settings > Privacy & security > Camera . Allow access to the camera on this device",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Make sure Camera access is turned on. Note: If camera access for the device is turned off and greyed out, you'll need an administrator on the device to turn on camera access for you.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Make sure Let apps access your camera is turned on.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Choose which apps should have access. Only apps that were installed from the Microsoft Store will appear in this list.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Open Start > Camera and see if the preview works.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "If the camera works in one app but not another, the issue lies with the app settings.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Check for updates. Select Start > Settings > Windows Update > Check for updates . If there are no updates for your camera, try to select Advanced options > Optional updates , and look for any driver updates for your camera. Allow available updates to install, then restart your device when it's ready.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Restart your PC. If you haven't restarted your device since the camera stopped working, you should do so. Select Start > Power > Restart . Waking up your device from sleep isn't the same thing as a restart.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Test your camera with the Camera app. Select Start , then choose Camera from your apps. If you're asked to allow access to the Camera, select Yes . If the camera works in the Camera app, the problem might be with the app you're trying to use. Open Camera",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Select Start > Settings > System .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "Scroll down and click Troubleshoot , then select Other troubleshooters .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Locate the Camera section and click the Run button to launch the camera troubleshooter",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "Select Start , type device manager , then select it from the search results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "Find your camera under Cameras , Imaging devices , or Sound, video and game controllers .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 21,
+          "text": "If you can't find your camera, select the Action menu, then select Scan for hardware changes .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 22,
+          "text": "Wait for it to scan and reinstall updated drivers, restart your device, then open the Camera app again to test it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 23,
+          "text": "If these steps don't fix your issue, continue to the next steps.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 24,
+          "text": "In Device Manager , right-click (or press and hold) on your camera, then select Properties .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 25,
+          "text": "Select the Driver tab, select Roll Back Driver , and then choose Yes . (Some drivers don’t provide this option. If your driver doesn’t have Roll Back Driver available, go ahead to the next fix.)",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 26,
+          "text": "After the roll back is complete, restart your device, and then try opening the Camera app again.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 27,
+          "text": "If rolling back didn’t work or isn’t available, continue to the next steps.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 28,
+          "text": "In Device Manager , right-click (or press and hold) on your camera, and then select Properties .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 29,
+          "text": "Select the Driver tab, then select Uninstall Device . Select the check box for Attempt to remove the driver for this device , then select OK .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 30,
+          "text": "In Device Manager , on the Action menu, select Scan for hardware changes .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 31,
+          "text": "Wait for it to scan and reinstall updated drivers, restart your PC, and then try opening the Camera app again.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 32,
+          "text": "Select Start , type device manager , then select it from the search results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 33,
+          "text": "Find the problem webcam from the list of devices shown in the Device Manager. It should appear either under Cameras or Imaging devices .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 34,
+          "text": "Right-click the webcam device and select Update driver .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 35,
+          "text": "Select Browse my computer for drivers .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 36,
+          "text": "Select Let me pick from a list of available drivers on my computer .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 37,
+          "text": "Select USB Video Device and then select Next to complete the driver update.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 38,
+          "text": "Select Close to acknowledge settings choices and go back to Device Manager. The webcam will now appear under the Cameras category in the Device Manager list.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Most common camera problems",
+      "steps": [
+        {
+          "step": 39,
+          "text": "Error codes and their potential causes Select Start > Settings > Privacy & security > Camera . Allow access to the camera on this device Make sure Camera access is turned on. Note: If camera access for the device is turned off and greyed out, you'll need an administrator on the device to turn on camera access for you. Make sure Let apps access your camera is turned on. Choose which apps should have access. Only apps that were installed from the Microsoft Store will appear in this list. Shut down any background apps that could be accessing the camera and causing conflicts. Check Task Manager for apps using the camera and close them: Right click on the taskbar and select Task Manager . You'll see a list of apps that are running. Right-click on any app using the camera and select End Task to close it. Select Start > Settings > Privacy & security > Camera . Allow access to the camera on this device Make sure Camera access is turned on. Note: If camera access for the device is turned off and greyed out, you'll need an administrator on the device to turn on camera access for you. Make sure Let apps access your camera is turned on. Choose which apps should have access. Only apps that were installed from the Microsoft Store will appear in this list. Check the group policy settings (for enterprise users). Contact your IT admin if policies are restricted. Check privacy settings for camera : Here's how you can let your apps access the camera: Select Start > Settings > Privacy & security > Camera . Allow access to the camera on this device Make sure Camera access is turned on. Note: If camera access for the device is turned off and greyed out, you'll need an administrator on the device to turn on camera access for you. Make sure Let apps access your camera is turned on. Choose which apps should have access. Only apps that were installed from the Microsoft Store will appear in this list. Close unnecessary apps to free up the memory. Restart your computer. Update the camera driver: Select Start > Device Manager . Expand Cameras section and look for your camera from the list. Right-click on your camera and select Update driver . Select Search automatically for drivers : Windows will search online for the latest driver and install it if available. Once the update is complete, restart your computer to ensure the changes take effect. Open the antivirus or firewall application from the Start menu. Look for an option to disable or pause protection, often found in the Settings , Tools , or Protection tab. Select a duration for the temporary disable (e.g., 10 minutes, 1 hour). Update your antivirus software. Select Start > Settings > System . Scroll down and click Troubleshoot , then select Other troubleshooters . Locate the Camera section and click the Run button to launch the camera troubleshooter Select Start > Device Manager . Expand Cameras section and look for your camera from the list. Right-click on your camera and select Uninstall device . In the confirmation dialog, check the box for Delete the driver software for this device (if available). Click Uninstall to remove the driver. Restart your PC after uninstalling the driver. Windows will attempt to reinstall the default driver automatically. After restarting, Device Manager , right-click the camera and select Update driver . Select Search automatically for drivers : Windows will search online for the latest driver and install it if available. Select Start > Device Manager . Expand Cameras section and look for your camera from the list. Right-click on your camera and select Update driver . Select Search automatically for drivers : Windows will search online for the latest driver and install it if available. Once the update is complete, restart your computer to ensure the changes take effect. Check for updates. Select Start > Settings > Windows Update > Check for updates . If there are no updates for your camera, try to select Advanced options > Optional updates , and look for any driver updates for your camera. Allow available updates to install, then restart your device when it's ready. Restart your PC. If you haven't restarted your device since the camera stopped working, you should do so. Select Start > Power > Restart . Waking up your device from sleep isn't the same thing as a restart. Open Start > Camera and see if the preview works. If the camera works in one app but not another, the issue lies with the app settings. Select Start > Device Manager . Expand Cameras section and look for your camera from the list. Right-click on your camera and select Update driver . Select Search automatically for drivers : Windows will search online for the latest driver and install it if available. Once the update is complete, restart your computer to ensure the changes take effect. Open Start > Camera and see if the preview works. If the camera works in one app but not another, the issue lies with the app settings. Clean the camera lens. Adjust resolution settings in the camera app or video conferencing app. Ensure strong and stable internet connectivity.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 40,
+          "text": "Camera stopped working after Windows update In Device Manager , right-click (or press and hold) on your camera, then select Properties . Select the Driver tab, select Roll Back Driver , and then choose Yes . (Some drivers don’t provide this option. If your driver doesn’t have Roll Back Driver available, go ahead to the next fix.) After the roll back is complete, restart your device, and then try opening the Camera app again. If rolling back didn’t work or isn’t available, continue to the next steps. In Device Manager , right-click (or press and hold) on your camera, and then select Properties . Select the Driver tab, then select Uninstall Device . Select the check box for Attempt to remove the driver for this device , then select OK . In Device Manager , on the Action menu, select Scan for hardware changes . Wait for it to scan and reinstall updated drivers, restart your PC, and then try opening the Camera app again.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related articles",
+      "steps": [
+        {
+          "step": 41,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 42,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-42.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 42,
+  "image_count": 4
+}

@@ -1,0 +1,928 @@
+{
+  "id": "fix-sound-or-audio-problems-in-windows-73025246-b61c-40fb-671a-2535c7cd56c8",
+  "topic_id": "audio/support_guide",
+  "domains": [
+    "audio"
+  ],
+  "keywords": [
+    "fix",
+    "sound",
+    "audio",
+    "problems"
+  ],
+  "title": "Fix sound or audio problems in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/fix-sound-or-audio-problems-in-windows-73025246-b61c-40fb-671a-2535c7cd56c8",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "General audio troubleshooting in Windows 11",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select the Speakers icon on the taskbar.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Next, select the arrow to the right of the speaker volume slider to open a list of audio devices connected to your computer. The tool tip should display as Select a sound output when hovering over the arrow.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Check that your audio is playing to the audio device you prefer, such as a speaker or headphones.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Check your speaker and headphone connections for loose cords or cables. Make sure all cords and cables are plugged in.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "If you have multiple 5mm jacks to plug into, especially on a surround sound system, make sure all cords and cables are plugged into the correct jack. If it’s not clear which jack goes with which cord, consult your hardware manufacturer, or try the most obvious outputs one at a time and see if they work. Note: Some systems use a green jack for output and a pink jack for mic input and others will be labeled \"headphone\" or \"microphone.\"",
+          "caption": "sound system 5 mm jacks for cables and cords",
+          "image": "step-05.jpg",
+          "image_url": "https://support.microsoft.com/images/en-us/cb56be22-f2ac-1a88-def3-c38917cc45fa"
+        },
+        {
+          "step": 6,
+          "text": "Make sure the power is turned on.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Make sure the mute setting is not turned on and try turning up all the volume controls. Note: Some speakers and apps have their own volume controls. Be sure to check them all.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Try connecting your speaker and headphones to a different USB port.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "It's possible that your speakers won't work when your headphones are plugged in. Unplug your headphones and see if that helps.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Select Start > Settings > Sound .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "In the Output section, select the audio device you're using (e.g., your speakers or headphones).",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "On the page that opens, scroll to Advanced settings ,then set Audio enhancements to Off from the dropdown menu.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Select Start > Settings > System .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Scroll down and select Troubleshoot > Other troubleshooters .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Go to Audio section and click the Run button to start the audio troubleshooter.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Select and hold (or right-click) the Speakers icon on the taskbar.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "Next, select the arrow to the right of the speaker volume slider to open a list of audio devices connected to your computer. The tool tip should display as Select a sound output when hovering over the arrow. Note: If you don't see Speakers displayed, it may be in the overflow area. Select Show hidden icons to check there.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Select settings icon to the right of the Volume mixer slider to open Volume mixer settings. The tool tip should display as More mixer settings when hovering over the settings icon.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "You’ll see a set of volume controls for your devices. Make sure none of them are muted. If any of them are muted, you’ll see an \"x\" next to the volume control . To unmute do one of the following: Select the volume control and adjust to the desired volume level.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "Select the Unmute speakers icon .",
+          "caption": "View volume and default audio devices in Windows 11 Volume mixer.",
+          "image": "step-20.png",
+          "image_url": "https://support.microsoft.com/images/en-us/225d8734-f081-4a10-a232-5fffa564443c"
+        },
+        {
+          "step": 21,
+          "text": "Check your device properties to make sure that your devices have not been disabled by mistake. Select Start > Settings > System > Sound .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 22,
+          "text": "Under Advanced , select More sound settings and select either the Playback (output) or Recording (input) tab.",
+          "caption": "Access audio output device properties in Windows 11 Sound Settings.",
+          "image": "step-22.png",
+          "image_url": "https://support.microsoft.com/images/en-us/62855780-a6b0-4941-84fc-60f7a064372b"
+        },
+        {
+          "step": 23,
+          "text": "Select your device and then select Properties .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 24,
+          "text": "Next to Device usage , check that Use this device (enable) is selected from the list for the output and input devices.",
+          "caption": "audio-device-properties",
+          "image": "step-24.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f064c819-f41e-4c1f-bfed-a084c618edc3"
+        },
+        {
+          "step": 25,
+          "text": "Select Start > Settings > System > Sound .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 26,
+          "text": "In the Output section, select the device you want to use for playback as your output device. When you select this device, you’re also setting it as the default.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 27,
+          "text": "Select Start > Settings > Windows Update and select Check for updates . Open Windows Update",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 28,
+          "text": "Do one of the following: If the status says, \"You're up to date,\" go to the next tip.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 29,
+          "text": "If the status says, \"Updates are available,\" select Install now .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 30,
+          "text": "Select the updates you want to install, then select Install .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 31,
+          "text": "Restart your PC and check if your sound is working properly.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 32,
+          "text": "Save your work and close all open applications.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 33,
+          "text": "Select Start > Power . If you have installed updates pending, you’ll see options to Update and restart and Update and shut down .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 34,
+          "text": "Select one of those restart options to apply the updates.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 35,
+          "text": "In the search box on the taskbar, type device manager , then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 36,
+          "text": "Select the arrow next to Sound, video and game controllers to expand it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 37,
+          "text": "Select and hold (or right-click) the listing for your sound card or audio device, such as headphones or speakers, select Update driver , then select Search automatically for drivers . Follow the instructions to complete the update.",
+          "caption": "Right-click the device listing and select Update driver",
+          "image": "step-37.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f529914a-8f22-02c7-655f-7e35d4f499b3"
+        },
+        {
+          "step": 38,
+          "text": "In the search box on the taskbar, type device manager , then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 39,
+          "text": "Select the arrow next to Sound, video and game controllers to expand it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 40,
+          "text": "Select and hold (or right-click) the listing for your sound card or audio device, select Uninstall device , select the Attempt to remove the driver for this device check box, and then select Uninstall .",
+          "caption": "Uninstall an audio device in Device Manager in Windows 11.",
+          "image": "step-40.png",
+          "image_url": "https://support.microsoft.com/images/en-us/948de5c7-7143-4d16-a849-18e89bd31559"
+        },
+        {
+          "step": 41,
+          "text": "Restart your PC. Note: Be sure to save your documents and any other current work before you restart. This restart will automatically prompt your PC to reinstall your audio driver.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 42,
+          "text": "To restart, select Start > Power > Restart .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 43,
+          "text": "In the search box on the taskbar, type device manager , then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 44,
+          "text": "Select the arrow next to Sound, video and game controllers to expand it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 45,
+          "text": "Select and hold (or right-click) the listing for your sound card or audio device, then select Update driver > Browse my computer for drivers > Let me pick from a list of available drivers on my computer .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 46,
+          "text": "Select the audio device whose driver you want to update, select Next , and then follow the instructions to install it.",
+          "caption": "Select the driver and select next to use the generic audio driver",
+          "image": "step-46.png",
+          "image_url": "https://support.microsoft.com/images/en-us/aecf7023-683c-61a7-35b4-5f105725a59a"
+        },
+        {
+          "step": 47,
+          "text": "In the search box on the taskbar, type device manager , then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 48,
+          "text": "Select the arrow next to Sound, video and game controllers to expand it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 49,
+          "text": "Select and hold (or right-click) the listing for your sound card or audio device, then select Properties .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 50,
+          "text": "Select the Driver tab, then select Roll Back Driver .",
+          "caption": "Roll back the audio driver in Device Manager",
+          "image": "step-50.png",
+          "image_url": "https://support.microsoft.com/images/en-us/d2d36bd0-f681-fc12-4a3e-256b9543e8e6"
+        },
+        {
+          "step": 51,
+          "text": "Read and follow the instructions and then select Yes if you want to roll back your audio driver.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 52,
+          "text": "In the search box on the taskbar, type device manager , then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 53,
+          "text": "Select the arrow next to Sound, video and game controllers to expand it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 54,
+          "text": "Look for IDT High Definition Audio CODEC . If it's listed, select and hold (or right-click) it and select Update driver , then select Browse my computer for drivers > Let me pick from a list of available drivers on my computer .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 55,
+          "text": "You’ll see a list of pre-installed drivers. Select High Definition Audio Device , and then select Next .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 56,
+          "text": "In the search box on the taskbar, type control panel , and then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 57,
+          "text": "Select Hardware and Sound from the Control Panel, and then select Sound .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 58,
+          "text": "On the Playback tab, select and hold (or right-click) Default Device , and then select Properties .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 59,
+          "text": "On the Advanced tab, under Default Format , change the setting, select OK , and then test your audio device. If that doesn't work, try changing the setting again.",
+          "caption": "Change the audio format setting of your audio device",
+          "image": "step-59.png",
+          "image_url": "https://support.microsoft.com/images/en-us/bdc2e7b5-2182-1144-84f9-54c45c8b6730"
+        },
+        {
+          "step": 60,
+          "text": "In the search box on the taskbar, type services , then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 61,
+          "text": "Select each of the following services, select and hold (or right-click), select Restart , and then select Yes : Windows Audio",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 62,
+          "text": "Windows Audio Endpoint Builder",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 63,
+          "text": "Remote Procedure Call (RPC)",
+          "caption": "restart audio services: Windows Audio, Windows Endpoint Builder, and Remote Procedure Call (RPC)",
+          "image": "step-63.png",
+          "image_url": "https://support.microsoft.com/images/en-us/b63edb7d-bf92-d6c2-ddfc-bed1f84f040b"
+        },
+        {
+          "step": 64,
+          "text": "Select Start > Settings > Privacy & security.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 65,
+          "text": "Under App permissions , select Microphone .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 66,
+          "text": "Make sure that the Microphone access and Let apps access your microphone toggles are turned On .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 67,
+          "text": "If you’re having this issue with a specific app, scroll down under Let apps access your microphone and make sure that the toggle next to that specific app is turned On as well.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Common Audio issues in Windows 11",
+      "steps": [
+        {
+          "step": 68,
+          "text": "Fix audio issues when no sound plays from speakers or headphones in Windows",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 69,
+          "text": "Fix missing or undetected audio output device in Windows",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 70,
+          "text": "Fix low or quiet sound in Windows",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 71,
+          "text": "Fix audio stops working after a Windows update in Windows",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 72,
+          "text": "Fix microphone problems in Windows",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 73,
+          "text": "Fix distorted or crackling audio in Windows",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 74,
+          "text": "Fix app audio not working while system sounds work in Windows",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 75,
+          "text": "Fix Bluetooth connected but no sound issue on Windows",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 76,
+          "text": "Update audio drivers in Windows",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "General audio troubleshooting in Windows 10",
+      "steps": [
+        {
+          "step": 77,
+          "text": "Select the Speakers icon on the taskbar. Note: If you don't see Speakers displayed, it may be in the overflow area. Select Show hidden icons to check there.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 78,
+          "text": "Next, select the arrow to open a list of audio devices connected to your computer.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 79,
+          "text": "Check that your audio is playing to the audio device you prefer, such as a speaker or headphones.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 80,
+          "text": "Check your speaker and headphone connections for loose cords or cables. Make sure all cords and cables are plugged in.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 81,
+          "text": "If you have multiple 5mm jacks to plug into, especially on a surround sound system, make sure all cords and cables are plugged into the correct jack. If it’s not clear which jack goes with which cord, consult your hardware manufacturer, or try the most obvious outputs one at a time and see if they work. Note: Some systems use a green jack for output and a pink jack for mic input and others will be labeled \"headphone\" or \"microphone.\"",
+          "caption": "sound system 5 mm jacks for cables and cords",
+          "image": "step-81.jpg",
+          "image_url": "https://support.microsoft.com/images/en-us/cb56be22-f2ac-1a88-def3-c38917cc45fa"
+        },
+        {
+          "step": 82,
+          "text": "Make sure the power is turned on.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 83,
+          "text": "Make sure the mute setting is not turned on and try turning up all the volume controls. Note: Some speakers and apps have their own volume controls. Be sure to check them all.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 84,
+          "text": "Try connecting your speaker and headphones to a different USB port.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 85,
+          "text": "It's possible that your speakers won't work when your headphones are plugged in. Unplug your headphones and see if that helps.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 86,
+          "text": "In the search box on the taskbar, type control panel , then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 87,
+          "text": "Select Hardware and Sound from the Control Panel, and then select Sound .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 88,
+          "text": "On the Playback tab, select and hold (or right-click) the Default Device , and then select Properties .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 89,
+          "text": "On the Enhancements tab, select either the Disable all enhancements or the Disable all sound effects check box (depending on which option you see), select OK , and try to play your audio device.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 90,
+          "text": "If that doesn't work, on the Playback tab, select and hold (or right-click) another default device (if you have one), then select Properties . On the Enhancements tab select either the Disable all enhancements or the Disable all sound effects check box (depending on which option you see), select OK , and try to play audio again. Do this for each default device.",
+          "caption": "disable all enhancements or sound effects",
+          "image": "step-90.png",
+          "image_url": "https://support.microsoft.com/images/en-us/445d8aa9-2f28-1c06-facb-a40b2b879080"
+        },
+        {
+          "step": 91,
+          "text": "Select Start > Settings > Update & security .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 92,
+          "text": "From the left-hand menu, select Troubleshoot .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 93,
+          "text": "Under Find and fix problems , click Playing audio and then select Run the troubleshooter button.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 94,
+          "text": "Select and hold (or right-click) the Speakers icon on the taskbar, and then select Open Volume mixer . Note: If you don't see Speakers displayed, it may be in the overflow area. Select Show hidden icons to check there.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 95,
+          "text": "You’ll see a set of volume controls for your devices. Make sure none of them are muted. If any of them are muted, you’ll see a red circle with a line through it next to the volume control. In that case, select the volume control to unmute.",
+          "caption": "Volume mixer with muted volume controls",
+          "image": "step-95.png",
+          "image_url": "https://support.microsoft.com/images/en-us/754668cf-d15f-d63b-8349-5b3a3c01deed"
+        },
+        {
+          "step": 96,
+          "text": "Check your device properties to make sure that your devices have not been disabled by mistake. Select Start > Settings > System > Sound .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 97,
+          "text": "Select your audio device, and then select Device properties . Be sure to select Device properties for both the output and input devices.",
+          "caption": "sound output device properties link in sound menu",
+          "image": "step-97.png",
+          "image_url": "https://support.microsoft.com/images/en-us/94509ba2-c3da-88b1-d803-060e4e582a47"
+        },
+        {
+          "step": 98,
+          "text": "Make sure the Disable check box is cleared for the output and input devices.",
+          "caption": "Device properties cleared disable check box",
+          "image": "step-98.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f2a2848c-c72b-d1c1-498b-96ca6dd045d0"
+        },
+        {
+          "step": 99,
+          "text": "In the search box on the taskbar, type control panel , then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 100,
+          "text": "Select Hardware and Sound from the Control Panel, and then select Sound .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 101,
+          "text": "On the Playback tab, select and hold (or right-click) the listing for your audio device, select Set as Default Device , and then select OK .",
+          "caption": "set your audio device as the default device",
+          "image": "step-101.png",
+          "image_url": "https://support.microsoft.com/images/en-us/26d57167-d79a-8722-acd1-9495b5b1b562"
+        },
+        {
+          "step": 102,
+          "text": "Select Start > Settings > Update & Security > Windows Update > Check for updates . Open Windows Update",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 103,
+          "text": "Do one of the following: If the status says, \"You're up to date,\" go to the next tip.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 104,
+          "text": "If the status says, \"Updates are available,\" select Install now .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 105,
+          "text": "Select the updates you want to install, then select Install .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 106,
+          "text": "Restart your PC and see if your sound is working properly.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 107,
+          "text": "Save your work and close all open applications.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 108,
+          "text": "Select Start > Power . If you have installed updates pending, you’ll see options to Update and restart and Update and shut down .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 109,
+          "text": "Select one of those restart options to apply the updates.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 110,
+          "text": "In the search box on the taskbar, type device manager , then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 111,
+          "text": "Select the arrow next to Sound, video and game controllers to expand it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 112,
+          "text": "Select and hold (or right-click) the listing for your sound card or audio device, such as headphones or speakers, select Update driver , then select Search automatically for updated driver software . Follow the instructions to complete the update.",
+          "caption": "Right-click the device listing and select Update driver",
+          "image": "step-112.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f529914a-8f22-02c7-655f-7e35d4f499b3"
+        },
+        {
+          "step": 113,
+          "text": "In the search box on the taskbar, type device manager , then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 114,
+          "text": "Select the arrow next to Sound, video and game controllers to expand it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 115,
+          "text": "Right-click the listing for your sound card or audio device, select Uninstall device ,select the Delete the driver software for this device check box, and then select Uninstall .",
+          "caption": "Delete the driver software for this device and uninstall",
+          "image": "step-115.png",
+          "image_url": "https://support.microsoft.com/images/en-us/4692e7df-c782-ba51-d22b-f719d9353100"
+        },
+        {
+          "step": 116,
+          "text": "Restart your PC. Note: Be sure to save documents and any other current work before you restart.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 117,
+          "text": "This restart will automatically prompt your PC to reinstall your audio driver.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 118,
+          "text": "To restart, select Start > Power > Restart .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 119,
+          "text": "In the search box on the taskbar, type device manager , then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 120,
+          "text": "Select the arrow next to Sound, video and game controllers to expand it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 121,
+          "text": "Select and hold (or right-click) the listing for your sound card or audio device, then select Update driver > Browse my computer for drivers > Let me pick from a list of device drivers on my computer .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 122,
+          "text": "Select the audio device whose driver you want to update, select Next , and then follow the instructions to install it.",
+          "caption": "Select the driver and select next to use the generic audio driver",
+          "image": "step-122.png",
+          "image_url": "https://support.microsoft.com/images/en-us/aecf7023-683c-61a7-35b4-5f105725a59a"
+        },
+        {
+          "step": 123,
+          "text": "In the search box on the taskbar, type device manager , then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 124,
+          "text": "Select the arrow next to Sound, video and game controllers to expand it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 125,
+          "text": "Select and hold (or right-click) the listing for your sound card or audio device, then select Properties .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 126,
+          "text": "Select the Driver tab, then select Roll Back Driver .",
+          "caption": "Roll back the audio driver in Device Manager",
+          "image": "step-126.png",
+          "image_url": "https://support.microsoft.com/images/en-us/d2d36bd0-f681-fc12-4a3e-256b9543e8e6"
+        },
+        {
+          "step": 127,
+          "text": "Read and follow the instructions and then select Yes if you want to roll back your audio driver.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 128,
+          "text": "In the search box on the taskbar, type device manager , then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 129,
+          "text": "Select the arrow next to Sound, video and game controllers to expand it.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 130,
+          "text": "Look for IDT High Definition Audio CODEC . If it's listed, select and hold (or right-click) it and select Update driver , then select Browse my computer for drivers > Let me pick from a list of device drivers on my computer .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 131,
+          "text": "You’ll see a list of pre-installed drivers. Select High Definition Audio Device , and then select Next .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 132,
+          "text": "In the search box on the taskbar, type control panel , and then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 133,
+          "text": "Select Hardware and Sound from the Control Panel, and then select Sound .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 134,
+          "text": "On the Playback tab, select and hold (or right-click) Default Device , and then select Properties .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 135,
+          "text": "On the Advanced tab, under Default Format , change the setting, select OK , and then test your audio device. If that doesn't work, try changing the setting again.",
+          "caption": "Change the audio format setting of your audio device",
+          "image": "step-135.png",
+          "image_url": "https://support.microsoft.com/images/en-us/bdc2e7b5-2182-1144-84f9-54c45c8b6730"
+        },
+        {
+          "step": 136,
+          "text": "In the search box on the taskbar, type services , then select it from the results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 137,
+          "text": "Select each of the following services, right-click, and then select Restart : Windows Audio",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 138,
+          "text": "Windows Audio Endpoint Builder",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 139,
+          "text": "Remote Procedure Call (RPC)",
+          "caption": "restart audio services: Windows Audio, Windows Endpoint Builder, and Remote Procedure Call (RPC)",
+          "image": "step-139.png",
+          "image_url": "https://support.microsoft.com/images/en-us/b63edb7d-bf92-d6c2-ddfc-bed1f84f040b"
+        },
+        {
+          "step": 140,
+          "text": "Select Start > Settings > Privacy , and then select Microphone from the left menu.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 141,
+          "text": "Under Allow access to the microphone on this device , select Change . Make sure the toggle is turned On .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 142,
+          "text": "If you’re having this issue with a specific app, scroll down to Choose which Microsoft Store apps can access your microphone and make sure that the toggle next to that app is turned On as well.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Common Audio issues in Windows 10",
+      "steps": [
+        {
+          "step": 143,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 144,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-144.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 144,
+  "image_count": 23
+}

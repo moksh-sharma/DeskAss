@@ -1,0 +1,70 @@
+{
+  "id": "manage-your-recall-snapshots-and-disk-space-2c35b596-5a96-4090-b791-c27fae75f660",
+  "topic_id": "storage/support_guide",
+  "domains": [
+    "storage"
+  ],
+  "keywords": [
+    "manage",
+    "recall",
+    "snapshots",
+    "disk",
+    "space"
+  ],
+  "title": "Manage your Recall snapshots and disk space",
+  "source_url": "https://support.microsoft.com/en-us/windows/manage-your-recall-snapshots-and-disk-space-2c35b596-5a96-4090-b791-c27fae75f660",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Maximum storage for snapshots",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Change the storage space limit 1. Expand the Storage settings under Windows Settings > Privacy & Security > Recall & Snapshots . 2. Change the Maximum storage for snapshots limit by choosing the storage limit from the drop-down list. When the limit is reached, the oldest snapshots are deleted first. The Recall & Snapshots page also lists the current amount of Storage being used. You also have an option to View system storage where you can compare how much space snapshots are using versus other Windows apps and features.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Maximum storage duration You can choose how long snapshots can be saved on your device. In the Maximum storage duration for snapshots setting, select either 30, 60, 90, 180 days, or unlimited. Once snapshots reach the age limit, they are deleted from the device. If you don’t set the maximum storage duration, then snapshots aren’t deleted until the Maximum storage for snapshots limit is reached, and then the oldest snapshots are deleted first.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Delete snapshots Expand the Delete snapshots settings under Windows Settings > Privacy & Security > Recall & Snapshots . You can choose to delete all snapshots or snapshots withing a specific timeframe. To delete all snapshots, select Delete all. To delete snapshots from a specific timeframe, select a timeframe from the drop-down list, then select Delete snapshots . You can choose to delete snapshots from the past hour , 24 hours , 7 days , or 30 days .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Delete, delete all, or copy a snapshot from search results If you discover a snapshot that you want to delete or copy, select … to display options for the snapshot. You can choose to Copy the snapshot to your clipboard or Delete the snapshot. If you realize that the snapshot contains a website or app that you haven't filtered yet, you have an option to Delete all the snapshots that contain the selected website or app. You will be informed of how many snapshots from that web site or app will be deleted. If you proceed, all the snapshots are deleted in bulk. If you'd like, you can add the website or app to the filter list once the delete is finished. ​​​​​​​ ​​​​​​​",
+          "caption": "Screenshot of the delete all option for Recall",
+          "image": "step-04.png",
+          "image_url": "https://support.microsoft.com/images/en-us/3b48172f-ec05-4131-8aa3-94b60ea7361e"
+        }
+      ]
+    },
+    {
+      "title": "​​​​​​​Related articles",
+      "steps": [
+        {
+          "step": 5,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-06.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 6,
+  "image_count": 2
+}

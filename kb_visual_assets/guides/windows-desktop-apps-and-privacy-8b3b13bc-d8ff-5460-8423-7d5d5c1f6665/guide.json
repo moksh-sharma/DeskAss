@@ -1,0 +1,59 @@
+{
+  "id": "windows-desktop-apps-and-privacy-8b3b13bc-d8ff-5460-8423-7d5d5c1f6665",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "desktop",
+    "apps",
+    "privacy"
+  ],
+  "title": "Windows desktop apps and privacy",
+  "source_url": "https://support.microsoft.com/en-us/windows/windows-desktop-apps-and-privacy-8b3b13bc-d8ff-5460-8423-7d5d5c1f6665",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "How desktop apps relate to Windows privacy settings",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Read the app’s privacy policy to understand how it collects and uses personal data stored on your device.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Check the app’s own settings. Many desktop apps provide options that let you control data access.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Install apps only from sources you trust. This can reduce the risk of unwanted data access.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Other privacy settings",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 5,
+  "image_count": 1
+}

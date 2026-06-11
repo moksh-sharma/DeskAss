@@ -1,0 +1,107 @@
+{
+  "id": "app-browser-control-in-the-windows-security-app-8f68fb65-ebb4-3cfb-4bd7-ef0f376f3dc3",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "app",
+    "browser",
+    "control",
+    "security"
+  ],
+  "title": "App & browser control in the Windows Security App",
+  "source_url": "https://support.microsoft.com/en-us/windows/app-browser-control-in-the-windows-security-app-8f68fb65-ebb4-3cfb-4bd7-ef0f376f3dc3",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Smart App Control",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Smart App Control can be used on new Windows 11 installs only. If you received it as part of a Windows update on an already running device, you won't be able to turn it on unless you reset your PC or re-install Windows.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "For the best experience with Smart App Control be sure you have the latest Windows and Defender updates installed on your device. Check for updates",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Evaluation mode : This is a period during which Windows tries to determine if you're a good candidate for Smart App Control. If you are a good candidate, it will automatically be turned on. If not, it will be turned off. Smart App Control won't block anything while it's in evaluation mode. Once the evaluation is complete, or if you manually switch Smart App Control on or off, you won't be able to return to evaluation mode unless you reinstall or reset Windows.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "On : Smart App Control will notify you when apps are untrusted. Apps trusted by the prediction model and/or with valid signatures will run.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Off : Smart App Control won't notify you of untrusted apps. This can occur if it is manually turned off, or if during evaluation mode you were determined not to be a good candidate.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Reputation-based protection",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Check apps and files This toggle turns on Microsoft Defender SmartScreen to evaluate the reputation of apps and files you may download from the web.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "SmartScreen for Microsoft Edge When you're using the new Microsoft Edge as your browser, Microsoft Defender SmartScreen can help evaluate websites or downloads to see if they are known to be malicious, such as phishing sites, or tech support scams. If you try to go to a site that is known to be dangerous, SmartScreen will show you a warning screen that clearly identifies the suspected threat and gives you a chance to close the browser tab before anything bad can happen. When you attempt to download a file that SmartScreen finds suspicious, Edge warns you that the file may be untrusted and gives you the opportunity to cancel the download before it takes place.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Phishing protection If you type your Microsoft account password into a site that SmartScreen finds malicious, phishing protection will alert you. It will also prompt you to change your password so attackers can't gain access to your account. Reusing the same password makes it easy for attackers who compromise your password to gain access to your other accounts. Phishing protection can warn you if you reuse your Microsoft account password on other sites or apps and prompt you to change your password. Tip: For an engaging short story about the dangers of password reuse see Cameron learns about reusing passwords. ​​​​​​​ Since it's unsafe to store your password in text editors, phishing protection can warn you if you type your password into Notepad or a Microsoft 365 Office application like Word or OneNote. If you type your Microsoft account password into a website or app that SmartScreen finds suspicious, phishing protection can automatically collect information - such as content displayed, sounds played, and application memory - from that website or app to help identify security threats.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Potentially unwanted app blocking Potentially unwanted apps (PUA) aren't malware, but they might display advertising, use your PC for crypto mining, or do other things you'd prefer they not do. Microsoft Defender tries to identify those apps for you and block them before they can install, or download, and cause issues with your system. For more information see Protect your PC from potentially unwanted applications.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "SmartScreen for Microsoft Store apps While Microsoft Defender SmartScreen can protect you from malicious files or apps you may encounter in the Microsoft Edge browser, SmartScreen for Microsoft Store provides another check on content that is used by Microsoft Store apps. This is just another layer of security to protect you.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Exploit protection",
+      "steps": [
+        {
+          "step": 11,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-12.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 12,
+  "image_count": 1
+}

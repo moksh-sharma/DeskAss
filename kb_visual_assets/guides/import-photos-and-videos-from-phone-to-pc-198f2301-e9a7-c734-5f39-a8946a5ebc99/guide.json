@@ -1,0 +1,92 @@
+{
+  "id": "import-photos-and-videos-from-phone-to-pc-198f2301-e9a7-c734-5f39-a8946a5ebc99",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "import",
+    "photos",
+    "videos",
+    "from",
+    "phone"
+  ],
+  "title": "Import photos and videos from phone to PC",
+  "source_url": "https://support.microsoft.com/en-us/windows/import-photos-and-videos-from-phone-to-pc-198f2301-e9a7-c734-5f39-a8946a5ebc99",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Transfer photos from an iPhone or Android phone to your PC",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Turn your phone on and unlock it. Your PC can’t find the device if the device is locked.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "On your PC, select the Start button and then select Photos to open the Photos app.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Select Import , then select your connected device , then follow the instructions. You can pick the items you want to import and select where to save them. Allow a few moments for detection and transfer.",
+          "caption": "Where to find the Import icon in the Photos app.",
+          "image": "step-03.png",
+          "image_url": "https://support.microsoft.com/images/en-us/d49cff85-782e-433e-a92c-46d41ad5373a"
+        },
+        {
+          "step": 4,
+          "text": "You might already have the camera app on your phone in sync with cloud storage such as OneDrive or Google photos. If so, your photos and videos are automatically uploaded to the cloud. When you want to access these photos or videos from your PC, you can use a web browser to download the photos and videos stored from the cloud storage.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "For recent photos, use the Phone Link app from Microsoft Store. With this app, you do not need a USB cable to view and copy the most recent photos from your camera and screenshot folder. This feature only includes recent photos and doesn’t import videos. Phone Link app requires an Android phone with Android OS 7.0 or newer.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "If you use a USB cable to download directly from your device, you might need to change the USB setting to transfer media or photos. For Google's current info, see Transfer files between your computer & Android device .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "You might see a prompt on the iOS device asking you to Trust This Computer. Select Trust or Allow to continue. For Apple’s current info, see \"Import to PC\" in Transfer photos and videos from your iPhone, iPad, or iPod touch on Apple’s website.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "If iCloud is enabled on your iOS device, you may not be able to download your photos or videos if they exist on iCloud but not on your device. If you want to open or import these photos or videos to your PC, do so using iCloud for Windows . For more info, see Download and view iCloud Photos on your Windows computer on Apple’s website.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related resources",
+      "steps": [
+        {
+          "step": 9,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-10.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 10,
+  "image_count": 2
+}

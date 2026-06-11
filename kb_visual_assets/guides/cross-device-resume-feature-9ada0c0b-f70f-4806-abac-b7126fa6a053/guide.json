@@ -1,0 +1,130 @@
+{
+  "id": "cross-device-resume-feature-9ada0c0b-f70f-4806-abac-b7126fa6a053",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "cross",
+    "device",
+    "resume",
+    "feature"
+  ],
+  "title": "Cross-device Resume Feature",
+  "source_url": "https://support.microsoft.com/en-us/windows/cross-device-resume-feature-9ada0c0b-f70f-4806-abac-b7126fa6a053",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "What do I need to use this feature?",
+      "steps": [
+        {
+          "step": 1,
+          "text": "A PC running Windows 11 or later.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "An Android mobile device running Android 10 or later.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Both your mobile device and PC need to be connected to the internet.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Your mobile device connected to your PC with Link to Windows app.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Your mobile device listed under Mobile devices in PC settings. Learn more.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "What can I do with Resume?",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Open a supported app on your Android mobile device.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Perform a supported action on the application.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "The app icon will appear on the taskbar of your linked Windows PC, annotated with a phone badge.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Click on the app icon shown on the PC's taskbar.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "The same app will open on your PC, allowing you to continue the action you were performing on your mobile device.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Which apps and actions are supported?",
+      "steps": [
+        {
+          "step": 11,
+          "text": "Continue listening to your favorite music tracks and podcast episodes on your PC.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "vivo Android phone users can continue their browsing activity from the vivo Browser on their phone in the default browser on their PC.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Continue your WhatsApp chat conversations seamlessly on your PC. When you're chatting with someone on WhatsApp on your phone, you can pick up the conversation right where you left off on your PC.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "How do I manage which apps are allowed to Resume?",
+      "steps": [
+        {
+          "step": 14,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-15.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 15,
+  "image_count": 1
+}

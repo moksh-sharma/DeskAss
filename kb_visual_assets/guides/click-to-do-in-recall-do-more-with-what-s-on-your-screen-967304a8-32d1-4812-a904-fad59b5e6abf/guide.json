@@ -1,0 +1,246 @@
+{
+  "id": "click-to-do-in-recall-do-more-with-what-s-on-your-screen-967304a8-32d1-4812-a904-fad59b5e6abf",
+  "topic_id": "display/support_guide",
+  "domains": [
+    "display"
+  ],
+  "keywords": [
+    "click",
+    "recall",
+    "more",
+    "what",
+    "screen"
+  ],
+  "title": "Click to Do in Recall: do more with what’s on your screen",
+  "source_url": "https://support.microsoft.com/en-us/windows/click-to-do-in-recall-do-more-with-what-s-on-your-screen-967304a8-32d1-4812-a904-fad59b5e6abf",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Click to Do does more with text",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Copy : Copies the selected text to the clipboard",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Open with : Opens the selected text in a text editor like Notepad",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Search the web : Does a search for the selected text using Microsoft Edge and Bing",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Send email : Uses your default email app to open a new email to the selected email address",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Send a message with Teams : Opens a Teams message using the selected email address as the recipient",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Schedule a meeting with Teams : Opens a new Teams calendar invite with the selected email address as an attendee",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Open website : Opens the selected website in your default browser",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Summarize : Briefly outlines the main points of the selected text",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Create a bulleted list : Creates a bulleted list of key details from the selected text",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Rewrite (Casual) : Revises the selected text using a casual tone",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Rewrite (Formal) : Revises the selected text using a formal tone",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Rewrite (Refine) : Revises the selected text, making grammatical improvements",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Draft with Copilot in Word : sends the selected text to Copilot in Word",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Practice in Reading Coach : Opens Reading Coach where you can read the selected text out loud. The Reading Coach provides feedback and guides you on where to make improvements to pronunciation.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Read with Immersive Reader : Opens Reading Coach and displays the selected text in a distraction-free environment. You can have the text read out loud, use the picture dictionary, and highlight nouns, verbs, and adjectives to aid grammar learning.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Click to Do does more with images",
+      "steps": [
+        {
+          "step": 16,
+          "text": "Copy : Copies the image to the clipboard",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "Save as : Save the image to a specified location",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Share : Opens the share files option for the image file",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "Open with : Open the image with an app such as Photos , Snipping Tool, or Paint",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "Visual search with Bing : Does a visual search using Bing using your default web browser",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 21,
+          "text": "Blur background with Photos : Blur the background with the Photos app",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 22,
+          "text": "Erase objects with Photos : Erase unwanted objects in the image with the Photos app",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 23,
+          "text": "Remove background with Paint : Remove the background of the image with Paint​​​​​​​",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Regional variations for Click to Do in Recall",
+      "steps": [
+        {
+          "step": 24,
+          "text": "European Economic Area (EEA) region Search the web : Uses Microsoft Edge and Bing to perform searches. Visual search with Bing : Not available. Remove background with Paint : Advanced image features like Blur, Remove, and Erase are currently not available. Ask Copilot : Not available. Microsoft Teams actions : Features like sending messages and scheduling meetings with Teams are not accessible. Practice in Reading Coach : Not available. Read with Immersive Reader : Not available. Draft with Copilot in Word : Not available.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 25,
+          "text": "China Search the web : Due to regulatory requirements, local search engines might be used to perform a search. Visual search with Bing : Access to the visual search feature with Bing may differ due to local regulations. Ask Copilot : Not available. Draft with Copilot in Word : Not available. Summarize : Not available. Create a bulleted list : Not available. Rewrite (Formal) : Not available. Rewrite (Refine) : Not available.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "​​​​​​​​​​​​​​",
+      "steps": [
+        {
+          "step": 26,
+          "text": "Your current screen when you select the Now button",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 27,
+          "text": "Snapshots that have already been saved",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 28,
+          "text": "C:\\Users\\{username}\\AppData\\Local\\Temp",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 29,
+          "text": "Search the web : Sends the selected content Bing using Microsoft Edge",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 30,
+          "text": "Open website : Opens the selected website in your default browser",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 31,
+          "text": "Visual search with Bing : Sends the selected content to Bing visual search using your default browser​​​​​​​",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related articles",
+      "steps": [
+        {
+          "step": 32,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 33,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-33.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 33,
+  "image_count": 1
+}

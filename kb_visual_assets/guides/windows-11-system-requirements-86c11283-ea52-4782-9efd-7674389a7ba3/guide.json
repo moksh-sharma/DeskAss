@@ -1,0 +1,163 @@
+{
+  "id": "windows-11-system-requirements-86c11283-ea52-4782-9efd-7674389a7ba3",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "system",
+    "requirements"
+  ],
+  "title": "Windows 11 System Requirements",
+  "source_url": "https://support.microsoft.com/en-us/windows/windows-11-system-requirements-86c11283-ea52-4782-9efd-7674389a7ba3",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Summary",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Reliability",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Security",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Compatibility",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Minimum System Requirements for running Windows 11",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Processors/CPUs (Central Processing Units) 1 Ghz or faster with 2 or more cores and appearing on our list of approved CPUs . The processor in your PC will be a main determining factor for running Windows 11. The clock speed (the 1 Ghz or faster requirement) and number of cores (2 or more) are inherent to the processor design as it was manufactured and are not considered upgradable components.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "RAM ​​​​​​​ ​​​​​​​ ​​​​​​​ 4 GB. If your PC has less than 4GB of memory, there are sometimes options for upgrading to get additional RAM. You may want to consult your PC manufacturer’s website or with a retailer to see if there are easy and affordable options to meet the minimum requirements for Windows 11.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Storage 64 GB or larger storage device. If your PC does not have a large enough storage drive, there are sometimes options for upgrading the drive. You may want to consult your PC manufacturer’s website or with a retailer to see if there are easy and affordable options to meet the minimum requirements for Windows 11.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "System Firmware UEFI (for Unified Extensible Firmware Interface, a modern version of the PC BIOS) and Secure Boot capable. If your device does not meet the minimum requirements because it is not Secure Boot capable, you may want to read this article to see if there are steps you can take to enable this. Secure Boot can only be enabled with UEFI and this article helps you understand potential options to change settings to make this possible.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "TPM Trusted Platform Module (TPM) version 2.0. If your device does not meet the minimum requirements because of TPM, you may want to read this article to see if there are steps you can take to remediate this.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Graphics Card Compatible with DirectX 12 or later with WDDM 2.0 driver.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Display High definition (720p) display that is greater than 9” diagonally, 8 bits per color channel. If your screen size is less than 9”, the intended user interface of Windows may not be fully visible.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Internet Connectivity and Microsoft Accounts Windows 11 Pro for personal use and Windows 11 Home require internet connectivity and a Microsoft account during initial device setup.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Windows Version for Upgrade Your device must be running Windows 10, version 2004 or later, to upgrade through Windows Update. Free updates are available through Windows Update in Settings > Update and Security .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Upgrade to Windows 11 when in S mode",
+      "steps": [
+        {
+          "step": 13,
+          "text": "On your PC running Windows 10 in S mode, open Settings > Update & Security > Activation .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Find the Switch to Windows 10 Home or Switch to Windows 10 Pro section, then select the Go to the Store link. Important: Don't select the link under Upgrade your edition of Windows . That's a different process that will keep you in S mode.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "On the page that appears in the Microsoft Store (Switch out of S mode or a similar page), select the Get button. After you confirm this action, you'll be able to install apps from outside the Microsoft Store.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Windows 11 upgrade eligibility",
+      "steps": [
+        {
+          "step": 16,
+          "text": "If you make changes to your PC to meet the upgrade requirements, wait to upgrade until Windows Update notifies you that Windows 11 is ready for your device.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 17,
+          "text": "If your PC isn’t eligible for Windows 11 and you’re not ready to replace it, you can continue using Windows 10 until October 14, 2025 , or upgrade to a new device that meets the Windows 11 system requirements.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "You may also like...",
+      "steps": [
+        {
+          "step": 18,
+          "text": "Related articles Find Windows 11 specs, features, and computer requirements Ways to install Windows 11 Windows help & learning",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 20,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-20.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 20,
+  "image_count": 1
+}

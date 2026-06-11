@@ -1,0 +1,63 @@
+{
+  "id": "make-older-apps-or-programs-compatible-with-the-latest-version-of-windows-783d6dd7-b439-bdb0-049",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "make",
+    "older",
+    "apps",
+    "programs",
+    "compatible",
+    "latest",
+    "version"
+  ],
+  "title": "Make older apps or programs compatible with the latest version of Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/make-older-apps-or-programs-compatible-with-the-latest-version-of-windows-783d6dd7-b439-bdb0-0490-54eea0f45938",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Summary",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Why do apps become incompatible Apps can become incompatible with new Windows versions due to changes in the OS's architecture, security features, or system requirements. After upgrading to a newer Windows version, previously working apps might stop functioning properly as they may not support these updates, impacting PC stability and performance. You might see messages like, \"This app or game can't run on your device.\" These issues can occur even with apps that were compatible with earlier versions of the same Windows platform.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Troubleshoot compatibility issues If you have printer or scanner problems after a Windows upgrade or update, see Fix printer connection and printing problems in Windows . If you have Bluetooth problems after a Windows upgrade or update, see Fix Bluetooth problems in Windows . Microsoft Store Apps: If you downloaded the app from Microsoft Store, visit the store and check for updates by following the guide Get updates for apps and games in Microsoft Store . Other Apps: If the app wasn’t downloaded from the Microsoft Store, check the publisher’s website for a new or updated version. Search for terms like \"Windows compatibility\" to locate relevant updates. ​​​​​​​Select Start > Settings > System > Troubleshoot > Other troubleshooters . Locate Program Compatibility Troubleshooter and select Run . Follow the on-screen instructions to complete the process.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "What to do if the app isn't functioning properly Run the compatibility troubleshooter as described above. Update your device drivers to the latest versions via Windows Update. For more information refer to how to update drivers .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related topics",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Want more options? Discover Community Contact Us Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders Find solutions to common problems or get help from a support agent. Online support",
+          "caption": null,
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 5,
+  "image_count": 1
+}

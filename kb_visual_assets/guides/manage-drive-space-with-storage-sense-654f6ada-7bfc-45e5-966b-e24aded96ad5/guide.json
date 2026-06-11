@@ -1,0 +1,104 @@
+{
+  "id": "manage-drive-space-with-storage-sense-654f6ada-7bfc-45e5-966b-e24aded96ad5",
+  "topic_id": "storage/support_guide",
+  "domains": [
+    "storage"
+  ],
+  "keywords": [
+    "manage",
+    "drive",
+    "space",
+    "storage",
+    "sense"
+  ],
+  "title": "Manage drive space with Storage Sense",
+  "source_url": "https://support.microsoft.com/en-us/windows/manage-drive-space-with-storage-sense-654f6ada-7bfc-45e5-966b-e24aded96ad5",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Turn on Storage Sense",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Go to Start > Settings > System > Storage .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Set Storage Sense to On .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Choose your Storage Sense settings",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Choose when to run Storage Sense Make sure Storage Sense is turned on. Under Run Storage Sense , select how frequently you want Storage Sense to run when you’re online and signed in.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Choose your preferences for deleting temporary files Under Delete files in my recycle bin if they have been there for over: and Delete files in my Downloads folder if they haven't been opened for more than: , choose when files from your Recycle Bin or Downloads folder are deleted.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Manage locally available cloud content Note: You'll only see cloud content settings when you’re signed in to your cloud account. Cloud files can exist locally on the disk or be available online only. To choose the conditions for when inactive files are made online only, under Content will become online-only if not opened for more than: choose your preferred amount of time. Note that starting in Windows 11, version 22H2, the default for OneDrive cloud files is to make files online-only if not opened for more than 30 days. Important: This setting will not permanently delete any files. Files can be made locally available again if there is free disk space and network connectivity. Any file marked as Always keep on this device is exempted and will not be managed by Storage Sense. For more info about locally available content, see What do the OneDrive icons mean?",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Frequently Asked Questions (FAQ)",
+      "steps": [
+        {
+          "step": 6,
+          "text": "Is Storage Sense on by default? Storage Sense is off by default. If your PC runs into low disk space and you have not interacted with Storage Sense in the past, we may turn on Storage Sense to manage select temporary files, then notify you. If you prefer, you can choose to turn Storage Sense off right away or after the low disk state is resolved. If you turn on Storage Sense, the default settings will run when your device is low on disk space. Note that the Downloads folder and cloud content will not be managed unless you specify.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "How do I delete Windows.old folder or Previous Windows Installation(s)? Go to Start > Settings > System > Storage . Under disk usage, select Temporary files , then ensure Previous Windows Installation(s) is checked and select Remove files .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Can Storage Sense run if I’m not signed in? No. Storage Sense cannot run unless you’re signed and online for more than 10 minutes.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Why am I receiving notifications to turn on Storage Sense or a notification for low storage? You’ll see these notifications when your drive is running out of free space. This can affect the performance of your device and make it difficult to receive system upgrades. SUBSCRIBE RSS FEEDS",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-11.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 11,
+  "image_count": 1
+}

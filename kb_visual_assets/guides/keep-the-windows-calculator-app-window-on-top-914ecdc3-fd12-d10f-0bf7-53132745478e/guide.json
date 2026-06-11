@@ -1,0 +1,156 @@
+{
+  "id": "keep-the-windows-calculator-app-window-on-top-914ecdc3-fd12-d10f-0bf7-53132745478e",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "calculator"
+  ],
+  "title": "Use the Calculator in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/keep-the-windows-calculator-app-window-on-top-914ecdc3-fd12-d10f-0bf7-53132745478e",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Open Calculator",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select Start .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Search for Calculator , then select the app from the results.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Choose a calculation mode",
+      "steps": [
+        {
+          "step": 3,
+          "text": "Standard – Basic arithmetic",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Scientific – Advanced calculations",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Graphing – Plot equations",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Programmer – Binary, hexadecimal, and more",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Date calculation – Calculate date differences",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Convert values",
+      "steps": [
+        {
+          "step": 8,
+          "text": "Select Open navigation (☰).",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Choose a converter, such as: Currency",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Volume",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Length",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Temperature",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Enter a value, then select the units to convert from and to .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Convert currency",
+      "steps": [
+        {
+          "step": 14,
+          "text": "Open Currency from the navigation menu.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Enter the amount.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 16,
+          "text": "Select the currencies to convert between.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Keep Calculator on top",
+      "steps": [
+        {
+          "step": 17,
+          "text": "Additional tips: Use History to review previous calculations. Use Memory buttons (MC, MR, M+, M–) to store values. Resize the window for easier viewing when multitasking.",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 18,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 19,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-19.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 19,
+  "image_count": 1
+}

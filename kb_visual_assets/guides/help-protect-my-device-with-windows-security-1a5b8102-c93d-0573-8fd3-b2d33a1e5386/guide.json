@@ -1,0 +1,73 @@
+{
+  "id": "help-protect-my-device-with-windows-security-1a5b8102-c93d-0573-8fd3-b2d33a1e5386",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "help",
+    "protect",
+    "device",
+    "security"
+  ],
+  "title": "Help protect my device with Windows Security",
+  "source_url": "https://support.microsoft.com/en-us/windows/help-protect-my-device-with-windows-security-1a5b8102-c93d-0573-8fd3-b2d33a1e5386",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Schedule a scan in Windows Security",
+      "steps": [
+        {
+          "step": 1,
+          "text": "In the search box on the taskbar, type Task Scheduler and then select Task Scheduler in the list of results.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "In the left pane of Task Scheduler, expand Task Scheduler Library > Microsoft > Windows and then scroll down and double-click the Windows Defender folder.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "In the top-center pane, double-click Windows Defender Scheduled Scan .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Select the Triggers tab, and then select New .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Set your time and frequency, and then select OK .",
+          "caption": "Scheduling a Windows Security scan in Task Scheduler",
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/750b414a-cd4f-7de3-370c-4a42eac963d9"
+        },
+        {
+          "step": 6,
+          "text": "Select the Start button, then select Settings > Update & Security > Windows Security > Virus & threat protection .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Do one of the following: In the current version of Windows 10: Under Virus & threat protection settings , select Manage settings , and then switch the Real-time protection setting to On or Off .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "In previous versions of Windows 10: Select Virus & threat protection settings , and then switch the Real-time protection setting to On or Off .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    }
+  ],
+  "step_count": 8,
+  "image_count": 1
+}

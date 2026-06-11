@@ -1,0 +1,126 @@
+{
+  "id": "windows-startup-settings-1af6ec8c-4d4a-4b23-adb7-e76eef0b847f",
+  "topic_id": "boot/support_guide",
+  "domains": [
+    "boot"
+  ],
+  "keywords": [
+    "startup",
+    "settings"
+  ],
+  "title": "Windows Startup Settings",
+  "source_url": "https://support.microsoft.com/en-us/windows/windows-startup-settings-1af6ec8c-4d4a-4b23-adb7-e76eef0b847f",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Change startup settings",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Access the Windows Recovery Environment",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Once in Windows RE, select Troubleshoot > Advanced options > Startup Settings > Restart",
+          "caption": "Screenshot of the Choose an option screen in Windows RE.",
+          "image": "step-02.png",
+          "image_url": "https://support.microsoft.com/images/en-us/21251686-4118-4fd0-a872-83e3bc5fc7b3"
+        },
+        {
+          "step": 3,
+          "text": "Select Restart",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Once the device reboots, in the Startup Settings screen pick one of the available options, or press Enter to boot Windows normally",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Startup settings list",
+      "steps": [
+        {
+          "step": 5,
+          "text": "Enable debugging. Starts Windows in an advanced troubleshooting mode intended for IT professionals and system administrators",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Enable boot logging. Creates a file, ntbtlog.txt, that lists all the drivers that are installed during startup and that might be useful for advanced troubleshooting",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Enable low-resolution video. Starts Windows using your current video driver and using low resolution and refresh rate settings. You can use this mode to reset your display settings",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Enable Safe Mode. Safe mode starts Windows in a basic state, using a limited set of files and drivers. If a problem doesn't happen in safe mode, this means that default settings and basic device drivers aren't causing the issue. Observing Windows in safe mode enables you to narrow down the source of a problem and can help you troubleshoot problems on your device",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Safe Mode with Networking. Safe Mode with Networking adds the network drivers and services you'll need to access the internet and other computers on your network",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 10,
+          "text": "Safe Mode with Command Prompt. Starts Windows in safe mode with a command prompt window instead of the usual Windows interface",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "Disable Driver Signature Enforcement. Allows drivers containing improper signatures to be installed",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "Disable early launch anti-malware protection . Early launch anti-malware protection (ELAM) is a security feature in Windows that allows anti-malware software to start before all other third-party components during the boot process. ELAM ensures that the system does not initialize unknown boot drivers that could be malicious. Select this option to temporarily disable ELAM",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 13,
+          "text": "Disable automatic restart on system failure. Prevents Windows from automatically restarting if an error causes Windows to fail. Choose this option only if Windows is stuck in a loop where Windows fails, attempts to restart, and fails again repeatedly",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "What if Windows keeps booting in Safe Mode?",
+      "steps": [
+        {
+          "step": 14,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 15,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-15.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 15,
+  "image_count": 2
+}

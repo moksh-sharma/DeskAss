@@ -1,0 +1,59 @@
+{
+  "id": "windows-security-app-settings-1ec98620-4e41-4b6b-b055-3c4bb115d4ee",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "security",
+    "app",
+    "settings"
+  ],
+  "title": "Windows Security App Settings",
+  "source_url": "https://support.microsoft.com/en-us/windows/windows-security-app-settings-1ec98620-4e41-4b6b-b055-3c4bb115d4ee",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Notifications",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Virus & threat protection - These notifications are purely informational and none of them require immediate action from you. You'll always receive notifications when there's a problem that requires immediate action. The settings on this page simply let you specify whether you want to know things such as that a threat was successfully blocked, or that a malware scan completed uneventfully",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Account protection - Windows can notify you if there are issues with your Windows Hello or Dynamic Lock, such as bad lighting making it difficult for Hello to recognize you, or your mobile device not being found to activate Device Lock",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Firewall and network protection - You can specify if you want to receive notifications when Windows Firewall blocks a new app. You can also configure these notifications differently depending on if the app was blocked on your domain network, your private network, or the public network (internet)",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "About",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 5,
+  "image_count": 1
+}

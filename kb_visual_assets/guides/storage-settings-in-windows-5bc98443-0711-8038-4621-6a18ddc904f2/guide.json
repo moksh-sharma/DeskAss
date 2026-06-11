@@ -1,0 +1,73 @@
+{
+  "id": "storage-settings-in-windows-5bc98443-0711-8038-4621-6a18ddc904f2",
+  "topic_id": "storage/support_guide",
+  "domains": [
+    "storage"
+  ],
+  "keywords": [
+    "storage",
+    "settings"
+  ],
+  "title": "Storage settings in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/storage-settings-in-windows-5bc98443-0711-8038-4621-6a18ddc904f2",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Advanced storage settings",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Storage used on other drives Storage used on other drives provides a detailed overview of how storage is being utilized across all connected drives. It allows you to see the storage consumption on each drive, including internal and external drives. By selecting a specific drive, you can view a breakdown of the storage usage, categorized by different types of files such as documents, pictures, videos, and more. This helps you manage your storage more effectively by identifying which drives are nearing capacity and which types of files are taking up the most space.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Where new content is saved These settings allow you to specify the default storage locations for different types of content. You can choose where new apps, documents, music, pictures, and videos are saved by default. You can select different drives for each type of content, which helps you manage your storage more effectively and ensures that your files are organized according to your preferences. By customizing these settings, you can optimize the use of your available storage and keep your system running smoothly.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Storage Spaces Storage Spaces helps protect your data from drive failures and extend storage over time as you add drives to your PC. You can use Storage Spaces to group two or more drives together in a storage pool and then use capacity from that pool to create virtual drives called storage spaces. To learn more, see Storage Spaces .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Disks & volumes These settings provide you with detailed information and management options for your storage devices. It allows you to view all the disks and volumes connected to your system, including internal and external drives. You can see important details such as the disk type (for example, SSD or HDD), capacity, and current usage. Additionally, you can manage your volumes by creating, formatting, or resizing them as needed. To resize a volume, select Properties for the volume with the drive letter assigned (for example, C: or D:).",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Backup options These settings take you to Windows Backup, which offers a comprehensive solution for safeguarding your important data. Windows Backup allows you to back up a wide range of items, including files, themes, settings, installed apps, and Wi-Fi information. To learn more, see Backup and restore with Windows Backup .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Drive optimization Drive optimization helps you maintain the performance and health of your storage drives. It includes tools like defragmentation and optimization, which reorganize fragmented data on your hard drives to improve access speed and overall performance. For solid-state drives (SSDs), it performs a trim operation to ensure efficient data management. To learn more, see Defragment/Optimize your disk drives . SUBSCRIBE RSS FEEDS",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-08.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 8,
+  "image_count": 1
+}

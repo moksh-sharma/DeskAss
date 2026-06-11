@@ -1,0 +1,122 @@
+{
+  "id": "set-bandwidth-limits-for-background-downloads-49c28a83-35c2-7f30-dfdc-802b4dd44e51",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "delivery",
+    "optimization"
+  ],
+  "title": "Delivery Optimization in Windows",
+  "source_url": "https://support.microsoft.com/en-us/windows/set-bandwidth-limits-for-background-downloads-49c28a83-35c2-7f30-dfdc-802b4dd44e51",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Choose network sharing options for Delivery Optimization",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Select the Start button, then select Settings > Windows Update > Advanced options > Delivery Optimization .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Choose if you want to Allow downloads from other devices . When this option is set to On , then you can also choose which types of devices you want to allow downloads from. You can choose to allow downloads from either: Devices on my local network",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Devices on the internet and my local network",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Set bandwidth limits",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Select the Start button > Settings > Windows Update > Advanced options > Delivery Optimization .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Under the Download options , choose to Limit bandwidth used for downloads by either: Absolute bandwidth limit : Choose to set the limit for downloading in the background, foreground, or both. Enter the maximum amount of bandwidth to use in Mbps.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Percentage of measured bandwidth ​​​​​​​ : Choose to set the limit for downloading in the background, foreground, or both. Then set the percentage of available bandwidth used for downloads. Lower values use less bandwidth but cause updates to be delivered more slowly.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Select the Start button > Settings > Windows Update > Advanced options > Delivery Optimization .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 8,
+          "text": "Under the Upload options , you can limit the percentage of bandwidth used for uploading updates and set amonthly maximum upload limit. These settings can be used together to limit bandwidth and the maximum amount of data allowed per month. Select a percentage for the Delivery Optimization option to Limit how much bandwidth is used for uploading updates to other devices on the internet .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Select a Monthly upload limit between 1 and 500 GB.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Why can't I turn off Delivery Optimization?",
+      "steps": [
+        {
+          "step": 10,
+          "text": "Select the Start button > Settings > Windows Update > Advanced options > Delivery Optimization .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 11,
+          "text": "If your device is managed, the following items are displayed in the Delivery Optimization settings page: A note at the top of the page stating that Some of these settings are managed by your organization .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 12,
+          "text": "The option to Allow downloads from other PCs is grayed out. Other Delivery Optimization options might also be grayed out depending on the settings your IT admin requires.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Clear the Delivery Optimization cache",
+      "steps": [
+        {
+          "step": 13,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 14,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-14.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 14,
+  "image_count": 1
+}

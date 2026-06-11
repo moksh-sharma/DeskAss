@@ -1,0 +1,55 @@
+{
+  "id": "automatically-fix-windows-security-issues-9041b976-e664-1a1d-0a82-607b0cbd7fc4",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "stay",
+    "protected",
+    "security",
+    "app"
+  ],
+  "title": "Stay protected with the Windows Security app",
+  "source_url": "https://support.microsoft.com/en-us/windows/automatically-fix-windows-security-issues-9041b976-e664-1a1d-0a82-607b0cbd7fc4",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Common tasks",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Run a malware scan manually If you're worried about a specific file or folder on your local device, you can right-click the file or folder in File Explorer, then select Scan with Microsoft Defender . Tip: On Windows 11 you may have to select Show more options after you right-click to see the option to scan the file or folder.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Run a quick scan If you suspect there's malware or a virus on your device, you should immediately run a quick scan. In the Windows Security app on your PC, select Virus & threat protection > Quick scan or use the following shortcut: Start a quick scan If the scan doesn't find any issues, but you're still concerned, you may want to check your device more thoroughly.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Turn Defender Antivirus real-time protection on or off Sometimes you might need to briefly stop running real-time protection. While real-time protection is off, files you open or download won't be scanned for threats. However, real-time protection will soon turn on automatically again to protect your device. In the Windows Security app on your PC,​​​​​​​​​​​​​​ select Virus & threat protection > Manage settings or use the following shortcut: Virus & threat protection settings You can turn Real-time protection On or Off using the toggle button. To learn more about the Windows Security app ​​​​​​​ and all its features, see Windows Security App Overview . SUBSCRIBE RSS FEEDS",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 4,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 5,
+  "image_count": 1
+}

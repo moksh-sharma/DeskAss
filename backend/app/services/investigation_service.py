@@ -29,6 +29,7 @@ from app.services.machine_scan_findings import build_investigation_from_scan
 from app.services.machine_scan_service import MachineScanService
 from app.services.ollama_service import OllamaService
 from app.services.system_inventory import SystemInventory
+from app.services.visual_guide_service import VisualGuideService
 
 logger = get_logger(__name__)
 
@@ -66,7 +67,8 @@ _DIAGNOSIS_SYSTEM = (
     "devices, versions, or numbers that are not present in the evidence.\n"
     "- If no fault was found in the relevant subsystem, say so honestly and give troubleshooting "
     "steps specific to the user's symptom (permissions, default device, mute, app settings).\n"
-    "- Resolution steps must be concrete and ordered, with exact Windows UI paths or commands.\n"
+    "- Resolution steps must be short, plain-language, and easy for a non-technical user "
+    "(4 steps max; no jargon). Use simple paths like 'Settings → Bluetooth'.\n"
     "- Do NOT change the severity you are given; it is computed from hard evidence.\n"
     "- Return ONLY the requested JSON object, nothing else."
 )
@@ -81,11 +83,13 @@ class InvestigationService:
         use_llm: bool = False,
         inventory: Optional[SystemInventory] = None,
         machine_scan: Optional[MachineScanService] = None,
+        visual_guides: Optional[VisualGuideService] = None,
     ) -> None:
         self._ollama = ollama
         self._use_llm = use_llm
         self._inventory = inventory or SystemInventory()
         self._machine_scan = machine_scan
+        self._visual_guides = visual_guides
 
     # ------------------------------------------------------------------ #
     #  Public API
@@ -226,6 +230,15 @@ class InvestigationService:
                     logger.info("Ollama offline - using deterministic diagnosis.")
             except Exception as exc:  # pragma: no cover - never let the LLM break diagnosis
                 logger.warning("LLM diagnosis failed, using deterministic result: %s", exc)
+
+        if self._visual_guides:
+            result = self._visual_guides.attach(
+                result,
+                message,
+                report.profile.domains,
+                primary_domain=report.profile.primary_domain,
+                symptoms=report.profile.symptoms,
+            )
         return result, report
 
     # ------------------------------------------------------------------ #
@@ -402,8 +415,8 @@ class InvestigationService:
             "service/device names) supporting the root cause,\n"
             '  "confidence": integer 0-100 reflecting how strongly the evidence supports it,\n'
             '  "confidence_reasons": array of 2-4 short strings, each citing one concrete fact,\n'
-            '  "resolution_steps": array of 4-8 concrete ordered steps with exact Windows paths/commands,\n'
-            '  "prevention_tips": array of 2-4 short, specific tips to stop recurrence.\n'
+            '  "resolution_steps": array of 3-4 short, simple steps in everyday language,\n'
+            '  "prevention_tips": array of 2-3 brief tips a beginner would understand.\n'
         )
         if not actionable_findings:
             guidance += (
@@ -438,10 +451,10 @@ class InvestigationService:
             result.confidence_reasons = reasons[:4]
         steps = _clean_list(data.get("resolution_steps"))
         if steps:
-            result.resolution_steps = steps[:8]
+            result.resolution_steps = steps[:4]
         tips = _clean_list(data.get("prevention_tips"))
         if tips:
-            result.prevention_tips = tips[:4]
+            result.prevention_tips = tips[:3]
 
         conf = data.get("confidence")
         if isinstance(conf, (int, float)):

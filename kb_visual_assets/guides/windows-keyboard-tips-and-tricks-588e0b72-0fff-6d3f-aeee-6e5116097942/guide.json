@@ -1,0 +1,61 @@
+{
+  "id": "windows-keyboard-tips-and-tricks-588e0b72-0fff-6d3f-aeee-6e5116097942",
+  "topic_id": "keyboard/support_guide",
+  "domains": [
+    "keyboard"
+  ],
+  "keywords": [
+    "keyboard",
+    "tips",
+    "tricks"
+  ],
+  "title": "Windows keyboard tips and tricks",
+  "source_url": "https://support.microsoft.com/en-us/windows/windows-keyboard-tips-and-tricks-588e0b72-0fff-6d3f-aeee-6e5116097942",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Untitled",
+      "steps": [
+        {
+          "step": 1,
+          "text": "During text entry, press Windows key + . (period). The emoji keyboard appears.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Select an emoji with the mouse or keep typing to search through the available emojis for one you like.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "For more ways to express yourself, choose from GIFs and Kaomoji too!",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Related articles",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-05.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 5,
+  "image_count": 1
+}

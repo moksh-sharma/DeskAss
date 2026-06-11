@@ -1,0 +1,3446 @@
+{
+  "version": 3,
+  "source": "support.microsoft.com",
+  "description": "Visual step guides extracted from Microsoft Support Windows articles.",
+  "attribution": "Microsoft Support — https://support.microsoft.com",
+  "guide_count": 207,
+  "total_images": 374,
+  "guides": [
+    {
+      "id": "fix-sound-or-audio-problems-in-windows-73025246-b61c-40fb-671a-2535c7cd56c8",
+      "topic_id": "audio/support_guide",
+      "domains": [
+        "audio"
+      ],
+      "keywords": [
+        "fix",
+        "sound",
+        "audio",
+        "problems"
+      ],
+      "title": "Fix sound or audio problems in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/fix-sound-or-audio-problems-in-windows-73025246-b61c-40fb-671a-2535c7cd56c8",
+      "step_count": 144,
+      "image_count": 23,
+      "path": "guides/fix-sound-or-audio-problems-in-windows-73025246-b61c-40fb-671a-2535c7cd56c8/guide.json"
+    },
+    {
+      "id": "troubleshoot-common-error-messages-for-audio-or-video-apps-64236c08-c610-4c56-a095-ab5a66aaa680",
+      "topic_id": "audio/support_guide",
+      "domains": [
+        "audio"
+      ],
+      "keywords": [
+        "fix",
+        "sound",
+        "audio",
+        "problems"
+      ],
+      "title": "Fix sound or audio problems in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/troubleshoot-common-error-messages-for-audio-or-video-apps-64236c08-c610-4c56-a095-ab5a66aaa680",
+      "step_count": 144,
+      "image_count": 23,
+      "path": "guides/troubleshoot-common-error-messages-for-audio-or-video-apps-64236c08-c610-4c56-a095-ab5a66aaa680/guide.json"
+    },
+    {
+      "id": "exploring-windows-settings-56bdfb5a-b809-4e65-9c90-4bab76745e19",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "exploring",
+        "settings"
+      ],
+      "title": "Exploring Windows Settings",
+      "source_url": "https://support.microsoft.com/en-us/windows/exploring-windows-settings-56bdfb5a-b809-4e65-9c90-4bab76745e19",
+      "step_count": 21,
+      "image_count": 15,
+      "path": "guides/exploring-windows-settings-56bdfb5a-b809-4e65-9c90-4bab76745e19/guide.json"
+    },
+    {
+      "id": "analyze-the-wireless-network-report-76da0daa-1db2-6049-d154-7bb679eb03ed",
+      "topic_id": "wifi/support_guide",
+      "domains": [
+        "wifi",
+        "network"
+      ],
+      "keywords": [
+        "analyze",
+        "wireless",
+        "network",
+        "report"
+      ],
+      "title": "Analyze the wireless network report",
+      "source_url": "https://support.microsoft.com/en-us/windows/analyze-the-wireless-network-report-76da0daa-1db2-6049-d154-7bb679eb03ed",
+      "step_count": 31,
+      "image_count": 13,
+      "path": "guides/analyze-the-wireless-network-report-76da0daa-1db2-6049-d154-7bb679eb03ed/guide.json"
+    },
+    {
+      "id": "tools-and-apps-64203838-4029-7bba-8231-00c9d8f4d971",
+      "topic_id": "general/windows",
+      "domains": [
+        "wifi",
+        "network"
+      ],
+      "keywords": [
+        "analyze",
+        "wireless",
+        "network",
+        "report"
+      ],
+      "title": "Analyze the wireless network report",
+      "source_url": "https://support.microsoft.com/en-us/windows/tools-and-apps-64203838-4029-7bba-8231-00c9d8f4d971",
+      "step_count": 31,
+      "image_count": 13,
+      "path": "guides/tools-and-apps-64203838-4029-7bba-8231-00c9d8f4d971/guide.json"
+    },
+    {
+      "id": "inside-this-update-93c5c27c-f96e-43c2-a08e-5812d92f220d",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "inside",
+        "this",
+        "update"
+      ],
+      "title": "Inside this update",
+      "source_url": "https://support.microsoft.com/en-us/windows/inside-this-update-93c5c27c-f96e-43c2-a08e-5812d92f220d",
+      "step_count": 22,
+      "image_count": 13,
+      "path": "guides/inside-this-update-93c5c27c-f96e-43c2-a08e-5812d92f220d/guide.json"
+    },
+    {
+      "id": "automatic-super-resolution-5d6d95fa-cc02-4673-b62c-2c50f06385aa",
+      "topic_id": "display/support_guide",
+      "domains": [
+        "display"
+      ],
+      "keywords": [
+        "automatic",
+        "super",
+        "resolution"
+      ],
+      "title": "Automatic Super Resolution",
+      "source_url": "https://support.microsoft.com/en-us/windows/automatic-super-resolution-5d6d95fa-cc02-4673-b62c-2c50f06385aa",
+      "step_count": 45,
+      "image_count": 7,
+      "path": "guides/automatic-super-resolution-5d6d95fa-cc02-4673-b62c-2c50f06385aa/guide.json"
+    },
+    {
+      "id": "back-up-and-restore-with-windows-backup-87a81f8a-78fa-456e-b521-ac0560e32338",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "back",
+        "restore",
+        "backup"
+      ],
+      "title": "Back up and restore with Windows Backup",
+      "source_url": "https://support.microsoft.com/en-us/windows/back-up-and-restore-with-windows-backup-87a81f8a-78fa-456e-b521-ac0560e32338",
+      "step_count": 10,
+      "image_count": 5,
+      "path": "guides/back-up-and-restore-with-windows-backup-87a81f8a-78fa-456e-b521-ac0560e32338/guide.json"
+    },
+    {
+      "id": "file-history-in-windows-5de0e203-ebae-05ab-db85-d5aa0a199255",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "back",
+        "restore",
+        "backup"
+      ],
+      "title": "Back up and restore with Windows Backup",
+      "source_url": "https://support.microsoft.com/en-us/windows/file-history-in-windows-5de0e203-ebae-05ab-db85-d5aa0a199255",
+      "step_count": 10,
+      "image_count": 5,
+      "path": "guides/file-history-in-windows-5de0e203-ebae-05ab-db85-d5aa0a199255/guide.json"
+    },
+    {
+      "id": "connect-to-a-wi-fi-network-in-windows-1f881677-b569-0cd5-010d-e3cd3579d263",
+      "topic_id": "network/support_guide",
+      "domains": [
+        "network"
+      ],
+      "keywords": [
+        "connect",
+        "network"
+      ],
+      "title": "Connect to a Wi-Fi network in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/connect-to-a-wi-fi-network-in-windows-1f881677-b569-0cd5-010d-e3cd3579d263",
+      "step_count": 12,
+      "image_count": 5,
+      "path": "guides/connect-to-a-wi-fi-network-in-windows-1f881677-b569-0cd5-010d-e3cd3579d263/guide.json"
+    },
+    {
+      "id": "find-your-wi-fi-network-password-in-windows-2ec74b2e-d9ec-ade1-cc9b-bef1429cb678",
+      "topic_id": "network/support_guide",
+      "domains": [
+        "network",
+        "account"
+      ],
+      "keywords": [
+        "connect",
+        "network"
+      ],
+      "title": "Connect to a Wi-Fi network in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/find-your-wi-fi-network-password-in-windows-2ec74b2e-d9ec-ade1-cc9b-bef1429cb678",
+      "step_count": 12,
+      "image_count": 5,
+      "path": "guides/find-your-wi-fi-network-password-in-windows-2ec74b2e-d9ec-ade1-cc9b-bef1429cb678/guide.json"
+    },
+    {
+      "id": "meet-windows-11-easily-switch-to-windows-11-3a2aa0a7-9559-431f-91a0-d9ca0a1eb0a5",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "meet",
+        "basics"
+      ],
+      "title": "Meet Windows 11: The Basics",
+      "source_url": "https://support.microsoft.com/en-us/windows/meet-windows-11-easily-switch-to-windows-11-3a2aa0a7-9559-431f-91a0-d9ca0a1eb0a5",
+      "step_count": 6,
+      "image_count": 5,
+      "path": "guides/meet-windows-11-easily-switch-to-windows-11-3a2aa0a7-9559-431f-91a0-d9ca0a1eb0a5/guide.json"
+    },
+    {
+      "id": "camera-doesn-t-work-in-windows-32adb016-b29c-a928-0073-53d31da0dad5",
+      "topic_id": "webcam/support_guide",
+      "domains": [
+        "webcam"
+      ],
+      "keywords": [
+        "camera",
+        "doesn",
+        "work"
+      ],
+      "title": "Camera doesn't work in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/camera-doesn-t-work-in-windows-32adb016-b29c-a928-0073-53d31da0dad5",
+      "step_count": 42,
+      "image_count": 4,
+      "path": "guides/camera-doesn-t-work-in-windows-32adb016-b29c-a928-0073-53d31da0dad5/guide.json"
+    },
+    {
+      "id": "group-photos-by-faces-1ab09703-f0a6-5835-d27b-58672b23fdd2",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "group",
+        "photos",
+        "faces"
+      ],
+      "title": "Group photos by faces",
+      "source_url": "https://support.microsoft.com/en-us/windows/group-photos-by-faces-1ab09703-f0a6-5835-d27b-58672b23fdd2",
+      "step_count": 20,
+      "image_count": 4,
+      "path": "guides/group-photos-by-faces-1ab09703-f0a6-5835-d27b-58672b23fdd2/guide.json"
+    },
+    {
+      "id": "microsoft-simplified-chinese-ime-9b962a3b-2fa4-4f37-811c-b1886320dd72",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "microsoft",
+        "simplified",
+        "chinese",
+        "ime"
+      ],
+      "title": "Microsoft Simplified Chinese IME",
+      "source_url": "https://support.microsoft.com/en-us/windows/microsoft-simplified-chinese-ime-9b962a3b-2fa4-4f37-811c-b1886320dd72",
+      "step_count": 12,
+      "image_count": 4,
+      "path": "guides/microsoft-simplified-chinese-ime-9b962a3b-2fa4-4f37-811c-b1886320dd72/guide.json"
+    },
+    {
+      "id": "activate-microsoft-perpetual-products-using-the-product-activation-portal-64fdc7f5-ce38-42a9-aea",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "activate",
+        "microsoft",
+        "perpetual",
+        "products",
+        "product",
+        "activation",
+        "portal"
+      ],
+      "title": "Activate Microsoft perpetual products using the Product Activation portal",
+      "source_url": "https://support.microsoft.com/en-us/windows/activate-microsoft-perpetual-products-using-the-product-activation-portal-64fdc7f5-ce38-42a9-aea8-393020149983",
+      "step_count": 25,
+      "image_count": 3,
+      "path": "guides/activate-microsoft-perpetual-products-using-the-product-activation-portal-64fdc7f5-ce38-42a9-aea/guide.json"
+    },
+    {
+      "id": "control-dynamic-lighting-devices-in-windows-8e8f22e3-e820-476c-8f9d-9ffc7b6ffcd2",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "control",
+        "dynamic",
+        "lighting",
+        "devices"
+      ],
+      "title": "Control Dynamic Lighting Devices in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/control-dynamic-lighting-devices-in-windows-8e8f22e3-e820-476c-8f9d-9ffc7b6ffcd2",
+      "step_count": 10,
+      "image_count": 3,
+      "path": "guides/control-dynamic-lighting-devices-in-windows-8e8f22e3-e820-476c-8f9d-9ffc7b6ffcd2/guide.json"
+    },
+    {
+      "id": "find-your-bitlocker-recovery-key-6b71ad27-0b89-ea08-f143-056f5ab347d6",
+      "topic_id": "security/support_guide",
+      "domains": [
+        "security"
+      ],
+      "keywords": [
+        "find",
+        "bitlocker",
+        "recovery",
+        "key"
+      ],
+      "title": "Find your BitLocker recovery key",
+      "source_url": "https://support.microsoft.com/en-us/windows/find-your-bitlocker-recovery-key-6b71ad27-0b89-ea08-f143-056f5ab347d6",
+      "step_count": 12,
+      "image_count": 3,
+      "path": "guides/find-your-bitlocker-recovery-key-6b71ad27-0b89-ea08-f143-056f5ab347d6/guide.json"
+    },
+    {
+      "id": "fix-bluetooth-problems-in-windows-723e092f-03fa-858b-5c80-131ec3fba75c",
+      "topic_id": "bluetooth/support_guide",
+      "domains": [
+        "bluetooth"
+      ],
+      "keywords": [
+        "fix",
+        "bluetooth",
+        "problems"
+      ],
+      "title": "Fix Bluetooth problems in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/fix-bluetooth-problems-in-windows-723e092f-03fa-858b-5c80-131ec3fba75c",
+      "step_count": 47,
+      "image_count": 3,
+      "path": "guides/fix-bluetooth-problems-in-windows-723e092f-03fa-858b-5c80-131ec3fba75c/guide.json"
+    },
+    {
+      "id": "fix-issues-by-reinstalling-the-current-version-of-windows-497ac6da-7cac-4641-82a5-f50398d879a0",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "fix",
+        "issues",
+        "reinstalling",
+        "current",
+        "version"
+      ],
+      "title": "Fix issues by reinstalling the current version of Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/fix-issues-by-reinstalling-the-current-version-of-windows-497ac6da-7cac-4641-82a5-f50398d879a0",
+      "step_count": 10,
+      "image_count": 3,
+      "path": "guides/fix-issues-by-reinstalling-the-current-version-of-windows-497ac6da-7cac-4641-82a5-f50398d879a0/guide.json"
+    },
+    {
+      "id": "people-app-help-144c4373-fa32-da81-f8b4-ee87589c509c",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "people",
+        "app",
+        "help"
+      ],
+      "title": "People app help",
+      "source_url": "https://support.microsoft.com/en-us/windows/people-app-help-144c4373-fa32-da81-f8b4-ee87589c509c",
+      "step_count": 103,
+      "image_count": 3,
+      "path": "guides/people-app-help-144c4373-fa32-da81-f8b4-ee87589c509c/guide.json"
+    },
+    {
+      "id": "snap-your-windows-885a9b1e-a983-a3b1-16cd-c531795e6241",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "snap"
+      ],
+      "title": "Snap Your Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/snap-your-windows-885a9b1e-a983-a3b1-16cd-c531795e6241",
+      "step_count": 17,
+      "image_count": 3,
+      "path": "guides/snap-your-windows-885a9b1e-a983-a3b1-16cd-c531795e6241/guide.json"
+    },
+    {
+      "id": "stay-up-to-date-with-widgets-in-windows-7ba79aaa-dac6-4687-b460-ad16a06be6e4",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "stay",
+        "date",
+        "widgets"
+      ],
+      "title": "Stay up to date with Widgets in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/stay-up-to-date-with-widgets-in-windows-7ba79aaa-dac6-4687-b460-ad16a06be6e4",
+      "step_count": 28,
+      "image_count": 3,
+      "path": "guides/stay-up-to-date-with-widgets-in-windows-7ba79aaa-dac6-4687-b460-ad16a06be6e4/guide.json"
+    },
+    {
+      "id": "windows-search-and-privacy-99fb8251-7260-1cd6-1bbb-15c2370eb168",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "search",
+        "privacy"
+      ],
+      "title": "Windows Search and privacy",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-search-and-privacy-99fb8251-7260-1cd6-1bbb-15c2370eb168",
+      "step_count": 8,
+      "image_count": 3,
+      "path": "guides/windows-search-and-privacy-99fb8251-7260-1cd6-1bbb-15c2370eb168/guide.json"
+    },
+    {
+      "id": "backup-and-restore-with-file-history-7bf065bf-f1ea-0a78-c1cf-7dcf51cc8bfc",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "backup",
+        "restore",
+        "file",
+        "history"
+      ],
+      "title": "Backup and restore with File History",
+      "source_url": "https://support.microsoft.com/en-us/windows/backup-and-restore-with-file-history-7bf065bf-f1ea-0a78-c1cf-7dcf51cc8bfc",
+      "step_count": 11,
+      "image_count": 2,
+      "path": "guides/backup-and-restore-with-file-history-7bf065bf-f1ea-0a78-c1cf-7dcf51cc8bfc/guide.json"
+    },
+    {
+      "id": "about-color-management-2a2ed8fa-cf09-83c5-e55c-d1428519f616",
+      "topic_id": "general/windows",
+      "domains": [
+        "display",
+        "performance"
+      ],
+      "keywords": [
+        "change",
+        "display",
+        "brightness",
+        "color"
+      ],
+      "title": "Change display brightness and color in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/about-color-management-2a2ed8fa-cf09-83c5-e55c-d1428519f616",
+      "step_count": 13,
+      "image_count": 2,
+      "path": "guides/about-color-management-2a2ed8fa-cf09-83c5-e55c-d1428519f616/guide.json"
+    },
+    {
+      "id": "automatic-brightness-adjustment-takes-longer-than-expected-on-systems-with-high-dynamic-range-hd",
+      "topic_id": "general/windows",
+      "domains": [
+        "display",
+        "performance"
+      ],
+      "keywords": [
+        "change",
+        "display",
+        "brightness",
+        "color"
+      ],
+      "title": "Change display brightness and color in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/automatic-brightness-adjustment-takes-longer-than-expected-on-systems-with-high-dynamic-range-hdr-support-260f8968-4232-f0f7-ee05-41000047fe3f",
+      "step_count": 13,
+      "image_count": 2,
+      "path": "guides/automatic-brightness-adjustment-takes-longer-than-expected-on-systems-with-high-dynamic-range-hd/guide.json"
+    },
+    {
+      "id": "change-display-brightness-and-color-in-windows-3f67a2f2-5c65-ceca-778b-5858fc007041",
+      "topic_id": "display/support_guide",
+      "domains": [
+        "display",
+        "performance"
+      ],
+      "keywords": [
+        "change",
+        "display",
+        "brightness",
+        "color"
+      ],
+      "title": "Change display brightness and color in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/change-display-brightness-and-color-in-windows-3f67a2f2-5c65-ceca-778b-5858fc007041",
+      "step_count": 13,
+      "image_count": 2,
+      "path": "guides/change-display-brightness-and-color-in-windows-3f67a2f2-5c65-ceca-778b-5858fc007041/guide.json"
+    },
+    {
+      "id": "color-management-settings-in-windows-849b10b4-8347-4217-acb0-69a87432c075",
+      "topic_id": "general/windows",
+      "domains": [
+        "display",
+        "performance"
+      ],
+      "keywords": [
+        "change",
+        "display",
+        "brightness",
+        "color"
+      ],
+      "title": "Change display brightness and color in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/color-management-settings-in-windows-849b10b4-8347-4217-acb0-69a87432c075",
+      "step_count": 13,
+      "image_count": 2,
+      "path": "guides/color-management-settings-in-windows-849b10b4-8347-4217-acb0-69a87432c075/guide.json"
+    },
+    {
+      "id": "content-adaptive-brightness-control-in-windows-292d1f7f-9e02-4b37-a9c8-dab3e1727e78",
+      "topic_id": "general/windows",
+      "domains": [
+        "display",
+        "performance"
+      ],
+      "keywords": [
+        "change",
+        "display",
+        "brightness",
+        "color"
+      ],
+      "title": "Change display brightness and color in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/content-adaptive-brightness-control-in-windows-292d1f7f-9e02-4b37-a9c8-dab3e1727e78",
+      "step_count": 13,
+      "image_count": 2,
+      "path": "guides/content-adaptive-brightness-control-in-windows-292d1f7f-9e02-4b37-a9c8-dab3e1727e78/guide.json"
+    },
+    {
+      "id": "set-your-display-for-night-time-in-windows-18fe903a-e0a1-8326-4c68-fd23d7aaf136",
+      "topic_id": "display/support_guide",
+      "domains": [
+        "display",
+        "performance"
+      ],
+      "keywords": [
+        "change",
+        "display",
+        "brightness",
+        "color"
+      ],
+      "title": "Change display brightness and color in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/set-your-display-for-night-time-in-windows-18fe903a-e0a1-8326-4c68-fd23d7aaf136",
+      "step_count": 13,
+      "image_count": 2,
+      "path": "guides/set-your-display-for-night-time-in-windows-18fe903a-e0a1-8326-4c68-fd23d7aaf136/guide.json"
+    },
+    {
+      "id": "view-display-settings-in-windows-37f0e05e-98a9-474c-317a-e85422daa8bb",
+      "topic_id": "display/support_guide",
+      "domains": [
+        "display",
+        "performance"
+      ],
+      "keywords": [
+        "change",
+        "display",
+        "brightness",
+        "color"
+      ],
+      "title": "Change display brightness and color in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/view-display-settings-in-windows-37f0e05e-98a9-474c-317a-e85422daa8bb",
+      "step_count": 13,
+      "image_count": 2,
+      "path": "guides/view-display-settings-in-windows-37f0e05e-98a9-474c-317a-e85422daa8bb/guide.json"
+    },
+    {
+      "id": "add-or-change-a-vpn-connection-in-windows-3f65c113-33b4-6d80-059f-630aadb9284b",
+      "topic_id": "network/support_guide",
+      "domains": [
+        "network",
+        "performance"
+      ],
+      "keywords": [
+        "connect",
+        "vpn"
+      ],
+      "title": "Connect to a VPN in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/add-or-change-a-vpn-connection-in-windows-3f65c113-33b4-6d80-059f-630aadb9284b",
+      "step_count": 19,
+      "image_count": 2,
+      "path": "guides/add-or-change-a-vpn-connection-in-windows-3f65c113-33b4-6d80-059f-630aadb9284b/guide.json"
+    },
+    {
+      "id": "connect-to-a-vpn-in-windows-3d29aeb1-f497-f6b7-7633-115722c1009c",
+      "topic_id": "network/support_guide",
+      "domains": [
+        "network"
+      ],
+      "keywords": [
+        "connect",
+        "vpn"
+      ],
+      "title": "Connect to a VPN in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/connect-to-a-vpn-in-windows-3d29aeb1-f497-f6b7-7633-115722c1009c",
+      "step_count": 19,
+      "image_count": 2,
+      "path": "guides/connect-to-a-vpn-in-windows-3d29aeb1-f497-f6b7-7633-115722c1009c/guide.json"
+    },
+    {
+      "id": "defragment-optimize-your-data-drives-in-windows-54d4fed1-c96e-46db-b843-8c6b34bd27a4",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "defragment",
+        "optimize",
+        "data",
+        "drives"
+      ],
+      "title": "Defragment / optimize your data drives in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/defragment-optimize-your-data-drives-in-windows-54d4fed1-c96e-46db-b843-8c6b34bd27a4",
+      "step_count": 6,
+      "image_count": 2,
+      "path": "guides/defragment-optimize-your-data-drives-in-windows-54d4fed1-c96e-46db-b843-8c6b34bd27a4/guide.json"
+    },
+    {
+      "id": "import-photos-and-videos-from-phone-to-pc-198f2301-e9a7-c734-5f39-a8946a5ebc99",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "import",
+        "photos",
+        "videos",
+        "from",
+        "phone"
+      ],
+      "title": "Import photos and videos from phone to PC",
+      "source_url": "https://support.microsoft.com/en-us/windows/import-photos-and-videos-from-phone-to-pc-198f2301-e9a7-c734-5f39-a8946a5ebc99",
+      "step_count": 10,
+      "image_count": 2,
+      "path": "guides/import-photos-and-videos-from-phone-to-pc-198f2301-e9a7-c734-5f39-a8946a5ebc99/guide.json"
+    },
+    {
+      "id": "manage-settings-for-mobile-apps-on-windows-000f97e8-8c20-490e-9ef4-cd90d903f847",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "manage",
+        "settings",
+        "mobile",
+        "apps"
+      ],
+      "title": "Manage settings for mobile apps on Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/manage-settings-for-mobile-apps-on-windows-000f97e8-8c20-490e-9ef4-cd90d903f847",
+      "step_count": 9,
+      "image_count": 2,
+      "path": "guides/manage-settings-for-mobile-apps-on-windows-000f97e8-8c20-490e-9ef4-cd90d903f847/guide.json"
+    },
+    {
+      "id": "manage-your-recall-snapshots-and-disk-space-2c35b596-5a96-4090-b791-c27fae75f660",
+      "topic_id": "storage/support_guide",
+      "domains": [
+        "storage"
+      ],
+      "keywords": [
+        "manage",
+        "recall",
+        "snapshots",
+        "disk",
+        "space"
+      ],
+      "title": "Manage your Recall snapshots and disk space",
+      "source_url": "https://support.microsoft.com/en-us/windows/manage-your-recall-snapshots-and-disk-space-2c35b596-5a96-4090-b791-c27fae75f660",
+      "step_count": 6,
+      "image_count": 2,
+      "path": "guides/manage-your-recall-snapshots-and-disk-space-2c35b596-5a96-4090-b791-c27fae75f660/guide.json"
+    },
+    {
+      "id": "pair-a-bluetooth-device-in-windows-2be7b51f-6ae9-b757-a3b9-95ee40c3e242",
+      "topic_id": "bluetooth/support_guide",
+      "domains": [
+        "bluetooth"
+      ],
+      "keywords": [
+        "pair",
+        "bluetooth",
+        "device"
+      ],
+      "title": "Pair a Bluetooth device in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/pair-a-bluetooth-device-in-windows-2be7b51f-6ae9-b757-a3b9-95ee40c3e242",
+      "step_count": 7,
+      "image_count": 2,
+      "path": "guides/pair-a-bluetooth-device-in-windows-2be7b51f-6ae9-b757-a3b9-95ee40c3e242/guide.json"
+    },
+    {
+      "id": "personalize-your-colors-in-windows-3290d30f-d064-5cfe-6470-2fe9c6533e37",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "personalize",
+        "colors"
+      ],
+      "title": "Personalize your Colors in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/personalize-your-colors-in-windows-3290d30f-d064-5cfe-6470-2fe9c6533e37",
+      "step_count": 9,
+      "image_count": 2,
+      "path": "guides/personalize-your-colors-in-windows-3290d30f-d064-5cfe-6470-2fe9c6533e37/guide.json"
+    },
+    {
+      "id": "update-a-driver-for-hardware-that-isn-t-working-properly-5c4da477-59fb-355b-45d6-1aa742268c9b",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "update",
+        "driver",
+        "hardware",
+        "that",
+        "isn",
+        "working",
+        "properly"
+      ],
+      "title": "Update a driver for hardware that isn't working properly",
+      "source_url": "https://support.microsoft.com/en-us/windows/update-a-driver-for-hardware-that-isn-t-working-properly-5c4da477-59fb-355b-45d6-1aa742268c9b",
+      "step_count": 5,
+      "image_count": 2,
+      "path": "guides/update-a-driver-for-hardware-that-isn-t-working-properly-5c4da477-59fb-355b-45d6-1aa742268c9b/guide.json"
+    },
+    {
+      "id": "what-is-photos-legacy-61255007-a189-4a02-8193-6ba18e5f96d3",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "what",
+        "photos",
+        "legacy"
+      ],
+      "title": "What is Photos Legacy?",
+      "source_url": "https://support.microsoft.com/en-us/windows/what-is-photos-legacy-61255007-a189-4a02-8193-6ba18e5f96d3",
+      "step_count": 16,
+      "image_count": 2,
+      "path": "guides/what-is-photos-legacy-61255007-a189-4a02-8193-6ba18e5f96d3/guide.json"
+    },
+    {
+      "id": "windows-startup-settings-1af6ec8c-4d4a-4b23-adb7-e76eef0b847f",
+      "topic_id": "boot/support_guide",
+      "domains": [
+        "boot"
+      ],
+      "keywords": [
+        "startup",
+        "settings"
+      ],
+      "title": "Windows Startup Settings",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-startup-settings-1af6ec8c-4d4a-4b23-adb7-e76eef0b847f",
+      "step_count": 15,
+      "image_count": 2,
+      "path": "guides/windows-startup-settings-1af6ec8c-4d4a-4b23-adb7-e76eef0b847f/guide.json"
+    },
+    {
+      "id": "windows-recovery-environment-0eb14733-6301-41cb-8d26-06a12b42770b",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "recovery",
+        "environment"
+      ],
+      "title": "Windows recovery environment",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-recovery-environment-0eb14733-6301-41cb-8d26-06a12b42770b",
+      "step_count": 14,
+      "image_count": 2,
+      "path": "guides/windows-recovery-environment-0eb14733-6301-41cb-8d26-06a12b42770b/guide.json"
+    },
+    {
+      "id": "-we-can-t-sign-in-to-your-account-error-message-3e08c5c8-92cc-48dc-80a4-f66d072c6edb",
+      "topic_id": "account/support_guide",
+      "domains": [
+        "account"
+      ],
+      "keywords": [
+        "can",
+        "sign",
+        "account",
+        "error",
+        "message"
+      ],
+      "title": "\"We can't sign in to your account\" error message",
+      "source_url": "https://support.microsoft.com/en-us/windows/-we-can-t-sign-in-to-your-account-error-message-3e08c5c8-92cc-48dc-80a4-f66d072c6edb",
+      "step_count": 7,
+      "image_count": 1,
+      "path": "guides/-we-can-t-sign-in-to-your-account-error-message-3e08c5c8-92cc-48dc-80a4-f66d072c6edb/guide.json"
+    },
+    {
+      "id": "about-get-help-717c7ae9-5c45-45f0-b637-900b7437a395",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "get",
+        "help"
+      ],
+      "title": "About Get Help",
+      "source_url": "https://support.microsoft.com/en-us/windows/about-get-help-717c7ae9-5c45-45f0-b637-900b7437a395",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/about-get-help-717c7ae9-5c45-45f0-b637-900b7437a395/guide.json"
+    },
+    {
+      "id": "about-windows-mixed-reality-link-4155d287-182d-4003-b189-b42a4e357fc5",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "mixed",
+        "reality",
+        "link"
+      ],
+      "title": "About Windows Mixed Reality Link",
+      "source_url": "https://support.microsoft.com/en-us/windows/about-windows-mixed-reality-link-4155d287-182d-4003-b189-b42a4e357fc5",
+      "step_count": 13,
+      "image_count": 1,
+      "path": "guides/about-windows-mixed-reality-link-4155d287-182d-4003-b189-b42a4e357fc5/guide.json"
+    },
+    {
+      "id": "additional-features-and-settings-in-phone-link-896a3bb1-97b8-4ba5-a56e-98490573721d",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "additional",
+        "features",
+        "settings",
+        "phone",
+        "link"
+      ],
+      "title": "Additional Features and Settings in Phone Link",
+      "source_url": "https://support.microsoft.com/en-us/windows/additional-features-and-settings-in-phone-link-896a3bb1-97b8-4ba5-a56e-98490573721d",
+      "step_count": 9,
+      "image_count": 1,
+      "path": "guides/additional-features-and-settings-in-phone-link-896a3bb1-97b8-4ba5-a56e-98490573721d/guide.json"
+    },
+    {
+      "id": "all-about-ssd-hdd-and-storage-types-9c6c7c59-7d1c-4611-9ba9-676d53cc0ff1",
+      "topic_id": "storage/support_guide",
+      "domains": [
+        "storage"
+      ],
+      "keywords": [
+        "all",
+        "ssd",
+        "hdd",
+        "storage",
+        "types"
+      ],
+      "title": "All about SSD, HDD, and storage types",
+      "source_url": "https://support.microsoft.com/en-us/windows/all-about-ssd-hdd-and-storage-types-9c6c7c59-7d1c-4611-9ba9-676d53cc0ff1",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/all-about-ssd-hdd-and-storage-types-9c6c7c59-7d1c-4611-9ba9-676d53cc0ff1/guide.json"
+    },
+    {
+      "id": "all-about-computer-memory-79a75280-86ff-457c-bfbd-8439e7f7f88b",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "all",
+        "computer",
+        "memory"
+      ],
+      "title": "All about computer memory",
+      "source_url": "https://support.microsoft.com/en-us/windows/all-about-computer-memory-79a75280-86ff-457c-bfbd-8439e7f7f88b",
+      "step_count": 7,
+      "image_count": 1,
+      "path": "guides/all-about-computer-memory-79a75280-86ff-457c-bfbd-8439e7f7f88b/guide.json"
+    },
+    {
+      "id": "all-about-device-screens-and-displays-8706d9b0-095f-431e-a055-b4dca9b0d72d",
+      "topic_id": "display/support_guide",
+      "domains": [
+        "display"
+      ],
+      "keywords": [
+        "all",
+        "device",
+        "screens",
+        "displays"
+      ],
+      "title": "All about device screens and displays",
+      "source_url": "https://support.microsoft.com/en-us/windows/all-about-device-screens-and-displays-8706d9b0-095f-431e-a055-b4dca9b0d72d",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/all-about-device-screens-and-displays-8706d9b0-095f-431e-a055-b4dca9b0d72d/guide.json"
+    },
+    {
+      "id": "all-about-processors-cpus-06dc72ec-3de2-4eb8-8cc2-7e5f2417b90b",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "all",
+        "processors",
+        "cpus"
+      ],
+      "title": "All about processors (CPUs)",
+      "source_url": "https://support.microsoft.com/en-us/windows/all-about-processors-cpus-06dc72ec-3de2-4eb8-8cc2-7e5f2417b90b",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/all-about-processors-cpus-06dc72ec-3de2-4eb8-8cc2-7e5f2417b90b/guide.json"
+    },
+    {
+      "id": "app-browser-control-in-the-windows-security-app-8f68fb65-ebb4-3cfb-4bd7-ef0f376f3dc3",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "app",
+        "browser",
+        "control",
+        "security"
+      ],
+      "title": "App & browser control in the Windows Security App",
+      "source_url": "https://support.microsoft.com/en-us/windows/app-browser-control-in-the-windows-security-app-8f68fb65-ebb4-3cfb-4bd7-ef0f376f3dc3",
+      "step_count": 12,
+      "image_count": 1,
+      "path": "guides/app-browser-control-in-the-windows-security-app-8f68fb65-ebb4-3cfb-4bd7-ef0f376f3dc3/guide.json"
+    },
+    {
+      "id": "automatically-diagnose-and-repair-windows-file-and-folder-problems-8ca2261a-eb4b-bda1-232c-d88b9",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "automatically",
+        "diagnose",
+        "repair",
+        "file",
+        "folder",
+        "problems"
+      ],
+      "title": "Automatically diagnose and repair Windows file and folder problems",
+      "source_url": "https://support.microsoft.com/en-us/windows/automatically-diagnose-and-repair-windows-file-and-folder-problems-8ca2261a-eb4b-bda1-232c-d88b972438cd",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/automatically-diagnose-and-repair-windows-file-and-folder-problems-8ca2261a-eb4b-bda1-232c-d88b9/guide.json"
+    },
+    {
+      "id": "bitlocker-drive-encryption-76b92ac9-1040-48d6-9f5f-d14b3c5fa178",
+      "topic_id": "security/support_guide",
+      "domains": [
+        "security"
+      ],
+      "keywords": [
+        "bitlocker",
+        "drive",
+        "encryption"
+      ],
+      "title": "BitLocker Drive Encryption",
+      "source_url": "https://support.microsoft.com/en-us/windows/bitlocker-drive-encryption-76b92ac9-1040-48d6-9f5f-d14b3c5fa178",
+      "step_count": 8,
+      "image_count": 1,
+      "path": "guides/bitlocker-drive-encryption-76b92ac9-1040-48d6-9f5f-d14b3c5fa178/guide.json"
+    },
+    {
+      "id": "bitlocker-overview-44c0c61c-989d-4a69-8822-b95cd49b1bbf",
+      "topic_id": "security/support_guide",
+      "domains": [
+        "security"
+      ],
+      "keywords": [
+        "bitlocker",
+        "overview"
+      ],
+      "title": "BitLocker overview",
+      "source_url": "https://support.microsoft.com/en-us/windows/bitlocker-overview-44c0c61c-989d-4a69-8822-b95cd49b1bbf",
+      "step_count": 6,
+      "image_count": 1,
+      "path": "guides/bitlocker-overview-44c0c61c-989d-4a69-8822-b95cd49b1bbf/guide.json"
+    },
+    {
+      "id": "camera-app-shows-error-0xa00f4244-nocamerasareattached-05d738b3-b1fd-06f2-f5fc-c0437ff8db32",
+      "topic_id": "webcam/support_guide",
+      "domains": [
+        "webcam"
+      ],
+      "keywords": [
+        "camera",
+        "app",
+        "shows",
+        "error",
+        "0xa00f4244",
+        "nocamerasareattached"
+      ],
+      "title": "Camera app shows error \"0xA00F4244 NoCamerasAreAttached\"",
+      "source_url": "https://support.microsoft.com/en-us/windows/camera-app-shows-error-0xa00f4244-nocamerasareattached-05d738b3-b1fd-06f2-f5fc-c0437ff8db32",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/camera-app-shows-error-0xa00f4244-nocamerasareattached-05d738b3-b1fd-06f2-f5fc-c0437ff8db32/guide.json"
+    },
+    {
+      "id": "caring-for-your-battery-in-windows-2db3e37f-5e7d-488e-9086-ed15320519e4",
+      "topic_id": "battery/support_guide",
+      "domains": [
+        "battery"
+      ],
+      "keywords": [
+        "caring",
+        "battery"
+      ],
+      "title": "Caring for your battery in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/caring-for-your-battery-in-windows-2db3e37f-5e7d-488e-9086-ed15320519e4",
+      "step_count": 5,
+      "image_count": 1,
+      "path": "guides/caring-for-your-battery-in-windows-2db3e37f-5e7d-488e-9086-ed15320519e4/guide.json"
+    },
+    {
+      "id": "change-your-account-picture-in-windows-3645cdc7-acab-49d2-76a9-4ce7e5e10939",
+      "topic_id": "performance/support_guide",
+      "domains": [
+        "performance"
+      ],
+      "keywords": [
+        "change",
+        "account",
+        "picture"
+      ],
+      "title": "Change Your Account Picture in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/change-your-account-picture-in-windows-3645cdc7-acab-49d2-76a9-4ce7e5e10939",
+      "step_count": 4,
+      "image_count": 1,
+      "path": "guides/change-your-account-picture-in-windows-3645cdc7-acab-49d2-76a9-4ce7e5e10939/guide.json"
+    },
+    {
+      "id": "change-your-pin-when-you-re-already-signed-in-to-your-device-0bd2ab85-b0df-c775-7aef-1324f2114b1",
+      "topic_id": "performance/support_guide",
+      "domains": [
+        "performance",
+        "account"
+      ],
+      "keywords": [
+        "change",
+        "reset",
+        "pin"
+      ],
+      "title": "Change or reset your PIN in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/change-your-pin-when-you-re-already-signed-in-to-your-device-0bd2ab85-b0df-c775-7aef-1324f2114b19",
+      "step_count": 10,
+      "image_count": 1,
+      "path": "guides/change-your-pin-when-you-re-already-signed-in-to-your-device-0bd2ab85-b0df-c775-7aef-1324f2114b1/guide.json"
+    },
+    {
+      "id": "change-the-desktop-background-in-windows-4a33c533-b71e-447e-b021-a27df2678938",
+      "topic_id": "performance/support_guide",
+      "domains": [
+        "performance"
+      ],
+      "keywords": [
+        "change",
+        "desktop",
+        "background"
+      ],
+      "title": "Change the desktop background in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/change-the-desktop-background-in-windows-4a33c533-b71e-447e-b021-a27df2678938",
+      "step_count": 20,
+      "image_count": 1,
+      "path": "guides/change-the-desktop-background-in-windows-4a33c533-b71e-447e-b021-a27df2678938/guide.json"
+    },
+    {
+      "id": "change-your-screen-resolution-and-layout-in-windows-5effefe3-2eac-e306-0b5d-2073b765876b",
+      "topic_id": "display/support_guide",
+      "domains": [
+        "display",
+        "performance"
+      ],
+      "keywords": [
+        "change",
+        "screen",
+        "resolution",
+        "layout"
+      ],
+      "title": "Change your screen resolution and layout in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/change-your-screen-resolution-and-layout-in-windows-5effefe3-2eac-e306-0b5d-2073b765876b",
+      "step_count": 13,
+      "image_count": 1,
+      "path": "guides/change-your-screen-resolution-and-layout-in-windows-5effefe3-2eac-e306-0b5d-2073b765876b/guide.json"
+    },
+    {
+      "id": "check-if-a-windows-11-device-supports-bluetooth-low-energy-audio-2b79c085-0353-4467-8306-ebb2657",
+      "topic_id": "bluetooth/support_guide",
+      "domains": [
+        "bluetooth",
+        "audio"
+      ],
+      "keywords": [
+        "check",
+        "device",
+        "supports",
+        "bluetooth",
+        "low",
+        "energy",
+        "audio"
+      ],
+      "title": "Check if a Windows 11 device supports Bluetooth Low Energy Audio",
+      "source_url": "https://support.microsoft.com/en-us/windows/check-if-a-windows-11-device-supports-bluetooth-low-energy-audio-2b79c085-0353-4467-8306-ebb2657a91de",
+      "step_count": 5,
+      "image_count": 1,
+      "path": "guides/check-if-a-windows-11-device-supports-bluetooth-low-energy-audio-2b79c085-0353-4467-8306-ebb2657/guide.json"
+    },
+    {
+      "id": "classic-outlook-troubleshooters-086e3d66-5404-4034-9cc5-545909dcc166",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "classic",
+        "outlook",
+        "troubleshooters"
+      ],
+      "title": "Classic Outlook troubleshooters",
+      "source_url": "https://support.microsoft.com/en-us/windows/classic-outlook-troubleshooters-086e3d66-5404-4034-9cc5-545909dcc166",
+      "step_count": 8,
+      "image_count": 1,
+      "path": "guides/classic-outlook-troubleshooters-086e3d66-5404-4034-9cc5-545909dcc166/guide.json"
+    },
+    {
+      "id": "click-to-do-in-recall-do-more-with-what-s-on-your-screen-967304a8-32d1-4812-a904-fad59b5e6abf",
+      "topic_id": "display/support_guide",
+      "domains": [
+        "display"
+      ],
+      "keywords": [
+        "click",
+        "recall",
+        "more",
+        "what",
+        "screen"
+      ],
+      "title": "Click to Do in Recall: do more with what’s on your screen",
+      "source_url": "https://support.microsoft.com/en-us/windows/click-to-do-in-recall-do-more-with-what-s-on-your-screen-967304a8-32d1-4812-a904-fad59b5e6abf",
+      "step_count": 33,
+      "image_count": 1,
+      "path": "guides/click-to-do-in-recall-do-more-with-what-s-on-your-screen-967304a8-32d1-4812-a904-fad59b5e6abf/guide.json"
+    },
+    {
+      "id": "click-to-do-do-more-with-what-s-on-your-screen-6848b7d5-7fb0-4c43-b08a-443d6d3f5955",
+      "topic_id": "display/support_guide",
+      "domains": [
+        "display"
+      ],
+      "keywords": [
+        "click",
+        "more",
+        "what",
+        "screen"
+      ],
+      "title": "Click to Do: do more with what’s on your screen",
+      "source_url": "https://support.microsoft.com/en-us/windows/click-to-do-do-more-with-what-s-on-your-screen-6848b7d5-7fb0-4c43-b08a-443d6d3f5955",
+      "step_count": 31,
+      "image_count": 1,
+      "path": "guides/click-to-do-do-more-with-what-s-on-your-screen-6848b7d5-7fb0-4c43-b08a-443d6d3f5955/guide.json"
+    },
+    {
+      "id": "command-prompt-and-windows-powershell-6453ce98-da91-476f-8651-5c14d5777c20",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "command",
+        "prompt",
+        "powershell"
+      ],
+      "title": "Command Prompt and Windows Powershell",
+      "source_url": "https://support.microsoft.com/en-us/windows/command-prompt-and-windows-powershell-6453ce98-da91-476f-8651-5c14d5777c20",
+      "step_count": 6,
+      "image_count": 1,
+      "path": "guides/command-prompt-and-windows-powershell-6453ce98-da91-476f-8651-5c14d5777c20/guide.json"
+    },
+    {
+      "id": "common-pc-and-device-terms-4542f069-4cf7-431a-bb6b-c6cbdbe3e6e9",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "common",
+        "device",
+        "terms"
+      ],
+      "title": "Common PC and device terms",
+      "source_url": "https://support.microsoft.com/en-us/windows/common-pc-and-device-terms-4542f069-4cf7-431a-bb6b-c6cbdbe3e6e9",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/common-pc-and-device-terms-4542f069-4cf7-431a-bb6b-c6cbdbe3e6e9/guide.json"
+    },
+    {
+      "id": "configure-multiple-desktops-in-windows-36f52e38-5b4a-557b-2ff9-e1a60c976434",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "configure",
+        "multiple",
+        "desktops"
+      ],
+      "title": "Configure Multiple Desktops in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/configure-multiple-desktops-in-windows-36f52e38-5b4a-557b-2ff9-e1a60c976434",
+      "step_count": 16,
+      "image_count": 1,
+      "path": "guides/configure-multiple-desktops-in-windows-36f52e38-5b4a-557b-2ff9-e1a60c976434/guide.json"
+    },
+    {
+      "id": "add-an-app-to-run-automatically-at-startup-in-windows-10-150da165-dcd9-7230-517b-cf3c295d89dd",
+      "topic_id": "boot/support_guide",
+      "domains": [
+        "boot"
+      ],
+      "keywords": [
+        "configure",
+        "startup",
+        "applications"
+      ],
+      "title": "Configure Startup applications in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/add-an-app-to-run-automatically-at-startup-in-windows-10-150da165-dcd9-7230-517b-cf3c295d89dd",
+      "step_count": 9,
+      "image_count": 1,
+      "path": "guides/add-an-app-to-run-automatically-at-startup-in-windows-10-150da165-dcd9-7230-517b-cf3c295d89dd/guide.json"
+    },
+    {
+      "id": "configure-startup-applications-in-windows-115a420a-0bff-4a6f-90e0-1934c844e473",
+      "topic_id": "boot/support_guide",
+      "domains": [
+        "boot"
+      ],
+      "keywords": [
+        "configure",
+        "startup",
+        "applications"
+      ],
+      "title": "Configure Startup applications in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/configure-startup-applications-in-windows-115a420a-0bff-4a6f-90e0-1934c844e473",
+      "step_count": 9,
+      "image_count": 1,
+      "path": "guides/configure-startup-applications-in-windows-115a420a-0bff-4a6f-90e0-1934c844e473/guide.json"
+    },
+    {
+      "id": "connect-to-a-bluetooth-network-in-windows-0d371763-6297-4eef-9d39-f8c469d181c2",
+      "topic_id": "bluetooth/support_guide",
+      "domains": [
+        "bluetooth",
+        "network"
+      ],
+      "keywords": [
+        "connect",
+        "bluetooth",
+        "network"
+      ],
+      "title": "Connect to a Bluetooth network in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/connect-to-a-bluetooth-network-in-windows-0d371763-6297-4eef-9d39-f8c469d181c2",
+      "step_count": 12,
+      "image_count": 1,
+      "path": "guides/connect-to-a-bluetooth-network-in-windows-0d371763-6297-4eef-9d39-f8c469d181c2/guide.json"
+    },
+    {
+      "id": "copilot-troubleshooters-86cc27f3-e95d-4e8e-8e5f-c1ba7274086d",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "copilot",
+        "troubleshooters"
+      ],
+      "title": "Copilot troubleshooters",
+      "source_url": "https://support.microsoft.com/en-us/windows/copilot-troubleshooters-86cc27f3-e95d-4e8e-8e5f-c1ba7274086d",
+      "step_count": 4,
+      "image_count": 1,
+      "path": "guides/copilot-troubleshooters-86cc27f3-e95d-4e8e-8e5f-c1ba7274086d/guide.json"
+    },
+    {
+      "id": "cross-device-resume-feature-9ada0c0b-f70f-4806-abac-b7126fa6a053",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "cross",
+        "device",
+        "resume",
+        "feature"
+      ],
+      "title": "Cross-device Resume Feature",
+      "source_url": "https://support.microsoft.com/en-us/windows/cross-device-resume-feature-9ada0c0b-f70f-4806-abac-b7126fa6a053",
+      "step_count": 15,
+      "image_count": 1,
+      "path": "guides/cross-device-resume-feature-9ada0c0b-f70f-4806-abac-b7126fa6a053/guide.json"
+    },
+    {
+      "id": "customize-the-lock-screen-in-windows-81dab9b0-35cf-887c-84a0-6de8ef72bea0",
+      "topic_id": "display/support_guide",
+      "domains": [
+        "display"
+      ],
+      "keywords": [
+        "customize",
+        "lock",
+        "screen"
+      ],
+      "title": "Customize the Lock Screen in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/customize-the-lock-screen-in-windows-81dab9b0-35cf-887c-84a0-6de8ef72bea0",
+      "step_count": 8,
+      "image_count": 1,
+      "path": "guides/customize-the-lock-screen-in-windows-81dab9b0-35cf-887c-84a0-6de8ef72bea0/guide.json"
+    },
+    {
+      "id": "choose-network-sharing-options-for-delivery-optimization-368ac893-f551-f869-1771-f8a9fc0554b3",
+      "topic_id": "network/support_guide",
+      "domains": [
+        "network"
+      ],
+      "keywords": [
+        "delivery",
+        "optimization"
+      ],
+      "title": "Delivery Optimization in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/choose-network-sharing-options-for-delivery-optimization-368ac893-f551-f869-1771-f8a9fc0554b3",
+      "step_count": 14,
+      "image_count": 1,
+      "path": "guides/choose-network-sharing-options-for-delivery-optimization-368ac893-f551-f869-1771-f8a9fc0554b3/guide.json"
+    },
+    {
+      "id": "delivery-optimization-in-windows-10-0656e53c-15f2-90de-a87a-a2172c94cf6d",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "delivery",
+        "optimization"
+      ],
+      "title": "Delivery Optimization in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/delivery-optimization-in-windows-10-0656e53c-15f2-90de-a87a-a2172c94cf6d",
+      "step_count": 14,
+      "image_count": 1,
+      "path": "guides/delivery-optimization-in-windows-10-0656e53c-15f2-90de-a87a-a2172c94cf6d/guide.json"
+    },
+    {
+      "id": "set-bandwidth-limits-for-background-downloads-49c28a83-35c2-7f30-dfdc-802b4dd44e51",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "delivery",
+        "optimization"
+      ],
+      "title": "Delivery Optimization in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/set-bandwidth-limits-for-background-downloads-49c28a83-35c2-7f30-dfdc-802b4dd44e51",
+      "step_count": 14,
+      "image_count": 1,
+      "path": "guides/set-bandwidth-limits-for-background-downloads-49c28a83-35c2-7f30-dfdc-802b4dd44e51/guide.json"
+    },
+    {
+      "id": "deprecation-of-microsoft-support-diagnostic-tool-msdt-and-msdt-troubleshooters-0c5ac9a2-1600-453",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "deprecation",
+        "microsoft",
+        "support",
+        "diagnostic",
+        "tool",
+        "msdt",
+        "troubleshooters"
+      ],
+      "title": "Deprecation of Microsoft Support Diagnostic Tool (MSDT) and MSDT Troubleshooters",
+      "source_url": "https://support.microsoft.com/en-us/windows/deprecation-of-microsoft-support-diagnostic-tool-msdt-and-msdt-troubleshooters-0c5ac9a2-1600-4539-b9d0-069e71f9040a",
+      "step_count": 6,
+      "image_count": 1,
+      "path": "guides/deprecation-of-microsoft-support-diagnostic-tool-msdt-and-msdt-troubleshooters-0c5ac9a2-1600-453/guide.json"
+    },
+    {
+      "id": "device-performance-and-health-in-the-windows-security-app-59d8499d-b6fd-6930-7667-ebf8ae10e08d",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "device",
+        "performance",
+        "health",
+        "security",
+        "app"
+      ],
+      "title": "Device performance and health in the Windows Security App",
+      "source_url": "https://support.microsoft.com/en-us/windows/device-performance-and-health-in-the-windows-security-app-59d8499d-b6fd-6930-7667-ebf8ae10e08d",
+      "step_count": 6,
+      "image_count": 1,
+      "path": "guides/device-performance-and-health-in-the-windows-security-app-59d8499d-b6fd-6930-7667-ebf8ae10e08d/guide.json"
+    },
+    {
+      "id": "diagnostics-feedback-and-privacy-in-windows-28808a2b-a31b-dd73-dcd3-4559a5199319",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "diagnostics",
+        "feedback",
+        "privacy"
+      ],
+      "title": "Diagnostics, feedback, and privacy in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/diagnostics-feedback-and-privacy-in-windows-28808a2b-a31b-dd73-dcd3-4559a5199319",
+      "step_count": 23,
+      "image_count": 1,
+      "path": "guides/diagnostics-feedback-and-privacy-in-windows-28808a2b-a31b-dd73-dcd3-4559a5199319/guide.json"
+    },
+    {
+      "id": "download-and-install-the-latest-printer-drivers-4ff66446-a2ab-b77f-46f4-a6d3fe4bf661",
+      "topic_id": "printer/support_guide",
+      "domains": [
+        "printer"
+      ],
+      "keywords": [
+        "download",
+        "install",
+        "latest",
+        "printer",
+        "drivers"
+      ],
+      "title": "Download and install the latest printer drivers",
+      "source_url": "https://support.microsoft.com/en-us/windows/download-and-install-the-latest-printer-drivers-4ff66446-a2ab-b77f-46f4-a6d3fe4bf661",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/download-and-install-the-latest-printer-drivers-4ff66446-a2ab-b77f-46f4-a6d3fe4bf661/guide.json"
+    },
+    {
+      "id": "enable-tpm-2-0-on-your-pc-1fd5a332-360d-4f46-a1e7-ae6b0c90645c",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "enable",
+        "tpm"
+      ],
+      "title": "Enable TPM 2.0 on your PC",
+      "source_url": "https://support.microsoft.com/en-us/windows/enable-tpm-2-0-on-your-pc-1fd5a332-360d-4f46-a1e7-ae6b0c90645c",
+      "step_count": 7,
+      "image_count": 1,
+      "path": "guides/enable-tpm-2-0-on-your-pc-1fd5a332-360d-4f46-a1e7-ae6b0c90645c/guide.json"
+    },
+    {
+      "id": "enable-and-disable-the-virtual-touchpad-in-windows-2d402c64-949b-05ca-ebeb-978a6548d151",
+      "topic_id": "mouse/support_guide",
+      "domains": [
+        "mouse"
+      ],
+      "keywords": [
+        "enable",
+        "disable",
+        "virtual",
+        "touchpad"
+      ],
+      "title": "Enable and disable the virtual touchpad in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/enable-and-disable-the-virtual-touchpad-in-windows-2d402c64-949b-05ca-ebeb-978a6548d151",
+      "step_count": 4,
+      "image_count": 1,
+      "path": "guides/enable-and-disable-the-virtual-touchpad-in-windows-2d402c64-949b-05ca-ebeb-978a6548d151/guide.json"
+    },
+    {
+      "id": "enhance-your-writing-with-ai-in-notepad-4088b954-c97b-46dc-813f-959be01746d5",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "enhance",
+        "writing",
+        "notepad"
+      ],
+      "title": "Enhance Your Writing with AI in Notepad",
+      "source_url": "https://support.microsoft.com/en-us/windows/enhance-your-writing-with-ai-in-notepad-4088b954-c97b-46dc-813f-959be01746d5",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/enhance-your-writing-with-ai-in-notepad-4088b954-c97b-46dc-813f-959be01746d5/guide.json"
+    },
+    {
+      "id": "enhanced-sign-in-security-in-windows-936c06ed-4024-4521-921f-faa97925a16e",
+      "topic_id": "account/support_guide",
+      "domains": [
+        "account"
+      ],
+      "keywords": [
+        "enhanced",
+        "sign",
+        "security"
+      ],
+      "title": "Enhanced Sign-in Security in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/enhanced-sign-in-security-in-windows-936c06ed-4024-4521-921f-faa97925a16e",
+      "step_count": 8,
+      "image_count": 1,
+      "path": "guides/enhanced-sign-in-security-in-windows-936c06ed-4024-4521-921f-faa97925a16e/guide.json"
+    },
+    {
+      "id": "make-a-wi-fi-network-public-or-private-in-windows-0460117d-8d3e-a7ac-f003-7a0da607448d",
+      "topic_id": "network/support_guide",
+      "domains": [
+        "network"
+      ],
+      "keywords": [
+        "essential",
+        "network",
+        "settings",
+        "tasks"
+      ],
+      "title": "Essential Network Settings and Tasks in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/make-a-wi-fi-network-public-or-private-in-windows-0460117d-8d3e-a7ac-f003-7a0da607448d",
+      "step_count": 16,
+      "image_count": 1,
+      "path": "guides/make-a-wi-fi-network-public-or-private-in-windows-0460117d-8d3e-a7ac-f003-7a0da607448d/guide.json"
+    },
+    {
+      "id": "set-your-data-limit-031dcc15-fa0f-ad39-8e60-634500585630",
+      "topic_id": "general/windows",
+      "domains": [
+        "network"
+      ],
+      "keywords": [
+        "essential",
+        "network",
+        "settings",
+        "tasks"
+      ],
+      "title": "Essential Network Settings and Tasks in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/set-your-data-limit-031dcc15-fa0f-ad39-8e60-634500585630",
+      "step_count": 16,
+      "image_count": 1,
+      "path": "guides/set-your-data-limit-031dcc15-fa0f-ad39-8e60-634500585630/guide.json"
+    },
+    {
+      "id": "export-recall-snapshots-680bd134-4aaa-4bf5-8548-a8e2911c8069",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "export",
+        "recall",
+        "snapshots"
+      ],
+      "title": "Export Recall snapshots",
+      "source_url": "https://support.microsoft.com/en-us/windows/export-recall-snapshots-680bd134-4aaa-4bf5-8548-a8e2911c8069",
+      "step_count": 14,
+      "image_count": 1,
+      "path": "guides/export-recall-snapshots-680bd134-4aaa-4bf5-8548-a8e2911c8069/guide.json"
+    },
+    {
+      "id": "find-bluetooth-settings-in-windows-5027e93e-a6e8-4b4f-a412-c6c6cd6f57cc",
+      "topic_id": "bluetooth/support_guide",
+      "domains": [
+        "bluetooth"
+      ],
+      "keywords": [
+        "find",
+        "bluetooth",
+        "settings"
+      ],
+      "title": "Find Bluetooth settings in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/find-bluetooth-settings-in-windows-5027e93e-a6e8-4b4f-a412-c6c6cd6f57cc",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/find-bluetooth-settings-in-windows-5027e93e-a6e8-4b4f-a412-c6c6cd6f57cc/guide.json"
+    },
+    {
+      "id": "find-the-recycle-bin-in-windows-885cf298-0f98-a548-9427-a1248fce4315",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "find",
+        "recycle",
+        "bin"
+      ],
+      "title": "Find the Recycle Bin in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/find-the-recycle-bin-in-windows-885cf298-0f98-a548-9427-a1248fce4315",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/find-the-recycle-bin-in-windows-885cf298-0f98-a548-9427-a1248fce4315/guide.json"
+    },
+    {
+      "id": "find-your-files-and-apps-in-windows-5c7c8cfe-c289-fae4-f5f8-6b3fdba418d2",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "find",
+        "files",
+        "apps"
+      ],
+      "title": "Find your files and apps in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/find-your-files-and-apps-in-windows-5c7c8cfe-c289-fae4-f5f8-6b3fdba418d2",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/find-your-files-and-apps-in-windows-5c7c8cfe-c289-fae4-f5f8-6b3fdba418d2/guide.json"
+    },
+    {
+      "id": "find-your-way-with-maps-51ece9fb-a0f2-9853-4164-6940865085c8",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "find",
+        "way",
+        "maps"
+      ],
+      "title": "Find your way with Maps",
+      "source_url": "https://support.microsoft.com/en-us/windows/find-your-way-with-maps-51ece9fb-a0f2-9853-4164-6940865085c8",
+      "step_count": 7,
+      "image_count": 1,
+      "path": "guides/find-your-way-with-maps-51ece9fb-a0f2-9853-4164-6940865085c8/guide.json"
+    },
+    {
+      "id": "fix-bluetooth-audio-only-playing-in-one-channel-07e469b1-5af0-49a6-bb38-3c369c9605bc",
+      "topic_id": "bluetooth/support_guide",
+      "domains": [
+        "bluetooth",
+        "audio"
+      ],
+      "keywords": [
+        "fix",
+        "bluetooth",
+        "audio",
+        "only",
+        "playing",
+        "one",
+        "channel"
+      ],
+      "title": "Fix Bluetooth audio only playing in one channel",
+      "source_url": "https://support.microsoft.com/en-us/windows/fix-bluetooth-audio-only-playing-in-one-channel-07e469b1-5af0-49a6-bb38-3c369c9605bc",
+      "step_count": 6,
+      "image_count": 1,
+      "path": "guides/fix-bluetooth-audio-only-playing-in-one-channel-07e469b1-5af0-49a6-bb38-3c369c9605bc/guide.json"
+    },
+    {
+      "id": "fix-network-connection-issues-in-windows-166a28c4-14c1-bdb1-473c-09c1571455d8",
+      "topic_id": "network/support_guide",
+      "domains": [
+        "network"
+      ],
+      "keywords": [
+        "fix",
+        "connection",
+        "issues"
+      ],
+      "title": "Fix Wi-Fi connection issues in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/fix-network-connection-issues-in-windows-166a28c4-14c1-bdb1-473c-09c1571455d8",
+      "step_count": 22,
+      "image_count": 1,
+      "path": "guides/fix-network-connection-issues-in-windows-166a28c4-14c1-bdb1-473c-09c1571455d8/guide.json"
+    },
+    {
+      "id": "fix-wi-fi-connection-issues-in-windows-9424a1f7-6a3b-65a6-4d78-7f07eee84d2c",
+      "topic_id": "network/support_guide",
+      "domains": [
+        "network"
+      ],
+      "keywords": [
+        "fix",
+        "connection",
+        "issues"
+      ],
+      "title": "Fix Wi-Fi connection issues in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/fix-wi-fi-connection-issues-in-windows-9424a1f7-6a3b-65a6-4d78-7f07eee84d2c",
+      "step_count": 22,
+      "image_count": 1,
+      "path": "guides/fix-wi-fi-connection-issues-in-windows-9424a1f7-6a3b-65a6-4d78-7f07eee84d2c/guide.json"
+    },
+    {
+      "id": "wi-fi-connection-icons-and-what-they-mean-in-windows-35f58c75-bd23-4b8b-dd1a-009fe53f86b3",
+      "topic_id": "network/support_guide",
+      "domains": [
+        "network"
+      ],
+      "keywords": [
+        "fix",
+        "connection",
+        "issues"
+      ],
+      "title": "Fix Wi-Fi connection issues in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/wi-fi-connection-icons-and-what-they-mean-in-windows-35f58c75-bd23-4b8b-dd1a-009fe53f86b3",
+      "step_count": 22,
+      "image_count": 1,
+      "path": "guides/wi-fi-connection-icons-and-what-they-mean-in-windows-35f58c75-bd23-4b8b-dd1a-009fe53f86b3/guide.json"
+    },
+    {
+      "id": "fix-a-missing-camera-roll-in-windows-3f403e32-d879-b2cd-4a24-80338f6ea9d6",
+      "topic_id": "webcam/support_guide",
+      "domains": [
+        "webcam"
+      ],
+      "keywords": [
+        "fix",
+        "missing",
+        "camera",
+        "roll"
+      ],
+      "title": "Fix a missing Camera Roll in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/fix-a-missing-camera-roll-in-windows-3f403e32-d879-b2cd-4a24-80338f6ea9d6",
+      "step_count": 15,
+      "image_count": 1,
+      "path": "guides/fix-a-missing-camera-roll-in-windows-3f403e32-d879-b2cd-4a24-80338f6ea9d6/guide.json"
+    },
+    {
+      "id": "fix-microphone-problems-5f230348-106d-bfa4-1db5-336f35576011",
+      "topic_id": "audio/support_guide",
+      "domains": [
+        "audio"
+      ],
+      "keywords": [
+        "fix",
+        "microphone",
+        "problems"
+      ],
+      "title": "Fix microphone problems",
+      "source_url": "https://support.microsoft.com/en-us/windows/fix-microphone-problems-5f230348-106d-bfa4-1db5-336f35576011",
+      "step_count": 20,
+      "image_count": 1,
+      "path": "guides/fix-microphone-problems-5f230348-106d-bfa4-1db5-336f35576011/guide.json"
+    },
+    {
+      "id": "fix-touchpad-problems-in-windows-30b498e5-0caa-9740-2b21-336ea75ee756",
+      "topic_id": "mouse/support_guide",
+      "domains": [
+        "mouse"
+      ],
+      "keywords": [
+        "fix",
+        "touchpad",
+        "problems"
+      ],
+      "title": "Fix touchpad problems in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/fix-touchpad-problems-in-windows-30b498e5-0caa-9740-2b21-336ea75ee756",
+      "step_count": 5,
+      "image_count": 1,
+      "path": "guides/fix-touchpad-problems-in-windows-30b498e5-0caa-9740-2b21-336ea75ee756/guide.json"
+    },
+    {
+      "id": "free-up-space-for-windows-updates-429b12ba-f514-be0b-4924-ca6d16fa1d65",
+      "topic_id": "storage/support_guide",
+      "domains": [
+        "storage",
+        "windows_update"
+      ],
+      "keywords": [
+        "free",
+        "space",
+        "updates"
+      ],
+      "title": "Free up space for Windows updates",
+      "source_url": "https://support.microsoft.com/en-us/windows/free-up-space-for-windows-updates-429b12ba-f514-be0b-4924-ca6d16fa1d65",
+      "step_count": 24,
+      "image_count": 1,
+      "path": "guides/free-up-space-for-windows-updates-429b12ba-f514-be0b-4924-ca6d16fa1d65/guide.json"
+    },
+    {
+      "id": "get-help-for-microsoft-work-or-school-account-users-215deae6-5cc6-4ba0-9f7b-d75933ce179b",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "get",
+        "help",
+        "microsoft",
+        "work",
+        "school",
+        "account",
+        "users"
+      ],
+      "title": "Get Help for Microsoft work or school account users",
+      "source_url": "https://support.microsoft.com/en-us/windows/get-help-for-microsoft-work-or-school-account-users-215deae6-5cc6-4ba0-9f7b-d75933ce179b",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/get-help-for-microsoft-work-or-school-account-users-215deae6-5cc6-4ba0-9f7b-d75933ce179b/guide.json"
+    },
+    {
+      "id": "get-connected-when-setting-up-your-windows-device-50dca26f-40d5-4c3b-853c-e972dafb7e08",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "get",
+        "connected",
+        "when",
+        "setting",
+        "device"
+      ],
+      "title": "Get connected when setting up your Windows device",
+      "source_url": "https://support.microsoft.com/en-us/windows/get-connected-when-setting-up-your-windows-device-50dca26f-40d5-4c3b-853c-e972dafb7e08",
+      "step_count": 25,
+      "image_count": 1,
+      "path": "guides/get-connected-when-setting-up-your-windows-device-50dca26f-40d5-4c3b-853c-e972dafb7e08/guide.json"
+    },
+    {
+      "id": "get-help-with-microsoft-photos-app-702104c6-7541-6757-d624-c0846b3bdbd3",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "get",
+        "help",
+        "microsoft",
+        "photos",
+        "app"
+      ],
+      "title": "Get help with Microsoft Photos app",
+      "source_url": "https://support.microsoft.com/en-us/windows/get-help-with-microsoft-photos-app-702104c6-7541-6757-d624-c0846b3bdbd3",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/get-help-with-microsoft-photos-app-702104c6-7541-6757-d624-c0846b3bdbd3/guide.json"
+    },
+    {
+      "id": "new-partition-appears-after-installing-the-windows-10-april-update-541158b3-2859-d9e0-5b27-3cccf",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "getting",
+        "ready",
+        "upgrade"
+      ],
+      "title": "Getting ready for the Windows 11 upgrade",
+      "source_url": "https://support.microsoft.com/en-us/windows/new-partition-appears-after-installing-the-windows-10-april-update-541158b3-2859-d9e0-5b27-3cccfff54777",
+      "step_count": 6,
+      "image_count": 1,
+      "path": "guides/new-partition-appears-after-installing-the-windows-10-april-update-541158b3-2859-d9e0-5b27-3cccf/guide.json"
+    },
+    {
+      "id": "windows-10-anniversary-update-loss-of-music-and-video-1174afac-df2d-cd8c-aa08-11c7732cfabf",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "getting",
+        "ready",
+        "upgrade"
+      ],
+      "title": "Getting ready for the Windows 11 upgrade",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-10-anniversary-update-loss-of-music-and-video-1174afac-df2d-cd8c-aa08-11c7732cfabf",
+      "step_count": 6,
+      "image_count": 1,
+      "path": "guides/windows-10-anniversary-update-loss-of-music-and-video-1174afac-df2d-cd8c-aa08-11c7732cfabf/guide.json"
+    },
+    {
+      "id": "give-feedback-about-get-help-54a5b02a-071c-4b02-83d0-00c6ed99845b",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "give",
+        "feedback",
+        "get",
+        "help"
+      ],
+      "title": "Give feedback about Get Help",
+      "source_url": "https://support.microsoft.com/en-us/windows/give-feedback-about-get-help-54a5b02a-071c-4b02-83d0-00c6ed99845b",
+      "step_count": 7,
+      "image_count": 1,
+      "path": "guides/give-feedback-about-get-help-54a5b02a-071c-4b02-83d0-00c6ed99845b/guide.json"
+    },
+    {
+      "id": "go-back-to-the-previous-version-of-windows-4fdf8a9e-ddc9-4f65-971f-47e7debab6e1",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "back",
+        "previous",
+        "version"
+      ],
+      "title": "Go back to the previous version of Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/go-back-to-the-previous-version-of-windows-4fdf8a9e-ddc9-4f65-971f-47e7debab6e1",
+      "step_count": 7,
+      "image_count": 1,
+      "path": "guides/go-back-to-the-previous-version-of-windows-4fdf8a9e-ddc9-4f65-971f-47e7debab6e1/guide.json"
+    },
+    {
+      "id": "go-passwordless-in-windows-585a71d7-2295-4878-aeac-a014984df856",
+      "topic_id": "account/support_guide",
+      "domains": [
+        "account"
+      ],
+      "keywords": [
+        "passwordless"
+      ],
+      "title": "Go passwordless in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/go-passwordless-in-windows-585a71d7-2295-4878-aeac-a014984df856",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/go-passwordless-in-windows-585a71d7-2295-4878-aeac-a014984df856/guide.json"
+    },
+    {
+      "id": "help-for-accounts-in-windows-6c7a5522-c50b-460d-a0e9-c6fa7f806fae",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "help",
+        "accounts"
+      ],
+      "title": "Help for accounts in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/help-for-accounts-in-windows-6c7a5522-c50b-460d-a0e9-c6fa7f806fae",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/help-for-accounts-in-windows-6c7a5522-c50b-460d-a0e9-c6fa7f806fae/guide.json"
+    },
+    {
+      "id": "help-protect-my-device-with-windows-security-1a5b8102-c93d-0573-8fd3-b2d33a1e5386",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "help",
+        "protect",
+        "device",
+        "security"
+      ],
+      "title": "Help protect my device with Windows Security",
+      "source_url": "https://support.microsoft.com/en-us/windows/help-protect-my-device-with-windows-security-1a5b8102-c93d-0573-8fd3-b2d33a1e5386",
+      "step_count": 8,
+      "image_count": 1,
+      "path": "guides/help-protect-my-device-with-windows-security-1a5b8102-c93d-0573-8fd3-b2d33a1e5386/guide.json"
+    },
+    {
+      "id": "homegroup-from-start-to-finish-9f802c8c-900f-60fb-826f-6fe06add8fe9",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "homegroup",
+        "removed",
+        "from",
+        "version",
+        "1803"
+      ],
+      "title": "HomeGroup removed from Windows 10 (Version 1803)",
+      "source_url": "https://support.microsoft.com/en-us/windows/homegroup-from-start-to-finish-9f802c8c-900f-60fb-826f-6fe06add8fe9",
+      "step_count": 6,
+      "image_count": 1,
+      "path": "guides/homegroup-from-start-to-finish-9f802c8c-900f-60fb-826f-6fe06add8fe9/guide.json"
+    },
+    {
+      "id": "homegroup-removed-from-windows-10-version-1803-07ca5db1-7bca-4d11-68a3-a31ff4a09979",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "homegroup",
+        "removed",
+        "from",
+        "version",
+        "1803"
+      ],
+      "title": "HomeGroup removed from Windows 10 (Version 1803)",
+      "source_url": "https://support.microsoft.com/en-us/windows/homegroup-removed-from-windows-10-version-1803-07ca5db1-7bca-4d11-68a3-a31ff4a09979",
+      "step_count": 6,
+      "image_count": 1,
+      "path": "guides/homegroup-removed-from-windows-10-version-1803-07ca5db1-7bca-4d11-68a3-a31ff4a09979/guide.json"
+    },
+    {
+      "id": "how-to-know-it-s-time-for-a-new-pc-7be6ab00-d111-4834-bf47-123528f36994",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "know",
+        "time",
+        "new"
+      ],
+      "title": "How to know it's time for a new PC",
+      "source_url": "https://support.microsoft.com/en-us/windows/how-to-know-it-s-time-for-a-new-pc-7be6ab00-d111-4834-bf47-123528f36994",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/how-to-know-it-s-time-for-a-new-pc-7be6ab00-d111-4834-bf47-123528f36994/guide.json"
+    },
+    {
+      "id": "how-to-use-the-pc-health-check-app-9c8abd9b-03ba-4e67-81ef-36f37caa7844",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "health",
+        "check",
+        "app"
+      ],
+      "title": "How to use the PC Health Check app",
+      "source_url": "https://support.microsoft.com/en-us/windows/how-to-use-the-pc-health-check-app-9c8abd9b-03ba-4e67-81ef-36f37caa7844",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/how-to-use-the-pc-health-check-app-9c8abd9b-03ba-4e67-81ef-36f37caa7844/guide.json"
+    },
+    {
+      "id": "instant-hotspot-9c448dff-509c-4bc5-9c18-a8595511deea",
+      "topic_id": "wifi/support_guide",
+      "domains": [
+        "wifi",
+        "network"
+      ],
+      "keywords": [
+        "instant",
+        "hotspot"
+      ],
+      "title": "Instant Hotspot",
+      "source_url": "https://support.microsoft.com/en-us/windows/instant-hotspot-9c448dff-509c-4bc5-9c18-a8595511deea",
+      "step_count": 20,
+      "image_count": 1,
+      "path": "guides/instant-hotspot-9c448dff-509c-4bc5-9c18-a8595511deea/guide.json"
+    },
+    {
+      "id": "keyboard-shortcuts-for-phone-link-594bc20e-1701-47fe-a5fa-8483a5095698",
+      "topic_id": "keyboard/support_guide",
+      "domains": [
+        "keyboard"
+      ],
+      "keywords": [
+        "keyboard",
+        "shortcuts",
+        "phone",
+        "link"
+      ],
+      "title": "Keyboard shortcuts for Phone Link",
+      "source_url": "https://support.microsoft.com/en-us/windows/keyboard-shortcuts-for-phone-link-594bc20e-1701-47fe-a5fa-8483a5095698",
+      "step_count": 7,
+      "image_count": 1,
+      "path": "guides/keyboard-shortcuts-for-phone-link-594bc20e-1701-47fe-a5fa-8483a5095698/guide.json"
+    },
+    {
+      "id": "keyboard-shortcuts-for-recall-and-click-to-do-96a46bcd-00bc-4a08-97d4-46ecd3e447ba",
+      "topic_id": "keyboard/support_guide",
+      "domains": [
+        "keyboard"
+      ],
+      "keywords": [
+        "keyboard",
+        "shortcuts",
+        "recall",
+        "click"
+      ],
+      "title": "Keyboard shortcuts for Recall and Click to Do",
+      "source_url": "https://support.microsoft.com/en-us/windows/keyboard-shortcuts-for-recall-and-click-to-do-96a46bcd-00bc-4a08-97d4-46ecd3e447ba",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/keyboard-shortcuts-for-recall-and-click-to-do-96a46bcd-00bc-4a08-97d4-46ecd3e447ba/guide.json"
+    },
+    {
+      "id": "learn-more-about-energy-recommendations-1c9b5a49-6d8f-4c04-80dc-5e3c20a9f04e",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "learn",
+        "more",
+        "energy",
+        "recommendations"
+      ],
+      "title": "Learn more about energy recommendations",
+      "source_url": "https://support.microsoft.com/en-us/windows/learn-more-about-energy-recommendations-1c9b5a49-6d8f-4c04-80dc-5e3c20a9f04e",
+      "step_count": 4,
+      "image_count": 1,
+      "path": "guides/learn-more-about-energy-recommendations-1c9b5a49-6d8f-4c04-80dc-5e3c20a9f04e/guide.json"
+    },
+    {
+      "id": "local-experience-packs-4cf70f83-bc24-00bc-8bc5-420d22963fef",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "local",
+        "experience",
+        "packs"
+      ],
+      "title": "Local Experience Packs",
+      "source_url": "https://support.microsoft.com/en-us/windows/local-experience-packs-4cf70f83-bc24-00bc-8bc5-420d22963fef",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/local-experience-packs-4cf70f83-bc24-00bc-8bc5-420d22963fef/guide.json"
+    },
+    {
+      "id": "make-older-apps-or-programs-compatible-with-the-latest-version-of-windows-783d6dd7-b439-bdb0-049",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "make",
+        "older",
+        "apps",
+        "programs",
+        "compatible",
+        "latest",
+        "version"
+      ],
+      "title": "Make older apps or programs compatible with the latest version of Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/make-older-apps-or-programs-compatible-with-the-latest-version-of-windows-783d6dd7-b439-bdb0-0490-54eea0f45938",
+      "step_count": 5,
+      "image_count": 1,
+      "path": "guides/make-older-apps-or-programs-compatible-with-the-latest-version-of-windows-783d6dd7-b439-bdb0-049/guide.json"
+    },
+    {
+      "id": "making-the-transition-to-a-new-era-of-computing-235e9399-a563-40f8-be4f-fbe109be74c8",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "making",
+        "transition",
+        "new",
+        "era",
+        "computing"
+      ],
+      "title": "Making the transition to a new era of computing",
+      "source_url": "https://support.microsoft.com/en-us/windows/making-the-transition-to-a-new-era-of-computing-235e9399-a563-40f8-be4f-fbe109be74c8",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/making-the-transition-to-a-new-era-of-computing-235e9399-a563-40f8-be4f-fbe109be74c8/guide.json"
+    },
+    {
+      "id": "manage-background-activity-for-apps-in-windows-4f32dffe-b97c-40e8-a790-3ca10373a1ef",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "manage",
+        "background",
+        "activity",
+        "apps"
+      ],
+      "title": "Manage background activity for apps in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/manage-background-activity-for-apps-in-windows-4f32dffe-b97c-40e8-a790-3ca10373a1ef",
+      "step_count": 7,
+      "image_count": 1,
+      "path": "guides/manage-background-activity-for-apps-in-windows-4f32dffe-b97c-40e8-a790-3ca10373a1ef/guide.json"
+    },
+    {
+      "id": "manage-drive-space-with-storage-sense-654f6ada-7bfc-45e5-966b-e24aded96ad5",
+      "topic_id": "storage/support_guide",
+      "domains": [
+        "storage"
+      ],
+      "keywords": [
+        "manage",
+        "drive",
+        "space",
+        "storage",
+        "sense"
+      ],
+      "title": "Manage drive space with Storage Sense",
+      "source_url": "https://support.microsoft.com/en-us/windows/manage-drive-space-with-storage-sense-654f6ada-7bfc-45e5-966b-e24aded96ad5",
+      "step_count": 11,
+      "image_count": 1,
+      "path": "guides/manage-drive-space-with-storage-sense-654f6ada-7bfc-45e5-966b-e24aded96ad5/guide.json"
+    },
+    {
+      "id": "managing-presence-sensing-settings-in-windows-11-82285c93-440c-4e15-9081-c9e38c1290bb",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "managing",
+        "presence",
+        "sensing",
+        "settings"
+      ],
+      "title": "Managing Presence Sensing settings in Windows 11",
+      "source_url": "https://support.microsoft.com/en-us/windows/managing-presence-sensing-settings-in-windows-11-82285c93-440c-4e15-9081-c9e38c1290bb",
+      "step_count": 13,
+      "image_count": 1,
+      "path": "guides/managing-presence-sensing-settings-in-windows-11-82285c93-440c-4e15-9081-c9e38c1290bb/guide.json"
+    },
+    {
+      "id": "media-feature-pack-for-windows-10-n-may-2021-93363b58-1cfd-4e07-bf77-ed0ed7ebbb66",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "media",
+        "feature",
+        "pack",
+        "may",
+        "2021"
+      ],
+      "title": "Media Feature Pack for Windows 10 N (May 2021)",
+      "source_url": "https://support.microsoft.com/en-us/windows/media-feature-pack-for-windows-10-n-may-2021-93363b58-1cfd-4e07-bf77-ed0ed7ebbb66",
+      "step_count": 10,
+      "image_count": 1,
+      "path": "guides/media-feature-pack-for-windows-10-n-may-2021-93363b58-1cfd-4e07-bf77-ed0ed7ebbb66/guide.json"
+    },
+    {
+      "id": "media-feature-pack-for-windows-10-11-n-september-2022-78cfeea5-c7d9-4aa8-b38f-ee4df1392009",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "media",
+        "feature",
+        "pack",
+        "september",
+        "2022"
+      ],
+      "title": "Media Feature Pack for Windows 10/11 N (September 2022)",
+      "source_url": "https://support.microsoft.com/en-us/windows/media-feature-pack-for-windows-10-11-n-september-2022-78cfeea5-c7d9-4aa8-b38f-ee4df1392009",
+      "step_count": 19,
+      "image_count": 1,
+      "path": "guides/media-feature-pack-for-windows-10-11-n-september-2022-78cfeea5-c7d9-4aa8-b38f-ee4df1392009/guide.json"
+    },
+    {
+      "id": "media-feature-pack-for-windows-n-8622b390-4ce6-43c9-9b42-549e5328e407",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "media",
+        "feature",
+        "pack"
+      ],
+      "title": "Media Feature Pack for Windows N",
+      "source_url": "https://support.microsoft.com/en-us/windows/media-feature-pack-for-windows-n-8622b390-4ce6-43c9-9b42-549e5328e407",
+      "step_count": 18,
+      "image_count": 1,
+      "path": "guides/media-feature-pack-for-windows-n-8622b390-4ce6-43c9-9b42-549e5328e407/guide.json"
+    },
+    {
+      "id": "microsoft-365-troubleshooters-486d7956-6a21-4c75-bc4f-0704077c583c",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "microsoft",
+        "365",
+        "troubleshooters"
+      ],
+      "title": "Microsoft 365 troubleshooters",
+      "source_url": "https://support.microsoft.com/en-us/windows/microsoft-365-troubleshooters-486d7956-6a21-4c75-bc4f-0704077c583c",
+      "step_count": 10,
+      "image_count": 1,
+      "path": "guides/microsoft-365-troubleshooters-486d7956-6a21-4c75-bc4f-0704077c583c/guide.json"
+    },
+    {
+      "id": "microsoft-photos-restyle-image-and-image-creator-responsible-ai-faq-6c352e99-d954-49c9-84cd-b7ca",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "microsoft",
+        "photos",
+        "restyle",
+        "image",
+        "creator",
+        "responsible",
+        "faq"
+      ],
+      "title": "Microsoft Photos Restyle Image and Image Creator: Responsible AI FAQ",
+      "source_url": "https://support.microsoft.com/en-us/windows/microsoft-photos-restyle-image-and-image-creator-responsible-ai-faq-6c352e99-d954-49c9-84cd-b7cacd018868",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/microsoft-photos-restyle-image-and-image-creator-responsible-ai-faq-6c352e99-d954-49c9-84cd-b7ca/guide.json"
+    },
+    {
+      "id": "mobile-device-in-start-menu-21676d6a-3bc3-439a-aaa3-7463b91cda79",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "mobile",
+        "device",
+        "start",
+        "menu"
+      ],
+      "title": "Mobile device in Start Menu",
+      "source_url": "https://support.microsoft.com/en-us/windows/mobile-device-in-start-menu-21676d6a-3bc3-439a-aaa3-7463b91cda79",
+      "step_count": 21,
+      "image_count": 1,
+      "path": "guides/mobile-device-in-start-menu-21676d6a-3bc3-439a-aaa3-7463b91cda79/guide.json"
+    },
+    {
+      "id": "keyboards-stop-working-after-closing-device-s-lid-to-shut-down-6d9b698f-5f89-400f-b601-d73489b72",
+      "topic_id": "keyboard/support_guide",
+      "domains": [
+        "mouse",
+        "keyboard"
+      ],
+      "keywords": [
+        "mouse",
+        "keyboard",
+        "problems"
+      ],
+      "title": "Mouse and keyboard problems in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/keyboards-stop-working-after-closing-device-s-lid-to-shut-down-6d9b698f-5f89-400f-b601-d73489b72ad6",
+      "step_count": 13,
+      "image_count": 1,
+      "path": "guides/keyboards-stop-working-after-closing-device-s-lid-to-shut-down-6d9b698f-5f89-400f-b601-d73489b72/guide.json"
+    },
+    {
+      "id": "mouse-and-keyboard-problems-in-windows-94b4ca7b-4f2f-077e-4eb4-f7b4ecdf4f61",
+      "topic_id": "mouse/support_guide",
+      "domains": [
+        "mouse",
+        "keyboard"
+      ],
+      "keywords": [
+        "mouse",
+        "keyboard",
+        "problems"
+      ],
+      "title": "Mouse and keyboard problems in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/mouse-and-keyboard-problems-in-windows-94b4ca7b-4f2f-077e-4eb4-f7b4ecdf4f61",
+      "step_count": 13,
+      "image_count": 1,
+      "path": "guides/mouse-and-keyboard-problems-in-windows-94b4ca7b-4f2f-077e-4eb4-f7b4ecdf4f61/guide.json"
+    },
+    {
+      "id": "onedrive-video-project-syncing-in-photos-legacy-4176e59f-7120-084b-ed8e-3817a1deb34d",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "onedrive",
+        "video",
+        "project",
+        "syncing",
+        "photos",
+        "legacy"
+      ],
+      "title": "OneDrive video project syncing in Photos Legacy",
+      "source_url": "https://support.microsoft.com/en-us/windows/onedrive-video-project-syncing-in-photos-legacy-4176e59f-7120-084b-ed8e-3817a1deb34d",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/onedrive-video-project-syncing-in-photos-legacy-4176e59f-7120-084b-ed8e-3817a1deb34d/guide.json"
+    },
+    {
+      "id": "optimizations-for-windowed-games-in-windows-11-3f006843-2c7e-4ed0-9a5e-f9389e535952",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "optimizations",
+        "windowed",
+        "games"
+      ],
+      "title": "Optimizations for windowed games in Windows 11",
+      "source_url": "https://support.microsoft.com/en-us/windows/optimizations-for-windowed-games-in-windows-11-3f006843-2c7e-4ed0-9a5e-f9389e535952",
+      "step_count": 3,
+      "image_count": 1,
+      "path": "guides/optimizations-for-windowed-games-in-windows-11-3f006843-2c7e-4ed0-9a5e-f9389e535952/guide.json"
+    },
+    {
+      "id": "get-help-with-windows-10-mail-and-calendar-apps-89958611-9617-43b8-6f4b-f10efc229aaf",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "outlook",
+        "future",
+        "mail",
+        "calendar",
+        "people"
+      ],
+      "title": "Outlook for Windows: The Future of Mail, Calendar, and People on Windows 11",
+      "source_url": "https://support.microsoft.com/en-us/windows/get-help-with-windows-10-mail-and-calendar-apps-89958611-9617-43b8-6f4b-f10efc229aaf",
+      "step_count": 8,
+      "image_count": 1,
+      "path": "guides/get-help-with-windows-10-mail-and-calendar-apps-89958611-9617-43b8-6f4b-f10efc229aaf/guide.json"
+    },
+    {
+      "id": "where-are-my-contacts-in-windows-10-349b3da7-f7d6-22c3-fa3e-34c633b1297d",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "outlook",
+        "future",
+        "mail",
+        "calendar",
+        "people"
+      ],
+      "title": "Outlook for Windows: The Future of Mail, Calendar, and People on Windows 11",
+      "source_url": "https://support.microsoft.com/en-us/windows/where-are-my-contacts-in-windows-10-349b3da7-f7d6-22c3-fa3e-34c633b1297d",
+      "step_count": 8,
+      "image_count": 1,
+      "path": "guides/where-are-my-contacts-in-windows-10-349b3da7-f7d6-22c3-fa3e-34c633b1297d/guide.json"
+    },
+    {
+      "id": "personalize-your-windows-experience-with-device-usage-settings-347661a5-7d7a-4b6d-951a-287612461",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "personalize",
+        "experience",
+        "device",
+        "usage",
+        "settings"
+      ],
+      "title": "Personalize Your Windows Experience With Device Usage Settings",
+      "source_url": "https://support.microsoft.com/en-us/windows/personalize-your-windows-experience-with-device-usage-settings-347661a5-7d7a-4b6d-951a-287612461f40",
+      "step_count": 5,
+      "image_count": 1,
+      "path": "guides/personalize-your-windows-experience-with-device-usage-settings-347661a5-7d7a-4b6d-951a-287612461/guide.json"
+    },
+    {
+      "id": "personalize-your-windows-experience-with-themes-09e3e0a6-02e3-5ecd-22a1-5d048e3cb0d3",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "personalize",
+        "experience",
+        "themes"
+      ],
+      "title": "Personalize Your Windows Experience With Themes",
+      "source_url": "https://support.microsoft.com/en-us/windows/personalize-your-windows-experience-with-themes-09e3e0a6-02e3-5ecd-22a1-5d048e3cb0d3",
+      "step_count": 9,
+      "image_count": 1,
+      "path": "guides/personalize-your-windows-experience-with-themes-09e3e0a6-02e3-5ecd-22a1-5d048e3cb0d3/guide.json"
+    },
+    {
+      "id": "windows-themes-94880287-6046-1d35-6d2f-35dee759701e",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "personalize",
+        "experience",
+        "themes"
+      ],
+      "title": "Personalize Your Windows Experience With Themes",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-themes-94880287-6046-1d35-6d2f-35dee759701e",
+      "step_count": 9,
+      "image_count": 1,
+      "path": "guides/windows-themes-94880287-6046-1d35-6d2f-35dee759701e/guide.json"
+    },
+    {
+      "id": "photos-app-video-editor-error-can-t-view-this-file-type-173ae0be-2b7d-d413-589e-84ccca0de02e",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "photos",
+        "app",
+        "video",
+        "editor",
+        "error",
+        "can",
+        "view",
+        "this",
+        "file",
+        "type"
+      ],
+      "title": "Photos app Video Editor error: Can’t view this file type",
+      "source_url": "https://support.microsoft.com/en-us/windows/photos-app-video-editor-error-can-t-view-this-file-type-173ae0be-2b7d-d413-589e-84ccca0de02e",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/photos-app-video-editor-error-can-t-view-this-file-type-173ae0be-2b7d-d413-589e-84ccca0de02e/guide.json"
+    },
+    {
+      "id": "pictures-videos-and-documents-library-access-and-privacy-634f95f8-1e80-ba02-b5d6-2d019b6a42e9",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "pictures",
+        "videos",
+        "documents",
+        "library",
+        "access",
+        "privacy"
+      ],
+      "title": "Pictures, videos, and documents library access and privacy",
+      "source_url": "https://support.microsoft.com/en-us/windows/pictures-videos-and-documents-library-access-and-privacy-634f95f8-1e80-ba02-b5d6-2d019b6a42e9",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/pictures-videos-and-documents-library-access-and-privacy-634f95f8-1e80-ba02-b5d6-2d019b6a42e9/guide.json"
+    },
+    {
+      "id": "power-settings-in-windows-11-0d6a2b6b-2e87-4611-9980-ac9ea2175734",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "power",
+        "settings"
+      ],
+      "title": "Power settings in Windows 11",
+      "source_url": "https://support.microsoft.com/en-us/windows/power-settings-in-windows-11-0d6a2b6b-2e87-4611-9980-ac9ea2175734",
+      "step_count": 4,
+      "image_count": 1,
+      "path": "guides/power-settings-in-windows-11-0d6a2b6b-2e87-4611-9980-ac9ea2175734/guide.json"
+    },
+    {
+      "id": "privacy-settings-for-recommendations-offers-in-windows-11-807608ee-3de2-4498-8e7c-eb10d655567f",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "privacy",
+        "settings",
+        "recommendations",
+        "offers"
+      ],
+      "title": "Privacy settings for Recommendations & offers in Windows 11",
+      "source_url": "https://support.microsoft.com/en-us/windows/privacy-settings-for-recommendations-offers-in-windows-11-807608ee-3de2-4498-8e7c-eb10d655567f",
+      "step_count": 11,
+      "image_count": 1,
+      "path": "guides/privacy-settings-for-recommendations-offers-in-windows-11-807608ee-3de2-4498-8e7c-eb10d655567f/guide.json"
+    },
+    {
+      "id": "privacy-with-windows-subsystem-for-android-and-amazon-appstore-123fad73-f524-4151-bb42-ad7c8e252",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "privacy",
+        "subsystem",
+        "android",
+        "amazon",
+        "appstore"
+      ],
+      "title": "Privacy with Windows Subsystem for Android™ and Amazon Appstore",
+      "source_url": "https://support.microsoft.com/en-us/windows/privacy-with-windows-subsystem-for-android-and-amazon-appstore-123fad73-f524-4151-bb42-ad7c8e252dd4",
+      "step_count": 11,
+      "image_count": 1,
+      "path": "guides/privacy-with-windows-subsystem-for-android-and-amazon-appstore-123fad73-f524-4151-bb42-ad7c8e252/guide.json"
+    },
+    {
+      "id": "protect-your-pc-from-unwanted-software-074a2d74-02db-03dd-8340-9e1822377856",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "protect",
+        "from",
+        "unwanted",
+        "software"
+      ],
+      "title": "Protect your PC from unwanted software",
+      "source_url": "https://support.microsoft.com/en-us/windows/protect-your-pc-from-unwanted-software-074a2d74-02db-03dd-8340-9e1822377856",
+      "step_count": 11,
+      "image_count": 1,
+      "path": "guides/protect-your-pc-from-unwanted-software-074a2d74-02db-03dd-8340-9e1822377856/guide.json"
+    },
+    {
+      "id": "protect-yourself-from-tech-support-scams-2ebf91bd-f94c-2a8a-e541-f5c800d18435",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "protect",
+        "yourself",
+        "from",
+        "tech",
+        "support",
+        "scams"
+      ],
+      "title": "Protect yourself from tech support scams",
+      "source_url": "https://support.microsoft.com/en-us/windows/protect-yourself-from-tech-support-scams-2ebf91bd-f94c-2a8a-e541-f5c800d18435",
+      "step_count": 13,
+      "image_count": 1,
+      "path": "guides/protect-yourself-from-tech-support-scams-2ebf91bd-f94c-2a8a-e541-f5c800d18435/guide.json"
+    },
+    {
+      "id": "create-a-system-repair-disc-3b4640fd-d3da-3dce-8288-3121161c416e",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "recovery",
+        "drive"
+      ],
+      "title": "Recovery Drive",
+      "source_url": "https://support.microsoft.com/en-us/windows/create-a-system-repair-disc-3b4640fd-d3da-3dce-8288-3121161c416e",
+      "step_count": 7,
+      "image_count": 1,
+      "path": "guides/create-a-system-repair-disc-3b4640fd-d3da-3dce-8288-3121161c416e/guide.json"
+    },
+    {
+      "id": "recovery-options-in-windows-31ce2444-7de3-818c-d626-e3b5a3024da5",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "recovery",
+        "options"
+      ],
+      "title": "Recovery options in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/recovery-options-in-windows-31ce2444-7de3-818c-d626-e3b5a3024da5",
+      "step_count": 12,
+      "image_count": 1,
+      "path": "guides/recovery-options-in-windows-31ce2444-7de3-818c-d626-e3b5a3024da5/guide.json"
+    },
+    {
+      "id": "relight-in-photos-7e6235c4-5dac-4a3e-9315-683ed88d4125",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "relight",
+        "photos"
+      ],
+      "title": "Relight in Photos",
+      "source_url": "https://support.microsoft.com/en-us/windows/relight-in-photos-7e6235c4-5dac-4a3e-9315-683ed88d4125",
+      "step_count": 10,
+      "image_count": 1,
+      "path": "guides/relight-in-photos-7e6235c4-5dac-4a3e-9315-683ed88d4125/guide.json"
+    },
+    {
+      "id": "reset-your-pc-0ef73740-b927-549b-b7c9-e6f2b48d275e",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "reset"
+      ],
+      "title": "Reset your PC",
+      "source_url": "https://support.microsoft.com/en-us/windows/reset-your-pc-0ef73740-b927-549b-b7c9-e6f2b48d275e",
+      "step_count": 8,
+      "image_count": 1,
+      "path": "guides/reset-your-pc-0ef73740-b927-549b-b7c9-e6f2b48d275e/guide.json"
+    },
+    {
+      "id": "risks-of-allowing-apps-through-windows-firewall-654559af-3f54-3dcf-349f-71ccd90bcc5c",
+      "topic_id": "security/support_guide",
+      "domains": [
+        "security"
+      ],
+      "keywords": [
+        "risks",
+        "allowing",
+        "apps",
+        "through",
+        "firewall"
+      ],
+      "title": "Risks of Allowing Apps Through Windows Firewall",
+      "source_url": "https://support.microsoft.com/en-us/windows/risks-of-allowing-apps-through-windows-firewall-654559af-3f54-3dcf-349f-71ccd90bcc5c",
+      "step_count": 16,
+      "image_count": 1,
+      "path": "guides/risks-of-allowing-apps-through-windows-firewall-654559af-3f54-3dcf-349f-71ccd90bcc5c/guide.json"
+    },
+    {
+      "id": "running-troubleshooters-in-get-help-23bddffd-5495-47f6-a419-7efe166bf1a8",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "running",
+        "troubleshooters",
+        "get",
+        "help"
+      ],
+      "title": "Running troubleshooters in Get Help",
+      "source_url": "https://support.microsoft.com/en-us/windows/running-troubleshooters-in-get-help-23bddffd-5495-47f6-a419-7efe166bf1a8",
+      "step_count": 7,
+      "image_count": 1,
+      "path": "guides/running-troubleshooters-in-get-help-23bddffd-5495-47f6-a419-7efe166bf1a8/guide.json"
+    },
+    {
+      "id": "safely-remove-hardware-in-windows-1ee6677d-4e6c-4359-efca-fd44b9cec369",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "safely",
+        "remove",
+        "hardware"
+      ],
+      "title": "Safely remove hardware in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/safely-remove-hardware-in-windows-1ee6677d-4e6c-4359-efca-fd44b9cec369",
+      "step_count": 10,
+      "image_count": 1,
+      "path": "guides/safely-remove-hardware-in-windows-1ee6677d-4e6c-4359-efca-fd44b9cec369/guide.json"
+    },
+    {
+      "id": "schedule-a-scan-in-microsoft-defender-antivirus-54b64e9c-880a-c6b6-2416-0eb330ed5d2d",
+      "topic_id": "security/support_guide",
+      "domains": [
+        "security"
+      ],
+      "keywords": [
+        "schedule",
+        "scan",
+        "microsoft",
+        "defender",
+        "antivirus"
+      ],
+      "title": "Schedule a scan in Microsoft Defender Antivirus",
+      "source_url": "https://support.microsoft.com/en-us/windows/schedule-a-scan-in-microsoft-defender-antivirus-54b64e9c-880a-c6b6-2416-0eb330ed5d2d",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/schedule-a-scan-in-microsoft-defender-antivirus-54b64e9c-880a-c6b6-2416-0eb330ed5d2d/guide.json"
+    },
+    {
+      "id": "connect-to-a-projector-or-pc-7e170c39-58dc-c866-7d55-be2372632892",
+      "topic_id": "general/windows",
+      "domains": [
+        "wifi",
+        "display",
+        "network"
+      ],
+      "keywords": [
+        "screen",
+        "mirroring",
+        "projecting",
+        "wireless",
+        "display"
+      ],
+      "title": "Screen mirroring and projecting to your PC or wireless display",
+      "source_url": "https://support.microsoft.com/en-us/windows/connect-to-a-projector-or-pc-7e170c39-58dc-c866-7d55-be2372632892",
+      "step_count": 20,
+      "image_count": 1,
+      "path": "guides/connect-to-a-projector-or-pc-7e170c39-58dc-c866-7d55-be2372632892/guide.json"
+    },
+    {
+      "id": "connect-your-windows-pc-to-an-external-display-that-supports-miracast-765f5cfc-6ef3-fba7-98da-c8",
+      "topic_id": "display/support_guide",
+      "domains": [
+        "wifi",
+        "display",
+        "network"
+      ],
+      "keywords": [
+        "screen",
+        "mirroring",
+        "projecting",
+        "wireless",
+        "display"
+      ],
+      "title": "Screen mirroring and projecting to your PC or wireless display",
+      "source_url": "https://support.microsoft.com/en-us/windows/connect-your-windows-pc-to-an-external-display-that-supports-miracast-765f5cfc-6ef3-fba7-98da-c8267b001a5a",
+      "step_count": 20,
+      "image_count": 1,
+      "path": "guides/connect-your-windows-pc-to-an-external-display-that-supports-miracast-765f5cfc-6ef3-fba7-98da-c8/guide.json"
+    },
+    {
+      "id": "screen-mirroring-and-projecting-to-your-pc-or-wireless-display-5af9f371-c704-1c7f-8f0d-fa607551d",
+      "topic_id": "wifi/support_guide",
+      "domains": [
+        "wifi",
+        "display",
+        "network"
+      ],
+      "keywords": [
+        "screen",
+        "mirroring",
+        "projecting",
+        "wireless",
+        "display"
+      ],
+      "title": "Screen mirroring and projecting to your PC or wireless display",
+      "source_url": "https://support.microsoft.com/en-us/windows/screen-mirroring-and-projecting-to-your-pc-or-wireless-display-5af9f371-c704-1c7f-8f0d-fa607551d09c",
+      "step_count": 20,
+      "image_count": 1,
+      "path": "guides/screen-mirroring-and-projecting-to-your-pc-or-wireless-display-5af9f371-c704-1c7f-8f0d-fa607551d/guide.json"
+    },
+    {
+      "id": "search-photos-27b3e790-05d6-4d86-8b69-7a0ffbf72d84",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "search",
+        "photos"
+      ],
+      "title": "Search photos",
+      "source_url": "https://support.microsoft.com/en-us/windows/search-photos-27b3e790-05d6-4d86-8b69-7a0ffbf72d84",
+      "step_count": 3,
+      "image_count": 1,
+      "path": "guides/search-photos-27b3e790-05d6-4d86-8b69-7a0ffbf72d84/guide.json"
+    },
+    {
+      "id": "secure-lock-screen-clock-may-appear-up-to-30-seconds-behind-7093a752-93b3-423a-9558-902bceb2ae47",
+      "topic_id": "display/support_guide",
+      "domains": [
+        "display"
+      ],
+      "keywords": [
+        "secure",
+        "lock",
+        "screen",
+        "clock",
+        "may",
+        "appear",
+        "seconds",
+        "behind"
+      ],
+      "title": "Secure Lock Screen clock may appear up to 30 seconds behind",
+      "source_url": "https://support.microsoft.com/en-us/windows/secure-lock-screen-clock-may-appear-up-to-30-seconds-behind-7093a752-93b3-423a-9558-902bceb2ae47",
+      "step_count": 7,
+      "image_count": 1,
+      "path": "guides/secure-lock-screen-clock-may-appear-up-to-30-seconds-behind-7093a752-93b3-423a-9558-902bceb2ae47/guide.json"
+    },
+    {
+      "id": "set-up-and-use-indic-phonetic-keyboards-7c4d2e8a-abf2-f200-9866-1a4cead7b127",
+      "topic_id": "keyboard/support_guide",
+      "domains": [
+        "keyboard"
+      ],
+      "keywords": [
+        "set",
+        "indic",
+        "phonetic",
+        "keyboards"
+      ],
+      "title": "Set up and use Indic Phonetic keyboards",
+      "source_url": "https://support.microsoft.com/en-us/windows/set-up-and-use-indic-phonetic-keyboards-7c4d2e8a-abf2-f200-9866-1a4cead7b127",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/set-up-and-use-indic-phonetic-keyboards-7c4d2e8a-abf2-f200-9866-1a4cead7b127/guide.json"
+    },
+    {
+      "id": "share-files-in-file-explorer-19db5910-e59e-fab6-59c4-e60e6f6a08dc",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "share",
+        "files"
+      ],
+      "title": "Share files in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/share-files-in-file-explorer-19db5910-e59e-fab6-59c4-e60e6f6a08dc",
+      "step_count": 5,
+      "image_count": 1,
+      "path": "guides/share-files-in-file-explorer-19db5910-e59e-fab6-59c4-e60e6f6a08dc/guide.json"
+    },
+    {
+      "id": "startup-repair-85deb0b9-fa3d-44a3-a3d0-d0f1515c2c9b",
+      "topic_id": "boot/support_guide",
+      "domains": [
+        "boot"
+      ],
+      "keywords": [
+        "startup",
+        "repair"
+      ],
+      "title": "Startup Repair",
+      "source_url": "https://support.microsoft.com/en-us/windows/startup-repair-85deb0b9-fa3d-44a3-a3d0-d0f1515c2c9b",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/startup-repair-85deb0b9-fa3d-44a3-a3d0-d0f1515c2c9b/guide.json"
+    },
+    {
+      "id": "automatically-fix-windows-security-issues-9041b976-e664-1a1d-0a82-607b0cbd7fc4",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "stay",
+        "protected",
+        "security",
+        "app"
+      ],
+      "title": "Stay protected with the Windows Security app",
+      "source_url": "https://support.microsoft.com/en-us/windows/automatically-fix-windows-security-issues-9041b976-e664-1a1d-0a82-607b0cbd7fc4",
+      "step_count": 5,
+      "image_count": 1,
+      "path": "guides/automatically-fix-windows-security-issues-9041b976-e664-1a1d-0a82-607b0cbd7fc4/guide.json"
+    },
+    {
+      "id": "stay-protected-with-the-windows-security-app-2ae0363d-0ada-c064-8b56-6a39afb6a963",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "stay",
+        "protected",
+        "security",
+        "app"
+      ],
+      "title": "Stay protected with the Windows Security app",
+      "source_url": "https://support.microsoft.com/en-us/windows/stay-protected-with-the-windows-security-app-2ae0363d-0ada-c064-8b56-6a39afb6a963",
+      "step_count": 5,
+      "image_count": 1,
+      "path": "guides/stay-protected-with-the-windows-security-app-2ae0363d-0ada-c064-8b56-6a39afb6a963/guide.json"
+    },
+    {
+      "id": "support-for-windows-essentials-apps-364adece-b947-43cb-68ce-8f4a6b2c22fd",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "stay",
+        "protected",
+        "security",
+        "app"
+      ],
+      "title": "Stay protected with the Windows Security app",
+      "source_url": "https://support.microsoft.com/en-us/windows/support-for-windows-essentials-apps-364adece-b947-43cb-68ce-8f4a6b2c22fd",
+      "step_count": 5,
+      "image_count": 1,
+      "path": "guides/support-for-windows-essentials-apps-364adece-b947-43cb-68ce-8f4a6b2c22fd/guide.json"
+    },
+    {
+      "id": "storage-settings-in-windows-5bc98443-0711-8038-4621-6a18ddc904f2",
+      "topic_id": "storage/support_guide",
+      "domains": [
+        "storage"
+      ],
+      "keywords": [
+        "storage",
+        "settings"
+      ],
+      "title": "Storage settings in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/storage-settings-in-windows-5bc98443-0711-8038-4621-6a18ddc904f2",
+      "step_count": 8,
+      "image_count": 1,
+      "path": "guides/storage-settings-in-windows-5bc98443-0711-8038-4621-6a18ddc904f2/guide.json"
+    },
+    {
+      "id": "super-resolution-in-photos-1e55d7b6-d62c-460b-a957-fc01d896c334",
+      "topic_id": "display/support_guide",
+      "domains": [
+        "display"
+      ],
+      "keywords": [
+        "super",
+        "resolution",
+        "photos"
+      ],
+      "title": "Super resolution in Photos",
+      "source_url": "https://support.microsoft.com/en-us/windows/super-resolution-in-photos-1e55d7b6-d62c-460b-a957-fc01d896c334",
+      "step_count": 12,
+      "image_count": 1,
+      "path": "guides/super-resolution-in-photos-1e55d7b6-d62c-460b-a957-fc01d896c334/guide.json"
+    },
+    {
+      "id": "the-notification-what-needs-your-attention-displays-during-a-windows-upgrade-0cedddaf-0198-8fe8-",
+      "topic_id": "display/support_guide",
+      "domains": [
+        "display"
+      ],
+      "keywords": [
+        "notification",
+        "what",
+        "needs",
+        "attention",
+        "displays",
+        "during",
+        "upgrade"
+      ],
+      "title": "The notification \"What needs your attention\" displays during a Windows upgrade",
+      "source_url": "https://support.microsoft.com/en-us/windows/the-notification-what-needs-your-attention-displays-during-a-windows-upgrade-0cedddaf-0198-8fe8-3b75-5f83dc7a4c77",
+      "step_count": 10,
+      "image_count": 1,
+      "path": "guides/the-notification-what-needs-your-attention-displays-during-a-windows-upgrade-0cedddaf-0198-8fe8-/guide.json"
+    },
+    {
+      "id": "troubleshoot-external-monitor-connections-in-windows-5b46f4a4-9634-06bb-7622-f960facdfd49",
+      "topic_id": "network/support_guide",
+      "domains": [
+        "network",
+        "display"
+      ],
+      "keywords": [
+        "troubleshoot",
+        "external",
+        "monitor",
+        "connections"
+      ],
+      "title": "Troubleshoot external monitor connections in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/troubleshoot-external-monitor-connections-in-windows-5b46f4a4-9634-06bb-7622-f960facdfd49",
+      "step_count": 8,
+      "image_count": 1,
+      "path": "guides/troubleshoot-external-monitor-connections-in-windows-5b46f4a4-9634-06bb-7622-f960facdfd49/guide.json"
+    },
+    {
+      "id": "troubleshoot-problems-updating-windows-188c2b0f-10a7-d72f-65b8-32d177eb136c",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "troubleshoot",
+        "problems",
+        "updating"
+      ],
+      "title": "Troubleshoot problems updating Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/troubleshoot-problems-updating-windows-188c2b0f-10a7-d72f-65b8-32d177eb136c",
+      "step_count": 15,
+      "image_count": 1,
+      "path": "guides/troubleshoot-problems-updating-windows-188c2b0f-10a7-d72f-65b8-32d177eb136c/guide.json"
+    },
+    {
+      "id": "troubleshooting-blank-screens-in-windows-51ef7b96-47cb-b454-fcab-fac643784457",
+      "topic_id": "display/support_guide",
+      "domains": [
+        "display"
+      ],
+      "keywords": [
+        "troubleshooting",
+        "blank",
+        "screens"
+      ],
+      "title": "Troubleshooting blank screens in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/troubleshooting-blank-screens-in-windows-51ef7b96-47cb-b454-fcab-fac643784457",
+      "step_count": 7,
+      "image_count": 1,
+      "path": "guides/troubleshooting-blank-screens-in-windows-51ef7b96-47cb-b454-fcab-fac643784457/guide.json"
+    },
+    {
+      "id": "troubleshooting-offline-printer-problems-in-windows-9f5e98ed-0ac8-50ff-a13b-d79bf7710061",
+      "topic_id": "network/support_guide",
+      "domains": [
+        "network",
+        "printer"
+      ],
+      "keywords": [
+        "troubleshooting",
+        "offline",
+        "printer",
+        "problems"
+      ],
+      "title": "Troubleshooting offline printer problems in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/troubleshooting-offline-printer-problems-in-windows-9f5e98ed-0ac8-50ff-a13b-d79bf7710061",
+      "step_count": 9,
+      "image_count": 1,
+      "path": "guides/troubleshooting-offline-printer-problems-in-windows-9f5e98ed-0ac8-50ff-a13b-d79bf7710061/guide.json"
+    },
+    {
+      "id": "turn-on-control-flow-guard-on-your-computer-34838428-2471-4d77-8fd6-b8a8fba507a3",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "turn",
+        "control",
+        "flow",
+        "guard",
+        "computer"
+      ],
+      "title": "Turn on Control flow guard on your computer",
+      "source_url": "https://support.microsoft.com/en-us/windows/turn-on-control-flow-guard-on-your-computer-34838428-2471-4d77-8fd6-b8a8fba507a3",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/turn-on-control-flow-guard-on-your-computer-34838428-2471-4d77-8fd6-b8a8fba507a3/guide.json"
+    },
+    {
+      "id": "uninstall-or-remove-apps-and-programs-in-windows-4b55f974-2cc6-2d2b-d092-5905080eaf98",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "uninstall",
+        "remove",
+        "apps",
+        "programs"
+      ],
+      "title": "Uninstall or remove apps and programs in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/uninstall-or-remove-apps-and-programs-in-windows-4b55f974-2cc6-2d2b-d092-5905080eaf98",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/uninstall-or-remove-apps-and-programs-in-windows-4b55f974-2cc6-2d2b-d092-5905080eaf98/guide.json"
+    },
+    {
+      "id": "uninstall-the-amazon-appstore-and-mobile-apps-on-windows-5256ef2a-e075-4810-89e2-11d061e4a669",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "uninstall",
+        "amazon",
+        "appstore",
+        "mobile",
+        "apps"
+      ],
+      "title": "Uninstall the Amazon Appstore and mobile apps on Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/uninstall-the-amazon-appstore-and-mobile-apps-on-windows-5256ef2a-e075-4810-89e2-11d061e4a669",
+      "step_count": 7,
+      "image_count": 1,
+      "path": "guides/uninstall-the-amazon-appstore-and-mobile-apps-on-windows-5256ef2a-e075-4810-89e2-11d061e4a669/guide.json"
+    },
+    {
+      "id": "usage-rules-for-digital-goods-rules-83812b1f-1ecd-9a46-d3a7-ad1eadce49d1",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "usage",
+        "rules",
+        "digital",
+        "goods"
+      ],
+      "title": "Usage rules for Digital Goods (“Rules”)",
+      "source_url": "https://support.microsoft.com/en-us/windows/usage-rules-for-digital-goods-rules-83812b1f-1ecd-9a46-d3a7-ad1eadce49d1",
+      "step_count": 16,
+      "image_count": 1,
+      "path": "guides/usage-rules-for-digital-goods-rules-83812b1f-1ecd-9a46-d3a7-ad1eadce49d1/guide.json"
+    },
+    {
+      "id": "use-auto-hdr-for-better-gaming-in-windows-0cce8402-3de5-4512-a742-e027ca7aa79c",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "auto",
+        "hdr",
+        "better",
+        "gaming"
+      ],
+      "title": "Use Auto HDR for better gaming in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/use-auto-hdr-for-better-gaming-in-windows-0cce8402-3de5-4512-a742-e027ca7aa79c",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/use-auto-hdr-for-better-gaming-in-windows-0cce8402-3de5-4512-a742-e027ca7aa79c/guide.json"
+    },
+    {
+      "id": "use-image-creator-in-paint-to-generate-ai-art-107a2b3a-62ea-41f5-a638-7bc6e6ea718f",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "image",
+        "creator",
+        "paint",
+        "generate",
+        "art"
+      ],
+      "title": "Use Image Creator in Paint to generate AI art",
+      "source_url": "https://support.microsoft.com/en-us/windows/use-image-creator-in-paint-to-generate-ai-art-107a2b3a-62ea-41f5-a638-7bc6e6ea718f",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/use-image-creator-in-paint-to-generate-ai-art-107a2b3a-62ea-41f5-a638-7bc6e6ea718f/guide.json"
+    },
+    {
+      "id": "use-smart-charging-in-windows-2ac1b4ba-6027-410a-b80e-f6767d867002",
+      "topic_id": "battery/support_guide",
+      "domains": [
+        "battery"
+      ],
+      "keywords": [
+        "smart",
+        "charging"
+      ],
+      "title": "Use Smart charging in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/use-smart-charging-in-windows-2ac1b4ba-6027-410a-b80e-f6767d867002",
+      "step_count": 5,
+      "image_count": 1,
+      "path": "guides/use-smart-charging-in-windows-2ac1b4ba-6027-410a-b80e-f6767d867002/guide.json"
+    },
+    {
+      "id": "use-a-pen-with-windows-1fb0a437-e31b-4d3a-8810-9cb6f0f11207",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "pen"
+      ],
+      "title": "Use a pen with Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/use-a-pen-with-windows-1fb0a437-e31b-4d3a-8810-9cb6f0f11207",
+      "step_count": 7,
+      "image_count": 1,
+      "path": "guides/use-a-pen-with-windows-1fb0a437-e31b-4d3a-8810-9cb6f0f11207/guide.json"
+    },
+    {
+      "id": "use-an-esim-to-get-a-cellular-data-connection-on-your-windows-pc-0e255714-f8be-b9ef-9e84-f75b05e",
+      "topic_id": "network/support_guide",
+      "domains": [
+        "network"
+      ],
+      "keywords": [
+        "esim",
+        "get",
+        "cellular",
+        "data",
+        "connection"
+      ],
+      "title": "Use an eSIM to get a cellular data connection on your Windows PC",
+      "source_url": "https://support.microsoft.com/en-us/windows/use-an-esim-to-get-a-cellular-data-connection-on-your-windows-pc-0e255714-f8be-b9ef-9e84-f75b05ed98a3",
+      "step_count": 38,
+      "image_count": 1,
+      "path": "guides/use-an-esim-to-get-a-cellular-data-connection-on-your-windows-pc-0e255714-f8be-b9ef-9e84-f75b05e/guide.json"
+    },
+    {
+      "id": "use-suggested-actions-on-your-pc-486c0527-3395-4b40-b304-f1e3cbe2f404",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "suggested",
+        "actions"
+      ],
+      "title": "Use suggested actions on your PC",
+      "source_url": "https://support.microsoft.com/en-us/windows/use-suggested-actions-on-your-pc-486c0527-3395-4b40-b304-f1e3cbe2f404",
+      "step_count": 8,
+      "image_count": 1,
+      "path": "guides/use-suggested-actions-on-your-pc-486c0527-3395-4b40-b304-f1e3cbe2f404/guide.json"
+    },
+    {
+      "id": "keep-the-windows-calculator-app-window-on-top-914ecdc3-fd12-d10f-0bf7-53132745478e",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "calculator"
+      ],
+      "title": "Use the Calculator in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/keep-the-windows-calculator-app-window-on-top-914ecdc3-fd12-d10f-0bf7-53132745478e",
+      "step_count": 19,
+      "image_count": 1,
+      "path": "guides/keep-the-windows-calculator-app-window-on-top-914ecdc3-fd12-d10f-0bf7-53132745478e/guide.json"
+    },
+    {
+      "id": "use-voice-recognition-in-windows-83ff75bd-63eb-0b6c-18d4-6fae94050571",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "voice",
+        "recognition"
+      ],
+      "title": "Use voice recognition in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/use-voice-recognition-in-windows-83ff75bd-63eb-0b6c-18d4-6fae94050571",
+      "step_count": 6,
+      "image_count": 1,
+      "path": "guides/use-voice-recognition-in-windows-83ff75bd-63eb-0b6c-18d4-6fae94050571/guide.json"
+    },
+    {
+      "id": "use-your-mobile-device-s-camera-7d3f9cc3-ccdc-44be-9b49-015d2cb3be05",
+      "topic_id": "webcam/support_guide",
+      "domains": [
+        "webcam"
+      ],
+      "keywords": [
+        "mobile",
+        "device",
+        "camera"
+      ],
+      "title": "Use your mobile device's camera",
+      "source_url": "https://support.microsoft.com/en-us/windows/use-your-mobile-device-s-camera-7d3f9cc3-ccdc-44be-9b49-015d2cb3be05",
+      "step_count": 12,
+      "image_count": 1,
+      "path": "guides/use-your-mobile-device-s-camera-7d3f9cc3-ccdc-44be-9b49-015d2cb3be05/guide.json"
+    },
+    {
+      "id": "view-a-printer-s-print-queue-in-windows-71505b3a-ba6b-14b2-b7f9-fd6204675ab5",
+      "topic_id": "printer/support_guide",
+      "domains": [
+        "printer"
+      ],
+      "keywords": [
+        "view",
+        "printer",
+        "print",
+        "queue"
+      ],
+      "title": "View a printer's print queue in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/view-a-printer-s-print-queue-in-windows-71505b3a-ba6b-14b2-b7f9-fd6204675ab5",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/view-a-printer-s-print-queue-in-windows-71505b3a-ba6b-14b2-b7f9-fd6204675ab5/guide.json"
+    },
+    {
+      "id": "virus-and-threat-protection-in-the-windows-security-app-1362f4cd-d71a-b52a-0b66-c2820032b65e",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "virus",
+        "threat",
+        "protection",
+        "security",
+        "app"
+      ],
+      "title": "Virus and Threat Protection in the Windows Security App",
+      "source_url": "https://support.microsoft.com/en-us/windows/virus-and-threat-protection-in-the-windows-security-app-1362f4cd-d71a-b52a-0b66-c2820032b65e",
+      "step_count": 19,
+      "image_count": 1,
+      "path": "guides/virus-and-threat-protection-in-the-windows-security-app-1362f4cd-d71a-b52a-0b66-c2820032b65e/guide.json"
+    },
+    {
+      "id": "checking-your-version-of-directx-7b71e74f-02e8-456f-72c7-9a1c1bbf0e9a",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "which",
+        "version",
+        "directx"
+      ],
+      "title": "Which version of DirectX is on your PC?",
+      "source_url": "https://support.microsoft.com/en-us/windows/checking-your-version-of-directx-7b71e74f-02e8-456f-72c7-9a1c1bbf0e9a",
+      "step_count": 4,
+      "image_count": 1,
+      "path": "guides/checking-your-version-of-directx-7b71e74f-02e8-456f-72c7-9a1c1bbf0e9a/guide.json"
+    },
+    {
+      "id": "which-version-of-directx-is-on-your-pc-3c688307-6c44-2ff5-9df7-d90d92bf5239",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "which",
+        "version",
+        "directx"
+      ],
+      "title": "Which version of DirectX is on your PC?",
+      "source_url": "https://support.microsoft.com/en-us/windows/which-version-of-directx-is-on-your-pc-3c688307-6c44-2ff5-9df7-d90d92bf5239",
+      "step_count": 4,
+      "image_count": 1,
+      "path": "guides/which-version-of-directx-is-on-your-pc-3c688307-6c44-2ff5-9df7-d90d92bf5239/guide.json"
+    },
+    {
+      "id": "why-didn-t-windows-hello-facial-recognition-recognize-me-5e7c5817-54cd-468a-a00e-24699afb3f26",
+      "topic_id": "account/support_guide",
+      "domains": [
+        "account"
+      ],
+      "keywords": [
+        "why",
+        "didn",
+        "hello",
+        "facial",
+        "recognition",
+        "recognize"
+      ],
+      "title": "Why didn't Windows Hello facial recognition recognize me?",
+      "source_url": "https://support.microsoft.com/en-us/windows/why-didn-t-windows-hello-facial-recognition-recognize-me-5e7c5817-54cd-468a-a00e-24699afb3f26",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/why-didn-t-windows-hello-facial-recognition-recognize-me-5e7c5817-54cd-468a-a00e-24699afb3f26/guide.json"
+    },
+    {
+      "id": "wi-fi-network-not-secure-in-windows-9170b675-921b-3aa5-7e43-fcb2059d159c",
+      "topic_id": "network/support_guide",
+      "domains": [
+        "network"
+      ],
+      "keywords": [
+        "network",
+        "not",
+        "secure"
+      ],
+      "title": "Wi-Fi network not secure in Windows",
+      "source_url": "https://support.microsoft.com/en-us/windows/wi-fi-network-not-secure-in-windows-9170b675-921b-3aa5-7e43-fcb2059d159c",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/wi-fi-network-not-secure-in-windows-9170b675-921b-3aa5-7e43-fcb2059d159c/guide.json"
+    },
+    {
+      "id": "windows-10-in-s-mode-accessory-compatibility-69facb3e-8b04-b03c-9a29-de7ca31d2b37",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "mode",
+        "accessory",
+        "compatibility"
+      ],
+      "title": "Windows 10 in S mode accessory compatibility",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-10-in-s-mode-accessory-compatibility-69facb3e-8b04-b03c-9a29-de7ca31d2b37",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/windows-10-in-s-mode-accessory-compatibility-69facb3e-8b04-b03c-9a29-de7ca31d2b37/guide.json"
+    },
+    {
+      "id": "windows-10-motion-data-and-privacy-24e937f8-80ea-bb6a-a79c-eb76fda3e393",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "motion",
+        "data",
+        "privacy"
+      ],
+      "title": "Windows 10 motion data and privacy",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-10-motion-data-and-privacy-24e937f8-80ea-bb6a-a79c-eb76fda3e393",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/windows-10-motion-data-and-privacy-24e937f8-80ea-bb6a-a79c-eb76fda3e393/guide.json"
+    },
+    {
+      "id": "windows-10-notification-your-device-has-reached-the-end-of-service-74caa4aa-81b4-4dca-b972-8df32",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "notification",
+        "device",
+        "has",
+        "reached",
+        "end",
+        "service"
+      ],
+      "title": "Windows 10 notification: “Your device has reached the end of service”",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-10-notification-your-device-has-reached-the-end-of-service-74caa4aa-81b4-4dca-b972-8df3246d6db5",
+      "step_count": 12,
+      "image_count": 1,
+      "path": "guides/windows-10-notification-your-device-has-reached-the-end-of-service-74caa4aa-81b4-4dca-b972-8df32/guide.json"
+    },
+    {
+      "id": "windows-10-support-has-ended-on-october-14-2025-2ca8b313-1946-43d3-b55c-2b95b107f281",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "support",
+        "has",
+        "ended",
+        "october",
+        "2025"
+      ],
+      "title": "Windows 10 support has ended on October 14, 2025",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-10-support-has-ended-on-october-14-2025-2ca8b313-1946-43d3-b55c-2b95b107f281",
+      "step_count": 13,
+      "image_count": 1,
+      "path": "guides/windows-10-support-has-ended-on-october-14-2025-2ca8b313-1946-43d3-b55c-2b95b107f281/guide.json"
+    },
+    {
+      "id": "windows-11-system-requirements-86c11283-ea52-4782-9efd-7674389a7ba3",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "system",
+        "requirements"
+      ],
+      "title": "Windows 11 System Requirements",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-11-system-requirements-86c11283-ea52-4782-9efd-7674389a7ba3",
+      "step_count": 20,
+      "image_count": 1,
+      "path": "guides/windows-11-system-requirements-86c11283-ea52-4782-9efd-7674389a7ba3/guide.json"
+    },
+    {
+      "id": "windows-8-1-support-ended-on-january-10-2023-3cfd4cde-f611-496a-8057-923fba401e93",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "support",
+        "ended",
+        "january",
+        "2023"
+      ],
+      "title": "Windows 8.1 support ended on January 10, 2023",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-8-1-support-ended-on-january-10-2023-3cfd4cde-f611-496a-8057-923fba401e93",
+      "step_count": 5,
+      "image_count": 1,
+      "path": "guides/windows-8-1-support-ended-on-january-10-2023-3cfd4cde-f611-496a-8057-923fba401e93/guide.json"
+    },
+    {
+      "id": "windows-security-app-settings-1ec98620-4e41-4b6b-b055-3c4bb115d4ee",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "security",
+        "app",
+        "settings"
+      ],
+      "title": "Windows Security App Settings",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-security-app-settings-1ec98620-4e41-4b6b-b055-3c4bb115d4ee",
+      "step_count": 5,
+      "image_count": 1,
+      "path": "guides/windows-security-app-settings-1ec98620-4e41-4b6b-b055-3c4bb115d4ee/guide.json"
+    },
+    {
+      "id": "windows-studio-effects-273c1fa8-2b3f-41b1-a587-7cc7a24b62d8",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "studio",
+        "effects"
+      ],
+      "title": "Windows Studio Effects",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-studio-effects-273c1fa8-2b3f-41b1-a587-7cc7a24b62d8",
+      "step_count": 5,
+      "image_count": 1,
+      "path": "guides/windows-studio-effects-273c1fa8-2b3f-41b1-a587-7cc7a24b62d8/guide.json"
+    },
+    {
+      "id": "windows-update-faq-8a903416-6f45-0718-f5c7-375e92dddeb2",
+      "topic_id": "windows_update/support_guide",
+      "domains": [
+        "windows_update"
+      ],
+      "keywords": [
+        "update",
+        "faq"
+      ],
+      "title": "Windows Update: FAQ",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-update-faq-8a903416-6f45-0718-f5c7-375e92dddeb2",
+      "step_count": 2,
+      "image_count": 1,
+      "path": "guides/windows-update-faq-8a903416-6f45-0718-f5c7-375e92dddeb2/guide.json"
+    },
+    {
+      "id": "windows-desktop-apps-and-privacy-8b3b13bc-d8ff-5460-8423-7d5d5c1f6665",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "desktop",
+        "apps",
+        "privacy"
+      ],
+      "title": "Windows desktop apps and privacy",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-desktop-apps-and-privacy-8b3b13bc-d8ff-5460-8423-7d5d5c1f6665",
+      "step_count": 5,
+      "image_count": 1,
+      "path": "guides/windows-desktop-apps-and-privacy-8b3b13bc-d8ff-5460-8423-7d5d5c1f6665/guide.json"
+    },
+    {
+      "id": "windows-eye-tracking-and-privacy-62623324-36cf-04a3-6992-8f329081f20b",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "eye",
+        "tracking",
+        "privacy"
+      ],
+      "title": "Windows eye tracking and privacy",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-eye-tracking-and-privacy-62623324-36cf-04a3-6992-8f329081f20b",
+      "step_count": 4,
+      "image_count": 1,
+      "path": "guides/windows-eye-tracking-and-privacy-62623324-36cf-04a3-6992-8f329081f20b/guide.json"
+    },
+    {
+      "id": "windows-keyboard-tips-and-tricks-588e0b72-0fff-6d3f-aeee-6e5116097942",
+      "topic_id": "keyboard/support_guide",
+      "domains": [
+        "keyboard"
+      ],
+      "keywords": [
+        "keyboard",
+        "tips",
+        "tricks"
+      ],
+      "title": "Windows keyboard tips and tricks",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-keyboard-tips-and-tricks-588e0b72-0fff-6d3f-aeee-6e5116097942",
+      "step_count": 5,
+      "image_count": 1,
+      "path": "guides/windows-keyboard-tips-and-tricks-588e0b72-0fff-6d3f-aeee-6e5116097942/guide.json"
+    },
+    {
+      "id": "windows-location-service-and-privacy-3a8eee0a-5b0b-dc07-eede-2a5ca1c49088",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "location",
+        "service",
+        "privacy"
+      ],
+      "title": "Windows location service and privacy",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-location-service-and-privacy-3a8eee0a-5b0b-dc07-eede-2a5ca1c49088",
+      "step_count": 14,
+      "image_count": 1,
+      "path": "guides/windows-location-service-and-privacy-3a8eee0a-5b0b-dc07-eede-2a5ca1c49088/guide.json"
+    },
+    {
+      "id": "windows-troubleshooters-1c8cf7ce-0388-4ed3-985d-a305432ae702",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "troubleshooters"
+      ],
+      "title": "Windows troubleshooters",
+      "source_url": "https://support.microsoft.com/en-us/windows/windows-troubleshooters-1c8cf7ce-0388-4ed3-985d-a305432ae702",
+      "step_count": 12,
+      "image_count": 1,
+      "path": "guides/windows-troubleshooters-1c8cf7ce-0388-4ed3-985d-a305432ae702/guide.json"
+    },
+    {
+      "id": "zip-and-unzip-files-8d28fa72-f2f9-712f-67df-f80cf89fd4e5",
+      "topic_id": "general/windows",
+      "domains": [],
+      "keywords": [
+        "zip",
+        "unzip",
+        "files"
+      ],
+      "title": "Zip and unzip files",
+      "source_url": "https://support.microsoft.com/en-us/windows/zip-and-unzip-files-8d28fa72-f2f9-712f-67df-f80cf89fd4e5",
+      "step_count": 12,
+      "image_count": 1,
+      "path": "guides/zip-and-unzip-files-8d28fa72-f2f9-712f-67df-f80cf89fd4e5/guide.json"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "id": "personalize-your-windows-experience-with-themes-09e3e0a6-02e3-5ecd-22a1-5d048e3cb0d3",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "personalize",
+    "experience",
+    "themes"
+  ],
+  "title": "Personalize Your Windows Experience With Themes",
+  "source_url": "https://support.microsoft.com/en-us/windows/personalize-your-windows-experience-with-themes-09e3e0a6-02e3-5ecd-22a1-5d048e3cb0d3",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Apply a theme",
+      "steps": [
+        {
+          "step": 1,
+          "text": "In the Settings app on your Windows device, select Personalization > Themes . Open Themes settings",
+          "caption": "Screenshot of the Settings app showing a custom theme.",
+          "image": "step-01.png",
+          "image_url": "https://support.microsoft.com/images/en-us/06a053db-6169-4006-9e6b-f5efe18b7ae8"
+        },
+        {
+          "step": 2,
+          "text": "Choose from the default themes available or select Browse themes to download new ones from the Microsoft Store. Explore Windows themes in the Microsoft Store",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Select the desired theme to apply it to your desktop.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Customize and share a theme",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Save a theme In the Settings app on your Windows device, select Personalization > Themes . Select Save and provide a name for your theme.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Share a theme In the Settings app on your Windows device, select Personalization > Themes . Right-click on your saved theme and select Save theme for sharing . This creates a .deskthemepack file that you can share with others.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Delete a theme",
+      "steps": [
+        {
+          "step": 6,
+          "text": "In the Settings app on your Windows device, select Personalization > Themes .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 7,
+          "text": "Right-click on your saved theme and select Delete .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "Color filters and contrast themes",
+      "steps": [
+        {
+          "step": 8,
+          "text": "Contrast themes enhance the visibility of text and UI elements by using distinct color combinations, which can be customized to suit individual preferences.",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 9,
+          "text": "Color filters change the color palette on the screen to help users distinguish between things that differ only by color.",
+          "caption": null,
+          "image": null
+        }
+      ]
+    }
+  ],
+  "step_count": 9,
+  "image_count": 1
+}

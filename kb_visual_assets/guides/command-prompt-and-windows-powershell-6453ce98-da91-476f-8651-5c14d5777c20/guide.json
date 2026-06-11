@@ -1,0 +1,65 @@
+{
+  "id": "command-prompt-and-windows-powershell-6453ce98-da91-476f-8651-5c14d5777c20",
+  "topic_id": "general/windows",
+  "domains": [],
+  "keywords": [
+    "command",
+    "prompt",
+    "powershell"
+  ],
+  "title": "Command Prompt and Windows Powershell",
+  "source_url": "https://support.microsoft.com/en-us/windows/command-prompt-and-windows-powershell-6453ce98-da91-476f-8651-5c14d5777c20",
+  "attribution": "Microsoft Support",
+  "license_note": "Screenshots from support.microsoft.com. Confirm redistribution with your legal team before use in a shipped product.",
+  "sections": [
+    {
+      "title": "Troubleshooting solutions",
+      "steps": [
+        {
+          "step": 1,
+          "text": "Solution 1: System settings Select Start > Settings > System > A dvanced In Terminal , select Windows Console Host .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 2,
+          "text": "Solution 2: Windows Terminal settings Open Windows Terminal , then select the Startup tab > Default terminal application > Windows Console Host .",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 3,
+          "text": "Solution 3: Windows Console settings If you already have a command line app open in a Windows Console Host and want to change the default setting: Right-click the title bar, then select Properties > Windows Console Host .",
+          "caption": null,
+          "image": null
+        }
+      ]
+    },
+    {
+      "title": "For IT pros and IT admins",
+      "steps": [
+        {
+          "step": 4,
+          "text": "Group Policy and Registry settings Note: This change can be applied to user workstations with Group Policy. After you install Windows 11 22H2, the following registry keys become available. Registry key HKCU\\Console\\%%Startup Registry values DelegationConsole DelegationTerminal Data type REG_SZ containing a GUID The following values are offered for the selection of the default console host. Console host Values Automatic selection (Windows Terminal, if available) DelegationConsole {00000000-0000-0000-0000-000000000000} DelegationTerminal {00000000-0000-0000-0000-000000000000} Windows Console Host (legacy) DelegationConsole {B23D10C0-E52E-411E-9D5B-C09FDF709C7D} DelegationTerminal {B23D10C0-E52E-411E-9D5B-C09FDF709C7D} Windows Terminal DelegationConsole {2EACA947-7F5F-4CFA-BA87-8F7FBEEFBE69} DelegationTerminal {E12CFF52-A866-4C77-9A90-F570A7AA2C6B} SUBSCRIBE RSS FEEDS",
+          "caption": "Facebook",
+          "image": null
+        },
+        {
+          "step": 5,
+          "text": "Need more help?",
+          "caption": null,
+          "image": null
+        },
+        {
+          "step": 6,
+          "text": "Want more options? Discover Community Explore subscription benefits, browse training courses, learn how to secure your device, and more. Microsoft 365 subscription benefits Microsoft 365 training Microsoft security Accessibility center Communities help you ask and answer questions, give feedback, and hear from experts with rich knowledge. Ask the Microsoft Community Microsoft Tech Community Windows Insiders Microsoft 365 Insiders",
+          "caption": null,
+          "image": "step-06.png",
+          "image_url": "https://support.microsoft.com/images/en-us/f4e85874-2a1a-438d-9c3c-17b069c454c0"
+        }
+      ]
+    }
+  ],
+  "step_count": 6,
+  "image_count": 1
+}
