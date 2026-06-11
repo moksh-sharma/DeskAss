@@ -80,7 +80,7 @@ function waitForTranscriptionSocket(ws: WebSocket): Promise<void> {
 
 /**
  * Records PCM from the microphone and streams 16 kHz linear16 audio to the
- * backend Deepgram live transcription WebSocket.
+ * backend ElevenLabs live transcription WebSocket.
  */
 export function useRecorder(): RecorderState {
   const [isRecording, setIsRecording] = useState(false);
@@ -107,15 +107,49 @@ export function useRecorder(): RecorderState {
     contextRef.current = null;
   }, []);
 
-  const closeSocket = useCallback(() => {
-    const ws = wsRef.current;
-    wsRef.current = null;
-    if (!ws) return;
-    if (ws.readyState === WebSocket.OPEN) {
+  const finalizeSocket = useCallback((): Promise<void> => {
+    return new Promise((resolve) => {
+      const ws = wsRef.current;
+      wsRef.current = null;
+      if (!ws || ws.readyState !== WebSocket.OPEN) {
+        resolve();
+        return;
+      }
+
       ws.send("stop");
-    }
-    ws.close();
+
+      const finish = () => {
+        window.clearTimeout(timer);
+        ws.removeEventListener("message", onMessage);
+        if (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CLOSING) {
+          ws.close();
+        }
+        resolve();
+      };
+
+      const timer = window.setTimeout(finish, 1500);
+
+      const onMessage = (event: MessageEvent) => {
+        try {
+          const data = JSON.parse(String(event.data)) as {
+            type?: string;
+            is_final?: boolean;
+          };
+          if (data.type === "transcript" && data.is_final) {
+            finish();
+          }
+        } catch {
+          /* ignore malformed frames */
+        }
+      };
+
+      ws.addEventListener("message", onMessage);
+    });
   }, []);
+
+  const closeSocket = useCallback(() => {
+    void finalizeSocket();
+  }, [finalizeSocket]);
 
   const start = useCallback(
     async (
@@ -200,11 +234,11 @@ export function useRecorder(): RecorderState {
     if (processorRef.current) {
       processorRef.current.onaudioprocess = null;
     }
-    closeSocket();
+    await finalizeSocket();
     cleanup();
     onTranscriptRef.current = undefined;
     setIsRecording(false);
-  }, [cleanup, closeSocket]);
+  }, [cleanup, finalizeSocket]);
 
   return { isRecording, start, stop, error };
 }

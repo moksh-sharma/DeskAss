@@ -36,10 +36,24 @@ class Settings(BaseSettings):
     ollama_timeout_seconds: float = 360.0
     ollama_temperature: float = 0.2
 
-    # Deepgram (Speech-to-Text) — multilingual Hindi + English
+    # Speech-to-Text provider: elevenlabs | deepgram
+    stt_provider: str = "elevenlabs"
+
+    # ElevenLabs Scribe (Speech-to-Text) — multilingual Hindi + English
+    elevenlabs_api_key: str = ""
+    # Batch uploads (/api/voice/transcribe)
+    elevenlabs_stt_model: str = "scribe_v2"
+    # Live mic WebSocket — Scribe v2 Realtime
+    elevenlabs_stt_realtime_model: str = "scribe_v2_realtime"
+    # vad = auto segment on pauses (recommended for Scribe v2 Realtime); manual = commit on stop
+    elevenlabs_realtime_commit_strategy: str = "vad"
+    # multi = auto language detect; also accepts en or hi
+    elevenlabs_language: str = "multi"
+    elevenlabs_timeout_seconds: float = 120.0
+
+    # Deepgram (legacy fallback)
     deepgram_api_key: str = ""
     deepgram_model: str = "nova-3"
-    # multi = auto Hindi/English code-switching; also accepts en or hi
     deepgram_language: str = "multi"
     deepgram_timeout_seconds: float = 120.0
 

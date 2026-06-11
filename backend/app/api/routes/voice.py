@@ -1,4 +1,4 @@
-"""Voice transcription endpoint (Deepgram)."""
+"""Voice transcription endpoints (ElevenLabs / Deepgram)."""
 from __future__ import annotations
 
 import contextlib
@@ -22,18 +22,18 @@ async def stream_transcribe(
 ) -> None:
     await websocket.accept()
     c = get_container()
-    if not c.deepgram.is_configured:
+    if not c.speech.is_configured:
         await websocket.send_json(
-            {"type": "error", "message": "Deepgram is not configured. Set DEEPGRAM_API_KEY in backend/.env."}
+            {"type": "error", "message": c.speech.not_configured_message()}
         )
-        await websocket.close(code=1008, reason="Deepgram not configured")
+        await websocket.close(code=1008, reason="Speech-to-text not configured")
         return
 
-    resolved = c.deepgram.resolve_language(language)
-    await websocket.send_json({"type": "ready", "language": resolved})
+    resolved = c.speech.resolve_language(language)
+    await websocket.send_json({"type": "ready", "language": resolved, "provider": c.speech.provider})
 
     try:
-        await c.deepgram.stream_session(websocket, language=language)
+        await c.speech.stream_session(websocket, language=language)
     except WebSocketDisconnect:
         logger.debug("Voice stream client disconnected")
     except FeatureUnavailableError as exc:
@@ -58,5 +58,5 @@ async def transcribe(
         filename=file.filename or "recording.webm",
         content_type=file.content_type or "application/octet-stream",
     )
-    text = await c.deepgram.transcribe(wav_bytes, filename=wav_name, content_type=wav_type)
+    text = await c.speech.transcribe(wav_bytes, filename=wav_name, content_type=wav_type)
     return TranscriptionResponse(text=text)

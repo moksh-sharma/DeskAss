@@ -8,7 +8,8 @@ pydantic-settings==2.6.1
 # --- HTTP client (Ollama) ---
 httpx==0.28.1
 
-# --- Speech-to-Text (Deepgram) ---
+# --- Speech-to-Text (ElevenLabs + Deepgram fallback) ---
+websockets>=12.0,<14.0
 deepgram-sdk>=5.0.0,<6.0.0
 
 # --- System diagnostics ---

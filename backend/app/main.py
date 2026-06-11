@@ -29,9 +29,11 @@ async def lifespan(app: FastAPI):  # type: ignore[no-untyped-def]
     init_container()
     asyncio.create_task(get_container().ollama.warmup())
     logger.info(
-        "Startup complete. Ollama=%s  Deepgram=%s",
+        "Startup complete. Ollama=%s  STT=%s",
         settings.ollama_base_url,
-        "configured" if settings.deepgram_api_key.strip() else "not configured",
+        get_container().speech.provider_label()
+        if get_container().speech.is_configured
+        else "not configured",
     )
     yield
     logger.info("Shutting down.")

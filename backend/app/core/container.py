@@ -23,7 +23,7 @@ from app.services.rag_service import RagService
 from app.services.session_service import SessionService
 from app.services.ticket_service import TicketService
 from app.services.troubleshooter_service import TroubleshooterService
-from app.services.deepgram_service import DeepgramService
+from app.services.speech_service import SpeechService
 from app.services.visual_guide_service import VisualGuideService
 
 logger = get_logger(__name__)
@@ -48,7 +48,7 @@ class Container:
         # External clients.
         self.audio = AudioService()
         self.ollama = OllamaService(self.settings)
-        self.deepgram = DeepgramService(self.settings)
+        self.speech = SpeechService(self.settings)
         self.ocr = OcrService(self.settings)
 
         # Heavy / lazy services.
