@@ -1,4 +1,4 @@
-"""Startup-programs scanner: registry Run keys + Startup folder + impact."""
+"""Startup-programs scanner: Run keys, Startup folder, scheduled tasks, impact."""
 from __future__ import annotations
 
 from app.services.scanners.base import as_list, ps_json, safe_scan
@@ -31,6 +31,34 @@ def _startup_items() -> list[dict]:
     return items
 
 
+def _scheduled_tasks() -> dict:
+    """Enabled scheduled tasks, highlighting logon/boot triggered ones (they
+    behave like startup programs and are a common persistence mechanism)."""
+    data = ps_json(
+        "$t = Get-ScheduledTask -ErrorAction SilentlyContinue | "
+        "Where-Object { $_.State.ToString() -ne 'Disabled' }; "
+        "$lb = @($t | Where-Object { ($_.Triggers | ForEach-Object { $_.CimClass.CimClassName }) "
+        "-match 'LogonTrigger|BootTrigger' }); "
+        "[PSCustomObject]@{ total = @($t).Count; "
+        "logon_boot = @($lb | Select-Object -First 50 | ForEach-Object { "
+        "[PSCustomObject]@{ name=$_.TaskName; path=$_.TaskPath; state=$_.State.ToString(); "
+        "author=$_.Author } }) } | ConvertTo-Json -Compress -Depth 4",
+        timeout=35.0,
+    )
+    if not isinstance(data, dict):
+        return {"available": False}
+    tasks = as_list(data.get("logon_boot"))
+    # Tasks outside the Microsoft tree deserve attention in an audit.
+    non_ms = [t for t in tasks if not (t.get("path") or "").startswith("\\Microsoft\\")]
+    return {
+        "available": True,
+        "enabled_total": data.get("total"),
+        "logon_boot_tasks": tasks,
+        "logon_boot_count": len(tasks),
+        "third_party_logon_tasks": non_ms,
+    }
+
+
 @safe_scan("startup_programs")
 def scan() -> dict:
     items = _startup_items()
@@ -40,4 +68,5 @@ def scan() -> dict:
         "programs": items,
         "high_impact": high,
         "high_impact_count": len(high),
+        "scheduled_tasks": _scheduled_tasks(),
     }

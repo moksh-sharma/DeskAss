@@ -5,8 +5,11 @@ python-multipart==0.0.17
 pydantic==2.10.3
 pydantic-settings==2.6.1
 
-# --- HTTP client (Ollama / Vosk) ---
+# --- HTTP client (Ollama) ---
 httpx==0.28.1
+
+# --- Speech-to-Text (Deepgram) ---
+deepgram-sdk>=5.0.0,<6.0.0
 
 # --- System diagnostics ---
 psutil==6.1.0
@@ -25,6 +28,7 @@ sentence-transformers==3.3.1
 # --- OCR ---
 pytesseract==0.3.13
 Pillow==11.0.0
+winsdk>=1.0.0b10 ; sys_platform == "win32"
 
 # --- Export ---
 reportlab==4.2.5

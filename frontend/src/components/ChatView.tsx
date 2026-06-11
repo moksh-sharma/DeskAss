@@ -43,9 +43,18 @@ export function ChatView() {
       contentClassName="px-6 py-6"
     >
       <div className="mx-auto flex max-w-4xl flex-col gap-6">
-        {messages.map((m) => (
-          <MessageBubble key={m.id} message={m} />
-        ))}
+        {messages.map((m, i) => {
+          let userIssue: string | undefined;
+          if (m.role === "assistant" && !m.pending) {
+            for (let j = i - 1; j >= 0; j--) {
+              if (messages[j].role === "user") {
+                userIssue = messages[j].content;
+                break;
+              }
+            }
+          }
+          return <MessageBubble key={m.id} message={m} userIssue={userIssue} />;
+        })}
         <div ref={bottomRef} />
       </div>
     </LenisScroll>

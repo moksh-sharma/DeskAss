@@ -80,10 +80,10 @@ export function Sidebar() {
       {/* Branding Header */}
       <div className="flex items-center gap-3 px-5 py-5 border-b border-base-700/40 bg-base-800/20">
         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-tr from-accent to-blue-400 text-xl font-black text-white shadow-lg shadow-accent/15 transition-transform hover:scale-105 duration-200">
-          C
+          H
         </div>
         <div className="min-w-0">
-          <div className="text-sm font-extrabold text-white tracking-wide truncate">Cache AI Assistant</div>
+          <div className="text-sm font-extrabold text-white tracking-wide truncate">HelpDesk Assistant</div>
           <div className="text-[11px] text-content-body font-medium flex items-center gap-1.5 mt-0.5">
             <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
             IT Support Engineer

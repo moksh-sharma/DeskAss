@@ -35,7 +35,9 @@ def _cpu() -> dict:
     except Exception:
         freq = None
     info = cim_one("Win32_Processor", "Name,Manufacturer,MaxClockSpeed,NumberOfCores,"
-                   "NumberOfLogicalProcessors,Architecture,CurrentClockSpeed") or {}
+                   "NumberOfLogicalProcessors,Architecture,CurrentClockSpeed,"
+                   "L2CacheSize,L3CacheSize,SocketDesignation,ProcessorId,"
+                   "VirtualizationFirmwareEnabled,SecondLevelAddressTranslationExtensions") or {}
     arch_map = {0: "x86", 5: "ARM", 6: "Itanium", 9: "x64", 12: "ARM64"}
     # 5-sample short load history (non-blocking-ish).
     load_history = []
@@ -55,6 +57,11 @@ def _cpu() -> dict:
         "temperature_c": _cpu_temperature(),
         "per_core_usage_pct": _per_core(),
         "load_history_pct": load_history,
+        "l2_cache_kb": to_int(info.get("L2CacheSize")),
+        "l3_cache_kb": to_int(info.get("L3CacheSize")),
+        "socket": info.get("SocketDesignation"),
+        "processor_id": info.get("ProcessorId"),
+        "virtualization_firmware_enabled": info.get("VirtualizationFirmwareEnabled"),
     }
 
 
@@ -100,6 +107,26 @@ def _ram() -> dict:
             "type": mtype,
         })
     slots = cim_one("Win32_PhysicalMemoryArray", "MemoryDevices")
+
+    # Page file / commit charge - critical for diagnosing memory pressure.
+    page_files = []
+    for pf in cim("Win32_PageFileUsage", "Name,AllocatedBaseSize,CurrentUsage,PeakUsage"):
+        page_files.append({
+            "path": pf.get("Name"),
+            "allocated_mb": to_int(pf.get("AllocatedBaseSize")),
+            "in_use_mb": to_int(pf.get("CurrentUsage")),
+            "peak_mb": to_int(pf.get("PeakUsage")),
+        })
+    try:
+        swap = psutil.swap_memory()
+        swap_info = {
+            "total_gb": bytes_to_gb(swap.total),
+            "used_gb": bytes_to_gb(swap.used),
+            "used_pct": swap.percent,
+        }
+    except Exception:
+        swap_info = {}
+
     return {
         "total_gb": bytes_to_gb(vm.total),
         "used_gb": bytes_to_gb(vm.used),
@@ -109,6 +136,8 @@ def _ram() -> dict:
         "module_count": len(modules),
         "slots_total": (slots or {}).get("MemoryDevices"),
         "speed_mhz": modules[0]["speed_mhz"] if modules else None,
+        "page_files": page_files,
+        "virtual_memory": swap_info,
     }
 
 
@@ -144,51 +173,83 @@ def _storage() -> dict:
             "usage_pct": usage.percent,
         })
 
-    # Physical disk media type (SSD vs HDD).
+    # Physical disk inventory: media type, bus, firmware, serial, partition style.
+    bus_map = {0: "Unknown", 1: "SCSI", 2: "ATAPI", 3: "ATA", 4: "IEEE1394", 5: "SSA",
+               6: "FC", 7: "USB", 8: "RAID", 9: "iSCSI", 10: "SAS", 11: "SATA",
+               12: "SD", 13: "MMC", 17: "NVMe"}
     physical = []
-    for pd in cim("MSFT_PhysicalDisk", "FriendlyName,MediaType,Size,BusType,SpindleSpeed,HealthStatus",
+    for pd in cim("MSFT_PhysicalDisk",
+                  "FriendlyName,MediaType,Size,BusType,SpindleSpeed,HealthStatus,"
+                  "FirmwareVersion,SerialNumber,Model",
                   namespace="root/microsoft/windows/storage"):
         media = {3: "HDD", 4: "SSD", 5: "SCM", 0: "Unspecified"}.get(pd.get("MediaType"), "Unknown")
         physical.append({
             "name": pd.get("FriendlyName"),
+            "model": pd.get("Model"),
             "media_type": media,
+            "bus_type": bus_map.get(pd.get("BusType"), str(pd.get("BusType"))),
             "size_gb": bytes_to_gb(pd.get("Size")),
             "health_status": pd.get("HealthStatus"),
+            "firmware_version": pd.get("FirmwareVersion"),
+            "serial_number": (str(pd.get("SerialNumber") or "")).strip() or None,
+            "spindle_speed_rpm": to_int(pd.get("SpindleSpeed")) or None,
+        })
+
+    # Partition layout (GPT vs MBR, boot disk).
+    disk_layout = []
+    for dk in as_list(ps_json(
+        "Get-Disk -ErrorAction SilentlyContinue | Select-Object Number,FriendlyName,"
+        "@{N='PartitionStyle';E={$_.PartitionStyle.ToString()}},NumberOfPartitions,"
+        "IsBoot,IsSystem,@{N='HealthStatus';E={$_.HealthStatus.ToString()}} | "
+        "ConvertTo-Json -Compress",
+        timeout=20.0,
+    )):
+        disk_layout.append({
+            "number": dk.get("Number"),
+            "name": dk.get("FriendlyName"),
+            "partition_style": dk.get("PartitionStyle"),
+            "partitions": dk.get("NumberOfPartitions"),
+            "is_boot": dk.get("IsBoot"),
+            "health": dk.get("HealthStatus"),
         })
 
     return {
         "logical_drives": drives,
         "physical_disks": physical,
+        "disk_layout": disk_layout,
         "drive_count": len(drives),
     }
 
 
 def _disk_health() -> dict:
+    """Per-disk SMART health + reliability counters via the proper association."""
     disks = []
     if not IS_WINDOWS:
         return {"available": False, "disks": disks, "note": "SMART health requires Windows."}
-    phys = cim("MSFT_PhysicalDisk",
-               "DeviceId,FriendlyName,HealthStatus,OperationalStatus,MediaType",
-               namespace="root/microsoft/windows/storage")
-    for pd in phys:
-        device_id = pd.get("DeviceId")
-        reliability = cim_one(
-            "MSFT_StorageReliabilityCounter",
-            "Temperature,Wear,ReadErrorsTotal,WriteErrorsTotal,PowerOnHours",
-            namespace="root/microsoft/windows/storage",
-        ) if device_id is None else None
-        # Per-disk reliability is best fetched via association; fall back to first.
-        rel = reliability or {}
-        health_map = {0: "Healthy", 1: "Warning", 2: "Unhealthy"}
+    rows = as_list(ps_json(
+        "Get-PhysicalDisk -ErrorAction SilentlyContinue | ForEach-Object { "
+        "$r = $_ | Get-StorageReliabilityCounter -ErrorAction SilentlyContinue; "
+        "[PSCustomObject]@{ Name=$_.FriendlyName; MediaType=[string]$_.MediaType; "
+        "Health=$_.HealthStatus.ToString(); OpStatus=($_.OperationalStatus -join ', '); "
+        "Temp=$r.Temperature; TempMax=$r.TemperatureMax; Wear=$r.Wear; "
+        "ReadErrors=$r.ReadErrorsTotal; WriteErrors=$r.WriteErrorsTotal; "
+        "PowerOnHours=$r.PowerOnHours; StartStop=$r.StartStopCycleCount } } | "
+        "ConvertTo-Json -Compress",
+        timeout=30.0,
+    ))
+    for r in rows:
         disks.append({
-            "name": pd.get("FriendlyName"),
-            "media_type": {3: "HDD", 4: "SSD"}.get(pd.get("MediaType"), "Unknown"),
-            "smart_health": health_map.get(pd.get("HealthStatus"), str(pd.get("HealthStatus"))),
-            "temperature_c": rel.get("Temperature"),
-            "wear_pct": rel.get("Wear"),
-            "read_errors": rel.get("ReadErrorsTotal"),
-            "write_errors": rel.get("WriteErrorsTotal"),
-            "power_on_hours": rel.get("PowerOnHours"),
+            "name": r.get("Name"),
+            "media_type": r.get("MediaType") or "Unknown",
+            "smart_health": r.get("Health"),
+            "operational_status": r.get("OpStatus"),
+            "temperature_c": to_int(r.get("Temp")) or None,
+            "temperature_max_c": to_int(r.get("TempMax")) or None,
+            "wear_pct": to_int(r.get("Wear")),
+            "read_errors": to_int(r.get("ReadErrors")),
+            "write_errors": to_int(r.get("WriteErrors")),
+            "power_on_hours": to_int(r.get("PowerOnHours")),
+            "start_stop_cycles": to_int(r.get("StartStop")),
         })
     return {"available": bool(disks), "disks": disks}
 
@@ -197,13 +258,16 @@ def _gpu() -> dict:
     gpus = []
     for v in cim("Win32_VideoController", "Name,AdapterCompatibility,DriverVersion,"
                  "AdapterRAM,DriverDate,VideoProcessor,CurrentHorizontalResolution,"
-                 "CurrentVerticalResolution"):
+                 "CurrentVerticalResolution,CurrentRefreshRate,Status,VideoModeDescription"):
         gpus.append({
             "model": v.get("Name"),
             "manufacturer": v.get("AdapterCompatibility"),
             "driver_version": v.get("DriverVersion"),
+            "driver_date": _cim_date(v.get("DriverDate")),
             "vram_gb": bytes_to_gb(v.get("AdapterRAM")) if v.get("AdapterRAM") else None,
             "video_processor": v.get("VideoProcessor"),
+            "status": v.get("Status"),
+            "refresh_rate_hz": to_int(v.get("CurrentRefreshRate")) or None,
             "resolution": (
                 f"{v.get('CurrentHorizontalResolution')}x{v.get('CurrentVerticalResolution')}"
                 if v.get("CurrentHorizontalResolution") else None
@@ -246,16 +310,81 @@ def _battery() -> dict:
 
 
 def _motherboard() -> dict:
-    board = cim_one("Win32_BaseBoard", "Manufacturer,Product,SerialNumber") or {}
+    board = cim_one("Win32_BaseBoard", "Manufacturer,Product,SerialNumber,Version") or {}
     bios = cim_one("Win32_BIOS", "Manufacturer,SMBIOSBIOSVersion,ReleaseDate,SerialNumber") or {}
     return {
         "manufacturer": board.get("Manufacturer"),
         "model": board.get("Product"),
+        "version": board.get("Version"),
         "serial_number": board.get("SerialNumber"),
         "bios_version": bios.get("SMBIOSBIOSVersion"),
         "bios_manufacturer": bios.get("Manufacturer"),
         "bios_release_date": _cim_date(bios.get("ReleaseDate")),
+        "bios_serial_number": bios.get("SerialNumber"),
     }
+
+
+_CHASSIS_TYPES = {
+    3: "Desktop", 4: "Low-profile desktop", 5: "Pizza box", 6: "Mini tower", 7: "Tower",
+    8: "Portable", 9: "Laptop", 10: "Notebook", 11: "Hand-held", 12: "Docking station",
+    13: "All-in-one", 14: "Sub-notebook", 15: "Space-saving", 16: "Lunch box",
+    17: "Main server chassis", 21: "Peripheral chassis", 23: "Rack-mount chassis",
+    24: "Sealed-case PC", 30: "Tablet", 31: "Convertible", 32: "Detachable",
+}
+
+
+def _system_identity() -> dict:
+    """Asset/identity data IT teams need: make, model, serials, asset tag, chassis."""
+    cs = cim_one("Win32_ComputerSystem", "Manufacturer,Model,SystemFamily,SystemSKUNumber,"
+                 "PCSystemType,DomainRole,TotalPhysicalMemory") or {}
+    product = cim_one("Win32_ComputerSystemProduct", "UUID,IdentifyingNumber,Vendor,Version") or {}
+    enclosure = cim_one("Win32_SystemEnclosure", "ChassisTypes,SerialNumber,SMBIOSAssetTag") or {}
+    chassis_codes = enclosure.get("ChassisTypes")
+    if isinstance(chassis_codes, (int, float)):
+        chassis_codes = [int(chassis_codes)]
+    chassis = [
+        _CHASSIS_TYPES.get(to_int(c), f"Type {c}") for c in (chassis_codes or [])
+    ]
+    pc_type = {0: "Unspecified", 1: "Desktop", 2: "Mobile/Laptop", 3: "Workstation",
+               4: "Enterprise server", 5: "SOHO server", 6: "Appliance", 7: "Performance server",
+               8: "Maximum"}.get(cs.get("PCSystemType"))
+    domain_role = {0: "Standalone workstation", 1: "Member workstation", 2: "Standalone server",
+                   3: "Member server", 4: "Backup domain controller",
+                   5: "Primary domain controller"}.get(cs.get("DomainRole"))
+    asset_tag = (enclosure.get("SMBIOSAssetTag") or "").strip()
+    return {
+        "manufacturer": cs.get("Manufacturer"),
+        "model": cs.get("Model"),
+        "system_family": cs.get("SystemFamily"),
+        "system_sku": cs.get("SystemSKUNumber"),
+        "serial_number": (product.get("IdentifyingNumber") or enclosure.get("SerialNumber") or "").strip() or None,
+        "uuid": product.get("UUID"),
+        "asset_tag": asset_tag if asset_tag.lower() not in ("", "no asset tag", "none") else None,
+        "chassis_type": ", ".join(chassis) or None,
+        "pc_type": pc_type,
+        "domain_role": domain_role,
+    }
+
+
+def _monitors() -> list[dict]:
+    """Connected display details decoded from EDID (WmiMonitorID)."""
+    # Keep only printable ASCII bytes - EDID strings are padded with 0/control chars.
+    decode = "[System.Text.Encoding]::ASCII.GetString([byte[]]@($_.{0} | Where-Object {{$_ -ge 32 -and $_ -le 126}})).Trim()"
+    rows = as_list(ps_json(
+        "Get-CimInstance -Namespace root/wmi -ClassName WmiMonitorID -ErrorAction SilentlyContinue | "
+        "ForEach-Object { [PSCustomObject]@{ "
+        f"Manufacturer = {decode.format('ManufacturerName')}; "
+        f"Model = {decode.format('UserFriendlyName')}; "
+        f"Serial = {decode.format('SerialNumberID')}; "
+        "Year = $_.YearOfManufacture } } | ConvertTo-Json -Compress",
+        timeout=20.0,
+    ))
+    return [{
+        "manufacturer": r.get("Manufacturer") or None,
+        "model": r.get("Model") or None,
+        "serial_number": (r.get("Serial") or "").strip("0") or r.get("Serial") or None,
+        "year_of_manufacture": to_int(r.get("Year")),
+    } for r in rows]
 
 
 def _cim_date(value) -> str | None:
@@ -389,6 +518,7 @@ def scan() -> dict:
     from concurrent.futures import ThreadPoolExecutor
 
     jobs = {
+        "system": _system_identity,
         "cpu": _cpu,
         "ram": _ram,
         "storage": _storage,
@@ -399,6 +529,7 @@ def scan() -> dict:
         "devices": _all_devices,
         "peripherals": _peripherals,
         "network_adapters": _network_adapters,
+        "monitors": _monitors,
     }
     out: dict = {}
     with ThreadPoolExecutor(max_workers=len(jobs)) as pool:
@@ -415,5 +546,6 @@ def scan() -> dict:
     if isinstance(devices, dict):
         devices.update(peripherals)
         devices["network_adapters"] = out.pop("network_adapters", [])
+        devices["monitors"] = out.pop("monitors", [])
         out["devices"] = devices
     return out

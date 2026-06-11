@@ -19,5 +19,5 @@ async def ocr(
     image = await file.read()
     if not image:
         raise ValidationError("Uploaded image is empty.")
-    text, codes = c.ocr.extract_text(image)
+    text, codes = await c.ocr.extract_text(image)
     return OcrResponse(text=text, detected_error_codes=codes)

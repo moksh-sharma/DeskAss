@@ -1,4 +1,4 @@
-"""Operating-system scanner: Windows info, updates, environment."""
+"""Operating-system scanner: Windows info, updates, activation, reboot state, environment."""
 from __future__ import annotations
 
 import getpass
@@ -9,7 +9,15 @@ from datetime import datetime, timezone
 
 import psutil
 
-from app.services.scanners.base import as_list, cim_one, ps_json, safe_scan
+from app.services.scanners.base import (
+    IS_WINDOWS,
+    as_list,
+    cim,
+    cim_one,
+    ps_json,
+    run_powershell,
+    safe_scan,
+)
 
 
 def _windows_info() -> dict:
@@ -90,6 +98,89 @@ def _updates() -> dict:
     }
 
 
+def _activation() -> dict:
+    """Windows licence/activation state (enterprise compliance signal)."""
+    if not IS_WINDOWS:
+        return {"available": False}
+    rec = cim_one(
+        "SoftwareLicensingProduct",
+        "Name,LicenseStatus,PartialProductKey,Description",
+        where="PartialProductKey IS NOT NULL AND ApplicationID='55c92734-d682-4d71-983e-d6ec3f16059f'",
+        timeout=25.0,
+    ) or {}
+    status_map = {0: "Unlicensed", 1: "Licensed", 2: "Out-of-box grace", 3: "Out-of-tolerance grace",
+                  4: "Non-genuine grace", 5: "Notification", 6: "Extended grace"}
+    status = status_map.get(rec.get("LicenseStatus"))
+    is_kms = "kms" in ((rec.get("Description") or "").lower())
+    return {
+        "available": bool(rec),
+        "status": status,
+        "activated": rec.get("LicenseStatus") == 1,
+        "channel": "Volume (KMS)" if is_kms else (rec.get("Description") or "").split(",")[0] or None,
+        "partial_product_key": rec.get("PartialProductKey"),
+    }
+
+
+def _pending_reboot() -> dict:
+    """Detect the standard pending-reboot markers (CBS, Windows Update, file renames)."""
+    if not IS_WINDOWS:
+        return {"required": None}
+    result = ps_json(
+        "$cbs = Test-Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Component Based Servicing\\RebootPending';"
+        "$wu = Test-Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WindowsUpdate\\Auto Update\\RebootRequired';"
+        "$pfro = $null -ne (Get-ItemProperty 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager' "
+        "-Name PendingFileRenameOperations -ErrorAction SilentlyContinue);"
+        "@{cbs=$cbs; windows_update=$wu; file_renames=$pfro} | ConvertTo-Json -Compress",
+        timeout=15.0,
+    ) or {}
+    flags = {k: bool(v) for k, v in result.items()} if isinstance(result, dict) else {}
+    return {
+        "required": any(flags.values()) if flags else None,
+        "reasons": [k for k, v in flags.items() if v],
+    }
+
+
+def _power_plan() -> dict:
+    rows = cim("Win32_PowerPlan", "ElementName,IsActive", namespace="root/cimv2/power", timeout=15.0)
+    active = next((r.get("ElementName") for r in rows if r.get("IsActive")), None)
+    if not active and IS_WINDOWS:
+        # The power namespace is often blocked on managed devices; powercfg always works.
+        ok, out = run_powershell("powercfg /getactivescheme", timeout=10.0)
+        if ok and "(" in out:
+            active = out.split("(")[-1].split(")")[0].strip() or None
+    return {
+        "active_plan": active,
+        "available_plans": [r.get("ElementName") for r in rows if r.get("ElementName")],
+    }
+
+
+def _join_status() -> dict:
+    """Domain / Azure AD (Entra ID) join state via dsregcmd - key enterprise signal."""
+    if not IS_WINDOWS:
+        return {}
+    ok, out = run_powershell("dsregcmd /status", timeout=20.0)
+    if not ok or not out:
+        return {}
+    flags = {}
+    for line in out.splitlines():
+        if ":" not in line:
+            continue
+        key, _, val = line.partition(":")
+        key = key.strip()
+        val = val.strip()
+        if key in ("AzureAdJoined", "EnterpriseJoined", "DomainJoined", "WorkplaceJoined"):
+            flags[key] = val.upper() == "YES"
+        elif key in ("DomainName", "TenantName") and val:
+            flags[key] = val
+    return {
+        "azure_ad_joined": flags.get("AzureAdJoined"),
+        "domain_joined": flags.get("DomainJoined"),
+        "workplace_joined": flags.get("WorkplaceJoined"),
+        "domain_name": flags.get("DomainName"),
+        "azure_tenant": flags.get("TenantName"),
+    }
+
+
 def _environment() -> dict:
     tz = None
     try:
@@ -113,8 +204,24 @@ def _environment() -> dict:
 
 @safe_scan("operating_system")
 def scan() -> dict:
-    return {
-        "windows": _windows_info(),
-        "updates": _updates(),
-        "environment": _environment(),
+    # Run the independent (PowerShell-heavy) probes in parallel.
+    from concurrent.futures import ThreadPoolExecutor
+
+    jobs = {
+        "windows": _windows_info,
+        "updates": _updates,
+        "activation": _activation,
+        "pending_reboot": _pending_reboot,
+        "power_plan": _power_plan,
+        "join_status": _join_status,
+        "environment": _environment,
     }
+    out: dict = {}
+    with ThreadPoolExecutor(max_workers=len(jobs)) as pool:
+        futures = {pool.submit(fn): key for key, fn in jobs.items()}
+        for fut, key in futures.items():
+            try:
+                out[key] = fut.result(timeout=45)
+            except Exception as exc:  # pragma: no cover
+                out[key] = {"error": str(exc)}
+    return out

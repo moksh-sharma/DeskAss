@@ -39,6 +39,7 @@ interface AppState {
   pendingOcrText: string | null;
   setPendingOcrText: (text: string | null) => void;
   sendMessage: (text: string, opts?: Partial<DiagnosePayload>) => Promise<void>;
+  raiseTicket: (userIssue: string, message: ChatMessage) => Promise<void>;
   resolveIssue: (text: string) => Promise<void>;
 
   // Comprehensive machine scan (includes troubleshooter findings)
@@ -209,6 +210,25 @@ export const useStore = create<AppState>((set, get) => ({
       get().notify("error", (e as Error).message);
     } finally {
       set({ isDiagnosing: false });
+    }
+  },
+
+  raiseTicket: async (userIssue, message) => {
+    const trimmed = userIssue.trim();
+    if (!trimmed) {
+      get().notify("error", "No user issue found for this message.");
+      return;
+    }
+    try {
+      await api.raiseTicket({
+        session_id: get().currentSessionId,
+        user_issue: trimmed,
+        diagnosis: message.diagnosis,
+        assistant_reply: message.diagnosis ? undefined : message.content,
+      });
+      get().notify("success", "Support ticket sent. IT will follow up by email.");
+    } catch (e) {
+      get().notify("error", (e as Error).message);
     }
   },
 

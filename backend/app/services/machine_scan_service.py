@@ -34,11 +34,15 @@ from app.services.system_inventory import SystemInventory
 logger = get_logger(__name__)
 
 _HEALTH_SYSTEM = (
-    "You are a senior Windows IT support engineer writing an executive health summary for a PC. "
-    "You are given a JSON snapshot collected live from THIS machine (health scores, hardware, "
-    "services, storage, security, crashes, etc.). Summarise the machine's real condition and the "
-    "actions that matter. STRICT RULES: use ONLY the data provided; never invent numbers, devices, "
-    "or issues. Be concrete and prioritise by impact. Return ONLY the requested JSON."
+    "You are a senior Windows IT support engineer writing an enterprise health and compliance "
+    "report for a managed PC. You are given a JSON snapshot collected live from THIS machine "
+    "(health scores, hardware identity, storage/SMART, security posture - antivirus, firewall, "
+    "BitLocker, TPM, Secure Boot, UAC, SMBv1, local admins - OS activation, pending reboots, "
+    "domain/Azure AD join, network exposure, crashes, services). Cover, in order of impact: "
+    "(1) overall condition, (2) performance/resource pressure, (3) security & compliance risks, "
+    "(4) stability problems, (5) anything an IT admin should remediate. STRICT RULES: use ONLY "
+    "the data provided; never invent numbers, devices, or issues; cite the actual figures. "
+    "Return ONLY the requested JSON."
 )
 
 
@@ -112,6 +116,10 @@ class MachineScanService:
             "installed_applications": installed.get("applications", []),
             "installed_count": installed.get("total_count", 0),
             "by_category": installed.get("by_category", {}),
+            "category_counts": installed.get("category_counts", {}),
+            "recently_installed_30d": installed.get("recently_installed_30d", []),
+            "publishers": installed.get("publishers", {}),
+            "remote_access_tools": installed.get("remote_access_tools", []),
             "running_processes": sections.get("processes", {}),
             "services": sections.get("services", {}),
             "startup_programs": sections.get("startup_programs", {}),
@@ -181,9 +189,10 @@ class MachineScanService:
             prompt = (
                 "Machine scan facts (live from this Windows PC):\n"
                 + payload
-                + '\n\nReturn ONLY JSON: {"summary": string (3-5 sentences, cite numbers from '
-                "the facts), \"prioritized_actions\": array of 3-6 concrete fix steps ordered "
-                "by urgency}."
+                + '\n\nReturn ONLY JSON: {"summary": string (5-8 sentences covering condition, '
+                "performance, security/compliance posture and stability - cite numbers from the "
+                "facts), \"prioritized_actions\": array of 4-8 concrete remediation steps ordered "
+                "by urgency, each naming the exact component/setting to fix}."
             )
             used_model = self._summary_model or self._ollama.default_model
             raw = await self._ollama.generate(
@@ -192,7 +201,7 @@ class MachineScanService:
                 model=used_model,
                 json_mode=True,
                 temperature=0.15,
-                options={"num_ctx": 4096, "num_predict": 500},
+                options={"num_ctx": 6144, "num_predict": 800},
             )
             data = json.loads(raw)
             if isinstance(data, dict):
@@ -204,7 +213,7 @@ class MachineScanService:
                 if summary:
                     return {
                         "summary": summary,
-                        "prioritized_actions": actions[:6] or fallback["prioritized_actions"],
+                        "prioritized_actions": actions[:8] or fallback["prioritized_actions"],
                         "generated_by_llm": True,
                         "model": used_model,
                     }
@@ -246,6 +255,16 @@ class MachineScanService:
             for p in (proc.get("top_cpu") or [])[:6]
         ]
 
+        system = hw.get("system") or {}
+        activation = os_.get("activation") or {}
+        reboot = os_.get("pending_reboot") or {}
+        join = os_.get("join_status") or {}
+        defender = sec.get("windows_defender") or {}
+        accounts = sec.get("local_accounts") or {}
+        remote = sec.get("remote_access") or {}
+        wifi = net.get("wifi") or {}
+        tasks = (startup.get("scheduled_tasks") or {})
+
         return {
             "health": {
                 "score": health.get("overall_score"),
@@ -253,14 +272,22 @@ class MachineScanService:
                 "hardware_notes": (health.get("categories") or {}).get("hardware", {}).get("notes", []),
                 "software_notes": (health.get("categories") or {}).get("software", {}).get("notes", []),
             },
+            "machine": {
+                "manufacturer": system.get("manufacturer"),
+                "model": system.get("model"),
+                "serial": system.get("serial_number"),
+                "chassis": system.get("chassis_type"),
+            },
             "cpu": {
                 "name": cpu.get("processor_name"),
                 "usage_pct": cpu.get("current_usage_pct"),
                 "avg_pct": (perf.get("cpu") or {}).get("average_pct"),
+                "virtualization": cpu.get("virtualization_firmware_enabled"),
             },
             "memory": {
                 "total_gb": ram.get("total_gb"),
                 "used_pct": ram.get("utilization_pct"),
+                "page_file_used_pct": (ram.get("virtual_memory") or {}).get("used_pct"),
             },
             "drives": drives,
             "disk_smart_issues": smart_bad,
@@ -273,22 +300,44 @@ class MachineScanService:
                 "edition": win.get("edition"),
                 "uptime": win.get("uptime_readable"),
                 "pending_updates": (os_.get("updates") or {}).get("pending_count"),
+                "activated": activation.get("activated"),
+                "pending_reboot": reboot.get("required"),
+                "azure_ad_joined": join.get("azure_ad_joined"),
+                "domain_joined": join.get("domain_joined"),
             },
             "software": {
                 "installed_count": sw.get("installed_count"),
+                "recently_installed_30d": len(sw.get("recently_installed_30d") or []),
+                "remote_access_tools": [a.get("name") for a in (sw.get("remote_access_tools") or [])[:5]],
                 "top_cpu_processes": top_cpu,
                 "failed_services": [s.get("name") for s in (svc.get("failed_critical") or [])],
                 "high_impact_startup": startup.get("high_impact_count"),
+                "third_party_logon_tasks": len(tasks.get("third_party_logon_tasks") or []),
             },
             "network": {
                 "internet": conn.get("internet"),
                 "dns_ok": conn.get("dns_resolution"),
                 "latency_ms": conn.get("internet_latency_ms"),
+                "wifi_ssid": wifi.get("ssid"),
+                "wifi_signal_pct": wifi.get("signal_pct"),
+                "proxy_enabled": (net.get("proxy") or {}).get("proxy_enabled"),
+                "notable_open_ports": [
+                    f"{p.get('port')}/{p.get('service')}"
+                    for p in ((net.get("connections") or {}).get("notable_listening") or [])[:8]
+                ],
             },
             "security": {
                 "protected": sec.get("protection_active"),
                 "firewall_on": (sec.get("firewall") or {}).get("all_enabled"),
                 "bitlocker": (sec.get("bitlocker") or {}).get("system_drive_protected"),
+                "signature_age_days": defender.get("signature_age_days"),
+                "uac_enabled": (sec.get("uac") or {}).get("enabled"),
+                "secure_boot": (sec.get("secure_boot") or {}).get("enabled"),
+                "tpm_ready": (sec.get("tpm") or {}).get("ready"),
+                "rdp_enabled": remote.get("rdp_enabled"),
+                "smb1_enabled": remote.get("smb1_enabled"),
+                "local_admins": accounts.get("administrator_count"),
+                "guest_enabled": accounts.get("guest_account_enabled"),
             },
             "stability": (crash.get("summary") or {}) | (logs.get("summary") or {}),
         }

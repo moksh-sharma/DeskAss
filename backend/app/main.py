@@ -28,7 +28,11 @@ async def lifespan(app: FastAPI):  # type: ignore[no-untyped-def]
     init_db()
     init_container()
     asyncio.create_task(get_container().ollama.warmup())
-    logger.info("Startup complete. Ollama=%s  Vosk=%s", settings.ollama_base_url, settings.vosk_api_url)
+    logger.info(
+        "Startup complete. Ollama=%s  Deepgram=%s",
+        settings.ollama_base_url,
+        "configured" if settings.deepgram_api_key.strip() else "not configured",
+    )
     yield
     logger.info("Shutting down.")
 

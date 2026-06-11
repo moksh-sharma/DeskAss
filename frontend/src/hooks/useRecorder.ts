@@ -1,10 +1,11 @@
 import { useCallback, useRef, useState } from "react";
-import { mergeFloat32, pcmToWavBlob, resamplePcm, VOSK_SAMPLE_RATE } from "@/lib/audio";
+import { voiceStreamUrl, type VoiceLanguage } from "@/api/client";
+import { float32ToInt16, resamplePcm, STT_SAMPLE_RATE } from "@/lib/audio";
 
 interface RecorderState {
   isRecording: boolean;
-  start: () => Promise<string | null>;
-  stop: () => Promise<Blob | null>;
+  start: (onTranscript?: (text: string) => void, language?: VoiceLanguage) => Promise<string | null>;
+  stop: () => Promise<void>;
   error: string | null;
 }
 
@@ -17,9 +18,69 @@ const SPEECH_CONSTRAINTS: MediaTrackConstraints = {
   sampleRate: 48000,
 };
 
+function waitForTranscriptionSocket(ws: WebSocket): Promise<void> {
+  return new Promise((resolve, reject) => {
+    let settled = false;
+    const finish = (fn: () => void) => {
+      if (settled) return;
+      settled = true;
+      window.clearTimeout(timer);
+      fn();
+    };
+
+    const timer = window.setTimeout(() => {
+      finish(() =>
+        reject(
+          new Error(
+            "Transcription service did not respond. Restart the backend with: cd backend && .\\run.ps1",
+          ),
+        ),
+      );
+    }, 15_000);
+
+    ws.addEventListener("message", (event) => {
+      try {
+        const data = JSON.parse(String(event.data)) as {
+          type?: string;
+          message?: string;
+        };
+        if (data.type === "ready") {
+          finish(() => resolve());
+        } else if (data.type === "error" && data.message) {
+          finish(() => reject(new Error(data.message)));
+        }
+      } catch {
+        /* wait for structured handshake */
+      }
+    });
+
+    ws.addEventListener("error", () => {
+      finish(() =>
+        reject(
+          new Error(
+            "Could not connect to live transcription service. Check that the backend is running.",
+          ),
+        ),
+      );
+    });
+
+    ws.addEventListener("close", (event) => {
+      if (settled) return;
+      const reason = event.reason ? `: ${event.reason}` : "";
+      finish(() =>
+        reject(
+          new Error(
+            `Transcription connection closed (${event.code}${reason}). Is the backend running on port 8003?`,
+          ),
+        ),
+      );
+    });
+  });
+}
+
 /**
- * Records lossless PCM directly from the microphone (no WebM/Opus compression),
- * then encodes 16 kHz mono WAV - the format Vosk expects for best accuracy.
+ * Records PCM from the microphone and streams 16 kHz linear16 audio to the
+ * backend Deepgram live transcription WebSocket.
  */
 export function useRecorder(): RecorderState {
   const [isRecording, setIsRecording] = useState(false);
@@ -29,8 +90,9 @@ export function useRecorder(): RecorderState {
   const streamRef = useRef<MediaStream | null>(null);
   const processorRef = useRef<ScriptProcessorNode | null>(null);
   const sourceRef = useRef<MediaStreamAudioSourceNode | null>(null);
-  const chunksRef = useRef<Float32Array[]>([]);
+  const wsRef = useRef<WebSocket | null>(null);
   const sampleRateRef = useRef(48000);
+  const onTranscriptRef = useRef<((text: string) => void) | undefined>(undefined);
 
   const cleanup = useCallback(() => {
     processorRef.current?.disconnect();
@@ -43,81 +105,106 @@ export function useRecorder(): RecorderState {
       void contextRef.current?.close();
     }
     contextRef.current = null;
-    chunksRef.current = [];
   }, []);
 
-  const start = useCallback(async (): Promise<string | null> => {
-    setError(null);
-    cleanup();
-    try {
-      if (!navigator.mediaDevices?.getUserMedia) {
-        const msg = "Microphone access is not available in this environment.";
+  const closeSocket = useCallback(() => {
+    const ws = wsRef.current;
+    wsRef.current = null;
+    if (!ws) return;
+    if (ws.readyState === WebSocket.OPEN) {
+      ws.send("stop");
+    }
+    ws.close();
+  }, []);
+
+  const start = useCallback(
+    async (
+      onTranscript?: (text: string) => void,
+      language: VoiceLanguage = "multi",
+    ): Promise<string | null> => {
+      setError(null);
+      onTranscriptRef.current = onTranscript;
+      cleanup();
+      closeSocket();
+
+      try {
+        if (!navigator.mediaDevices?.getUserMedia) {
+          const msg = "Microphone access is not available in this environment.";
+          setError(msg);
+          return msg;
+        }
+
+        const ws = new WebSocket(voiceStreamUrl(language));
+        ws.binaryType = "arraybuffer";
+        wsRef.current = ws;
+
+        ws.addEventListener("message", (event) => {
+          try {
+            const data = JSON.parse(String(event.data)) as {
+              type?: string;
+              text?: string;
+              message?: string;
+            };
+            if (data.type === "transcript" && typeof data.text === "string") {
+              onTranscriptRef.current?.(data.text);
+            } else if (data.type === "error" && data.message) {
+              setError(data.message);
+            }
+          } catch {
+            /* ignore malformed frames */
+          }
+        });
+
+        await waitForTranscriptionSocket(ws);
+
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: SPEECH_CONSTRAINTS });
+        streamRef.current = stream;
+
+        const context = new AudioContext({ sampleRate: 48000 });
+        contextRef.current = context;
+        sampleRateRef.current = context.sampleRate;
+
+        const source = context.createMediaStreamSource(stream);
+        const processor = context.createScriptProcessor(4096, 1, 1);
+        const mute = context.createGain();
+        mute.gain.value = 0;
+
+        processor.onaudioprocess = (event) => {
+          const socket = wsRef.current;
+          if (!socket || socket.readyState !== WebSocket.OPEN) return;
+          const input = event.inputBuffer.getChannelData(0);
+          const resampled = resamplePcm(new Float32Array(input), sampleRateRef.current, STT_SAMPLE_RATE);
+          socket.send(float32ToInt16(resampled));
+        };
+
+        source.connect(processor);
+        processor.connect(mute);
+        mute.connect(context.destination);
+
+        sourceRef.current = source;
+        processorRef.current = processor;
+        setIsRecording(true);
+        return null;
+      } catch (e) {
+        cleanup();
+        closeSocket();
+        const msg = (e as Error).message || "Microphone permission denied.";
         setError(msg);
         return msg;
       }
+    },
+    [cleanup, closeSocket],
+  );
 
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: SPEECH_CONSTRAINTS });
-      streamRef.current = stream;
-
-      const context = new AudioContext({ sampleRate: 48000 });
-      contextRef.current = context;
-      sampleRateRef.current = context.sampleRate;
-
-      const source = context.createMediaStreamSource(stream);
-      // ScriptProcessor gives raw PCM without lossy codec compression.
-      const processor = context.createScriptProcessor(4096, 1, 1);
-      const mute = context.createGain();
-      mute.gain.value = 0;
-
-      chunksRef.current = [];
-      processor.onaudioprocess = (event) => {
-        const input = event.inputBuffer.getChannelData(0);
-        chunksRef.current.push(new Float32Array(input));
-      };
-
-      source.connect(processor);
-      processor.connect(mute);
-      mute.connect(context.destination);
-
-      sourceRef.current = source;
-      processorRef.current = processor;
-      setIsRecording(true);
-      return null;
-    } catch (e) {
-      cleanup();
-      const msg = (e as Error).message || "Microphone permission denied.";
-      setError(msg);
-      return msg;
+  const stop = useCallback(async (): Promise<void> => {
+    if (processorRef.current) {
+      processorRef.current.onaudioprocess = null;
     }
-  }, [cleanup]);
-
-  const stop = useCallback((): Promise<Blob | null> => {
-    return new Promise((resolve) => {
-      const processor = processorRef.current;
-      const captureRate = sampleRateRef.current;
-
-      if (!processor || chunksRef.current.length === 0) {
-        cleanup();
-        setIsRecording(false);
-        resolve(null);
-        return;
-      }
-
-      processor.onaudioprocess = null;
-      const pcm = mergeFloat32(chunksRef.current);
-      cleanup();
-      setIsRecording(false);
-
-      if (pcm.length < captureRate * 0.4) {
-        // Less than ~400 ms of audio - too short for reliable STT.
-        resolve(null);
-        return;
-      }
-
-      const resampled = resamplePcm(pcm, captureRate, VOSK_SAMPLE_RATE);
-      resolve(pcmToWavBlob(resampled, VOSK_SAMPLE_RATE));
-    });
-  }, [cleanup]);
+    closeSocket();
+    cleanup();
+    onTranscriptRef.current = undefined;
+    setIsRecording(false);
+  }, [cleanup, closeSocket]);
 
   return { isRecording, start, stop, error };
 }

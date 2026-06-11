@@ -15,6 +15,8 @@ from app.models.schemas import (
     DiagnoseResponse,
     EventLogSummary,
     MessageRole,
+    RaiseTicketRequest,
+    RaiseTicketResponse,
     SystemDiagnostics,
 )
 from app.utils.message_intent import is_troubleshooting_message
@@ -126,3 +128,22 @@ async def diagnose(
         diagnostics=diagnostics,
         event_logs=event_logs,
     )
+
+
+@router.post("/raise-ticket", response_model=RaiseTicketResponse, summary="Email a support ticket")
+async def raise_ticket(
+    payload: RaiseTicketRequest,
+    c: Container = Depends(container),
+) -> RaiseTicketResponse:
+    logger.info(
+        "Raise ticket request: session=%s issue_len=%d",
+        payload.session_id,
+        len(payload.user_issue),
+    )
+    c.tickets.send_ticket_email(
+        user_issue=payload.user_issue,
+        diagnosis=payload.diagnosis,
+        assistant_reply=payload.assistant_reply,
+        session_id=payload.session_id,
+    )
+    return RaiseTicketResponse()

@@ -1,5 +1,16 @@
-/** Vosk works best with 16 kHz mono 16-bit PCM WAV. */
-export const VOSK_SAMPLE_RATE = 16000;
+/** 16 kHz mono 16-bit PCM WAV works well for speech capture. */
+export const STT_SAMPLE_RATE = 16000;
+
+/** Convert float PCM samples to little-endian int16 bytes for Deepgram live STT. */
+export function float32ToInt16(samples: Float32Array): ArrayBuffer {
+  const buffer = new ArrayBuffer(samples.length * 2);
+  const view = new DataView(buffer);
+  for (let i = 0; i < samples.length; i++) {
+    const s = Math.max(-1, Math.min(1, samples[i]));
+    view.setInt16(i * 2, s < 0 ? s * 0x8000 : s * 0x7fff, true);
+  }
+  return buffer;
+}
 
 /** Merge captured PCM chunks into one buffer. */
 export function mergeFloat32(chunks: Float32Array[]): Float32Array {
@@ -34,7 +45,7 @@ export function resamplePcm(
   return output;
 }
 
-/** Peak-normalise quiet speech so Vosk gets a stronger signal (target ~ -3 dBFS). */
+/** Peak-normalise quiet speech for a stronger signal (target ~ -3 dBFS). */
 export function normalizeGain(samples: Float32Array, targetPeak = 0.85): Float32Array {
   let peak = 0;
   for (let i = 0; i < samples.length; i++) {
@@ -50,7 +61,7 @@ export function normalizeGain(samples: Float32Array, targetPeak = 0.85): Float32
   return out;
 }
 
-/** Trim leading/trailing silence so Vosk focuses on speech. */
+/** Trim leading/trailing silence so transcription focuses on speech. */
 export function trimSilence(
   samples: Float32Array,
   sampleRate: number,
@@ -78,10 +89,10 @@ export function trimSilence(
   return samples.slice(start, end + 1);
 }
 
-/** Build a Vosk-ready WAV blob from raw PCM samples. */
+/** Build a transcription-ready WAV blob from raw PCM samples. */
 export function pcmToWavBlob(
   samples: Float32Array,
-  sampleRate: number = VOSK_SAMPLE_RATE,
+  sampleRate: number = STT_SAMPLE_RATE,
 ): Blob {
   const processed = normalizeGain(trimSilence(samples, sampleRate));
   return new Blob([encodeWav(processed, sampleRate)], { type: "audio/wav" });
@@ -91,7 +102,7 @@ export function pcmToWavBlob(
  * Legacy path: convert a lossy MediaRecorder blob to WAV.
  * Prefer direct PCM capture in useRecorder when possible.
  */
-export async function blobToWav(blob: Blob, targetSampleRate = VOSK_SAMPLE_RATE): Promise<Blob> {
+export async function blobToWav(blob: Blob, targetSampleRate = STT_SAMPLE_RATE): Promise<Blob> {
   const arrayBuffer = await blob.arrayBuffer();
   const audioContext = new AudioContext();
   try {

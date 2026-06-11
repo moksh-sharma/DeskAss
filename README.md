@@ -1,4 +1,4 @@
-# Cache AI Assistant
+# HelpDesk Assistant
 
 **Enterprise AI Desktop Troubleshooting Assistant** — an intelligent IT Support Engineer that
 diagnoses and resolves Windows machine issues using voice, text, screenshots, live system
@@ -13,7 +13,7 @@ diagnostics, Windows Event Logs, a local RAG knowledge base, and a local Ollama 
 ┌───────────────────────────────▼─────────────────────────────────-─┐
 │                          FastAPI Backend                          │
 │  ┌────────────┐ ┌────────────┐ ┌──────────┐ ┌──────────────────┐  │
-│  │ Diagnostics│ │ Event Logs │ │   OCR    │ │  Vosk (STT proxy)│  │
+│  │ Diagnostics│ │ Event Logs │ │   OCR    │ │ Deepgram (STT)   │  │
 │  └────────────┘ └────────────┘ └──────────┘ └──────────────────┘  │
 │  ┌────────────┐ ┌────────────┐ ┌──────────────────────────────┐   │
 │  │  RAG / KB  │ │   Ollama   │ │   Diagnosis Engine (fusion)  │   │
@@ -22,12 +22,12 @@ diagnostics, Windows Event Logs, a local RAG knowledge base, and a local Ollama 
 │                         SQLite (session history)                  │ 
 └───────────────────────────────────────────────────────────────────┘
         │                         │                         │
-   ChromaDB store         Ollama @ :11434          Vosk @ :8001
+   ChromaDB store         Ollama @ :11434       Deepgram cloud STT
 ```
 
 ## Features
 
-- **Voice support** — record audio in the app, transcribed via the Vosk service.
+- **Voice support** — record audio in the app, transcribed via Deepgram (`nova-3`).
 - **Text support** — free-form problem descriptions.
 - **Automatic diagnostics** — CPU, RAM, disk, network, OS, battery, processes, startup, software.
 - **Windows Event Log analysis** — application/system errors & warnings (Outlook, Teams, drivers…).
@@ -49,7 +49,7 @@ cache-ai-assistant/
 │       ├── core/       config, logging, exceptions, DI container
 │       ├── db/         SQLite engine + repositories
 │       ├── models/     Pydantic schemas + ORM models
-│       ├── services/   diagnostics, eventlog, ollama, vosk, ocr, rag, diagnosis
+│       ├── services/   diagnostics, eventlog, ollama, deepgram, ocr, rag, diagnosis
 │       └── knowledge_base/  seed troubleshooting docs
 ├── frontend/           Electron + React + TypeScript + Tailwind + Zustand
 └── docs/               API reference, installation guide
@@ -82,7 +82,7 @@ Copy `backend/.env.example` to `backend/.env` and adjust:
 ```
 OLLAMA_BASE_URL=http://172.16.200.26:11434
 DEFAULT_MODEL=qwen2.5:latest
-VOSK_API_URL=http://172.16.200.26:8001
+DEEPGRAM_API_KEY=your_key_here
 ```
 
 See [`docs/API.md`](docs/API.md) for the REST API reference.

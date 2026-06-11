@@ -32,7 +32,7 @@ export function TopBar() {
   const setView = useStore((s) => s.setView);
 
   const tabs = [
-    { id: "chat" as const, label: "AI Assistant", icon: ChatBubbleIcon },
+    { id: "chat" as const, label: "HelpDesk", icon: ChatBubbleIcon },
     { id: "dashboard" as const, label: "Dashboard", icon: GridIcon },
     { id: "machine-scan" as const, label: "Full System Scan", icon: CpuIcon },
   ];

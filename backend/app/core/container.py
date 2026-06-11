@@ -21,8 +21,9 @@ from app.services.system_inventory import SystemInventory
 from app.services.ollama_service import OllamaService
 from app.services.rag_service import RagService
 from app.services.session_service import SessionService
+from app.services.ticket_service import TicketService
 from app.services.troubleshooter_service import TroubleshooterService
-from app.services.vosk_service import VoskService
+from app.services.deepgram_service import DeepgramService
 
 logger = get_logger(__name__)
 
@@ -38,13 +39,14 @@ class Container:
         self.event_logs = EventLogService()
         self.health = HealthService()
         self.sessions = SessionService()
+        self.tickets = TicketService(self.settings)
         self.machine_scan_history = MachineScanHistoryService()
         self.inventory = SystemInventory()
 
         # External clients.
         self.audio = AudioService()
         self.ollama = OllamaService(self.settings)
-        self.vosk = VoskService(self.settings)
+        self.deepgram = DeepgramService(self.settings)
         self.ocr = OcrService(self.settings)
 
         # Heavy / lazy services.

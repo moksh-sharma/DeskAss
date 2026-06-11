@@ -198,6 +198,21 @@ class DiagnoseResponse(BaseModel):
     investigation: Optional["InvestigationReport"] = None
 
 
+class RaiseTicketRequest(BaseModel):
+    session_id: Optional[int] = None
+    user_issue: str = Field(..., min_length=1, description="The user's reported problem")
+    diagnosis: Optional[DiagnosisResult] = None
+    assistant_reply: Optional[str] = Field(
+        None,
+        description="Plain assistant reply when no structured diagnosis is available",
+    )
+
+
+class RaiseTicketResponse(BaseModel):
+    sent: bool = True
+    message: str = "Support ticket email sent."
+
+
 # --------------------------------------------------------------------------- #
 #  Voice / OCR
 # --------------------------------------------------------------------------- #

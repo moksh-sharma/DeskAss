@@ -1,4 +1,4 @@
-"""Normalise uploaded audio to 16 kHz mono PCM WAV optimised for Vosk STT."""
+"""Normalise uploaded audio to 16 kHz mono PCM WAV for speech recognition."""
 from __future__ import annotations
 
 import shutil
@@ -26,7 +26,7 @@ _SPEECH_FILTER = (
 
 
 class AudioService:
-    """Prepare browser-captured audio for maximum Vosk transcription accuracy."""
+    """Prepare browser-captured audio for reliable transcription."""
 
     def ensure_wav(self, audio_bytes: bytes, filename: str, content_type: str) -> tuple[bytes, str, str]:
         """Return (bytes, filename, content_type) as normalised 16 kHz mono WAV."""

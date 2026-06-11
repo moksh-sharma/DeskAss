@@ -1,4 +1,4 @@
-# Cache AI Assistant — Backend
+# HelpDesk Assistant — Backend
 
 FastAPI service providing diagnostics, event-log analysis, OCR, RAG and the AI
 diagnosis engine. See the top-level [`README.md`](../README.md),

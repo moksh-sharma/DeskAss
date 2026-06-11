@@ -88,6 +88,52 @@ def _security_health(security: dict) -> tuple[int, list[str]]:
         score -= 20; notes.append("One or more firewall profiles are disabled.")
     if not (security.get("bitlocker") or {}).get("system_drive_protected"):
         score -= 5; notes.append("System drive is not encrypted (BitLocker off).")
+
+    defender = security.get("windows_defender") or {}
+    sig_age = defender.get("signature_age_days")
+    if isinstance(sig_age, (int, float)) and sig_age > 7:
+        score -= 10; notes.append(f"Antivirus signatures are {int(sig_age)} days old.")
+
+    if (security.get("uac") or {}).get("enabled") is False:
+        score -= 15; notes.append("User Account Control (UAC) is disabled.")
+
+    remote = security.get("remote_access") or {}
+    if remote.get("smb1_enabled") is True:
+        score -= 15; notes.append("Legacy SMBv1 protocol is enabled (known attack vector).")
+
+    accounts = security.get("local_accounts") or {}
+    if accounts.get("guest_account_enabled"):
+        score -= 10; notes.append("Guest account is enabled.")
+    no_pwd = accounts.get("accounts_without_password") or []
+    if no_pwd:
+        score -= 10; notes.append(f"{len(no_pwd)} enabled account(s) without a password.")
+
+    if (security.get("secure_boot") or {}).get("enabled") is False:
+        score -= 5; notes.append("Secure Boot is disabled.")
+    tpm = security.get("tpm") or {}
+    if tpm.get("available") and tpm.get("present") and tpm.get("ready") is False:
+        score -= 5; notes.append("TPM is present but not ready.")
+    return _clamp(score), notes
+
+
+def _os_health(operating_system: dict) -> tuple[int, list[str]]:
+    notes: list[str] = []
+    score = 100
+    activation = operating_system.get("activation") or {}
+    if activation.get("available") and activation.get("activated") is False:
+        score -= 15; notes.append(f"Windows is not activated ({activation.get('status') or 'unlicensed'}).")
+    reboot = operating_system.get("pending_reboot") or {}
+    if reboot.get("required"):
+        score -= 10; notes.append("A system reboot is pending (updates/servicing waiting on restart).")
+    updates = operating_system.get("updates") or {}
+    pending = updates.get("pending_count")
+    if isinstance(pending, (int, float)) and pending >= 10:
+        score -= 15; notes.append(f"{int(pending)} Windows updates are pending.")
+    elif isinstance(pending, (int, float)) and pending >= 1:
+        score -= 5; notes.append(f"{int(pending)} Windows update(s) pending.")
+    uptime = (operating_system.get("windows") or {}).get("uptime_hours")
+    if isinstance(uptime, (int, float)) and uptime >= 24 * 14:
+        score -= 10; notes.append(f"Machine has not rebooted for {round(uptime / 24)} days.")
     return _clamp(score), notes
 
 
@@ -137,6 +183,7 @@ def build_health_report(sections: dict[str, Any]) -> dict:
     crash = sections.get("crash_analysis") or {}
     services = sections.get("services") or {}
     startup = sections.get("startup_programs") or {}
+    operating_system = sections.get("operating_system") or {}
 
     # Hardware = CPU, memory, disks/SMART, physical devices.
     cpu_s, cpu_n = _cpu_health(hardware, performance)
@@ -146,12 +193,13 @@ def build_health_report(sections: dict[str, Any]) -> dict:
     hw_score = _combine([cpu_s, mem_s, disk_s, dev_s])
     hw_notes = cpu_n + mem_n + disk_n + dev_n
 
-    # Software = security, app/system stability, networking.
+    # Software = security posture, OS state, app/system stability, networking.
     sec_s, sec_n = _security_health(security)
+    os_s, os_n = _os_health(operating_system)
     app_s, app_n = _app_health(crash, services, startup)
     net_s, net_n = _network_health(network)
-    sw_score = _combine([sec_s, app_s, net_s])
-    sw_notes = sec_n + app_n + net_n
+    sw_score = _combine([sec_s, os_s, app_s, net_s])
+    sw_notes = sec_n + os_n + app_n + net_n
 
     categories = {
         "hardware": {"score": hw_score, "status": _status(hw_score), "notes": hw_notes},
@@ -159,7 +207,7 @@ def build_health_report(sections: dict[str, Any]) -> dict:
     }
 
     overall = _combine([hw_score, sw_score])
-    recommendations = (hw_notes + sw_notes)[:8] or [
+    recommendations = (hw_notes + sw_notes)[:10] or [
         "No significant issues detected. System looks healthy."
     ]
 

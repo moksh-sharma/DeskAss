@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useStore } from "@/store/useStore";
 import { useRecorder } from "@/hooks/useRecorder";
-import { api } from "@/api/client";
+import { api, type VoiceLanguage } from "@/api/client";
 
 function MicIcon({ className }: { className?: string }) {
   return (
@@ -63,7 +63,8 @@ export function Toolbar() {
   const setPendingOcrText = useStore((s) => s.setPendingOcrText);
   const pendingOcrText = useStore((s) => s.pendingOcrText);
   const recorder = useRecorder();
-  const [transcribing, setTranscribing] = useState(false);
+  const prefixRef = useRef("");
+  const [voiceLanguage, setVoiceLanguage] = useState<VoiceLanguage>("multi");
 
   const handleSend = async () => {
     if (!text.trim()) return;
@@ -74,25 +75,21 @@ export function Toolbar() {
 
   const handleMic = async () => {
     if (recorder.isRecording) {
-      const blob = await recorder.stop();
-      if (!blob || blob.size === 0) {
-        notify("error", "Recording too short. Speak for at least 1 second, then stop.");
+      await recorder.stop();
+      return;
+    }
+
+    prefixRef.current = text.trim();
+    const err = await recorder.start((streamText) => {
+      const prefix = prefixRef.current;
+      const spoken = streamText.trim();
+      if (!spoken) {
+        setText(prefix);
         return;
       }
-      setTranscribing(true);
-      try {
-        const { text: transcript } = await api.transcribe(blob);
-        if (transcript) setText((prev) => (prev ? `${prev} ${transcript}` : transcript));
-        else notify("info", "No speech detected.");
-      } catch (e) {
-        notify("error", `Transcription failed: ${(e as Error).message}`);
-      } finally {
-        setTranscribing(false);
-      }
-    } else {
-      const err = await recorder.start();
-      if (err) notify("error", err);
-    }
+      setText(prefix ? `${prefix} ${spoken}` : spoken);
+    }, voiceLanguage);
+    if (err) notify("error", err);
   };
 
   const handleScreenshot = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -138,20 +135,47 @@ export function Toolbar() {
       <div className="flex items-end gap-3 max-w-4xl mx-auto">
         <input ref={fileRef} type="file" accept="image/*" hidden onChange={handleScreenshot} />
 
+        {/* Voice language: Hindi + English auto, or fixed EN / HI */}
+        <div
+          className="flex shrink-0 items-center gap-0.5 rounded-xl border border-base-700/50 bg-base-900/50 p-0.5"
+          title="Voice language — Auto detects Hindi and English (Hinglish)"
+        >
+          {(["multi", "en", "hi"] as const).map((lang) => (
+            <button
+              key={lang}
+              type="button"
+              disabled={recorder.isRecording}
+              onClick={() => setVoiceLanguage(lang)}
+              className={`rounded-lg px-2 py-1.5 text-[9px] font-bold uppercase tracking-wider transition-colors ${
+                voiceLanguage === lang
+                  ? "bg-accent/25 text-accent shadow-sm"
+                  : "text-content-muted hover:text-content-secondary"
+              } disabled:opacity-40`}
+            >
+              {lang === "multi" ? "Auto" : lang === "en" ? "EN" : "हि"}
+            </button>
+          ))}
+        </div>
+
         {/* Action Button: Voice Input */}
         <button
           onClick={handleMic}
-          disabled={transcribing}
-          title={recorder.isRecording ? "Stop recording" : "Voice input (speak clearly)"}
+          title={
+            recorder.isRecording
+              ? "Stop recording"
+              : voiceLanguage === "multi"
+                ? "Voice input — Hindi & English (auto)"
+                : voiceLanguage === "hi"
+                  ? "Voice input — Hindi"
+                  : "Voice input — English"
+          }
           className={`h-11 w-11 shrink-0 flex items-center justify-center rounded-xl transition-all duration-200 relative ${
             recorder.isRecording
               ? "bg-severity-critical text-white shadow-lg shadow-severity-critical/30 animate-pulse scale-105"
               : "bg-base-700 hover:bg-base-600 text-gray-300 hover:text-white border border-base-600/30"
           }`}
         >
-          {transcribing ? (
-            <div className="h-4 w-4 animate-spin rounded-full border-2 border-accent border-t-transparent" />
-          ) : recorder.isRecording ? (
+          {recorder.isRecording ? (
             <MicOffIcon className="h-5 w-5" />
           ) : (
             <MicIcon className="h-5 w-5" />
@@ -182,7 +206,7 @@ export function Toolbar() {
               }
             }}
             rows={1}
-            placeholder="Describe your issue, e.g. 'Outlook crashes whenever I open it'…"
+            placeholder="Describe your issue in English or Hindi…"
             className="max-h-32 min-h-[44px] w-full resize-none rounded-xl border border-base-700 bg-base-900 px-4 py-3 pr-10 text-sm text-content-primary placeholder:text-content-muted focus:border-accent focus:ring-1 focus:ring-accent/30 focus:outline-none transition-all duration-150 leading-relaxed shadow-inner"
           />
           {text.trim() && (

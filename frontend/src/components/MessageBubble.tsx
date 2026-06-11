@@ -1,6 +1,7 @@
 import type { ChatMessage } from "@/types";
 import { DiagnosisCard } from "@/components/DiagnosisCard";
 import { InvestigationPanel } from "@/components/InvestigationPanel";
+import { RaiseTicketButton } from "@/components/RaiseTicketButton";
 import { formatTime } from "@/lib/format";
 
 // Icons for Avatars
@@ -20,7 +21,13 @@ function UserAvatarIcon({ className }: { className?: string }) {
   );
 }
 
-export function MessageBubble({ message }: { message: ChatMessage }) {
+export function MessageBubble({
+  message,
+  userIssue,
+}: {
+  message: ChatMessage;
+  userIssue?: string;
+}) {
   const isUser = message.role === "user";
   const isSystem = message.role === "system";
 
@@ -49,18 +56,26 @@ export function MessageBubble({ message }: { message: ChatMessage }) {
           <div className="space-y-3 w-full">
             <DiagnosisCard d={message.diagnosis} />
             {message.investigation && <InvestigationPanel report={message.investigation} />}
+            {userIssue && !message.pending && (
+              <RaiseTicketButton userIssue={userIssue} message={message} />
+            )}
           </div>
         ) : (
-          <div
-            className={`rounded-2xl px-5 py-3 text-sm leading-relaxed shadow-md ${isUser
-                ? "bg-gradient-to-br from-accent to-accent-hover text-white rounded-tr-none font-medium"
-                : message.pending
-                  ? "animate-pulse bg-base-850 text-content-muted border border-base-700/30"
-                  : "bg-base-850 text-content-primary border border-base-700/40 rounded-tl-none font-medium"
-              }`}
-          >
-            {message.content}
-          </div>
+          <>
+            <div
+              className={`rounded-2xl px-5 py-3 text-sm leading-relaxed shadow-md ${isUser
+                  ? "bg-gradient-to-br from-accent to-accent-hover text-white rounded-tr-none font-medium"
+                  : message.pending
+                    ? "animate-pulse bg-base-850 text-content-muted border border-base-700/30"
+                    : "bg-base-850 text-content-primary border border-base-700/40 rounded-tl-none font-medium"
+                }`}
+            >
+              {message.content}
+            </div>
+            {!isUser && userIssue && !message.pending && (
+              <RaiseTicketButton userIssue={userIssue} message={message} />
+            )}
+          </>
         )}
         <span className="mt-1 px-1.5 text-[9px] font-bold text-content-muted uppercase tracking-wider select-none">
           {formatTime(message.createdAt)}

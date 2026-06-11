@@ -172,8 +172,28 @@ function Body({ report }: { report: MachineScanReport }) {
         subtitle={`${cpu.processor_name ?? "System"} · ${devices.total_count ?? 0} devices`}
         defaultOpen
       >
+        {/* System identity / asset info */}
+        {hw.system && (
+          <div className="grid gap-4 md:grid-cols-2">
+            <div>
+              <h4 className="mb-1 text-section-title">System identity</h4>
+              <KV label="Manufacturer" value={hw.system.manufacturer} />
+              <KV label="Model" value={hw.system.model} />
+              <KV label="System family" value={hw.system.system_family} />
+              <KV label="Chassis" value={hw.system.chassis_type} />
+            </div>
+            <div>
+              <h4 className="mb-1 text-section-title">Asset</h4>
+              <KV label="Serial number" value={hw.system.serial_number} />
+              <KV label="Asset tag" value={hw.system.asset_tag} />
+              <KV label="UUID" value={hw.system.uuid} />
+              <KV label="Role" value={hw.system.domain_role} />
+            </div>
+          </div>
+        )}
+
         {/* Core components */}
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div>
             <h4 className="mb-1 text-section-title">CPU</h4>
             <KV label="Processor" value={cpu.processor_name} />
@@ -181,6 +201,8 @@ function Body({ report }: { report: MachineScanReport }) {
             <KV label="Current usage" value={cpu.current_usage_pct != null ? `${cpu.current_usage_pct}%` : null} />
             <KV label="Frequency" value={cpu.current_frequency_mhz ? `${cpu.current_frequency_mhz} MHz` : null} />
             <KV label="Max frequency" value={cpu.max_frequency_mhz ? `${cpu.max_frequency_mhz} MHz` : null} />
+            <KV label="L2 / L3 cache" value={cpu.l2_cache_kb || cpu.l3_cache_kb ? `${cpu.l2_cache_kb ?? "?"} KB / ${cpu.l3_cache_kb ?? "?"} KB` : null} />
+            <KV label="Virtualization (firmware)" value={cpu.virtualization_firmware_enabled} />
             <KV label="Temperature" value={cpu.temperature_c ? `${cpu.temperature_c}°C` : null} />
           </div>
           <div>
@@ -190,6 +212,14 @@ function Body({ report }: { report: MachineScanReport }) {
             <KV label="Utilization" value={ram.utilization_pct != null ? `${ram.utilization_pct}%` : null} />
             <KV label="Modules" value={ram.module_count} />
             <KV label="Speed" value={ram.speed_mhz ? `${ram.speed_mhz} MHz` : null} />
+            <KV
+              label="Page file"
+              value={
+                ram.virtual_memory?.total_gb
+                  ? `${ram.virtual_memory.used_gb ?? "?"} / ${ram.virtual_memory.total_gb} GB (${ram.virtual_memory.used_pct ?? "?"}%)`
+                  : null
+              }
+            />
           </div>
         </div>
 
@@ -225,6 +255,22 @@ function Body({ report }: { report: MachineScanReport }) {
               { key: "usage_pct", label: "Used %" },
             ]}
           />
+          {(hw.storage?.physical_disks ?? []).length > 0 && (
+            <div className="mt-2">
+              <h4 className="mb-1 text-section-title">Physical disks</h4>
+              <Table
+                rows={hw.storage.physical_disks}
+                columns={[
+                  { key: "name", label: "Disk" },
+                  { key: "media_type", label: "Type" },
+                  { key: "bus_type", label: "Bus" },
+                  { key: "size_gb", label: "Size GB" },
+                  { key: "firmware_version", label: "Firmware" },
+                  { key: "serial_number", label: "Serial" },
+                ]}
+              />
+            </div>
+          )}
           {(hw.disk_health?.disks ?? []).length > 0 && (
             <div className="mt-2">
               <h4 className="mb-1 text-section-title">Disk health (SMART)</h4>
@@ -234,6 +280,11 @@ function Body({ report }: { report: MachineScanReport }) {
                   { key: "name", label: "Disk" },
                   { key: "smart_health", label: "SMART" },
                   { key: "media_type", label: "Type" },
+                  { key: "temperature_c", label: "Temp °C" },
+                  { key: "wear_pct", label: "Wear %" },
+                  { key: "power_on_hours", label: "Power-on hrs" },
+                  { key: "read_errors", label: "Read errs" },
+                  { key: "write_errors", label: "Write errs" },
                 ]}
               />
             </div>
@@ -250,7 +301,25 @@ function Body({ report }: { report: MachineScanReport }) {
                 { key: "model", label: "Model" },
                 { key: "manufacturer", label: "Vendor" },
                 { key: "driver_version", label: "Driver" },
+                { key: "driver_date", label: "Driver date" },
                 { key: "vram_gb", label: "VRAM GB" },
+                { key: "resolution", label: "Resolution" },
+              ]}
+            />
+          </div>
+        )}
+
+        {/* Monitors */}
+        {(devices.monitors ?? []).length > 0 && (
+          <div className="mt-4">
+            <h4 className="mb-1 text-section-title">Monitors</h4>
+            <Table
+              rows={devices.monitors}
+              columns={[
+                { key: "manufacturer", label: "Manufacturer" },
+                { key: "model", label: "Model" },
+                { key: "serial_number", label: "Serial" },
+                { key: "year_of_manufacture", label: "Year" },
               ]}
             />
           </div>
@@ -370,6 +439,24 @@ function Body({ report }: { report: MachineScanReport }) {
           </div>
         </div>
 
+        {/* Activation / management state */}
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <div>
+            <h4 className="mb-1 text-section-title">Licensing / state</h4>
+            <KV label="Windows activated" value={os.activation?.activated} />
+            <KV label="Activation status" value={os.activation?.status} />
+            <KV label="Reboot pending" value={os.pending_reboot?.required} />
+            <KV label="Power plan" value={os.power_plan?.active_plan} />
+          </div>
+          <div>
+            <h4 className="mb-1 text-section-title">Enterprise join</h4>
+            <KV label="Azure AD joined" value={os.join_status?.azure_ad_joined} />
+            <KV label="Domain joined" value={os.join_status?.domain_joined} />
+            <KV label="Domain" value={os.join_status?.domain_name} />
+            <KV label="Azure tenant" value={os.join_status?.azure_tenant} />
+          </div>
+        </div>
+
         {/* Security */}
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div>
@@ -378,9 +465,49 @@ function Body({ report }: { report: MachineScanReport }) {
             </h4>
             <KV label="Real-time protection" value={sec.windows_defender?.realtime_protection} />
             <KV label="Antivirus enabled" value={sec.windows_defender?.antivirus_enabled} />
+            <KV
+              label="Signature age"
+              value={sec.windows_defender?.signature_age_days != null ? `${sec.windows_defender.signature_age_days} day(s)` : null}
+            />
+            <KV
+              label="Last quick scan"
+              value={sec.windows_defender?.last_quick_scan_days_ago != null ? `${sec.windows_defender.last_quick_scan_days_ago} day(s) ago` : null}
+            />
             <KV label="Firewall all on" value={sec.firewall?.all_enabled} />
             <KV label="System drive encrypted" value={sec.bitlocker?.system_drive_protected} />
+            <KV label="UAC enabled" value={sec.uac?.enabled} />
+            <KV label="Tamper protection" value={sec.windows_defender?.tamper_protection} />
           </div>
+          <div>
+            <h4 className="mb-1 text-section-title">Platform / access security</h4>
+            <KV label="Secure Boot" value={sec.secure_boot?.enabled} />
+            <KV label="TPM present" value={sec.tpm?.present} />
+            <KV label="TPM ready" value={sec.tpm?.ready} />
+            <KV label="TPM version" value={sec.tpm?.spec_version} />
+            <KV label="RDP enabled" value={sec.remote_access?.rdp_enabled} />
+            <KV label="SMBv1 enabled" value={sec.remote_access?.smb1_enabled} />
+            <KV label="Local administrators" value={sec.local_accounts?.administrator_count} />
+            <KV label="Guest account enabled" value={sec.local_accounts?.guest_account_enabled} />
+          </div>
+        </div>
+
+        {/* Local administrators detail */}
+        {(sec.local_accounts?.administrators ?? []).length > 0 && (
+          <div className="mt-4">
+            <h4 className="mb-1 text-section-title">Local administrators</h4>
+            <Table
+              rows={sec.local_accounts.administrators}
+              columns={[
+                { key: "name", label: "Account" },
+                { key: "type", label: "Type" },
+                { key: "source", label: "Source" },
+              ]}
+            />
+          </div>
+        )}
+
+        {/* Networking */}
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div>
             <h4 className="mb-1 text-section-title">Networking</h4>
             <KV label="IP address" value={net.ip_config?.ip_address} />
@@ -389,8 +516,36 @@ function Body({ report }: { report: MachineScanReport }) {
             <KV label="Internet" value={conn.internet} />
             <KV label="Internet latency" value={conn.internet_latency_ms != null ? `${conn.internet_latency_ms} ms` : null} />
             <KV label="DNS resolution" value={conn.dns_resolution} />
+            <KV label="Proxy enabled" value={net.proxy?.proxy_enabled} />
+            <KV label="Proxy server" value={net.proxy?.proxy_server} />
+          </div>
+          <div>
+            <h4 className="mb-1 text-section-title">Wi-Fi / exposure</h4>
+            <KV label="Wi-Fi connected" value={net.wifi?.connected} />
+            <KV label="SSID" value={net.wifi?.ssid} />
+            <KV label="Signal" value={net.wifi?.signal_pct != null ? `${net.wifi.signal_pct}%` : null} />
+            <KV label="Band / radio" value={net.wifi?.band ? `${net.wifi.band} · ${net.wifi.radio_type ?? ""}` : net.wifi?.radio_type} />
+            <KV label="Listening ports" value={net.connections?.listening_port_count} />
+            <KV label="Established connections" value={net.connections?.established_count} />
           </div>
         </div>
+
+        {/* Notable open ports */}
+        {(net.connections?.notable_listening ?? []).length > 0 && (
+          <div className="mt-4">
+            <h4 className="mb-1 text-xs font-semibold uppercase text-severity-warning">
+              Notable listening ports
+            </h4>
+            <Table
+              rows={net.connections.notable_listening}
+              columns={[
+                { key: "port", label: "Port" },
+                { key: "service", label: "Service" },
+                { key: "process", label: "Process" },
+              ]}
+            />
+          </div>
+        )}
 
         {/* Stability: crashes + services */}
         <div className="mt-4 grid gap-4 md:grid-cols-2">
@@ -414,6 +569,8 @@ function Body({ report }: { report: MachineScanReport }) {
             )}
             <KV label="Startup programs" value={startup.total_count} />
             <KV label="High-impact startup" value={startup.high_impact_count} />
+            <KV label="Scheduled tasks (enabled)" value={startup.scheduled_tasks?.enabled_total} />
+            <KV label="Logon/boot tasks" value={startup.scheduled_tasks?.logon_boot_count} />
           </div>
         </div>
 
@@ -451,6 +608,41 @@ function Body({ report }: { report: MachineScanReport }) {
           />
         </div>
 
+        {/* Recently installed */}
+        {(sw.recently_installed_30d ?? []).length > 0 && (
+          <div className="mt-4">
+            <h4 className="mb-1 text-section-title">
+              Installed in the last 30 days ({sw.recently_installed_30d.length})
+            </h4>
+            <Table
+              rows={sw.recently_installed_30d}
+              columns={[
+                { key: "name", label: "Name" },
+                { key: "version", label: "Version" },
+                { key: "publisher", label: "Publisher" },
+                { key: "install_date", label: "Installed" },
+              ]}
+            />
+          </div>
+        )}
+
+        {/* Remote access tools - audit relevance */}
+        {(sw.remote_access_tools ?? []).length > 0 && (
+          <div className="mt-4">
+            <h4 className="mb-1 text-xs font-semibold uppercase text-severity-warning">
+              Remote-access tools detected
+            </h4>
+            <Table
+              rows={sw.remote_access_tools}
+              columns={[
+                { key: "name", label: "Name" },
+                { key: "version", label: "Version" },
+                { key: "publisher", label: "Publisher" },
+              ]}
+            />
+          </div>
+        )}
+
         {/* All installed applications */}
         <div className="mt-4">
           <h4 className="mb-1 text-section-title">
@@ -462,6 +654,7 @@ function Body({ report }: { report: MachineScanReport }) {
               { key: "name", label: "Name" },
               { key: "version", label: "Version" },
               { key: "publisher", label: "Publisher" },
+              { key: "install_date", label: "Installed" },
             ]}
           />
         </div>

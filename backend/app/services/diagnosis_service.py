@@ -88,7 +88,7 @@ _STEP_TEMPLATE = [
 
 _CONVERSATIONAL_REPLIES: dict[Intent, str] = {
     "greeting": (
-        "Hi! I'm Cache AI Assistant. Describe any IT issue on this machine - "
+        "Hi! I'm HelpDesk Assistant. Describe any IT issue on this machine - "
         "for example, \"Bluetooth won't connect\", \"this PC won't start\", or \"Wi-Fi keeps dropping\" - "
         "and I'll run a live scan of the related drivers, services, devices, and logs to pinpoint the cause."
     ),

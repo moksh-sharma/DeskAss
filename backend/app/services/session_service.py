@@ -9,6 +9,7 @@ from typing import Any, Optional
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session as OrmSession
 
+from app.core.config import get_settings
 from app.core.exceptions import ResourceNotFoundError
 from app.core.logging import get_logger
 from app.db.models import Message, Session
@@ -160,7 +161,7 @@ def _render_pdf(detail: SessionDetail) -> bytes:
     }
 
     story: list[Any] = [
-        Paragraph(f"Cache AI Assistant - Session #{detail.id}", styles["Title"]),
+        Paragraph(f"{get_settings().app_name} - Session #{detail.id}", styles["Title"]),
         Paragraph(f"<b>{_esc(detail.title)}</b>", styles["Heading2"]),
         Paragraph(f"Created: {detail.created_at:%Y-%m-%d %H:%M} UTC", styles["Normal"]),
         Spacer(1, 8 * mm),

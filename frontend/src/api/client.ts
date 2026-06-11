@@ -1,5 +1,6 @@
 import type {
   DiagnoseResponse,
+  DiagnosisResult,
   EventLogSummary,
   HealthReport,
   MachineAiSummary,
@@ -13,8 +14,27 @@ import type {
   TranscriptionResponse,
 } from "@/types";
 
-const BASE_URL =
-  (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? "http://127.0.0.1:8003";
+/** Resolve API base: explicit env, dev proxy (same origin), or local backend default. */
+function resolveApiBase(): string {
+  const configured = (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim();
+  if (configured) return configured.replace(/\/$/, "");
+  if (import.meta.env.DEV && typeof window !== "undefined" && window.location.protocol.startsWith("http")) {
+    return window.location.origin;
+  }
+  return "http://127.0.0.1:8003";
+}
+
+const BASE_URL = resolveApiBase();
+
+/** WebSocket URL for live voice transcription (proxied in Vite dev). */
+export type VoiceLanguage = "multi" | "en" | "hi";
+
+export function voiceStreamUrl(language: VoiceLanguage = "multi"): string {
+  const url = new URL("/api/voice/stream", BASE_URL);
+  url.searchParams.set("language", language);
+  url.protocol = url.protocol === "https:" ? "wss:" : "ws:";
+  return url.href;
+}
 
 /** Diagnosis can take several minutes (diagnostics + event logs + remote Ollama). */
 /** Full machine scan (~1 min) + remote Ollama diagnosis. */
@@ -105,6 +125,18 @@ export interface DiagnosePayload {
   ocr_text?: string | null;
 }
 
+export interface RaiseTicketPayload {
+  session_id?: number | null;
+  user_issue: string;
+  diagnosis?: DiagnosisResult;
+  assistant_reply?: string;
+}
+
+export interface RaiseTicketResponse {
+  sent: boolean;
+  message: string;
+}
+
 /** Strip bulky lists before sending a scan to the summary endpoint. */
 function slimScanForSummary(report: MachineScanReport) {
   const hw = report.hardware ?? {};
@@ -190,6 +222,12 @@ export const api = {
       DIAGNOSE_TIMEOUT_MS,
       "Diagnosis",
     ),
+
+  raiseTicket: (payload: RaiseTicketPayload) =>
+    request<RaiseTicketResponse>("/api/chat/raise-ticket", {
+      method: "POST",
+      body: JSON.stringify(payload),
+    }),
 
   listSessions: () => request<SessionSummary[]>("/api/sessions"),
 

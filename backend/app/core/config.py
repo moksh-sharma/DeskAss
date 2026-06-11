@@ -21,7 +21,7 @@ class Settings(BaseSettings):
     )
 
     # Application
-    app_name: str = "Cache AI Assistant"
+    app_name: str = "HelpDesk Assistant"
     app_env: str = "development"
     log_level: str = "INFO"
     api_host: str = "0.0.0.0"
@@ -36,9 +36,12 @@ class Settings(BaseSettings):
     ollama_timeout_seconds: float = 360.0
     ollama_temperature: float = 0.2
 
-    # Vosk
-    vosk_api_url: str = "http://172.16.200.26:8001"
-    vosk_timeout_seconds: float = 120.0
+    # Deepgram (Speech-to-Text) — multilingual Hindi + English
+    deepgram_api_key: str = ""
+    deepgram_model: str = "nova-3"
+    # multi = auto Hindi/English code-switching; also accepts en or hi
+    deepgram_language: str = "multi"
+    deepgram_timeout_seconds: float = 120.0
 
     # RAG / Knowledge base
     chroma_dir: str = "./chroma_store"
@@ -60,6 +63,22 @@ class Settings(BaseSettings):
 
     # Storage
     upload_dir: str = "./uploads"
+
+    # Support tickets (email)
+    ticket_email_to: str = ""
+    # auto | smtp | graph — auto uses Graph when Azure credentials are set.
+    ticket_email_transport: str = "auto"
+    smtp_host: str = ""
+    smtp_port: int = 587
+    smtp_user: str = ""
+    smtp_password: str = ""
+    smtp_from: str = ""
+    smtp_use_tls: bool = True
+    # Microsoft Graph (works when M365 SMTP AUTH is disabled on the tenant)
+    azure_tenant_id: str = ""
+    azure_client_id: str = ""
+    azure_client_secret: str = ""
+    graph_send_as_user: str = ""
 
     @property
     def cors_origin_list(self) -> list[str]:

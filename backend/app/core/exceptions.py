@@ -26,7 +26,7 @@ class AppError(Exception):
 
 
 class ExternalServiceError(AppError):
-    """Raised when an upstream dependency (Ollama, Vosk) fails."""
+    """Raised when an upstream dependency (Ollama, Deepgram) fails."""
 
     status_code = 502
     error_code = "external_service_error"

@@ -17,7 +17,7 @@ function createWindow(): void {
     minWidth: 1100,
     minHeight: 700,
     backgroundColor: "#0b0f17",
-    title: "Cache AI Assistant",
+    title: "HelpDesk Assistant",
     autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirnameResolved, "preload.js"),
