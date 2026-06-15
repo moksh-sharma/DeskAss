@@ -112,12 +112,15 @@ export function Toolbar() {
     }
   };
 
+  const iconBtn =
+    "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/70 bg-white/50 text-content-muted backdrop-blur-md transition-all duration-200 hover:bg-white/80 hover:text-accent hover:shadow-glass-sm";
+
   return (
-    <div className="border-t border-base-700/60 bg-base-850 px-6 py-4 shadow-[0_-4px_12px_rgba(0,0,0,0.15)] backdrop-blur-md bg-opacity-98">
+    <div className="glass border-t border-white/50 px-6 py-4">
       {pendingOcrText && (
-        <div className="mb-3 flex items-start gap-2.5 rounded-lg border border-severity-info/20 bg-severity-info/5 px-4 py-2.5 text-xs text-severity-info shadow-inner">
-          <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-severity-info/10">
-            <CameraIcon className="h-3 w-3 text-severity-info" />
+        <div className="mx-auto mb-3 flex max-w-4xl items-start gap-2.5 rounded-xl border border-sky-200/60 bg-sky-50/60 px-4 py-2.5 text-xs text-sky-800 backdrop-blur-md">
+          <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-200/60">
+            <CameraIcon className="h-3 w-3 text-sky-700" />
           </div>
           <span className="flex-1 line-clamp-2 leading-relaxed">
             <strong className="font-bold">Screenshot attached:</strong> {pendingOcrText.slice(0, 180)}
@@ -125,19 +128,18 @@ export function Toolbar() {
           </span>
           <button
             onClick={() => setPendingOcrText(null)}
-            className="shrink-0 px-2 py-0.5 rounded bg-severity-info/10 text-[10px] font-bold uppercase hover:bg-severity-info/20 transition-colors"
+            className="shrink-0 rounded-lg bg-white/60 px-2 py-0.5 text-[10px] font-bold uppercase transition-colors hover:bg-white/90"
           >
             Remove
           </button>
         </div>
       )}
 
-      <div className="flex items-end gap-3 max-w-4xl mx-auto">
+      <div className="mx-auto flex max-w-4xl items-end gap-3">
         <input ref={fileRef} type="file" accept="image/*" hidden onChange={handleScreenshot} />
 
-        {/* Voice language: Hindi + English auto, or fixed EN / HI */}
         <div
-          className="flex shrink-0 items-center gap-0.5 rounded-xl border border-base-700/50 bg-base-900/50 p-0.5"
+          className="flex shrink-0 items-center gap-0.5 rounded-xl border border-white/70 bg-white/40 p-0.5 backdrop-blur-md"
           title="Voice language — Auto detects Hindi and English (Hinglish)"
         >
           {(["multi", "en", "hi"] as const).map((lang) => (
@@ -146,17 +148,17 @@ export function Toolbar() {
               type="button"
               disabled={recorder.isRecording}
               onClick={() => setVoiceLanguage(lang)}
-              className={`rounded-lg px-2 py-1.5 text-[9px] font-bold uppercase tracking-wider transition-colors ${voiceLanguage === lang
-                  ? "bg-accent/25 text-accent shadow-sm"
+              className={`rounded-lg px-2 py-1.5 text-[9px] font-bold uppercase tracking-wider transition-all duration-200 ${
+                voiceLanguage === lang
+                  ? "bg-white/80 text-accent shadow-glass-sm"
                   : "text-content-muted hover:text-content-secondary"
-                } disabled:opacity-40`}
+              } disabled:opacity-40`}
             >
               {lang === "multi" ? "Auto" : lang === "en" ? "EN" : "हि"}
             </button>
           ))}
         </div>
 
-        {/* Action Button: Voice Input */}
         <button
           onClick={handleMic}
           title={
@@ -168,32 +170,27 @@ export function Toolbar() {
                   ? "Voice input — Hindi"
                   : "Voice input — English"
           }
-          className={`h-11 w-11 shrink-0 flex items-center justify-center rounded-xl transition-all duration-200 relative ${recorder.isRecording
-              ? "bg-severity-critical text-white shadow-lg shadow-severity-critical/30 animate-pulse scale-105"
-              : "bg-base-700 hover:bg-base-600 text-gray-300 hover:text-white border border-base-600/30"
-            }`}
+          className={`relative shrink-0 rounded-xl transition-all duration-200 ${
+            recorder.isRecording
+              ? "flex h-11 w-11 items-center justify-center bg-gradient-to-br from-red-500 to-rose-600 text-white shadow-lg shadow-red-300/40 animate-pulse scale-105"
+              : iconBtn
+          }`}
         >
-          {recorder.isRecording ? (
-            <MicOffIcon className="h-5 w-5" />
-          ) : (
-            <MicIcon className="h-5 w-5" />
-          )}
+          {recorder.isRecording ? <MicOffIcon className="h-5 w-5" /> : <MicIcon className="h-5 w-5" />}
           {recorder.isRecording && (
             <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-red-400 animate-ping" />
           )}
         </button>
 
-        {/* Action Button: Add Screenshot */}
         <button
           onClick={() => fileRef.current?.click()}
           title="Upload screenshot for OCR analysis"
-          className="h-11 w-11 shrink-0 flex items-center justify-center rounded-xl bg-base-700 hover:bg-base-600 text-gray-300 hover:text-white border border-base-600/30 transition-all duration-150"
+          className={iconBtn}
         >
           <CameraIcon className="h-5 w-5" />
         </button>
 
-        {/* Message Input Box */}
-        <div className="flex-1 relative flex items-center">
+        <div className="relative flex flex-1 items-center">
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -205,12 +202,12 @@ export function Toolbar() {
             }}
             rows={1}
             placeholder="Describe your issue in English or Hindi…"
-            className="max-h-32 min-h-[44px] w-full resize-none rounded-xl border border-base-700 bg-base-900 px-4 py-3 pr-10 text-sm text-content-primary placeholder:text-content-muted focus:border-accent focus:ring-1 focus:ring-accent/30 focus:outline-none transition-all duration-150 leading-relaxed shadow-inner"
+            className="glass-input max-h-32 min-h-[44px] w-full resize-none rounded-2xl px-4 py-3 pr-12 text-sm text-content-primary placeholder:text-content-faint leading-relaxed"
           />
           {text.trim() && (
             <button
               onClick={handleSend}
-              className="absolute right-3 bottom-2.5 h-6 w-6 flex items-center justify-center rounded-lg bg-accent text-white hover:bg-accent-hover transition-all active:scale-95 duration-100"
+              className="absolute right-3 bottom-2.5 flex h-7 w-7 items-center justify-center rounded-xl bg-accent-shine text-white shadow-glow-sm transition-all hover:scale-105 active:scale-95"
               title="Send message"
             >
               <SendIcon className="h-3.5 w-3.5" />
@@ -218,15 +215,14 @@ export function Toolbar() {
           )}
         </div>
 
-        {/* Quick Send/Diagnostic Actions */}
         {!text.trim() && (
           <button
             onClick={runMachineScan}
             disabled={isMachineScanning}
             title="Run full system scan with troubleshooter"
-            className="h-11 px-4 rounded-xl font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-1.5 transition-all duration-150 border border-accent/20 bg-accent/10 hover:bg-accent/20 text-accent disabled:opacity-50"
+            className="flex h-11 shrink-0 items-center justify-center gap-1.5 rounded-xl border border-accent/25 bg-accent/10 px-4 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-md transition-all hover:bg-accent/18 hover:shadow-glow-sm disabled:opacity-50"
           >
-            <SparklesIcon className={`h-4 w-4 ${isMachineScanning ? "animate-spin text-accent" : ""}`} />
+            <SparklesIcon className={`h-4 w-4 ${isMachineScanning ? "animate-spin" : ""}`} />
             {isMachineScanning ? "Scanning…" : "Full Scan"}
           </button>
         )}

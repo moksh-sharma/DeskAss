@@ -36,27 +36,27 @@ export function IssueScanSidebar() {
   const hasScans = scans.length > 0;
 
   return (
-    <aside className="flex h-full w-72 shrink-0 flex-col border-l border-base-700/60 bg-base-850 shadow-xl">
-      <div className="flex items-center gap-3 border-b border-base-700/40 bg-base-800/20 px-5 py-5">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 text-white shadow-lg shadow-emerald-500/15">
+    <aside className="glass-sidebar flex h-full w-72 shrink-0 flex-col border-l">
+      <div className="flex items-center gap-3 border-b border-white/40 px-5 py-5">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 text-white shadow-glow-sm">
           <ScanIcon className="h-5 w-5" />
         </div>
         <div className="min-w-0">
-          <div className="truncate text-sm font-extrabold tracking-wide text-white">Issue Scan</div>
-          <div className="mt-0.5 flex items-center gap-1.5 text-[11px] font-medium text-content-body">
+          <div className="truncate text-sm font-extrabold tracking-tight text-content-primary">Issue Scan</div>
+          <div className="mt-0.5 flex items-center gap-1.5 text-[11px] font-medium text-content-muted">
             {isDiagnosing ? (
               <>
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+                <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
                 Scanning…
               </>
             ) : hasScans ? (
               <>
-                <span className="h-1.5 w-1.5 rounded-full bg-severity-healthy" />
+                <span className="h-2 w-2 rounded-full bg-severity-healthy" />
                 {scans.length} issue scan{scans.length === 1 ? "" : "s"}
               </>
             ) : (
               <>
-                <span className="h-1.5 w-1.5 rounded-full bg-base-600" />
+                <span className="h-2 w-2 rounded-full bg-content-faint/50" />
                 Awaiting issue
               </>
             )}
@@ -65,30 +65,16 @@ export function IssueScanSidebar() {
       </div>
 
       <LenisScroll className="min-h-0 flex-1" contentClassName="px-4 py-4">
-        {isDiagnosing && (
-          <div className="mb-4 flex flex-col items-center justify-center rounded-xl border border-base-700/30 bg-base-900/20 px-3 py-8 text-center">
-            <div className="h-8 w-8 animate-spin rounded-full border-2 border-accent/30 border-t-accent" />
-            <p className="mt-4 text-xs font-semibold text-content-secondary">
-              Running issue scan…
-            </p>
-            <p className="mt-1 text-[11px] text-content-muted">
-              Checks for your latest issue will appear below when ready.
-            </p>
-          </div>
-        )}
-
         {!isDiagnosing && !hasScans && (
           <div className="px-2 py-10 text-center text-empty">
-            Describe an issue in chat to run a targeted scan. Each issue you report will appear
-            here with its scan results.
+            Describe an issue in chat to run a targeted scan. Each issue you report will appear here with its scan
+            results.
           </div>
         )}
 
         {hasScans && (
           <div className="space-y-4">
-            {scans.length > 1 && (
-              <h4 className="text-label px-1">All issue scans</h4>
-            )}
+            {scans.length > 1 && <h4 className="text-label px-1">All issue scans</h4>}
             {scans.map((entry, index) => (
               <IssueScanDetails
                 key={entry.messageId}

@@ -38,42 +38,42 @@ export function FindingCard({
   const [open, setOpen] = useState(true);
   const accentBorder =
     finding.severity === "Critical"
-      ? "border-severity-critical/40 shadow-severity-critical/5 bg-gradient-to-r from-severity-critical/5 to-transparent"
+      ? "border-red-200/60 bg-gradient-to-r from-red-50/60 to-white/30"
       : finding.severity === "Warning"
-        ? "border-severity-warning/40 shadow-severity-warning/5 bg-gradient-to-r from-severity-warning/5 to-transparent"
-        : "border-base-700 bg-base-850";
+        ? "border-amber-200/60 bg-gradient-to-r from-amber-50/60 to-white/30"
+        : "border-white/55";
 
   return (
-    <div className={`card border ${accentBorder} p-5 hover:border-base-600 transition-all duration-200 relative overflow-hidden group`}>
+    <div className={`card relative overflow-hidden border p-5 transition-all duration-200 ${accentBorder}`}>
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
             <span className={`text-sm font-bold tracking-tight ${severityColor(finding.severity)}`}>
               {finding.title}
             </span>
-            <span className="rounded-full bg-base-700 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-widest text-content-body border border-base-600/30">
+            <span className="rounded-full border border-white/60 bg-white/50 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-widest text-content-muted backdrop-blur-sm">
               {finding.area}
             </span>
           </div>
-          <p className="mt-1.5 text-caption text-content-secondary">{finding.detected}</p>
+          <p className="mt-1.5 text-caption">{finding.detected}</p>
         </div>
         <button
           onClick={() => setOpen((v) => !v)}
-          className="shrink-0 px-2.5 py-1 text-[11px] font-bold uppercase text-accent hover:bg-accent/10 border border-transparent hover:border-accent/20 rounded-lg transition-colors select-none"
+          className="shrink-0 select-none rounded-lg border border-transparent px-2.5 py-1 text-[11px] font-bold uppercase text-accent transition-colors hover:border-accent/20 hover:bg-accent/8"
         >
           {open ? "Collapse" : "Expand"}
         </button>
       </div>
 
       {open && (
-        <div className="mt-4 pt-4 border-t border-base-700/30 space-y-4">
+        <div className="mt-4 space-y-4 border-t border-white/40 pt-4">
           {finding.likely_cause && (
             <div>
               <h5 className="text-label flex items-center gap-1.5">
                 <ShieldAlertIcon className="h-3.5 w-3.5 text-content-muted" />
                 Likely Cause
               </h5>
-              <p className="mt-1 text-caption text-content-secondary">{finding.likely_cause}</p>
+              <p className="mt-1 text-caption">{finding.likely_cause}</p>
             </div>
           )}
 
@@ -85,11 +85,11 @@ export function FindingCard({
               </h5>
               <ol className="mt-2 space-y-1.5">
                 {finding.resolution_steps.map((s, i) => (
-                  <li key={i} className="flex items-start gap-2.5 rounded-xl border border-base-700 bg-base-750 p-2.5">
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-accent text-[10px] font-black text-white shadow-sm shadow-accent/10 select-none">
+                  <li key={i} className="flex items-start gap-2.5 rounded-xl border border-white/50 bg-white/35 p-2.5 backdrop-blur-sm">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-accent-shine text-[10px] font-black text-white shadow-glow-sm select-none">
                       {i + 1}
                     </span>
-                    <span className="pt-0.5 text-caption text-content-secondary">{s}</span>
+                    <span className="pt-0.5 text-caption">{s}</span>
                   </li>
                 ))}
               </ol>
@@ -102,7 +102,7 @@ export function FindingCard({
                 <span
                   key={r.doc_id}
                   title={r.snippet}
-                  className="rounded-xl border border-base-700 bg-base-900/30 px-3 py-1 text-[10px] font-semibold text-content-body shadow-sm"
+                  className="rounded-xl border border-white/55 bg-white/40 px-3 py-1 text-[10px] font-semibold text-content-body shadow-glass-sm backdrop-blur-sm"
                 >
                   📄 {r.title}
                 </span>
@@ -114,7 +114,7 @@ export function FindingCard({
             <button
               onClick={() => onAskAi(finding.ask_ai_prompt)}
               disabled={busy || !finding.ask_ai_prompt}
-              className="rounded-xl bg-accent px-4 py-2 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-accent/10 hover:shadow-accent/20 transition-all hover:-translate-y-px active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2"
+              className="btn-primary flex items-center gap-2 px-4 py-2 text-xs disabled:pointer-events-none"
             >
               <AskIcon className="h-4 w-4" />
               Ask AI for Detailed Fix

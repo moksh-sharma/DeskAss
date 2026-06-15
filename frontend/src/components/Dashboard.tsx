@@ -3,7 +3,6 @@ import { useStore } from "@/store/useStore";
 import { MetricCard } from "@/components/common/MetricCard";
 import { LenisScroll } from "@/components/LenisScroll";
 
-// Beautiful SVG Icons for Metric Cards
 function CpuIcon({ className }: { className?: string }) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -67,35 +66,33 @@ export function Dashboard() {
 
   if (!metrics) {
     return (
-      <div className="flex h-full flex-col items-center justify-center gap-3 text-content-body">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-base-700 border-t-accent" />
+      <div className="flex h-full flex-col items-center justify-center gap-3">
+        <div className="h-9 w-9 animate-spin rounded-full border-2 border-accent/20 border-t-accent" />
         <p className="text-sm font-medium text-content-primary">Loading system metrics…</p>
       </div>
     );
   }
 
   return (
-    <LenisScroll className="h-full bg-base-900 bg-opacity-40" contentClassName="p-6">
+    <LenisScroll className="h-full" contentClassName="p-6">
       <div className="mx-auto max-w-5xl space-y-6">
-        {/* Header */}
-        <div className="flex items-center justify-between border-b border-base-700/20 pb-4">
+        <div className="flex items-center justify-between border-b border-white/40 pb-4">
           <div>
-            <h1 className="text-lg font-black text-white tracking-tight uppercase">System Health Dashboard</h1>
-            <p className="text-caption text-content-muted mt-0.5">Live real-time telemetry from this PC</p>
+            <h1 className="text-lg font-extrabold tracking-tight text-content-primary">System Health Dashboard</h1>
+            <p className="mt-0.5 text-caption text-content-muted">Live real-time telemetry from this PC</p>
           </div>
           <button
             onClick={refreshMetrics}
             disabled={metricsLoading}
-            className="btn-ghost text-xs font-semibold px-4 py-2 border border-base-700/60 rounded-xl hover:border-base-500 active:scale-95 transition-all duration-150 flex items-center gap-2"
+            className="btn-ghost flex items-center gap-2 px-4 py-2 text-xs font-semibold normal-case tracking-normal"
           >
             {metricsLoading && (
-              <div className="h-3 w-3 animate-spin rounded-full border-2 border-gray-400 border-t-transparent" />
+              <div className="h-3 w-3 animate-spin rounded-full border-2 border-accent/30 border-t-accent" />
             )}
             {metricsLoading ? "Refreshing…" : "Refresh Telemetry"}
           </button>
         </div>
 
-        {/* Metric Cards Grid */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <MetricCard
             label="CPU Utilization"
@@ -142,8 +139,7 @@ export function Dashboard() {
           />
         </div>
 
-        {/* Process Tables */}
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 pt-2">
+        <div className="grid grid-cols-1 gap-5 pt-2 lg:grid-cols-2">
           <ProcessTable title="Highest CPU Consumers" rows={metrics.top_cpu_processes} unit="%" field="cpu_percent" />
           <ProcessTable title="Highest Memory Consumers" rows={metrics.top_memory_processes} unit=" MB" field="memory_mb" />
         </div>
@@ -164,30 +160,32 @@ function ProcessTable({
   field: "cpu_percent" | "memory_mb";
 }) {
   return (
-    <div className="card p-5 bg-base-850 shadow-md hover:border-base-700/65 transition-colors duration-200">
-      <h3 className="mb-4 text-section-title border-b border-base-700/30 pb-2 flex items-center justify-between">
+    <div className="glass-card p-5">
+      <h3 className="mb-4 flex items-center justify-between border-b border-white/40 pb-2 text-section-title">
         <span>{title}</span>
-        <span className="text-[10px] text-content-muted font-bold lowercase tracking-normal">({rows.slice(0, 10).length} active)</span>
+        <span className="text-[10px] font-bold lowercase tracking-normal text-content-muted">
+          ({rows.slice(0, 10).length} active)
+        </span>
       </h3>
       <div className="overflow-x-auto">
         <table className="w-full text-xs">
           <thead>
-            <tr className="text-content-muted font-extrabold text-left border-b border-base-700/20">
-              <th className="pb-1.5 font-bold uppercase tracking-wider text-[9px]">Process Name</th>
-              <th className="pb-1.5 text-right font-bold uppercase tracking-wider text-[9px]">{field === "cpu_percent" ? "CPU Load" : "Memory Workset"}</th>
+            <tr className="border-b border-white/35 text-left text-[9px] font-extrabold uppercase tracking-wider text-content-muted">
+              <th className="pb-1.5 font-bold">Process Name</th>
+              <th className="pb-1.5 text-right font-bold">{field === "cpu_percent" ? "CPU Load" : "Memory Workset"}</th>
             </tr>
           </thead>
           <tbody>
             {rows.slice(0, 10).map((p, idx) => (
-              <tr key={`${p.pid}-${idx}`} className="border-b border-base-700/30 last:border-0 hover:bg-base-800/40 transition-colors duration-100">
-                <td className="py-2 text-content-secondary font-semibold flex items-center gap-2">
-                  <span className="text-content-muted font-mono select-none">{idx + 1}</span>
-                  <span className="truncate max-w-[200px]">{p.name}</span>
-                  <span className="text-[9px] font-bold text-content-muted font-mono">PID {p.pid}</span>
+              <tr key={`${p.pid}-${idx}`} className="border-b border-white/30 transition-colors duration-100 last:border-0 hover:bg-white/30">
+                <td className="flex items-center gap-2 py-2 font-semibold text-content-secondary">
+                  <span className="select-none font-mono text-content-muted">{idx + 1}</span>
+                  <span className="max-w-[200px] truncate">{p.name}</span>
+                  <span className="font-mono text-[9px] font-bold text-content-muted">PID {p.pid}</span>
                 </td>
                 <td className="py-2 text-right font-bold text-content-secondary">
                   {p[field]}
-                  <span className="text-[10px] text-content-muted font-medium">{unit}</span>
+                  <span className="text-[10px] font-medium text-content-muted">{unit}</span>
                 </td>
               </tr>
             ))}

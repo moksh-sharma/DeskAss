@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useStore } from "@/store/useStore";
+import { LoadingAnimation } from "@/components/LoadingAnimation";
 import { LenisScroll } from "@/components/LenisScroll";
 import { MachineScanTroubleshooter } from "@/components/MachineScanTroubleshooter";
 import { formatDateTime } from "@/lib/format";
@@ -26,7 +27,7 @@ function ScoreRing({ score, status }: { score: number; status: string }) {
   return (
     <div className="relative h-32 w-32 shrink-0 select-none">
       <svg className="h-full w-full -rotate-90" viewBox="0 0 120 120">
-        <circle cx="60" cy="60" r={radius} fill="none" stroke="#1f2937" strokeWidth="8" />
+        <circle cx="60" cy="60" r={radius} fill="none" stroke="rgba(255,255,255,0.55)" strokeWidth="8" />
         <circle
           cx="60"
           cy="60"
@@ -41,7 +42,7 @@ function ScoreRing({ score, status }: { score: number; status: string }) {
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-3xl font-black text-white tracking-tight">{score}</span>
+        <span className="text-3xl font-black text-content-primary tracking-tight">{score}</span>
         <span className={`text-[10px] font-bold uppercase tracking-wider mt-0.5 ${statusColor(status)}`}>{status}</span>
       </div>
     </div>
@@ -62,7 +63,7 @@ function Val({ value }: { value: unknown }) {
 
 function KV({ label, value }: { label: string; value: unknown }) {
   return (
-    <div className="flex items-baseline justify-between gap-3 border-b border-base-700/30 py-2.5 text-xs last:border-0 hover:bg-base-800/10 px-1 rounded transition-colors">
+    <div className="flex items-baseline justify-between gap-3 border-b border-white/40/30 py-2.5 text-xs last:border-0 hover:bg-white/35/10 px-1 rounded transition-colors">
       <span className="text-content-body font-medium">{label}</span>
       <span className="text-right font-medium text-content-primary">
         <Val value={value} />
@@ -84,21 +85,21 @@ function Section({
 }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
-    <div className="card overflow-hidden border border-base-700/40 shadow-md bg-base-850 hover:border-base-700/60 transition-all duration-200">
+    <div className="card overflow-hidden border border-white/40/40 shadow-md glass-card hover:border-white/40/60 transition-all duration-200">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between px-5 py-4 text-left hover:bg-base-800/25 transition-colors relative"
+        className="flex w-full items-center justify-between px-5 py-4 text-left hover:bg-white/35/25 transition-colors relative"
       >
         <div className="absolute top-0 left-0 h-full w-1.5 bg-accent/40" />
         <div className="min-w-0">
-          <span className="text-sm font-bold text-white tracking-tight uppercase">{title}</span>
+          <span className="text-sm font-bold text-content-primary tracking-tight uppercase">{title}</span>
           {subtitle && <span className="ml-3 text-caption text-content-muted truncate">{subtitle}</span>}
         </div>
-        <span className={`text-[10px] text-gray-400 font-extrabold transition-transform duration-200 transform ${open ? "rotate-180" : ""}`}>
+        <span className={`text-[10px] text-content-faint font-extrabold transition-transform duration-200 transform ${open ? "rotate-180" : ""}`}>
           ▼
         </span>
       </button>
-      {open && <div className="border-t border-base-700/30 px-5 py-4 bg-base-900/10 space-y-4">{children}</div>}
+      {open && <div className="border-t border-white/40/30 px-5 py-4 bg-white/30/10 space-y-4">{children}</div>}
     </div>
   );
 }
@@ -106,11 +107,11 @@ function Section({
 function Table({ rows, columns }: { rows: any[]; columns: { key: string; label: string }[] }) {
   if (!rows || rows.length === 0) return <p className="text-empty">No records found.</p>;
   return (
-    <div className="overflow-hidden rounded-xl border border-base-700/30 shadow-inner">
+    <div className="overflow-hidden rounded-xl border border-white/40/30 shadow-inner">
       <div className="overflow-x-auto">
         <table className="w-full text-left text-xs">
           <thead>
-            <tr className="text-content-muted bg-base-800/30 uppercase tracking-wider text-[9px] font-bold border-b border-base-700/30">
+            <tr className="text-content-muted bg-white/35/30 uppercase tracking-wider text-[9px] font-bold border-b border-white/40/30">
               {columns.map((c) => (
                 <th key={c.key} className="px-3.5 py-2.5 font-extrabold">
                   {c.label}
@@ -120,7 +121,7 @@ function Table({ rows, columns }: { rows: any[]; columns: { key: string; label: 
           </thead>
           <tbody>
             {rows.map((r, i) => (
-              <tr key={i} className="border-t border-base-700/20 hover:bg-base-800/20 transition-colors">
+              <tr key={i} className="border-t border-white/40/20 hover:bg-white/35/20 transition-colors">
                 {columns.map((c) => (
                   <td key={c.key} className="px-3.5 py-2 text-content-secondary font-medium">
                     {r[c.key] === null || r[c.key] === undefined || r[c.key] === ""
@@ -673,13 +674,8 @@ export function MachineScanView() {
 
   if (isScanning) {
     return (
-      <div className="flex h-full flex-col items-center justify-center gap-3 text-content-body">
-        <div className="h-10 w-10 animate-spin rounded-full border-2 border-base-600 border-t-accent" />
-        <p className="text-sm text-content-primary">Running full system scan…</p>
-        <p className="max-w-md text-center text-caption text-content-muted">
-          Inventorying all hardware and software, running health scoring, and analysing issues with
-          the Windows troubleshooter. This can take up to a minute.
-        </p>
+      <div className="relative h-full min-h-0">
+        <LoadingAnimation active={isScanning} mode="scan" />
       </div>
     );
   }
@@ -687,7 +683,7 @@ export function MachineScanView() {
   if (!report) {
     return (
       <div className="flex h-full flex-col items-center justify-center gap-4 px-6 text-center">
-        <h1 className="text-2xl font-semibold text-white">Full System Scan</h1>
+        <h1 className="text-2xl font-semibold text-content-primary">Full System Scan</h1>
         <p className="max-w-lg text-body text-content-body">
           Scans all hardware and software, runs the Windows troubleshooter for actionable fixes, and
           computes an overall health score. Generate an AI summary afterward for a full narrative.
@@ -704,15 +700,16 @@ export function MachineScanView() {
   const hasAiSummary = Boolean(ai?.summary?.trim());
 
   return (
-    <LenisScroll className="h-full" contentClassName="p-6">
+    <div className="relative h-full min-h-0">
+      <LenisScroll className="h-full" contentClassName="p-6">
       <div className="mx-auto max-w-5xl">
         {/* Health header */}
-        <div className="card flex flex-col gap-6 p-6 sm:flex-row sm:items-center bg-base-850 shadow-lg border border-base-700/50 hover:border-base-700/70 transition-all duration-200">
+        <div className="card flex flex-col gap-6 p-6 sm:flex-row sm:items-center glass-card shadow-lg border border-white/40/50 hover:border-white/40/70 transition-all duration-200">
           <ScoreRing score={health.overall_score} status={health.overall_status} />
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <h1 className="text-lg font-black text-white tracking-tight uppercase">Machine Health Status</h1>
+                <h1 className="text-lg font-black text-content-primary tracking-tight uppercase">Machine Health Status</h1>
                 <p className="text-caption text-content-muted mt-0.5">
                   Scanned on {formatDateTime(report.generated_at)} · Duration: {report.scan_duration_seconds}s
                 </p>
@@ -731,7 +728,7 @@ export function MachineScanView() {
                 </button>
                 <button
                   onClick={runMachineScan}
-                  className="btn-ghost text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl border border-base-700 hover:border-base-500 transition-all active:scale-95 duration-100"
+                  className="btn-ghost text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all active:scale-95 duration-100"
                   disabled={isGeneratingSummary}
                 >
                   Re-scan System
@@ -740,7 +737,7 @@ export function MachineScanView() {
             </div>
             <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
               {Object.entries(health.categories).map(([name, cat]) => (
-                <div key={name} className="rounded-xl border border-base-700/60 bg-base-800/40 px-3 py-2.5 text-center shadow-sm">
+                <div key={name} className="rounded-xl border border-white/40/60 bg-white/35/40 px-3 py-2.5 text-center shadow-sm">
                   <div className={`text-base font-extrabold ${statusColor(cat.status)}`}>{cat.score}</div>
                   <div className="text-label mt-1">{name}</div>
                 </div>
@@ -750,14 +747,6 @@ export function MachineScanView() {
         </div>
 
         {/* AI summary (on demand) */}
-        {isGeneratingSummary && (
-          <div className="card mt-4 flex items-center gap-3 border border-accent/20 bg-accent/5 p-6 shadow-md animate-pulse">
-            <div className="h-5 w-5 animate-spin rounded-full border-2 border-accent border-t-transparent" />
-            <p className="text-caption text-content-secondary">
-              Analyzing full system scan using AI — evaluating hardware, software, security, and stability metrics…
-            </p>
-          </div>
-        )}
         {hasAiSummary && !isGeneratingSummary && (
           <div className="card mt-4 border border-accent/20 bg-gradient-to-br from-accent/5 to-transparent p-6 shadow-lg relative overflow-hidden">
             <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-accent to-blue-400" />
@@ -771,8 +760,8 @@ export function MachineScanView() {
             {(ai.prioritized_actions?.length ?? 0) > 0 && (
               <ol className="mt-4 space-y-2 text-caption text-content-secondary">
                 {(ai.prioritized_actions ?? []).map((a, i) => (
-                  <li key={i} className="flex gap-3 items-start bg-base-900/10 border border-base-700/10 p-2.5 rounded-xl">
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-accent text-[10px] font-black text-white shadow-sm shadow-accent/10 select-none">
+                  <li key={i} className="flex gap-3 items-start bg-white/30/10 border border-white/40/10 p-2.5 rounded-xl">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-accent text-[10px] font-black text-content-primary shadow-sm shadow-accent/10 select-none">
                       {i + 1}
                     </span>
                     <span className="pt-0.5 leading-relaxed font-semibold">{a}</span>
@@ -785,14 +774,14 @@ export function MachineScanView() {
 
         {/* Recommended actions (deterministic) - hidden when the AI summary already covers them */}
         {!hasAiSummary && health.recommended_actions.length > 0 && (
-          <div className="card mt-4 p-5 bg-base-850 border-l-4 border-severity-warning/45 shadow-md">
+          <div className="card mt-4 p-5 glass-card border-l-4 border-severity-warning/45 shadow-md">
             <h2 className="mb-3 text-section-title flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-severity-warning animate-pulse" />
               Recommended Actions
             </h2>
             <ul className="space-y-2.5">
               {health.recommended_actions.map((a, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-caption text-content-secondary bg-base-900/10 border border-base-700/10 p-3 rounded-xl">
+                <li key={i} className="flex items-start gap-2.5 text-caption text-content-secondary bg-white/30/10 border border-white/40/10 p-3 rounded-xl">
                   <span className="text-accent text-sm leading-none font-bold select-none">•</span>
                   <span className="leading-relaxed">{a}</span>
                 </li>
@@ -806,7 +795,7 @@ export function MachineScanView() {
                   `What should I prioritise and how do I fix these?`,
                 )
               }
-              className="mt-4 rounded-xl bg-accent px-4 py-2 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-accent/10 hover:shadow-accent/20 transition-all hover:-translate-y-px duration-100 flex items-center gap-1.5"
+              className="mt-4 rounded-xl bg-accent px-4 py-2 text-xs font-bold uppercase tracking-wider text-content-primary shadow-md shadow-accent/10 hover:shadow-accent/20 transition-all hover:-translate-y-px duration-100 flex items-center gap-1.5"
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -823,6 +812,9 @@ export function MachineScanView() {
           <Body report={report} />
         </div>
       </div>
-    </LenisScroll>
+      </LenisScroll>
+
+      <LoadingAnimation active={isGeneratingSummary} mode="summary" />
+    </div>
   );
 }

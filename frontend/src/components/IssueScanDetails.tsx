@@ -5,13 +5,13 @@ import { severityColor } from "@/lib/format";
 function statusDot(status: ProbeCheck["status"]): string {
   switch (status) {
     case "Critical":
-      return "bg-severity-critical shadow-md shadow-severity-critical/20";
+      return "bg-severity-critical shadow-md shadow-red-300/30";
     case "Warning":
-      return "bg-severity-warning shadow-md shadow-severity-warning/20";
+      return "bg-severity-warning shadow-md shadow-amber-300/30";
     case "Healthy":
-      return "bg-severity-healthy shadow-md shadow-severity-healthy/20";
+      return "bg-severity-healthy shadow-md shadow-emerald-300/30";
     default:
-      return "bg-severity-info shadow-md shadow-severity-info/20";
+      return "bg-severity-info shadow-md shadow-sky-300/30";
   }
 }
 
@@ -43,10 +43,8 @@ export function IssueScanDetails({
   return (
     <div className="space-y-2">
       {heading && <h4 className="text-label px-1">{heading}</h4>}
-      <div className="rounded-xl border border-base-700/30 bg-base-900/20 px-3 py-3 text-xs leading-relaxed text-content-secondary">
-        {report.issue && (
-          <p className="font-medium text-content-body">“{report.issue}”</p>
-        )}
+      <div className="glass-card rounded-xl px-3 py-3 text-xs leading-relaxed text-content-secondary">
+        {report.issue && <p className="font-medium text-content-primary">"{report.issue}"</p>}
 
         <div
           className={
@@ -54,7 +52,7 @@ export function IssueScanDetails({
           }
         >
           {domainLabel && (
-            <span className="rounded-full border border-accent/20 bg-accent/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-accent">
+            <span className="rounded-full border border-accent/25 bg-accent/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-accent">
               {domainLabel}
             </span>
           )}
@@ -70,9 +68,7 @@ export function IssueScanDetails({
             probe.checks.map((c, i) => (
               <li key={`${probe.domain}-${i}`} className="flex items-start justify-between gap-2">
                 <div className="flex min-w-0 items-start gap-2">
-                  <span
-                    className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${statusDot(c.status)}`}
-                  />
+                  <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${statusDot(c.status)}`} />
                   <span className="font-medium text-content-body">{c.label}</span>
                 </div>
                 <span className={`shrink-0 text-right font-bold ${severityColor(c.status)}`}>

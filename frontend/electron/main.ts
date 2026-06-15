@@ -4,7 +4,6 @@ import path from "node:path";
 
 const __dirnameResolved = path.dirname(fileURLToPath(import.meta.url));
 
-// Vite injects these env vars during development.
 const VITE_DEV_SERVER_URL = process.env["VITE_DEV_SERVER_URL"];
 const DIST = path.join(__dirnameResolved, "../dist");
 
@@ -16,8 +15,9 @@ function createWindow(): void {
     height: 900,
     minWidth: 1100,
     minHeight: 700,
-    backgroundColor: "#0b0f17",
-    title: "HelpDesk Assistant",
+    show: false,
+    backgroundColor: "#eef2ff",
+    title: "Desktop Assistant",
     autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirnameResolved, "preload.js"),
@@ -26,10 +26,13 @@ function createWindow(): void {
     },
   });
 
-  // Open external links in the system browser.
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);
     return { action: "deny" };
+  });
+
+  mainWindow.once("ready-to-show", () => {
+    mainWindow?.show();
   });
 
   if (VITE_DEV_SERVER_URL) {
@@ -40,7 +43,6 @@ function createWindow(): void {
 }
 
 app.whenReady().then(() => {
-  // Allow microphone access for voice input in the Electron shell.
   session.defaultSession.setPermissionRequestHandler((_wc, permission, callback) => {
     const allowed = new Set(["media", "audioCapture", "microphone"]);
     callback(allowed.has(permission));

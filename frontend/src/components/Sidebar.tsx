@@ -2,6 +2,7 @@ import { useStore } from "@/store/useStore";
 import { api } from "@/api/client";
 import { LenisScroll } from "@/components/LenisScroll";
 import { formatDateTime } from "@/lib/format";
+import { useState, type ReactNode } from "react";
 
 function scanStatusColor(status: string): string {
   const s = (status || "").toLowerCase();
@@ -10,7 +11,6 @@ function scanStatusColor(status: string): string {
   return "text-severity-healthy font-semibold";
 }
 
-// Inline SVGs for beautiful design
 function TrashIcon({ className }: { className?: string }) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -61,6 +61,68 @@ function GridIcon({ className }: { className?: string }) {
   );
 }
 
+function BoltIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </svg>
+  );
+}
+
+function HistoryIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  );
+}
+
+function ScanIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+    </svg>
+  );
+}
+
+function ChevronLeftIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+    </svg>
+  );
+}
+
+function ChevronRightIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+  );
+}
+
+function SectionHead({
+  icon,
+  iconVariant,
+  titleVariant,
+  title,
+  badge,
+}: {
+  icon: ReactNode;
+  iconVariant: "violet" | "sky" | "emerald";
+  titleVariant: "violet" | "sky" | "emerald";
+  title: string;
+  badge?: ReactNode;
+}) {
+  return (
+    <div className="sidebar-section-head">
+      <div className={`sidebar-section-head-icon sidebar-section-head-icon--${iconVariant}`}>{icon}</div>
+      <span className={`sidebar-section-title sidebar-section-title--${titleVariant}`}>{title}</span>
+      {badge}
+    </div>
+  );
+}
+
 export function Sidebar() {
   const sessions = useStore((s) => s.sessions);
   const currentSessionId = useStore((s) => s.currentSessionId);
@@ -74,177 +136,247 @@ export function Sidebar() {
   const runMachineScan = useStore((s) => s.runMachineScan);
   const isMachineScanning = useStore((s) => s.isMachineScanning);
   const setView = useStore((s) => s.setView);
+  const view = useStore((s) => s.view);
+  const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <aside className="flex h-full w-72 shrink-0 flex-col border-r border-base-700/60 bg-base-850 shadow-xl">
-      {/* Branding Header */}
-      <div className="flex items-center gap-3 px-5 py-5 border-b border-base-700/40 bg-base-800/20">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-tr from-accent to-blue-400 text-xl font-black text-white shadow-lg shadow-accent/15 transition-transform hover:scale-105 duration-200">
-          H
-        </div>
-        <div className="min-w-0">
-          <div className="text-sm font-extrabold text-white tracking-wide truncate">HelpDesk Assistant</div>
-          <div className="text-[11px] text-content-body font-medium flex items-center gap-1.5 mt-0.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
-            IT Support Engineer
-          </div>
-        </div>
-      </div>
-
-      {/* Main Actions Box */}
-      <div className="p-4 space-y-2 border-b border-base-700/30">
-        <button
-          onClick={newSession}
-          className="btn-primary w-full shadow-lg shadow-accent/10 hover:shadow-accent/20 flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold transition-all hover:-translate-y-px active:translate-y-0 duration-150"
-        >
-          <ChatIcon className="h-4 w-4" />
-          + New Session
-        </button>
-        <button
-          onClick={runMachineScan}
-          disabled={isMachineScanning}
-          className="btn-ghost w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-medium border border-base-700/60 hover:border-base-600 transition-all active:scale-[0.98] duration-150"
-        >
-          <CpuIcon className={`h-4 w-4 ${isMachineScanning ? "animate-spin text-accent" : "text-gray-400"}`} />
-          {isMachineScanning ? "Scanning System…" : "Full System Scan"}
-        </button>
-        <button
-          onClick={() => setView("dashboard")}
-          className="btn-ghost w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-medium border border-base-700/60 hover:border-base-600 transition-all active:scale-[0.98] duration-150"
-        >
-          <GridIcon className="h-4 w-4 text-gray-400" />
-          System Dashboard
-        </button>
-      </div>
-
-      {/* Scrollable History lists */}
-      <div className="flex min-h-0 flex-1 flex-col py-3 space-y-4">
-
-        {/* Session History */}
-        <div className="flex flex-col min-h-0 flex-1">
-          <div className="px-5 text-label flex items-center justify-between">
-            <span>Session History</span>
-            <span className="rounded-full bg-base-700/60 px-2 py-0.5 text-[9px] font-medium text-content-body">
-              {sessions.length}
-            </span>
-          </div>
-          <LenisScroll className="mt-2 min-h-0 flex-1" contentClassName="px-2 space-y-1">
-            {sessions.length === 0 ? (
-              <div className="px-3 py-6 text-center text-empty">No sessions yet.</div>
-            ) : (
-              sessions.map((s) => (
-                <div
-                  key={s.id}
-                  className={`group relative mb-0.5 cursor-pointer rounded-lg px-3 py-2.5 transition-all duration-150 ${currentSessionId === s.id
-                      ? "bg-base-700/90 text-white shadow-md border-l-2 border-accent"
-                      : "hover:bg-base-750 text-content-body"
-                    }`}
-                  onClick={() => loadSession(s.id)}
-                >
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="truncate text-xs font-semibold">{s.title || "Untitled Session"}</span>
-                    {/* Hover actions */}
-                    <div className="flex shrink-0 items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100 z-10">
-                      <a
-                        href={api.exportSessionUrl(s.id, "pdf")}
-                        onClick={(e) => e.stopPropagation()}
-                        className="rounded p-1 bg-base-800/80 text-gray-400 hover:text-accent hover:bg-base-700 transition-colors"
-                        title="Export PDF"
-                      >
-                        <PdfIcon className="h-3.5 w-3.5" />
-                      </a>
-                      <a
-                        href={api.exportSessionUrl(s.id, "json")}
-                        onClick={(e) => e.stopPropagation()}
-                        className="rounded p-1 bg-base-800/80 text-gray-400 hover:text-accent hover:bg-base-700 transition-colors"
-                        title="Export JSON"
-                      >
-                        <JsonIcon className="h-3.5 w-3.5" />
-                      </a>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          removeSession(s.id);
-                        }}
-                        className="rounded p-1 bg-base-800/80 text-gray-400 hover:text-severity-critical hover:bg-base-700 transition-colors"
-                        title="Delete Session"
-                      >
-                        <TrashIcon className="h-3.5 w-3.5" />
-                      </button>
-                    </div>
-                  </div>
-                  <div className="mt-1 flex items-center justify-between text-[10px] text-content-muted">
-                    <span className="font-medium">{s.message_count} messages</span>
-                    <span>{formatDateTime(s.updated_at)}</span>
-                  </div>
-                </div>
-              ))
-            )}
-          </LenisScroll>
-        </div>
-
-        {/* Full Scan History */}
-        <div className="flex flex-col min-h-0 flex-1 border-t border-base-700/20 pt-3">
-          <div className="px-5 text-label flex items-center justify-between">
-            <span>Full Scan History</span>
-            <span className="rounded-full bg-base-700/60 px-2 py-0.5 text-[9px] font-medium text-content-body">
-              {machineScanHistory.length}
-            </span>
-          </div>
-          <LenisScroll className="mt-2 min-h-0 flex-1" contentClassName="px-2 pb-4 space-y-1">
+    <div
+      className={`relative h-full shrink-0 transition-[width] duration-300 ease-in-out ${
+        collapsed ? "w-12" : "w-72"
+      }`}
+    >
+      <aside
+        className={`glass-sidebar flex h-full flex-col border-r transition-[width] duration-300 ease-in-out ${
+          collapsed ? "w-12 items-center" : "w-72"
+        }`}
+      >
+        {collapsed ? (
+          /* Collapsed rail — toggle stays inside sidebar */
+          <div className="flex w-full flex-col items-center gap-3 pt-4">
             <button
-              onClick={runMachineScan}
-              disabled={isMachineScanning}
-              className="btn-ghost mb-2 w-full text-xs font-semibold flex items-center justify-center gap-1.5 py-1.5 border border-dashed border-base-700 hover:border-base-600 rounded-lg text-content-body"
+              type="button"
+              onClick={() => setCollapsed(false)}
+              className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/70 bg-white/75 text-content-muted shadow-glass-sm backdrop-blur-md transition-all hover:bg-white hover:text-accent"
+              title="Open sidebar"
+              aria-label="Open sidebar"
+              aria-expanded={false}
             >
-              <CpuIcon className={`h-3.5 w-3.5 ${isMachineScanning ? "animate-spin text-accent" : ""}`} />
-              {isMachineScanning ? "Scanning PC…" : "+ New Full Scan"}
+              <ChevronRightIcon className="h-4 w-4" />
             </button>
-            {machineScanHistory.length === 0 ? (
-              <div className="px-3 py-6 text-center text-empty">No scans saved yet.</div>
-            ) : (
-              machineScanHistory.map((s) => (
-                <div
-                  key={s.id}
-                  className={`group relative mb-0.5 cursor-pointer rounded-lg px-3 py-2.5 transition-all duration-150 ${currentMachineScanId === s.id
-                      ? "bg-base-700/90 text-white shadow-md border-l-2 border-accent"
-                      : "hover:bg-base-750 text-content-body"
-                    }`}
-                  onClick={() => loadMachineScan(s.id)}
-                >
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="truncate text-xs font-semibold">{s.title}</span>
-                    <div className="flex shrink-0 items-center gap-1">
-                      {s.has_ai_summary && (
-                        <span className="rounded bg-accent/15 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider text-accent border border-accent/20">
-                          AI
-                        </span>
-                      )}
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          removeMachineScan(s.id);
-                        }}
-                        className="rounded p-1 text-gray-400 opacity-0 transition-opacity bg-base-800/80 hover:text-severity-critical hover:bg-base-700 group-hover:opacity-100 z-10"
-                        title="Delete Scan"
-                      >
-                        <TrashIcon className="h-3.5 w-3.5" />
-                      </button>
-                    </div>
-                  </div>
-                  <div className="mt-1 flex items-center justify-between text-[10px] text-content-muted">
-                    <span className={scanStatusColor(s.health_status)}>
-                      {s.health_score}/100 · {Math.round(s.scan_duration_seconds)}s
-                    </span>
-                    <span>{formatDateTime(s.scanned_at)}</span>
+            <button
+              type="button"
+              onClick={() => {
+                setCollapsed(false);
+                setView("chat");
+              }}
+              className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent-shine text-sm font-black text-white shadow-glow-sm"
+              title="HelpDesk Assistant"
+            >
+              H
+            </button>
+          </div>
+        ) : (
+          <>
+      {/* ── Zone 1: Brand identity ── */}
+      <div className="sidebar-brand-zone relative shrink-0">
+        <button
+          type="button"
+          onClick={() => setCollapsed(true)}
+          className="absolute right-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-xl border border-white/70 bg-white/75 text-content-muted shadow-glass-sm backdrop-blur-md transition-all hover:bg-white hover:text-accent"
+          title="Close sidebar"
+          aria-label="Close sidebar"
+          aria-expanded={true}
+        >
+          <ChevronLeftIcon className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => setView("chat")}
+          className={`flex w-full items-center gap-3 px-5 py-5 pr-12 text-left transition-colors hover:bg-white/30 ${
+            view === "chat" ? "bg-white/20" : ""
+          }`}
+        >
+          <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-accent-shine text-lg font-black text-white shadow-glow-sm transition-transform duration-300 hover:scale-105">
+            H
+            <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-white bg-severity-healthy" />
+          </div>
+          <div className="min-w-0">
+            <div className="truncate text-sm font-extrabold tracking-tight text-content-primary">
+              HelpDesk Assistant
+            </div>
+            <div className="mt-0.5 flex items-center gap-1.5 text-[11px] font-medium text-indigo-600/80">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-severity-healthy opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-severity-healthy" />
+              </span>
+              IT Support Engineer
+            </div>
+          </div>
+        </button>
+      </div>
+
+      {/* ── Zone 2: Quick actions ── */}
+      <div className="sidebar-actions-zone shrink-0">
+        <SectionHead
+          icon={<BoltIcon className="h-3.5 w-3.5" />}
+          iconVariant="violet"
+          titleVariant="violet"
+          title="Quick Actions"
+        />
+        <div className="mt-1 space-y-1.5">
+          <button onClick={newSession} className="btn-primary w-full py-2.5 text-sm font-semibold normal-case tracking-normal">
+            <ChatIcon className="h-4 w-4" />
+            New Session
+          </button>
+          <button
+            onClick={runMachineScan}
+            disabled={isMachineScanning}
+            className={`btn-ghost w-full py-2.5 text-sm font-medium normal-case tracking-normal ${
+              view === "machine-scan" ? "border-violet-300/50 bg-violet-100/40 text-violet-700" : ""
+            }`}
+          >
+            <CpuIcon className={`h-4 w-4 ${isMachineScanning ? "animate-spin text-accent" : "text-content-muted"}`} />
+            {isMachineScanning ? "Scanning System…" : "Full System Scan"}
+          </button>
+          <button
+            onClick={() => setView("dashboard")}
+            className={`btn-ghost w-full py-2.5 text-sm font-medium normal-case tracking-normal ${
+              view === "dashboard" ? "border-violet-300/50 bg-violet-100/40 text-violet-700" : ""
+            }`}
+          >
+            <GridIcon className="h-4 w-4 text-content-muted" />
+            System Dashboard
+          </button>
+        </div>
+      </div>
+
+      <div className="sidebar-divider-ornament shrink-0">
+        <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-content-faint">History</span>
+      </div>
+
+      {/* ── Zone 3: Session history ── */}
+      <div className="sidebar-sessions-zone flex min-h-0 flex-1 flex-col">
+        <SectionHead
+          icon={<HistoryIcon className="h-3.5 w-3.5" />}
+          iconVariant="sky"
+          titleVariant="sky"
+          title="Session History"
+          badge={<span className="sidebar-count-badge sidebar-count-badge--sky">{sessions.length}</span>}
+        />
+        <LenisScroll className="min-h-0 flex-1" contentClassName="px-2 pb-1 space-y-1">
+          {sessions.length === 0 ? (
+            <div className="px-3 py-5 text-center text-[11px] italic text-sky-700/60">No sessions yet.</div>
+          ) : (
+            sessions.map((s) => (
+              <div
+                key={s.id}
+                className={`session-item group ${currentSessionId === s.id ? "session-item-active" : "session-item-inactive"}`}
+                onClick={() => loadSession(s.id)}
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <span className="truncate text-xs font-semibold">{s.title || "Untitled Session"}</span>
+                  <div className="z-10 flex shrink-0 items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
+                    <a
+                      href={api.exportSessionUrl(s.id, "pdf")}
+                      onClick={(e) => e.stopPropagation()}
+                      className="rounded-lg bg-white/60 p-1 text-content-muted backdrop-blur-sm transition-colors hover:bg-white/90 hover:text-sky-600"
+                      title="Export PDF"
+                    >
+                      <PdfIcon className="h-3.5 w-3.5" />
+                    </a>
+                    <a
+                      href={api.exportSessionUrl(s.id, "json")}
+                      onClick={(e) => e.stopPropagation()}
+                      className="rounded-lg bg-white/60 p-1 text-content-muted backdrop-blur-sm transition-colors hover:bg-white/90 hover:text-sky-600"
+                      title="Export JSON"
+                    >
+                      <JsonIcon className="h-3.5 w-3.5" />
+                    </a>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        removeSession(s.id);
+                      }}
+                      className="rounded-lg bg-white/60 p-1 text-content-muted backdrop-blur-sm transition-colors hover:bg-white/90 hover:text-severity-critical"
+                      title="Delete Session"
+                    >
+                      <TrashIcon className="h-3.5 w-3.5" />
+                    </button>
                   </div>
                 </div>
-              ))
-            )}
-          </LenisScroll>
-        </div>
-
+                <div className="mt-1 flex items-center justify-between text-[10px] text-content-muted">
+                  <span className="font-medium">{s.message_count} messages</span>
+                  <span>{formatDateTime(s.updated_at)}</span>
+                </div>
+              </div>
+            ))
+          )}
+        </LenisScroll>
       </div>
+
+      {/* ── Zone 4: Full scan history ── */}
+      <div className="sidebar-scans-zone mt-2 flex min-h-0 flex-1 flex-col">
+        <SectionHead
+          icon={<ScanIcon className="h-3.5 w-3.5" />}
+          iconVariant="emerald"
+          titleVariant="emerald"
+          title="Full Scan History"
+          badge={<span className="sidebar-count-badge sidebar-count-badge--emerald">{machineScanHistory.length}</span>}
+        />
+        <LenisScroll className="min-h-0 flex-1" contentClassName="px-2 pb-3 space-y-1">
+          <button
+            onClick={runMachineScan}
+            disabled={isMachineScanning}
+            className="btn-ghost mb-1.5 w-full border border-dashed border-emerald-300/50 bg-emerald-50/30 py-1.5 text-xs font-semibold normal-case tracking-normal text-emerald-700/80 hover:border-emerald-400/60 hover:bg-emerald-50/50"
+          >
+            <CpuIcon className={`h-3.5 w-3.5 ${isMachineScanning ? "animate-spin text-emerald-600" : ""}`} />
+            {isMachineScanning ? "Scanning PC…" : "+ New Full Scan"}
+          </button>
+          {machineScanHistory.length === 0 ? (
+            <div className="px-3 py-5 text-center text-[11px] italic text-emerald-700/60">No scans saved yet.</div>
+          ) : (
+            machineScanHistory.map((s) => (
+              <div
+                key={s.id}
+                className={`session-item group ${
+                  currentMachineScanId === s.id ? "session-item-active scan-item-active" : "session-item-inactive"
+                }`}
+                onClick={() => loadMachineScan(s.id)}
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <span className="truncate text-xs font-semibold">{s.title}</span>
+                  <div className="flex shrink-0 items-center gap-1">
+                    {s.has_ai_summary && (
+                      <span className="rounded-full border border-emerald-300/40 bg-emerald-100/60 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider text-emerald-700">
+                        AI
+                      </span>
+                    )}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        removeMachineScan(s.id);
+                      }}
+                      className="z-10 rounded-lg bg-white/60 p-1 text-content-muted opacity-0 backdrop-blur-sm transition-all hover:bg-white/90 hover:text-severity-critical group-hover:opacity-100"
+                      title="Delete Scan"
+                    >
+                      <TrashIcon className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
+                </div>
+                <div className="mt-1 flex items-center justify-between text-[10px] text-content-muted">
+                  <span className={scanStatusColor(s.health_status)}>
+                    {s.health_score}/100 · {Math.round(s.scan_duration_seconds)}s
+                  </span>
+                  <span>{formatDateTime(s.scanned_at)}</span>
+                </div>
+              </div>
+            ))
+          )}
+        </LenisScroll>
+      </div>
+          </>
+        )}
     </aside>
+    </div>
   );
 }

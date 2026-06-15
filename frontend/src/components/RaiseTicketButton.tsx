@@ -39,7 +39,7 @@ export function RaiseTicketButton({
       type="button"
       onClick={handleClick}
       disabled={loading}
-      className="mt-2 inline-flex items-center gap-1.5 rounded-lg border border-base-700/50 bg-base-900/40 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-content-secondary transition-all hover:border-accent/40 hover:bg-accent/10 hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
+      className="mt-2 inline-flex items-center gap-1.5 rounded-xl border border-white/60 bg-white/45 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-content-muted backdrop-blur-md transition-all hover:border-accent/35 hover:bg-accent/8 hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
     >
       <TicketIcon className="h-3.5 w-3.5" />
       {loading ? "Sending…" : "Raise a ticket"}

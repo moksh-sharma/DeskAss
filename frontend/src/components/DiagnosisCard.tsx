@@ -37,9 +37,9 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <div className="mt-5 border-t border-base-700/30 pt-4 first:mt-0 first:border-0 first:pt-0">
+    <div className="mt-5 border-t border-white/40 pt-4 first:mt-0 first:border-0 first:pt-0">
       <h4 className="mb-2.5 flex items-center gap-2 text-label">
-        <Icon className="h-4 w-4 text-content-muted" />
+        <Icon className="h-4 w-4 text-accent/70" />
         <span>{title}</span>
       </h4>
       {children}
@@ -62,7 +62,7 @@ export function DiagnosisCard({ d }: { d: DiagnosisResult }) {
   const issueText = issueDetailsText(d);
 
   return (
-    <div className="card mt-1 w-full max-w-3xl border border-base-700/50 bg-base-850 p-6 shadow-xl transition-all duration-200 hover:border-base-600/40">
+    <div className="glass-card mt-1 w-full max-w-3xl p-6">
       <div className="flex items-center justify-between gap-2">
         <SeverityBadge severity={d.severity} />
       </div>
@@ -70,7 +70,7 @@ export function DiagnosisCard({ d }: { d: DiagnosisResult }) {
       {issueText && !isConversational && (
         <div className="mt-4">
           <h4 className="text-label">Issue Details</h4>
-          <p className="mt-2.5 rounded-xl border border-base-700/40 bg-base-900/40 px-4 py-3 text-sm font-medium leading-relaxed text-gray-100 shadow-inner">
+          <p className="mt-2.5 rounded-xl border border-white/60 bg-white/45 px-4 py-3 text-sm font-medium leading-relaxed text-content-primary backdrop-blur-sm">
             {issueText}
           </p>
         </div>
@@ -86,20 +86,20 @@ export function DiagnosisCard({ d }: { d: DiagnosisResult }) {
             {d.recommended_fixes.map((f, i) => (
               <div
                 key={i}
-                className="group relative overflow-hidden rounded-xl border border-base-700/40 bg-base-900/20 p-4 shadow-sm transition-all duration-150 hover:bg-base-900/30"
+                className="group relative overflow-hidden rounded-xl border border-white/55 bg-white/38 p-4 backdrop-blur-sm transition-all duration-200 hover:bg-white/55"
               >
-                <div className="absolute left-0 top-0 h-full w-1 bg-accent/40 transition-colors group-hover:bg-accent" />
+                <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-accent to-accent-light transition-colors group-hover:from-accent-hover group-hover:to-accent" />
                 <div className="flex items-start justify-between gap-2">
-                  <span className="text-sm font-bold tracking-tight text-white">{f.title}</span>
+                  <span className="text-sm font-bold tracking-tight text-content-primary">{f.title}</span>
                   {f.requires_confirmation && (
-                    <span className="rounded-full border border-severity-warning/20 bg-severity-warning/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-severity-warning">
+                    <span className="rounded-full border border-amber-200/60 bg-amber-50/80 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-severity-warning">
                       Needs confirmation
                     </span>
                   )}
                 </div>
-                <p className="mt-1.5 text-caption text-content-secondary">{f.description}</p>
+                <p className="mt-1.5 text-caption">{f.description}</p>
                 {f.safe_action && (
-                  <div className="mt-2 flex items-center gap-1.5 rounded-lg border border-base-700/40 bg-base-800/80 px-2.5 py-1.5 font-mono text-[11px] text-accent">
+                  <div className="mt-2 flex items-center gap-1.5 rounded-lg border border-accent/20 bg-accent/5 px-2.5 py-1.5 font-mono text-[11px] text-accent">
                     <span className="select-none font-sans text-[10px] font-extrabold uppercase tracking-wider text-accent/60">
                       Action:
                     </span>
@@ -120,11 +120,11 @@ export function DiagnosisCard({ d }: { d: DiagnosisResult }) {
 
       {d.visual_guide && d.resolution_steps.length > 0 && (
         <Section title="Still Not Working?" icon={ListIcon}>
-          <ul className="space-y-2 rounded-xl border border-base-700/15 bg-base-900/15 p-4 text-caption text-content-secondary">
+          <ul className="space-y-2 rounded-xl border border-white/45 bg-white/30 p-4 text-caption backdrop-blur-sm">
             {d.resolution_steps.slice(0, 3).map((s, i) => (
               <li key={i} className="flex items-start gap-2.5">
                 <span className="select-none text-sm font-bold leading-none text-accent">•</span>
-                <span className="font-medium leading-relaxed text-gray-200">{s}</span>
+                <span className="font-medium leading-relaxed text-content-secondary">{s}</span>
               </li>
             ))}
           </ul>
@@ -133,16 +133,16 @@ export function DiagnosisCard({ d }: { d: DiagnosisResult }) {
 
       {!d.visual_guide && d.resolution_steps.length > 0 && (
         <Section title="Step-by-Step Resolution Guide" icon={ListIcon}>
-          <ol className="space-y-2.5 text-caption text-content-secondary">
+          <ol className="space-y-2.5 text-caption">
             {d.resolution_steps.map((s, i) => (
               <li
                 key={i}
-                className="flex items-start gap-3 rounded-xl border border-base-700/10 bg-base-900/10 p-3 transition-colors duration-150 hover:border-base-700/30"
+                className="flex items-start gap-3 rounded-xl border border-white/45 bg-white/30 p-3 backdrop-blur-sm transition-colors duration-150 hover:bg-white/50"
               >
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-gradient-to-tr from-accent to-blue-400 text-[10px] font-black text-white shadow-md shadow-accent/10">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-accent-shine text-[10px] font-black text-white shadow-glow-sm">
                   {i + 1}
                 </span>
-                <span className="pt-0.5 font-medium leading-relaxed text-gray-200">{s}</span>
+                <span className="pt-0.5 font-medium leading-relaxed text-content-secondary">{s}</span>
               </li>
             ))}
           </ol>
@@ -151,7 +151,7 @@ export function DiagnosisCard({ d }: { d: DiagnosisResult }) {
 
       {d.prevention_tips.length > 0 && (
         <Section title="Keep It Working" icon={ShieldCheckIcon}>
-          <ul className="space-y-2 rounded-xl border border-base-700/15 bg-base-900/15 p-4 text-caption text-content-secondary">
+          <ul className="space-y-2 rounded-xl border border-white/45 bg-white/30 p-4 text-caption backdrop-blur-sm">
             {d.prevention_tips.slice(0, 3).map((t, i) => (
               <li key={i} className="flex items-start gap-2.5">
                 <span className="select-none text-sm font-bold leading-none text-severity-healthy">✓</span>

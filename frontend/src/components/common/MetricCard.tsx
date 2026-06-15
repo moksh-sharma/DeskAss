@@ -11,12 +11,12 @@ interface MetricCardProps {
 
 export function MetricCard({ label, value, percent, sub, icon }: MetricCardProps) {
   return (
-    <div className="card p-5 hover:border-base-600 hover:-translate-y-px transition-all duration-200 bg-base-850 shadow-md">
+    <div className="glass-card p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-glass">
       <div className="flex items-center justify-between">
         <span className="text-label">{label}</span>
         {icon}
       </div>
-      <div className="mt-2 text-2xl font-black text-white tracking-tight">{value}</div>
+      <div className="mt-2 text-2xl font-extrabold tracking-tight text-content-primary">{value}</div>
       {percent !== undefined && (
         <div className="mt-4">
           <ProgressBar value={percent} />

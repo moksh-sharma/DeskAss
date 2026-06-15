@@ -35,7 +35,7 @@
   },
   "build": {
     "appId": "com.cache.aiassistant",
-    "productName": "HelpDesk Assistant",
+    "productName": "Desktop Assistant",
     "files": [
       "dist/**/*",
       "dist-electron/**/*"
