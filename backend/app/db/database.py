@@ -53,12 +53,33 @@ def session_scope() -> Iterator[OrmSession]:
     db = SessionLocal()
     try:
         yield db
-        db.commit()
+        commit_with_retry(db)
     except Exception:
         db.rollback()
         raise
     finally:
         db.close()
+
+
+def commit_with_retry(db: OrmSession, *, attempts: int = 5, base_delay_s: float = 0.05) -> None:
+    """Commit with short retries — helps when SQLite is briefly locked by another writer."""
+    import time
+
+    from sqlalchemy.exc import OperationalError
+
+    last: OperationalError | None = None
+    for attempt in range(attempts):
+        try:
+            db.commit()
+            return
+        except OperationalError as exc:
+            db.rollback()
+            if "locked" not in str(exc).lower() or attempt == attempts - 1:
+                raise
+            last = exc
+            time.sleep(base_delay_s * (2**attempt))
+    if last:
+        raise last
 
 
 def get_db() -> Iterator[OrmSession]:

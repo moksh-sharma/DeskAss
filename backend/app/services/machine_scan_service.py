@@ -13,11 +13,14 @@ import time
 from datetime import datetime, timezone
 from typing import Any, Optional
 
+from app.core.config import get_settings
 from app.core.logging import get_logger
 from app.services.ollama_service import OllamaService
+from app.services.storage_intelligence_service import StorageIntelligenceService
 from app.services.scanners import (
     crash,
     event_logs,
+    external_devices,
     hardware,
     health,
     network,
@@ -36,14 +39,43 @@ logger = get_logger(__name__)
 _HEALTH_SYSTEM = (
     "You are a senior Windows IT support engineer writing an enterprise health and compliance "
     "report for a managed PC. You are given a JSON snapshot collected live from THIS machine "
-    "(health scores, hardware identity, storage/SMART, security posture - antivirus, firewall, "
+    "(health scores, hardware identity, storage/SMART, storage intelligence recoverable space, security posture - antivirus, firewall, "
     "BitLocker, TPM, Secure Boot, UAC, SMBv1, local admins - OS activation, pending reboots, "
-    "domain/Azure AD join, network exposure, crashes, services). Cover, in order of impact: "
+    "domain/Azure AD join, network exposure, crashes, services, and connected EXTERNAL hardware - "
+    "printers (online/offline), monitors, USB devices, Bluetooth peripherals, external storage). "
+    "Cover, in order of impact: "
     "(1) overall condition, (2) performance/resource pressure, (3) security & compliance risks, "
     "(4) stability problems, (5) anything an IT admin should remediate. STRICT RULES: use ONLY "
     "the data provided; never invent numbers, devices, or issues; cite the actual figures. "
     "Return ONLY the requested JSON."
 )
+
+
+# Which scanner keys each issue domain needs. Used to run a fast, scoped scan
+# for the chat troubleshooter instead of the whole machine every time.
+_DOMAIN_SCANNERS: dict[str, set[str]] = {
+    "audio": {"hardware", "external_devices"},
+    "webcam": {"hardware", "external_devices"},
+    "printer": {"hardware", "external_devices"},
+    "display": {"hardware", "external_devices"},
+    "bluetooth": {"hardware", "external_devices"},
+    "usb": {"hardware", "external_devices"},
+    "mouse": {"hardware", "external_devices"},
+    "keyboard": {"hardware", "external_devices"},
+    "storage": {"storage_intelligence"},
+    "performance": {"hardware", "performance", "processes", "event_logs"},
+    "application": {"installed_software", "processes", "services"},
+    "windows_update": {"operating_system", "services"},
+    "network": {"network"},
+    "wifi": {"network"},
+    "security": {"security", "operating_system"},
+    "account": {"security", "operating_system"},
+    "boot": {"performance", "operating_system", "crash_analysis"},
+    "battery": {"hardware", "performance"},
+}
+
+# Domains whose answers benefit from the heavy deep storage tree walk.
+_DEEP_STORAGE_DOMAINS = {"storage"}
 
 
 class MachineScanService:
@@ -55,20 +87,76 @@ class MachineScanService:
         ollama: Optional[OllamaService] = None,
         use_llm: bool = False,
         summary_model: str = "",
+        storage: Optional[StorageIntelligenceService] = None,
     ) -> None:
         self._inventory = inventory or SystemInventory()
         self._ollama = ollama
         self._use_llm = use_llm
         self._summary_model = summary_model
+        self._storage = storage or StorageIntelligenceService()
+
+    @staticmethod
+    def _select_scanners(domains: Optional[list[str]]) -> Optional[set[str]]:
+        """Return the scanner keys needed for ``domains`` (None = run all)."""
+        if domains is None:
+            return None
+        selected: set[str] = set()
+        for d in domains:
+            selected |= _DOMAIN_SCANNERS.get(d, set())
+        # Unknown/unmapped domains still get a sensible, cheap default so we
+        # never run zero scanners (which would yield an empty report).
+        return selected or {"hardware", "external_devices"}
 
     async def scan(
         self,
         *,
         ocr_results: Optional[dict] = None,
         rag_context: Optional[dict] = None,
+        target_drive: str | None = None,
+        domains: Optional[list[str]] = None,
+        run_deep_storage: Optional[bool] = None,
     ) -> dict[str, Any]:
+        """Run the machine scan.
+
+        ``domains`` scopes the work to only the scanners an issue needs (chat
+        troubleshooter). When ``None``, every scanner runs (Full System Scan).
+        ``run_deep_storage`` overrides the heavy storage tree walk; when ``None``
+        it defaults to True for a full scan and to storage-domain issues only.
+        """
         start = time.perf_counter()
+        settings = get_settings()
+
+        # Decide the scanner subset for this run.
+        selected_keys = self._select_scanners(domains)
+        scoped = domains is not None
+
+        # Deep storage: full scans always do it; scoped scans only when relevant.
+        if run_deep_storage is None:
+            if scoped:
+                run_deep_storage = bool(
+                    target_drive
+                    or any(d in _DEEP_STORAGE_DOMAINS for d in (domains or []))
+                )
+            else:
+                run_deep_storage = True
+
         snapshot = await asyncio.to_thread(self._inventory.snapshot)
+
+        async def _deep_storage() -> dict[str, Any] | None:
+            if not (settings.storage_deep_enabled and run_deep_storage):
+                return None
+            try:
+                return await asyncio.to_thread(
+                    self._storage.deep_scan,
+                    tree_budget=settings.storage_deep_tree_budget_seconds,
+                    duplicate_budget=settings.storage_deep_duplicate_budget_seconds,
+                    target_drive=target_drive,
+                )
+            except Exception as exc:
+                logger.warning("Deep storage scan failed: %s", exc)
+                return {"error": str(exc), "available": False}
+
+        deep_task = asyncio.create_task(_deep_storage())
 
         # Scanners that need the installed-app/process inventory.
         inv_scanners = {
@@ -78,6 +166,7 @@ class MachineScanService:
         # Standalone scanners.
         plain_scanners = {
             "hardware": (hardware.scan, ()),
+            "external_devices": (external_devices.scan, ()),
             "operating_system": (operating_system.scan, ()),
             "performance": (performance.scan, ()),
             "processes": (processes.scan, ()),
@@ -86,10 +175,19 @@ class MachineScanService:
             "network": (network.scan, ()),
             "security": (security.scan, ()),
             "crash_analysis": (crash.scan, ()),
+            # Fast storage intelligence (~12s) — recoverable space, cleanup targets, health.
+            "storage_intelligence": (self._storage.quick_scan, ()),
         }
 
         all_scanners = {**plain_scanners, **inv_scanners}
+        if selected_keys is not None:
+            all_scanners = {k: v for k, v in all_scanners.items() if k in selected_keys}
         keys = list(all_scanners.keys())
+        if scoped:
+            logger.info(
+                "Scoped scan for domains=%s -> scanners=%s deep_storage=%s",
+                domains, keys, run_deep_storage,
+            )
         results = await asyncio.gather(
             *(asyncio.to_thread(fn, *args) for fn, args in all_scanners.values()),
             return_exceptions=True,
@@ -108,6 +206,7 @@ class MachineScanService:
         hardware_bucket = {
             **hardware_section,
             "performance": sections.get("performance", {}),
+            "external_devices": sections.get("external_devices", {}),
         }
 
         installed = sections.get("installed_software", {}) or {}
@@ -127,7 +226,20 @@ class MachineScanService:
             "crash_analysis": sections.get("crash_analysis", {}),
             "event_logs": sections.get("event_logs", {}),
             "network": sections.get("network", {}),
+            "storage_intelligence": sections.get("storage_intelligence", {}),
         }
+
+        deep_storage = await deep_task
+        if deep_storage and not deep_storage.get("error"):
+            software_bucket["storage_deep"] = deep_storage
+            logger.info(
+                "Deep storage scan complete in %.1fs — %d top files, ~%.1f GB recoverable",
+                deep_storage.get("scan_duration_seconds") or 0,
+                len((deep_storage.get("tree") or {}).get("top_files") or []),
+                (deep_storage.get("cleanup") or {}).get("total_potential_gb") or 0,
+            )
+        elif deep_storage and deep_storage.get("error"):
+            software_bucket["storage_deep"] = deep_storage
 
         report: dict[str, Any] = {
             "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -149,8 +261,10 @@ class MachineScanService:
 
         elapsed = time.perf_counter() - start
         report["scan_duration_seconds"] = round(elapsed, 1)
+        report["scan_scope"] = "scoped" if scoped else "full"
         logger.info(
-            "Full machine scan complete in %.1fs - health %s (%d/100)",
+            "%s machine scan complete in %.1fs - health %s (%d/100)",
+            "Scoped" if scoped else "Full",
             elapsed,
             report["health_report"]["overall_status"],
             report["health_report"]["overall_score"],
@@ -230,6 +344,7 @@ class MachineScanService:
         ram = hw.get("ram") or {}
         perf = hw.get("performance") or {}
         devices = hw.get("devices") or {}
+        external = hw.get("external_devices") or {}
         os_ = sw.get("operating_system") or {}
         win = os_.get("windows") or {}
         net = sw.get("network") or {}
@@ -296,6 +411,22 @@ class MachineScanService:
                 "problems": devices.get("problem_count"),
                 "problem_names": [d.get("name") for d in (devices.get("problem_devices") or [])[:8]],
             },
+            "external_devices": {
+                "total": (external.get("summary") or {}).get("total_external_devices"),
+                "issues": (external.get("summary") or {}).get("issues", [])[:8],
+                "printers": [
+                    {"name": p.get("name"), "status": p.get("health"),
+                     "connection": p.get("connection")}
+                    for p in (external.get("printers") or {}).get("printers", [])[:6]
+                ],
+                "monitors": (external.get("monitors") or {}).get("count"),
+                "usb_connected": (external.get("usb") or {}).get("count"),
+                "bluetooth_connected": (external.get("bluetooth") or {}).get("connected_count"),
+                "external_storage": [
+                    {"name": s.get("name"), "free_gb": s.get("free_gb"), "health": s.get("health")}
+                    for s in (external.get("external_storage") or {}).get("devices", [])[:4]
+                ],
+            },
             "os": {
                 "edition": win.get("edition"),
                 "uptime": win.get("uptime_readable"),
@@ -340,4 +471,50 @@ class MachineScanService:
                 "guest_enabled": accounts.get("guest_account_enabled"),
             },
             "stability": (crash.get("summary") or {}) | (logs.get("summary") or {}),
+            "storage_intelligence": _storage_summary_context(
+                (sw.get("storage_intelligence") or {}) if isinstance(sw, dict) else {},
+                (sw.get("storage_deep") or {}) if isinstance(sw, dict) else {},
+            ),
         }
+
+
+def _storage_summary_context(
+    si: dict[str, Any],
+    deep: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Compact storage-intelligence facts for the LLM health summary."""
+    if not si or si.get("error"):
+        return {}
+    cleanup = si.get("cleanup") or {}
+    health = si.get("health") or {}
+    top_locs = sorted(
+        (si.get("cleanup_locations") or []),
+        key=lambda x: float(x.get("size_gb") or 0),
+        reverse=True,
+    )[:6]
+    ctx: dict[str, Any] = {
+        "health_score": health.get("overall_score"),
+        "health_status": health.get("overall_status"),
+        "recoverable_gb": cleanup.get("total_potential_gb"),
+        "quick_wins": [
+            {"label": i.get("label"), "recover_gb": i.get("recover_gb")}
+            for i in (cleanup.get("quick_wins") or [])[:4]
+        ],
+        "top_cleanup_locations": [
+            {"label": x.get("label"), "size_gb": x.get("size_gb")}
+            for x in top_locs
+        ],
+        "notes": (health.get("notes") or [])[:4],
+    }
+    if deep and not deep.get("error"):
+        tree = deep.get("tree") or {}
+        ctx["scan_mode"] = "deep"
+        ctx["largest_files"] = [
+            {"path": f.get("path"), "size_gb": f.get("size_gb")}
+            for f in (tree.get("top_files") or [])[:10]
+        ]
+        ctx["largest_folders"] = [
+            {"path": f.get("path"), "size_gb": f.get("size_gb")}
+            for f in (tree.get("top_folders") or [])[:6]
+        ]
+    return ctx

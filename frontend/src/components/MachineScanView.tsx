@@ -1,10 +1,11 @@
-import { useState } from "react";
 import { useStore } from "@/store/useStore";
+import { CollapsibleSection } from "@/components/common/CollapsibleSection";
 import { LoadingAnimation } from "@/components/LoadingAnimation";
 import { LenisScroll } from "@/components/LenisScroll";
 import { MachineScanTroubleshooter } from "@/components/MachineScanTroubleshooter";
+import { StorageReportSections } from "@/components/StorageView";
 import { formatDateTime } from "@/lib/format";
-import type { MachineScanReport } from "@/types";
+import type { MachineScanReport, StorageReport } from "@/types";
 
 function statusColor(status: string): string {
   const s = (status || "").toLowerCase();
@@ -72,38 +73,6 @@ function KV({ label, value }: { label: string; value: unknown }) {
   );
 }
 
-function Section({
-  title,
-  subtitle,
-  children,
-  defaultOpen = false,
-}: {
-  title: string;
-  subtitle?: string;
-  children: React.ReactNode;
-  defaultOpen?: boolean;
-}) {
-  const [open, setOpen] = useState(defaultOpen);
-  return (
-    <div className="card overflow-hidden border border-white/40/40 shadow-md glass-card hover:border-white/40/60 transition-all duration-200">
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between px-5 py-4 text-left hover:bg-white/35/25 transition-colors relative"
-      >
-        <div className="absolute top-0 left-0 h-full w-1.5 bg-accent/40" />
-        <div className="min-w-0">
-          <span className="text-sm font-bold text-content-primary tracking-tight uppercase">{title}</span>
-          {subtitle && <span className="ml-3 text-caption text-content-muted truncate">{subtitle}</span>}
-        </div>
-        <span className={`text-[10px] text-content-faint font-extrabold transition-transform duration-200 transform ${open ? "rotate-180" : ""}`}>
-          ▼
-        </span>
-      </button>
-      {open && <div className="border-t border-white/40/30 px-5 py-4 bg-white/30/10 space-y-4">{children}</div>}
-    </div>
-  );
-}
-
 function Table({ rows, columns }: { rows: any[]; columns: { key: string; label: string }[] }) {
   if (!rows || rows.length === 0) return <p className="text-empty">No records found.</p>;
   return (
@@ -142,6 +111,54 @@ function Table({ rows, columns }: { rows: any[]; columns: { key: string; label: 
   );
 }
 
+function fmtGB(gb: number | null | undefined): string {
+  if (gb === null || gb === undefined) return "-";
+  if (gb >= 1) return `${gb.toFixed(gb >= 100 ? 0 : 1)} GB`;
+  if (gb > 0) return `${Math.round(gb * 1024)} MB`;
+  return "0";
+}
+
+function StorageAnalysisSection({ report }: { report: StorageReport }) {
+  const health = report.health ?? { overall_score: 0, overall_status: "Unknown", notes: [] as string[] };
+  const primary = report.primary_drive;
+  return (
+    <CollapsibleSection
+      title="Storage Analysis"
+      subtitle={`${health.overall_score}/100 · ~${fmtGB(report.cleanup?.total_potential_gb)} recoverable · ${report.scan_duration_seconds}s`}
+    >
+      <div className="mb-4 grid gap-3 sm:grid-cols-3">
+        <div className="rounded-xl border border-white/30 bg-white/30 px-4 py-3 text-center">
+          <div className="text-[10px] font-bold uppercase tracking-wider text-content-muted">
+            {primary ? `${primary.drive} free` : "Free space"}
+          </div>
+          <div className="mt-1 text-lg font-black text-content-primary">{fmtGB(primary?.free_gb)}</div>
+        </div>
+        <div className="rounded-xl border border-white/30 bg-white/30 px-4 py-3 text-center">
+          <div className="text-[10px] font-bold uppercase tracking-wider text-content-muted">Recoverable</div>
+          <div className="mt-1 text-lg font-black text-severity-healthy">{fmtGB(report.cleanup?.total_potential_gb)}</div>
+        </div>
+        <div className="rounded-xl border border-white/30 bg-white/30 px-4 py-3 text-center">
+          <div className="text-[10px] font-bold uppercase tracking-wider text-content-muted">Days until full</div>
+          <div className="mt-1 text-lg font-black text-content-primary">
+            {report.growth?.days_until_full != null ? report.growth.days_until_full : "—"}
+          </div>
+        </div>
+      </div>
+      {(health.notes ?? []).length > 0 && (
+        <ul className="mb-4 space-y-1 text-xs text-content-secondary">
+          {(health.notes as string[]).map((n, i) => (
+            <li key={i} className="flex gap-2">
+              <span className="text-accent">•</span>
+              {n}
+            </li>
+          ))}
+        </ul>
+      )}
+      <StorageReportSections report={report} collapsible={false} />
+    </CollapsibleSection>
+  );
+}
+
 function Body({ report }: { report: MachineScanReport }) {
   const hw = report.hardware ?? {};
   const sw = report.software ?? {};
@@ -150,6 +167,8 @@ function Body({ report }: { report: MachineScanReport }) {
   const ram = hw.ram ?? {};
   const perf = hw.performance ?? {};
   const devices = hw.devices ?? {};
+  const ext = hw.external_devices ?? {};
+  const extSummary = ext.summary ?? {};
 
   const os = sw.operating_system ?? {};
   const win = os.windows ?? {};
@@ -168,10 +187,9 @@ function Body({ report }: { report: MachineScanReport }) {
   return (
     <div className="space-y-3">
       {/* ============================== HARDWARE ============================== */}
-      <Section
+      <CollapsibleSection
         title="Hardware"
         subtitle={`${cpu.processor_name ?? "System"} · ${devices.total_count ?? 0} devices`}
-        defaultOpen
       >
         {/* System identity / asset info */}
         {hw.system && (
@@ -410,13 +428,243 @@ function Body({ report }: { report: MachineScanReport }) {
             ))
           )}
         </div>
-      </Section>
+      </CollapsibleSection>
+
+      {/* ========================== EXTERNAL DEVICES ========================== */}
+      {ext.available !== false && (
+        <CollapsibleSection
+          title="External Devices"
+          subtitle={
+            `${extSummary.total_external_devices ?? 0} connected` +
+            (extSummary.issue_count ? ` · ${extSummary.issue_count} issue(s)` : "")
+          }
+        >
+          {/* Detected issues first */}
+          {(extSummary.issues ?? []).length > 0 && (
+            <div className="mb-2">
+              <h4 className="mb-1 text-xs font-semibold uppercase text-severity-warning">
+                External hardware issues
+              </h4>
+              <ul className="space-y-1.5">
+                {(extSummary.issues ?? []).map((issue: string, i: number) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-2 text-caption text-content-secondary bg-white/30/10 border border-white/40/10 p-2.5 rounded-xl"
+                  >
+                    <span className="text-severity-warning text-sm leading-none font-bold select-none">•</span>
+                    <span className="leading-relaxed">{issue}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Printers */}
+          <div className="mt-2">
+            <h4 className="mb-1 text-section-title">
+              Printers ({(ext.printers?.printers ?? []).length})
+              {ext.printers && ext.printers.spooler_running === false && (
+                <span className="ml-2 text-severity-critical font-bold">· Spooler stopped</span>
+              )}
+            </h4>
+            <Table
+              rows={ext.printers?.printers ?? []}
+              columns={[
+                { key: "name", label: "Printer" },
+                { key: "health", label: "Status" },
+                { key: "connection", label: "Connection" },
+                { key: "network_address", label: "Address" },
+                { key: "is_default", label: "Default" },
+                { key: "driver", label: "Driver" },
+              ]}
+            />
+          </div>
+
+          {/* Monitors */}
+          {(ext.monitors?.monitors ?? []).length > 0 && (
+            <div className="mt-4">
+              <h4 className="mb-1 text-section-title">Monitors ({ext.monitors.count})</h4>
+              <Table
+                rows={ext.monitors.monitors}
+                columns={[
+                  { key: "model", label: "Model" },
+                  { key: "manufacturer", label: "Manufacturer" },
+                  { key: "connection_type", label: "Connection" },
+                  { key: "resolution", label: "Resolution" },
+                  { key: "refresh_rate_hz", label: "Hz" },
+                  { key: "serial_number", label: "Serial" },
+                ]}
+              />
+            </div>
+          )}
+
+          {/* USB devices */}
+          {(ext.usb?.devices ?? []).length > 0 && (
+            <div className="mt-4">
+              <h4 className="mb-1 text-section-title">USB devices ({ext.usb.count})</h4>
+              <Table
+                rows={ext.usb.devices}
+                columns={[
+                  { key: "name", label: "Device" },
+                  { key: "type", label: "Type" },
+                  { key: "manufacturer", label: "Manufacturer" },
+                  { key: "health", label: "Status" },
+                  { key: "serial_number", label: "Serial" },
+                ]}
+              />
+            </div>
+          )}
+
+          {/* Bluetooth */}
+          {(ext.bluetooth?.devices ?? []).length > 0 && (
+            <div className="mt-4">
+              <h4 className="mb-1 text-section-title">
+                Bluetooth ({ext.bluetooth.connected_count}/{ext.bluetooth.paired_count} connected)
+              </h4>
+              <Table
+                rows={ext.bluetooth.devices}
+                columns={[
+                  { key: "name", label: "Device" },
+                  { key: "device_type", label: "Type" },
+                  { key: "status", label: "Status" },
+                ]}
+              />
+            </div>
+          )}
+
+          {/* External storage */}
+          {(ext.external_storage?.devices ?? []).length > 0 && (
+            <div className="mt-4">
+              <h4 className="mb-1 text-section-title">External storage ({ext.external_storage.count})</h4>
+              <Table
+                rows={ext.external_storage.devices}
+                columns={[
+                  { key: "name", label: "Drive" },
+                  { key: "bus_type", label: "Bus" },
+                  { key: "capacity_gb", label: "Capacity GB" },
+                  { key: "free_gb", label: "Free GB" },
+                  { key: "smart_health", label: "Health" },
+                  { key: "serial_number", label: "Serial" },
+                ]}
+              />
+            </div>
+          )}
+
+          {/* Cameras + Scanners */}
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            {(ext.cameras?.cameras ?? []).length > 0 && (
+              <div>
+                <h4 className="mb-1 text-section-title">Cameras ({ext.cameras.count})</h4>
+                <Table
+                  rows={ext.cameras.cameras}
+                  columns={[
+                    { key: "name", label: "Camera" },
+                    { key: "health", label: "Status" },
+                  ]}
+                />
+              </div>
+            )}
+            {(ext.scanners?.scanners ?? []).length > 0 && (
+              <div>
+                <h4 className="mb-1 text-section-title">Scanners ({ext.scanners.count})</h4>
+                <Table
+                  rows={ext.scanners.scanners}
+                  columns={[
+                    { key: "name", label: "Scanner" },
+                    { key: "health", label: "Status" },
+                  ]}
+                />
+              </div>
+            )}
+          </div>
+
+          {/* Audio devices */}
+          {((ext.audio?.input_devices ?? []).length > 0 ||
+            (ext.audio?.output_devices ?? []).length > 0) && (
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              <div>
+                <h4 className="mb-1 text-section-title">Audio output ({ext.audio.output_count})</h4>
+                <Table
+                  rows={ext.audio.output_devices}
+                  columns={[
+                    { key: "name", label: "Device" },
+                    { key: "health", label: "Status" },
+                  ]}
+                />
+              </div>
+              <div>
+                <h4 className="mb-1 text-section-title">Audio input ({ext.audio.input_count})</h4>
+                <Table
+                  rows={ext.audio.input_devices}
+                  columns={[
+                    { key: "name", label: "Device" },
+                    { key: "health", label: "Status" },
+                  ]}
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Docking stations + Thunderbolt */}
+          {((ext.docking_stations?.docking_stations ?? []).length > 0 ||
+            (ext.docking_stations?.thunderbolt_devices ?? []).length > 0) && (
+            <div className="mt-4">
+              <h4 className="mb-1 text-section-title">Docking / Thunderbolt</h4>
+              <Table
+                rows={[
+                  ...(ext.docking_stations?.docking_stations ?? []),
+                  ...(ext.docking_stations?.thunderbolt_devices ?? []),
+                ]}
+                columns={[
+                  { key: "name", label: "Device" },
+                  { key: "manufacturer", label: "Manufacturer" },
+                  { key: "health", label: "Status" },
+                ]}
+              />
+            </div>
+          )}
+
+          {/* Network hardware (LAN) */}
+          {(ext.network_devices?.lan_devices ?? []).length > 0 && (
+            <div className="mt-4">
+              <h4 className="mb-1 text-section-title">
+                Network devices on LAN ({ext.network_devices.count})
+                {ext.network_devices.gateway ? ` · gateway ${ext.network_devices.gateway}` : ""}
+              </h4>
+              <Table
+                rows={ext.network_devices.lan_devices}
+                columns={[
+                  { key: "ip_address", label: "IP" },
+                  { key: "mac_address", label: "MAC" },
+                  { key: "manufacturer", label: "Vendor" },
+                  { key: "is_gateway", label: "Gateway" },
+                ]}
+              />
+            </div>
+          )}
+
+          {/* PCI / expansion */}
+          {(ext.pci_devices?.devices ?? []).length > 0 && (
+            <div className="mt-4">
+              <h4 className="mb-1 text-section-title">PCI / expansion ({ext.pci_devices.count})</h4>
+              <Table
+                rows={ext.pci_devices.devices}
+                columns={[
+                  { key: "name", label: "Device" },
+                  { key: "class", label: "Class" },
+                  { key: "manufacturer", label: "Manufacturer" },
+                  { key: "status", label: "Status" },
+                ]}
+              />
+            </div>
+          )}
+        </CollapsibleSection>
+      )}
 
       {/* ============================== SOFTWARE ============================== */}
-      <Section
+      <CollapsibleSection
         title="Software"
         subtitle={`${win.edition ?? "Windows"} · ${sw.installed_count ?? apps.length ?? 0} apps`}
-        defaultOpen
       >
         {/* Operating system */}
         <div className="grid gap-4 md:grid-cols-2">
@@ -659,13 +907,14 @@ function Body({ report }: { report: MachineScanReport }) {
             ]}
           />
         </div>
-      </Section>
+      </CollapsibleSection>
     </div>
   );
 }
 
 export function MachineScanView() {
   const report = useStore((s) => s.machineReport);
+  const storageReport = useStore((s) => s.storageReport);
   const isScanning = useStore((s) => s.isMachineScanning);
   const isGeneratingSummary = useStore((s) => s.isGeneratingMachineSummary);
   const runMachineScan = useStore((s) => s.runMachineScan);
@@ -685,7 +934,7 @@ export function MachineScanView() {
       <div className="flex h-full flex-col items-center justify-center gap-4 px-6 text-center">
         <h1 className="text-2xl font-semibold text-content-primary">Full System Scan</h1>
         <p className="max-w-lg text-body text-content-body">
-          Scans all hardware and software, runs the Windows troubleshooter for actionable fixes, and
+          Scans all hardware and software, runs storage analysis, Windows troubleshooter fixes, and
           computes an overall health score. Generate an AI summary afterward for a full narrative.
         </p>
         <button onClick={runMachineScan} className="btn-primary">
@@ -774,15 +1023,16 @@ export function MachineScanView() {
 
         {/* Recommended actions (deterministic) - hidden when the AI summary already covers them */}
         {!hasAiSummary && health.recommended_actions.length > 0 && (
-          <div className="card mt-4 p-5 glass-card border-l-4 border-severity-warning/45 shadow-md">
-            <h2 className="mb-3 text-section-title flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-severity-warning animate-pulse" />
-              Recommended Actions
-            </h2>
+          <CollapsibleSection
+            title="Recommended Actions"
+            subtitle={`${health.recommended_actions.length} prioritized item${health.recommended_actions.length === 1 ? "" : "s"}`}
+            accent="warning"
+            className="mt-4"
+          >
             <ul className="space-y-2.5">
               {health.recommended_actions.map((a, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-caption text-content-secondary bg-white/30/10 border border-white/40/10 p-3 rounded-xl">
-                  <span className="text-accent text-sm leading-none font-bold select-none">•</span>
+                <li key={i} className="flex items-start gap-2.5 rounded-xl border border-white/40/10 bg-white/30/10 p-3 text-caption text-content-secondary">
+                  <span className="select-none text-sm font-bold leading-none text-accent">•</span>
                   <span className="leading-relaxed">{a}</span>
                 </li>
               ))}
@@ -795,17 +1045,23 @@ export function MachineScanView() {
                   `What should I prioritise and how do I fix these?`,
                 )
               }
-              className="mt-4 rounded-xl bg-accent px-4 py-2 text-xs font-bold uppercase tracking-wider text-content-primary shadow-md shadow-accent/10 hover:shadow-accent/20 transition-all hover:-translate-y-px duration-100 flex items-center gap-1.5"
+              className="mt-4 flex items-center gap-1.5 rounded-xl bg-accent px-4 py-2 text-xs font-bold uppercase tracking-wider text-content-primary shadow-md shadow-accent/10 transition-all duration-100 hover:-translate-y-px hover:shadow-accent/20"
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
               Ask AI to help fix these
             </button>
-          </div>
+          </CollapsibleSection>
         )}
 
         <MachineScanTroubleshooter report={report} />
+
+        {storageReport && (
+          <div className="mt-4">
+            <StorageAnalysisSection report={storageReport} />
+          </div>
+        )}
 
         {/* Category details */}
         <div className="mt-4 space-y-3">

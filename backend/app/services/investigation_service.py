@@ -13,6 +13,7 @@ import json
 from datetime import datetime
 from typing import Optional
 
+from app.core.config import get_settings
 from app.core.logging import get_logger
 from app.models.schemas import (
     DiagnosisResult,
@@ -24,7 +25,7 @@ from app.models.schemas import (
     Severity,
     TroubleshooterFinding,
 )
-from app.services.issue_parser import enrich_with_inventory, parse_issue
+from app.services.issue_parser import enrich_with_inventory, parse_issue, plan_probe_domains
 from app.services.machine_scan_findings import build_investigation_from_scan
 from app.services.machine_scan_service import MachineScanService
 from app.services.ollama_service import OllamaService
@@ -70,6 +71,9 @@ _DIAGNOSIS_SYSTEM = (
     "- Resolution steps must be short, plain-language, and easy for a non-technical user "
     "(4 steps max; no jargon). Use simple paths like 'Settings → Bluetooth'.\n"
     "- Do NOT change the severity you are given; it is computed from hard evidence.\n"
+    "- If issue_relevant_scan includes storage_intelligence with largest_files or "
+    "largest_folders, cite those exact paths and sizes when answering storage or "
+    "disk-space questions.\n"
     "- Return ONLY the requested JSON object, nothing else."
 )
 
@@ -123,11 +127,27 @@ class InvestigationService:
             report.overall_status = Severity.info
             return report
 
+        # Scope the scan to only the scanners this issue needs (fast), unless the
+        # operator forces a full scan via settings. Storage questions still get
+        # the deep tree walk; everything else skips it.
+        settings = get_settings()
+        scan_domains: list[str] | None = None
+        if settings.investigation_scan_mode == "domain":
+            planned = plan_probe_domains(profile)
+            # Union parsed domains + planned probe packs so expansions (e.g.
+            # mouse -> usb, wifi -> network) are covered by the scoped scan.
+            scan_domains = list(dict.fromkeys([*profile.domains, *planned])) or None
+
         logger.info(
-            "Investigation running comprehensive machine scan (all hardware + software) for domains=%s",
-            profile.domains,
+            "Investigation scan mode=%s domains=%s drive=%s",
+            settings.investigation_scan_mode,
+            scan_domains if scan_domains is not None else "ALL",
+            profile.target_drive or "system",
         )
-        scan_report = await self._machine_scan.scan()
+        scan_report = await self._machine_scan.scan(
+            target_drive=profile.target_drive,
+            domains=scan_domains,
+        )
         probes, findings, scan_facts = build_investigation_from_scan(
             scan_report, profile, message or ""
         )
@@ -231,14 +251,7 @@ class InvestigationService:
             except Exception as exc:  # pragma: no cover - never let the LLM break diagnosis
                 logger.warning("LLM diagnosis failed, using deterministic result: %s", exc)
 
-        if self._visual_guides:
-            result = self._visual_guides.attach(
-                result,
-                message,
-                report.profile.domains,
-                primary_domain=report.profile.primary_domain,
-                symptoms=report.profile.symptoms,
-            )
+        # Visual guides disabled for investigation — findings supply accurate, domain-specific steps.
         return result, report
 
     # ------------------------------------------------------------------ #
@@ -348,6 +361,21 @@ class InvestigationService:
                 "Right-click speaker icon > Sound settings — ensure the mic is not muted.",
                 "Device Manager > Audio inputs and outputs: update the microphone driver.",
                 "Test in Windows Voice Recorder; close Teams/Zoom if they may be holding the mic.",
+            ]
+        if "mouse" in profile.domains:
+            return [
+                "Press Fn + the touchpad key, or double-tap the top-left corner of the touchpad.",
+                "Settings > Bluetooth & devices > Mouse: check pointer speed and device selection.",
+                "Device Manager > Mice and other pointing devices: update or reinstall the driver.",
+                "Try another USB port or replace batteries in a wireless mouse.",
+                "Restart the PC and test the pointer on the desktop.",
+            ]
+        if "keyboard" in profile.domains:
+            return [
+                "Settings > Accessibility > Keyboard: turn off Filter Keys and Sticky Keys.",
+                "Settings > Time & language: confirm the correct keyboard layout.",
+                "Device Manager > Keyboards: update or reinstall the driver.",
+                "For wireless keyboards: replace batteries or re-pair via Bluetooth.",
             ]
         return [
             "Re-test the device/feature once more to confirm the symptom is still happening.",

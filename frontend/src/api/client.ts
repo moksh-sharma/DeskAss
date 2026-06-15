@@ -1,14 +1,24 @@
 import type {
   DiagnoseResponse,
   DiagnosisResult,
+  BootHistory,
   EventLogSummary,
   HealthReport,
+  IncidentReport,
   MachineAiSummary,
+  MachineMemory,
   MachineScanHistorySummary,
   MachineScanReport,
+  MonitorEvent,
+  MonitorPredictions,
+  MonitorReport,
+  MonitorStatus,
+  MonitorTrends,
   OcrResponse,
   SessionDetail,
   SessionSummary,
+  StorageHistorySummary,
+  StorageReport,
   SystemDiagnostics,
   SystemStatus,
   TranscriptionResponse,
@@ -180,6 +190,13 @@ function slimScanForSummary(report: MachineScanReport) {
       network: sw.network,
       crash_analysis: sw.crash_analysis,
       event_logs: { summary: sw.event_logs?.summary },
+      storage_intelligence: sw.storage_intelligence
+        ? {
+            health: sw.storage_intelligence.health,
+            recoverable_gb: sw.storage_intelligence.cleanup?.total_potential_gb,
+            quick_wins: sw.storage_intelligence.cleanup?.quick_wins?.slice(0, 4),
+          }
+        : undefined,
     },
   };
 }
@@ -195,11 +212,55 @@ export const api = {
 
   fullScan: () => request<HealthReport>("/api/diagnostics/scan", { method: "POST" }),
 
-  /** Comprehensive machine scan - hardware + software inventory (no LLM; fast). */
+  /** Comprehensive machine scan - hardware + software + deep storage (parallel). */
   machineScan: () =>
-    request<MachineScanReport>("/api/diagnostics/full-scan", { method: "POST" }, 240_000),
+    request<MachineScanReport>("/api/diagnostics/full-scan", { method: "POST" }, 480_000),
 
   listMachineScans: () => request<MachineScanHistorySummary[]>("/api/machine-scans"),
+
+  /** Advanced Storage Intelligence — deep scan (heavy; up to several minutes). */
+  storageScan: () =>
+    request<StorageReport>("/api/storage/scan", { method: "POST" }, 720_000, "Storage scan"),
+
+  listStorageScans: () => request<StorageHistorySummary[]>("/api/storage"),
+
+  getStorageScan: (id: number) => request<StorageReport>(`/api/storage/${id}`),
+
+  deleteStorageScan: (id: number) =>
+    request<{ deleted: boolean }>(`/api/storage/${id}`, { method: "DELETE" }),
+
+  // ----- Continuous monitoring ----------------------------------------- //
+  monitorStatus: () => request<MonitorStatus>("/api/monitoring/status"),
+
+  monitorTrends: (days = 7) => request<MonitorTrends>(`/api/monitoring/trends?days=${days}`),
+
+  monitorEvents: (days = 30, category?: string) =>
+    request<MonitorEvent[]>(
+      `/api/monitoring/events?days=${days}${category ? `&category=${category}` : ""}`,
+    ),
+
+  monitorAlerts: (hours = 48) => request<MonitorEvent[]>(`/api/monitoring/alerts?hours=${hours}`),
+
+  monitorChanges: (days = 30) => request<MonitorEvent[]>(`/api/monitoring/changes?days=${days}`),
+
+  monitorBootHistory: () => request<BootHistory>("/api/monitoring/boot-history"),
+
+  monitorPredictions: () => request<MonitorPredictions>("/api/monitoring/predictions"),
+
+  monitorMachineMemory: () => request<MachineMemory>("/api/monitoring/machine-memory"),
+
+  monitorDigitalTwin: () => request<Record<string, any>>("/api/monitoring/digital-twin"),
+
+  monitorReport: (period: "daily" | "weekly" | "monthly" = "daily") =>
+    request<MonitorReport>(`/api/monitoring/report?period=${period}`),
+
+  monitorIncident: (text: string, windowMinutes = 30) =>
+    request<IncidentReport>(
+      `/api/monitoring/incident?text=${encodeURIComponent(text)}&window_minutes=${windowMinutes}`,
+      undefined,
+      120_000,
+      "Incident analysis",
+    ),
 
   getMachineScan: (id: number) => request<MachineScanReport>(`/api/machine-scans/${id}`),
 

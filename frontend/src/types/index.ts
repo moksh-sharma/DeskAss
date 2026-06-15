@@ -283,6 +283,174 @@ export interface MachineScanHistorySummary {
   updated_at: string;
 }
 
+// ── Advanced Storage Intelligence ──
+export interface StorageDrive {
+  drive: string;
+  mountpoint?: string;
+  file_system?: string | null;
+  total_gb: number | null;
+  used_gb: number | null;
+  free_gb: number | null;
+  used_pct: number;
+}
+
+export interface StorageCleanupItem {
+  label: string;
+  recover_gb: number | null;
+  path?: string | null;
+}
+
+export interface StorageHealth {
+  overall_score: number;
+  overall_status: string;
+  categories: Record<string, number>;
+  notes: string[];
+}
+
+export interface StorageTimelinePoint {
+  id: number;
+  scanned_at: string;
+  health_score: number;
+  primary_free_gb: number;
+  primary_used_pct: number;
+  recoverable_gb: number;
+}
+
+// The deep report is large and evolving; render defensively via index access.
+export interface StorageReport {
+  scan_id?: number | null;
+  generated_at: string;
+  mode: "quick" | "deep";
+  scan_duration_seconds: number;
+  drives: StorageDrive[];
+  primary_drive: StorageDrive | null;
+  health: StorageHealth;
+  cleanup: {
+    quick_wins: StorageCleanupItem[];
+    safe_cleanup: StorageCleanupItem[];
+    advanced_cleanup: StorageCleanupItem[];
+    total_potential_gb: number;
+  };
+  cleanup_locations?: Array<Record<string, any>>;
+  tree?: Record<string, any>;
+  file_type_distribution?: Array<Record<string, any>>;
+  application_footprint?: Record<string, any>;
+  developer_storage?: Record<string, any>;
+  ai_models?: Record<string, any>;
+  downloads?: Record<string, any>;
+  media?: Record<string, any>;
+  archives?: Record<string, any>;
+  cloud_storage?: Array<Record<string, any>>;
+  windows_storage?: Record<string, any>;
+  recovery?: Record<string, any>;
+  vm_storage?: Record<string, any>;
+  duplicates?: Record<string, any>;
+  growth?: Record<string, any>;
+  change_tracking?: Record<string, any>;
+  timeline?: StorageTimelinePoint[];
+}
+
+export interface StorageHistorySummary {
+  id: number;
+  title: string;
+  health_score: number;
+  health_status: string;
+  recoverable_gb: number;
+  primary_free_gb: number;
+  primary_used_pct: number;
+  scan_duration_seconds: number;
+  scanned_at: string;
+}
+
+// ----- Continuous monitoring -------------------------------------------- //
+export interface MonitorCurrent {
+  ts: string;
+  cpu_pct: number;
+  mem_used_pct: number;
+  mem_available_gb: number;
+  disk_free_gb: number;
+  disk_used_pct: number;
+  net_up_mb_s: number | null;
+  net_down_mb_s: number | null;
+  gpu_pct: number | null;
+  battery_pct: number | null;
+  process_count: number | null;
+}
+
+export interface MonitorStatus {
+  active: boolean;
+  samples: number;
+  monitoring_since: string | null;
+  alerts_24h: number;
+  current: MonitorCurrent | null;
+}
+
+export interface MonitorTrendPoint {
+  t: string;
+  cpu: number | null;
+  mem: number | null;
+  disk_free: number | null;
+  net_down: number | null;
+  net_up: number | null;
+}
+
+export interface MonitorTrends {
+  days: number;
+  samples: number;
+  points: MonitorTrendPoint[];
+  averages: Record<string, number | null>;
+}
+
+export interface MonitorEvent {
+  ts: string;
+  category: string;
+  severity: string;
+  title: string;
+  detail: string | null;
+}
+
+export interface IncidentReport {
+  anchor: string;
+  window_minutes: number;
+  samples_found: number;
+  peak_cpu_pct: number;
+  peak_mem_pct: number;
+  min_disk_free_gb: number | null;
+  timeline: Array<{ ts: string; kind: string; text: string; severity?: string }>;
+  probable_cause: string;
+  confidence: number;
+  has_telemetry: boolean;
+}
+
+export interface MonitorReport {
+  period: string;
+  generated_at: string;
+  health_score: number;
+  status: string;
+  averages: Record<string, number | null>;
+  major_changes: MonitorEvent[];
+  alerts: MonitorEvent[];
+  risks: string[];
+  recommendations: string[];
+}
+
+export interface MonitorPredictions {
+  disk?: Record<string, any>;
+  performance?: Record<string, any>;
+  battery?: Record<string, any>;
+}
+
+export interface MachineMemory {
+  facts: string[];
+  generated_at: string;
+}
+
+export interface BootHistory {
+  uptime_hours: number | null;
+  boots: MonitorEvent[];
+  boot_count: number;
+}
+
 export interface SessionSummary {
   id: number;
   title: string;

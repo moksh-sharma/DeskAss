@@ -95,6 +95,21 @@ _PLAIN_STEPS: dict[str, str] = {
         "Update your Wi-Fi adapter: Device Manager → Network adapters → right-click your Wi-Fi adapter → "
         "Update driver → Search automatically."
     ),
+    "mouse_driver": (
+        "Update the mouse or touchpad driver: Device Manager → Mice and other pointing devices → "
+        "right-click your device → Update driver → Search automatically."
+    ),
+    "mouse_touchpad": (
+        "Re-enable the touchpad: press Fn + the touchpad key, or Settings → Bluetooth & devices → "
+        "Touchpad and make sure it is on."
+    ),
+    "mouse_usb": (
+        "For a USB mouse: unplug it, wait 10 seconds, plug into another USB port, or replace wireless batteries."
+    ),
+    "keyboard_driver": (
+        "Update the keyboard driver: Device Manager → Keyboards → right-click your keyboard → "
+        "Update driver → Search automatically."
+    ),
     "wifi_adapter_reinstall": (
         "Still broken? Device Manager → Network adapters → right-click your Wi-Fi adapter → Uninstall device, "
         "then restart your PC."
@@ -156,6 +171,10 @@ _INTENT_PRIORITY: tuple[str, ...] = (
     "printer_queue",
     "printer_spooler",
     "printer_reinstall",
+    "mouse_touchpad",
+    "mouse_driver",
+    "mouse_usb",
+    "keyboard_driver",
     "driver_update",
     "wifi_adapter",
     "wifi_adapter_reinstall",
@@ -167,6 +186,15 @@ _INTENT_PRIORITY: tuple[str, ...] = (
 )
 
 _DROP_INTENTS = frozenset({"discovery", "driver_manual"})
+
+_WIFI_ONLY_INTENTS = frozenset({
+    "wifi_check", "wifi_toggle", "wifi_forget", "wifi_router", "wifi_band",
+    "wifi_adapter", "wifi_adapter_reinstall",
+})
+
+_MOUSE_ONLY_INTENTS = frozenset({
+    "mouse_driver", "mouse_touchpad", "mouse_usb",
+})
 
 _BLUETOOTH_ONLY_INTENTS = frozenset({
     "enable_quick", "enable_settings", "restart_accessory", "range_interference",
@@ -272,6 +300,10 @@ def _domain_set(domains: Iterable[str] | None) -> set[str]:
 def _plain_for_intent(intent: str, domains: set[str]) -> str | None:
     if intent in _BLUETOOTH_ONLY_INTENTS and "bluetooth" not in domains:
         return None
+    if intent in _WIFI_ONLY_INTENTS and not (domains & {"wifi", "network"}):
+        return None
+    if intent in _MOUSE_ONLY_INTENTS and "mouse" not in domains and "keyboard" not in domains:
+        return None
     return _PLAIN_STEPS.get(intent)
 
 
@@ -310,17 +342,25 @@ def _classify_intent(text: str) -> str:
     if "uninstall device" in t or "scan for hardware changes" in t:
         if re.search(r"network adapter|wi-?fi|wireless", t):
             return "wifi_adapter_reinstall"
+        if re.search(r"mouse|touchpad|pointing|mice", t):
+            return "mouse_driver"
+        if re.search(r"keyboard", t):
+            return "keyboard_driver"
         if "bluetooth" in t:
             return "driver_reinstall"
-        return "wifi_adapter_reinstall"
+        return "misc"
     if ".exe" in t or "browse my computer" in t or ".inf" in t or ".sys" in t:
         return "driver_manual"
     if "update driver" in t:
         if re.search(r"network adapter|wi-?fi|wireless", t):
             return "wifi_adapter"
+        if re.search(r"mouse|touchpad|trackpad|pointing|mice", t):
+            return "mouse_driver"
+        if re.search(r"keyboard", t):
+            return "keyboard_driver"
         if "bluetooth" in t:
             return "driver_update"
-        return "wifi_adapter"
+        return "misc"
     if re.search(r"settings.*bluetooth", t) and "remove" not in t and "discovery" not in t:
         return "enable_settings"
     if "discovery" in t or "device settings" in t:
@@ -329,6 +369,10 @@ def _classify_intent(text: str) -> str:
         return "wifi_forget"
     if re.search(r"wi-?fi.*turn|turn.*wi-?fi|network & internet", t):
         return "wifi_toggle"
+    if re.search(r"touchpad|trackpad", t) and re.search(r"enable|disable|turn on", t):
+        return "mouse_touchpad"
+    if re.search(r"mice and other pointing|pointing device|mouse", t) and "uninstall" in t:
+        return "mouse_driver"
     if re.search(r"network adapters|wi-?fi adapter", t):
         return "wifi_adapter"
     if re.search(r"microphone|privacy.*mic", t) and "privacy" in t:

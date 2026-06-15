@@ -45,7 +45,7 @@ def _memory_health(performance: dict) -> tuple[int, list[str]]:
     return _clamp(score), notes
 
 
-def _disk_health(hardware: dict) -> tuple[int, list[str]]:
+def _disk_health(hardware: dict, storage_intel: dict | None = None) -> tuple[int, list[str]]:
     notes: list[str] = []
     score = 100
     for d in (hardware.get("storage") or {}).get("logical_drives", []):
@@ -59,6 +59,16 @@ def _disk_health(hardware: dict) -> tuple[int, list[str]]:
     for d in (hardware.get("disk_health") or {}).get("disks", []):
         if (d.get("smart_health") or "").lower() not in ("healthy", "", "none"):
             score -= 40; notes.append(f"Disk '{d.get('name')}' SMART status: {d.get('smart_health')}.")
+    si = storage_intel or {}
+    if si and not si.get("error"):
+        si_health = si.get("health") or {}
+        si_score = si_health.get("overall_score")
+        if isinstance(si_score, (int, float)):
+            score = _combine([score, int(si_score)])
+        notes.extend((si_health.get("notes") or [])[:3])
+        recoverable = (si.get("cleanup") or {}).get("total_potential_gb")
+        if isinstance(recoverable, (int, float)) and recoverable >= 3:
+            notes.append(f"~{round(recoverable, 1)} GB recoverable via safe cleanup.")
     return _clamp(score), notes
 
 
@@ -149,6 +159,40 @@ def _device_health(hardware: dict) -> tuple[int, list[str]]:
     return _clamp(score), notes
 
 
+def _external_device_health(ext: dict) -> tuple[int, list[str]]:
+    notes: list[str] = []
+    score = 100
+    if not ext or ext.get("available") is False:
+        return 100, notes
+
+    printers = (ext.get("printers") or {})
+    offline = [p for p in printers.get("printers", []) if p.get("health") == "Offline"]
+    if offline:
+        score -= min(20, 10 * len(offline))
+        notes.append(f"{len(offline)} printer(s) offline: " +
+                     ", ".join(p.get("name") for p in offline[:3] if p.get("name")) + ".")
+    if printers.get("printers") and printers.get("spooler_running") is False:
+        score -= 15
+        notes.append("Print Spooler service is stopped (printing unavailable).")
+
+    usb_problems = (ext.get("usb") or {}).get("problem_devices") or []
+    if usb_problems:
+        score -= min(20, 10 * len(usb_problems))
+        notes.append(f"{len(usb_problems)} USB device(s) with errors: " +
+                     ", ".join(d.get("name") for d in usb_problems[:3] if d.get("name")) + ".")
+
+    bad_storage = [
+        s for s in (ext.get("external_storage") or {}).get("devices", [])
+        if s.get("health") not in ("Connected", None)
+    ]
+    if bad_storage:
+        score -= min(25, 15 * len(bad_storage))
+        notes.append(f"{len(bad_storage)} external drive(s) with health issues: " +
+                     ", ".join(s.get("name") for s in bad_storage[:2] if s.get("name")) + ".")
+
+    return _clamp(score), notes
+
+
 def _app_health(crash: dict, services: dict, startup: dict) -> tuple[int, list[str]]:
     notes: list[str] = []
     score = 100
@@ -184,14 +228,17 @@ def build_health_report(sections: dict[str, Any]) -> dict:
     services = sections.get("services") or {}
     startup = sections.get("startup_programs") or {}
     operating_system = sections.get("operating_system") or {}
+    external = sections.get("external_devices") or {}
+    storage_intel = sections.get("storage_intelligence") or {}
 
     # Hardware = CPU, memory, disks/SMART, physical devices.
     cpu_s, cpu_n = _cpu_health(hardware, performance)
     mem_s, mem_n = _memory_health(performance)
-    disk_s, disk_n = _disk_health(hardware)
+    disk_s, disk_n = _disk_health(hardware, storage_intel)
     dev_s, dev_n = _device_health(hardware)
-    hw_score = _combine([cpu_s, mem_s, disk_s, dev_s])
-    hw_notes = cpu_n + mem_n + disk_n + dev_n
+    ext_s, ext_n = _external_device_health(external)
+    hw_score = _combine([cpu_s, mem_s, disk_s, dev_s, ext_s])
+    hw_notes = cpu_n + mem_n + disk_n + dev_n + ext_n
 
     # Software = security posture, OS state, app/system stability, networking.
     sec_s, sec_n = _security_health(security)

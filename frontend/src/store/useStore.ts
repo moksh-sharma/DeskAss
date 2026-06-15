@@ -1,13 +1,69 @@
 import { create } from "zustand";
 import { api, type DiagnosePayload } from "@/api/client";
 import type {
+  BootHistory,
   ChatMessage,
+  IncidentReport,
+  MachineMemory,
   MachineScanHistorySummary,
   MachineScanReport,
+  MonitorEvent,
+  MonitorPredictions,
+  MonitorStatus,
+  MonitorTrends,
   SessionSummary,
+  StorageReport,
   SystemDiagnostics,
   SystemStatus,
 } from "@/types";
+
+/** Extract embedded storage report from a machine scan (deep preferred, merged with quick). */
+function storageFromMachineReport(report: MachineScanReport): StorageReport | null {
+  const deep = report.software?.storage_deep;
+  const quick = report.software?.storage_intelligence;
+  const deepOk = deep && !deep.error;
+  const quickOk = quick && !quick.error;
+  if (!deepOk && !quickOk) return null;
+
+  const merged = {
+    ...(quickOk ? quick : {}),
+    ...(deepOk ? deep : {}),
+    mode: deepOk ? ("deep" as const) : ("quick" as const),
+    drives:
+      (deepOk && deep.drives?.length ? deep.drives : null) ??
+      (quickOk && quick.drives?.length ? quick.drives : null) ??
+      [],
+    primary_drive:
+      (deepOk ? deep.primary_drive : null) ??
+      (quickOk ? quick.primary_drive : null) ??
+      null,
+    cleanup:
+      (deepOk && deep.cleanup ? deep.cleanup : null) ??
+      (quickOk && quick.cleanup ? quick.cleanup : null) ??
+      { quick_wins: [], safe_cleanup: [], advanced_cleanup: [], total_potential_gb: 0 },
+    health:
+      (deepOk && deep.health ? deep.health : null) ??
+      (quickOk && quick.health ? quick.health : null) ??
+      { overall_score: 0, overall_status: "Unknown", categories: {}, notes: [] },
+    scan_duration_seconds:
+      (deepOk ? deep.scan_duration_seconds : null) ??
+      (quickOk ? quick.scan_duration_seconds : null) ??
+      0,
+  };
+
+  return merged as StorageReport;
+}
+
+function storageNeedsDedicatedScan(report: StorageReport | null): boolean {
+  if (!report) return true;
+  const tree = report.tree ?? {};
+  const hasTree =
+    (tree.top_files?.length ?? 0) > 0 ||
+    (tree.top_folders?.length ?? 0) > 0 ||
+    (tree.total_files_scanned ?? 0) > 0;
+  const hasDrives = (report.drives?.length ?? 0) > 0;
+  return !hasDrives || (!hasTree && report.mode === "deep");
+}
 
 type View = "chat" | "dashboard" | "machine-scan";
 
@@ -53,6 +109,22 @@ interface AppState {
   refreshMachineScanHistory: () => Promise<void>;
   loadMachineScan: (id: number) => Promise<void>;
   removeMachineScan: (id: number) => Promise<void>;
+
+  // Storage analysis (runs with full system scan; shown on machine-scan page only)
+  storageReport: StorageReport | null;
+
+  // Continuous monitoring (System Dashboard)
+  monitorStatus: MonitorStatus | null;
+  monitorTrends: MonitorTrends | null;
+  monitorAlerts: MonitorEvent[];
+  monitorChanges: MonitorEvent[];
+  monitorPredictions: MonitorPredictions | null;
+  monitorMemory: MachineMemory | null;
+  monitorBoot: BootHistory | null;
+  incidentResult: IncidentReport | null;
+  isReconstructing: boolean;
+  refreshMonitoring: () => Promise<void>;
+  reconstructIncident: (text: string, windowMinutes?: number) => Promise<void>;
 
   // Toasts
   toast: { kind: "error" | "info" | "success"; message: string } | null;
@@ -251,11 +323,26 @@ export const useStore = create<AppState>((set, get) => ({
     }
   },
   runMachineScan: async () => {
-    set({ isMachineScanning: true, view: "machine-scan", currentMachineScanId: null });
+    set({ isMachineScanning: true, view: "machine-scan", currentMachineScanId: null, storageReport: null, machineReport: null });
     try {
       const machineReport = await api.machineScan();
+      let storageReport = storageFromMachineReport(machineReport);
+      if (storageNeedsDedicatedScan(storageReport)) {
+        try {
+          storageReport = await api.storageScan();
+        } catch (e) {
+          if (!storageReport) {
+            throw e;
+          }
+          get().notify(
+            "error",
+            `Storage deep analysis incomplete: ${(e as Error)?.message ?? "unknown error"}`,
+          );
+        }
+      }
       set({
         machineReport,
+        storageReport,
         currentMachineScanId: machineReport.scan_id ?? null,
       });
       await get().refreshMetrics();
@@ -273,6 +360,7 @@ export const useStore = create<AppState>((set, get) => ({
         machineReport,
         currentMachineScanId: id,
         view: "machine-scan",
+        storageReport: storageFromMachineReport(machineReport),
       });
     } catch (e) {
       get().notify("error", (e as Error).message);
@@ -298,7 +386,11 @@ export const useStore = create<AppState>((set, get) => ({
       const scanId = report.scan_id ?? get().currentMachineScanId;
       if (scanId != null) {
         const machineReport = await api.getMachineScan(scanId);
-        set({ machineReport, currentMachineScanId: scanId });
+        set({
+          machineReport,
+          currentMachineScanId: scanId,
+          storageReport: storageFromMachineReport(machineReport),
+        });
       } else {
         set({ machineReport: { ...report, ai_summary } });
       }
@@ -308,6 +400,53 @@ export const useStore = create<AppState>((set, get) => ({
       get().notify("error", `Summary failed: ${(e as Error).message}`);
     } finally {
       set({ isGeneratingMachineSummary: false });
+    }
+  },
+
+  storageReport: null,
+
+  monitorStatus: null,
+  monitorTrends: null,
+  monitorAlerts: [],
+  monitorChanges: [],
+  monitorPredictions: null,
+  monitorMemory: null,
+  monitorBoot: null,
+  incidentResult: null,
+  isReconstructing: false,
+  refreshMonitoring: async () => {
+    try {
+      const [status, trends, alerts, changes, predictions, memory, boot] = await Promise.all([
+        api.monitorStatus(),
+        api.monitorTrends(7),
+        api.monitorAlerts(72),
+        api.monitorChanges(30),
+        api.monitorPredictions(),
+        api.monitorMachineMemory(),
+        api.monitorBootHistory(),
+      ]);
+      set({
+        monitorStatus: status,
+        monitorTrends: trends,
+        monitorAlerts: alerts,
+        monitorChanges: changes,
+        monitorPredictions: predictions,
+        monitorMemory: memory,
+        monitorBoot: boot,
+      });
+    } catch {
+      /* keep last known monitoring data */
+    }
+  },
+  reconstructIncident: async (text, windowMinutes = 30) => {
+    set({ isReconstructing: true });
+    try {
+      const incidentResult = await api.monitorIncident(text, windowMinutes);
+      set({ incidentResult });
+    } catch (e) {
+      get().notify("error", `Incident analysis failed: ${(e as Error).message}`);
+    } finally {
+      set({ isReconstructing: false });
     }
   },
 

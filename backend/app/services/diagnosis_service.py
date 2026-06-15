@@ -179,15 +179,6 @@ class DiagnosisService:
         if not result.confidence_reasons:
             result.confidence_reasons = self._default_confidence_reasons(evidence, references)
         result = self._refine_result(problem, result, diagnostics, event_logs)
-        if self._visual_guides:
-            profile = parse_issue(problem, ocr_text)
-            result = self._visual_guides.attach(
-                result,
-                problem,
-                profile.domains,
-                primary_domain=profile.primary_domain,
-                symptoms=profile.symptoms,
-            )
         return result
 
     # ------------------------------------------------------------------ #

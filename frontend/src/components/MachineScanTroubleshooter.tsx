@@ -1,4 +1,5 @@
 import { useStore } from "@/store/useStore";
+import { CollapsibleSection } from "@/components/common/CollapsibleSection";
 import { FindingCard } from "@/components/common/FindingCard";
 import { EventLogTable } from "@/components/common/EventLogTable";
 import { formatDateTime } from "@/lib/format";
@@ -30,13 +31,13 @@ export function MachineScanTroubleshooter({ report }: { report: MachineScanRepor
   };
 
   return (
-    <div className="mt-4 space-y-6">
-      <div className="space-y-4">
-        <h2 className="text-section-title border-b border-white/40 pb-2">
-          Troubleshooter Findings ({findings.length})
-        </h2>
+    <div className="mt-4 space-y-3">
+      <CollapsibleSection
+        title="Troubleshooter Findings"
+        subtitle={`${findings.length} finding${findings.length === 1 ? "" : "s"}`}
+      >
         {findings.length === 0 ? (
-          <div className="glass-card px-5 py-8 text-center text-empty">
+          <div className="px-2 py-6 text-center text-empty">
             No critical or warning issues detected by the troubleshooter.
           </div>
         ) : (
@@ -46,20 +47,20 @@ export function MachineScanTroubleshooter({ report }: { report: MachineScanRepor
             ))}
           </div>
         )}
-      </div>
+      </CollapsibleSection>
 
-      <div className="space-y-4">
-        <h2 className="text-section-title border-b border-white/40 pb-2">
-          Event Log Alerts ({logs.length})
-        </h2>
+      <CollapsibleSection
+        title="Event Log Alerts"
+        subtitle={`${logs.length} event${logs.length === 1 ? "" : "s"}`}
+      >
         {logs.length === 0 ? (
-          <div className="glass-card px-5 py-8 text-center text-empty">
+          <div className="px-2 py-6 text-center text-empty">
             No recent error or warning events in Windows event logs.
           </div>
         ) : (
           <EventLogTable entries={logs} onDiagnose={handleResolveEvent} busy={isDiagnosing} />
         )}
-      </div>
+      </CollapsibleSection>
     </div>
   );
 }

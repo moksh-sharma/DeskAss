@@ -16,6 +16,8 @@ from app.services.health_service import HealthService
 from app.services.investigation_service import InvestigationService
 from app.services.machine_scan_history_service import MachineScanHistoryService
 from app.services.machine_scan_service import MachineScanService
+from app.services.monitoring_service import MonitoringService
+from app.services.telemetry_analytics_service import TelemetryAnalyticsService
 from app.services.ocr_service import OcrService
 from app.services.system_inventory import SystemInventory
 from app.services.ollama_service import OllamaService
@@ -24,6 +26,8 @@ from app.services.session_service import SessionService
 from app.services.ticket_service import TicketService
 from app.services.troubleshooter_service import TroubleshooterService
 from app.services.speech_service import SpeechService
+from app.services.storage_intelligence_service import StorageIntelligenceService
+from app.services.storage_scan_history_service import StorageScanHistoryService
 from app.services.visual_guide_service import VisualGuideService
 
 logger = get_logger(__name__)
@@ -42,8 +46,14 @@ class Container:
         self.sessions = SessionService()
         self.tickets = TicketService(self.settings)
         self.machine_scan_history = MachineScanHistoryService()
+        self.storage_history = StorageScanHistoryService()
+        self.storage = StorageIntelligenceService()
         self.inventory = SystemInventory()
         self.visual_guides = VisualGuideService()
+
+        # Continuous monitoring (background sampler) + read-side analytics.
+        self.monitoring = MonitoringService(self.settings)
+        self.telemetry = TelemetryAnalyticsService()
 
         # External clients.
         self.audio = AudioService()
@@ -62,6 +72,7 @@ class Container:
             ollama=self.ollama,
             use_llm=self.settings.machine_scan_use_llm,
             summary_model=self.settings.summary_model or self.settings.default_model,
+            storage=self.storage,
         )
         self.investigation = InvestigationService(
             self.ollama,

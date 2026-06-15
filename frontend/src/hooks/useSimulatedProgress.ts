@@ -5,11 +5,11 @@ export type LoadingMode = "diagnose" | "scan" | "summary";
 const STAGES: Record<LoadingMode, string[]> = {
   diagnose: [
     "Parsing your issue…",
-    "Refreshing system inventory…",
+    "Running full system scan…",
+    "Deep storage analysis (largest files & folders)…",
     "Probing hardware & drivers…",
     "Mining Windows event logs…",
     "Cross-checking installed software…",
-    "Searching the knowledge base…",
     "Fusing live telemetry…",
     "Consulting the AI engine…",
     "Crafting your diagnosis…",
@@ -17,7 +17,8 @@ const STAGES: Record<LoadingMode, string[]> = {
   scan: [
     "Booting full system scan…",
     "Inventorying CPU & memory…",
-    "Mapping storage & devices…",
+    "Running storage analysis…",
+    "Mapping drives & largest folders…",
     "Auditing running processes…",
     "Inspecting Windows services…",
     "Parsing event log streams…",
@@ -36,7 +37,7 @@ const STAGES: Record<LoadingMode, string[]> = {
 
 const DURATION: Record<LoadingMode, number> = {
   diagnose: 45000,
-  scan: 38000,
+  scan: 180000,
   summary: 22000,
 };
 

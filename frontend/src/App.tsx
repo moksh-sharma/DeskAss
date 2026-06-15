@@ -18,13 +18,15 @@ export default function App() {
   const refreshStatus = useStore((s) => s.refreshStatus);
   const refreshSessions = useStore((s) => s.refreshSessions);
   const refreshMachineScanHistory = useStore((s) => s.refreshMachineScanHistory);
+  const refreshMonitoring = useStore((s) => s.refreshMonitoring);
 
   useEffect(() => {
     if (!splashDone) return;
     refreshStatus();
     refreshSessions();
     refreshMachineScanHistory();
-  }, [splashDone, refreshStatus, refreshSessions, refreshMachineScanHistory]);
+    refreshMonitoring();
+  }, [splashDone, refreshStatus, refreshSessions, refreshMachineScanHistory, refreshMonitoring]);
 
   return (
     <>
@@ -54,7 +56,7 @@ export default function App() {
           </main>
         </div>
 
-        <IssueScanSidebar />
+        {view === "chat" && <IssueScanSidebar />}
 
         <Toast />
       </div>

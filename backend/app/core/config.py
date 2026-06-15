@@ -68,6 +68,22 @@ class Settings(BaseSettings):
     investigation_use_llm: bool = True   # LLM generates a grounded diagnosis over live facts
     machine_scan_use_llm: bool = True    # LLM writes a grounded health summary for the full scan
     use_kb_in_diagnosis: bool = False     # legacy KB-based diagnosis path
+    # Chat troubleshooter scan scope: "domain" runs only the scanners the issue
+    # needs (fast); "full" runs the entire machine scan for every chat message.
+    investigation_scan_mode: str = "domain"
+
+    # Deep storage scan (runs in parallel with every machine / investigation scan)
+    storage_deep_enabled: bool = True
+    storage_deep_tree_budget_seconds: float = 180.0
+    storage_deep_duplicate_budget_seconds: float = 45.0
+
+    # Continuous monitoring engine
+    monitoring_enabled: bool = True
+    monitoring_sample_seconds: int = 30        # finest telemetry cadence
+    monitoring_detailed_minutes: int = 5       # enrich with top processes / GPU / latency
+    monitoring_deep_minutes: int = 30          # inventory snapshots + change detection
+    monitoring_retention_fine_days: int = 7    # keep 30s samples this long
+    monitoring_retention_detailed_days: int = 90  # keep 5-min samples this long
 
     # OCR
     tesseract_cmd: str = ""

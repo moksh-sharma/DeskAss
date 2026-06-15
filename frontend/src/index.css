@@ -395,6 +395,12 @@ body {
     border: 1px solid rgba(16, 185, 129, 0.25);
   }
 
+  .sidebar-count-badge--violet {
+    background: rgba(237, 233, 254, 0.8);
+    color: #6d28d9;
+    border: 1px solid rgba(139, 92, 246, 0.25);
+  }
+
   .scan-item-active::before {
     background: linear-gradient(180deg, #10b981, #34d399);
   }

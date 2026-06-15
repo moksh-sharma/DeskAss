@@ -25,6 +25,9 @@ _PROBLEM_HINT = re.compile(
     r"outlook|teams|vpn|wifi|wi-?fi|bluetooth|printer|scanner|audio|sound|speaker|mic(?:rophone)?|"
     r"monitor|display|screen|usb|webcam|camera|update|install|battery|charging|"
     r"event\s+id|\.net\s+runtime|out\s+of\s+memory|disk\s+full|"
+    r"disk\s+space|low\s+space|most\s+space|more\s+space|taking\s+\S+\s+space|"
+    r"which\s+file|what\s+file|largest\s+file|biggest\s+file|largest\s+folder|"
+    r"free\s+up|cleanup|clean\s+up|[a-z]\s*:?\s*drive|"
     r"password|login|network|internet|driver|boot|restart|reboot|"
     r"pc|computer|laptop|machine|device|adapter|service"
     r")\b",

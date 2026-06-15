@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import asyncio
+import contextlib
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -28,6 +29,8 @@ async def lifespan(app: FastAPI):  # type: ignore[no-untyped-def]
     init_db()
     init_container()
     asyncio.create_task(get_container().ollama.warmup())
+    # Start the continuous monitoring engine (background telemetry sampler).
+    get_container().monitoring.start()
     logger.info(
         "Startup complete. Ollama=%s  STT=%s",
         settings.ollama_base_url,
@@ -37,6 +40,8 @@ async def lifespan(app: FastAPI):  # type: ignore[no-untyped-def]
     )
     yield
     logger.info("Shutting down.")
+    with contextlib.suppress(Exception):
+        await get_container().monitoring.stop()
 
 
 def create_app() -> FastAPI:

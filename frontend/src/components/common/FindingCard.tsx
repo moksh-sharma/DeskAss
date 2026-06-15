@@ -35,7 +35,7 @@ export function FindingCard({
   onAskAi: (prompt: string) => void;
   busy: boolean;
 }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const accentBorder =
     finding.severity === "Critical"
       ? "border-red-200/60 bg-gradient-to-r from-red-50/60 to-white/30"
@@ -44,9 +44,13 @@ export function FindingCard({
         : "border-white/55";
 
   return (
-    <div className={`card relative overflow-hidden border p-5 transition-all duration-200 ${accentBorder}`}>
-      <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0">
+    <div className={`card relative overflow-hidden border transition-all duration-200 ${accentBorder}`}>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full items-start justify-between gap-3 px-5 py-4 text-left transition-colors hover:bg-white/25"
+      >
+        <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <span className={`text-sm font-bold tracking-tight ${severityColor(finding.severity)}`}>
               {finding.title}
@@ -55,25 +59,26 @@ export function FindingCard({
               {finding.area}
             </span>
           </div>
-          <p className="mt-1.5 text-caption">{finding.detected}</p>
+          <p className="mt-1.5 whitespace-normal break-words text-caption">{finding.detected}</p>
         </div>
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className="shrink-0 select-none rounded-lg border border-transparent px-2.5 py-1 text-[11px] font-bold uppercase text-accent transition-colors hover:border-accent/20 hover:bg-accent/8"
+        <span
+          className={`mt-1 shrink-0 text-[10px] font-extrabold text-content-faint transition-transform duration-200 ${
+            open ? "rotate-180" : ""
+          }`}
         >
-          {open ? "Collapse" : "Expand"}
-        </button>
-      </div>
+          ▼
+        </span>
+      </button>
 
       {open && (
-        <div className="mt-4 space-y-4 border-t border-white/40 pt-4">
+        <div className="space-y-4 border-t border-white/40 px-5 py-4">
           {finding.likely_cause && (
             <div>
               <h5 className="text-label flex items-center gap-1.5">
                 <ShieldAlertIcon className="h-3.5 w-3.5 text-content-muted" />
                 Likely Cause
               </h5>
-              <p className="mt-1 text-caption">{finding.likely_cause}</p>
+              <p className="mt-1 whitespace-normal break-words text-caption">{finding.likely_cause}</p>
             </div>
           )}
 
@@ -86,10 +91,10 @@ export function FindingCard({
               <ol className="mt-2 space-y-1.5">
                 {finding.resolution_steps.map((s, i) => (
                   <li key={i} className="flex items-start gap-2.5 rounded-xl border border-white/50 bg-white/35 p-2.5 backdrop-blur-sm">
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-accent-shine text-[10px] font-black text-white shadow-glow-sm select-none">
+                    <span className="flex h-5 w-5 shrink-0 select-none items-center justify-center rounded-lg bg-accent-shine text-[10px] font-black text-white shadow-glow-sm">
                       {i + 1}
                     </span>
-                    <span className="pt-0.5 text-caption">{s}</span>
+                    <span className="whitespace-normal break-words pt-0.5 text-caption">{s}</span>
                   </li>
                 ))}
               </ol>

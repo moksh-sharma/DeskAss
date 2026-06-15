@@ -1,6 +1,5 @@
 import type { DiagnosisResult } from "@/types";
 import { SeverityBadge } from "@/components/common/SeverityBadge";
-import { VisualGuideSection } from "@/components/VisualGuideSection";
 
 function WrenchIcon({ className }: { className?: string }) {
   return (
@@ -97,13 +96,13 @@ export function DiagnosisCard({ d }: { d: DiagnosisResult }) {
                     </span>
                   )}
                 </div>
-                <p className="mt-1.5 text-caption">{f.description}</p>
+                <p className="mt-1.5 whitespace-normal break-words text-caption">{f.description}</p>
                 {f.safe_action && (
-                  <div className="mt-2 flex items-center gap-1.5 rounded-lg border border-accent/20 bg-accent/5 px-2.5 py-1.5 font-mono text-[11px] text-accent">
-                    <span className="select-none font-sans text-[10px] font-extrabold uppercase tracking-wider text-accent/60">
+                  <div className="mt-2 flex items-start gap-1.5 rounded-lg border border-accent/20 bg-accent/5 px-2.5 py-1.5 font-mono text-[11px] leading-relaxed text-accent">
+                    <span className="select-none shrink-0 font-sans text-[10px] font-extrabold uppercase tracking-wider text-accent/60">
                       Action:
                     </span>
-                    <span className="truncate">{f.safe_action}</span>
+                    <span className="min-w-0 whitespace-normal break-words">{f.safe_action}</span>
                   </div>
                 )}
               </div>
@@ -112,26 +111,7 @@ export function DiagnosisCard({ d }: { d: DiagnosisResult }) {
         </Section>
       )}
 
-      {d.visual_guide && d.visual_guide.steps.length > 0 && (
-        <Section title="Step-by-Step Resolution Guide" icon={ListIcon}>
-          <VisualGuideSection guide={d.visual_guide} />
-        </Section>
-      )}
-
-      {d.visual_guide && d.resolution_steps.length > 0 && (
-        <Section title="Still Not Working?" icon={ListIcon}>
-          <ul className="space-y-2 rounded-xl border border-white/45 bg-white/30 p-4 text-caption backdrop-blur-sm">
-            {d.resolution_steps.slice(0, 3).map((s, i) => (
-              <li key={i} className="flex items-start gap-2.5">
-                <span className="select-none text-sm font-bold leading-none text-accent">•</span>
-                <span className="font-medium leading-relaxed text-content-secondary">{s}</span>
-              </li>
-            ))}
-          </ul>
-        </Section>
-      )}
-
-      {!d.visual_guide && d.resolution_steps.length > 0 && (
+      {d.resolution_steps.length > 0 && (
         <Section title="Step-by-Step Resolution Guide" icon={ListIcon}>
           <ol className="space-y-2.5 text-caption">
             {d.resolution_steps.map((s, i) => (

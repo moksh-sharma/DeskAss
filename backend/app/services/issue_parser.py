@@ -14,6 +14,22 @@ from app.models.schemas import IssueProfile
 
 logger = get_logger(__name__)
 
+_DRIVE_LETTER_RE = re.compile(r"\b(?:on\s+)?(?:my\s+)?([a-z])\s*:?\s*drive\b", re.I)
+_DRIVE_PATH_RE = re.compile(r"\b([a-z]):\\", re.I)
+
+
+def extract_target_drive(text: str) -> str | None:
+    """Return a drive letter like 'D:' when the user names a specific drive."""
+    if not text:
+        return None
+    m = _DRIVE_LETTER_RE.search(text)
+    if m:
+        return f"{m.group(1).upper()}:"
+    m = _DRIVE_PATH_RE.search(text)
+    if m:
+        return f"{m.group(1).upper()}:"
+    return None
+
 
 # Domain -> trigger keywords. Order matters only for tie-breaking readability.
 # Keep keywords lowercase; matching is case-insensitive and word-boundary aware
@@ -22,6 +38,7 @@ _DOMAIN_KEYWORDS: dict[str, list[str]] = {
     "bluetooth": [
         "bluetooth", "blue tooth", "bt", "pair", "pairing", "paired", "unpair",
         "airpods", "earbuds", "headset", "headphones", "headphone", "earphones",
+        "connected", "plugged in",
     ],
     "wifi": [
         "wifi", "wi-fi", "wi fi", "wireless", "ssid", "hotspot", "router",
@@ -38,7 +55,7 @@ _DOMAIN_KEYWORDS: dict[str, list[str]] = {
     ],
     "printer": [
         "printer", "print", "printing", "spooler", "scan", "scanner", "fax",
-        "queue stuck", "won't print", "wont print",
+        "queue stuck", "won't print", "wont print", "connected", "plugged in",
     ],
     "display": [
         "monitor", "display", "screen", "resolution", "hdmi", "displayport",
@@ -57,12 +74,21 @@ _DOMAIN_KEYWORDS: dict[str, list[str]] = {
     ],
     "storage": [
         "disk full", "disk space", "low space", "storage", "c drive", "c: drive",
+        "d drive", "d: drive", "e drive", "e: drive",
         "hard drive", "ssd", "hdd", "out of space", "no space",
+        "free up space", "free up", "clean up", "cleanup", "what can i delete",
+        "safe to delete", "taking up space", "taking the most", "taking more space",
+        "using the most space", "consuming storage",
+        "consuming space", "recover space", "recoverable", "disk usage", "running out of space",
+        "what is using", "what's using", "largest files", "largest folders", "delete safely",
+        "which file", "what file", "biggest file", "largest file", "most space", "more space",
     ],
     "performance": [
-        "slow", "sluggish", "lag", "laggy", "freeze", "freezing", "hang", "hanging",
-        "not responding", "high cpu", "high ram", "high memory", "100%", "overheating",
-        "fan", "uptime", "restart", "reboot",
+        "slow", "sluggish", "lag", "laggy", "freeze", "freezing", "froze", "frozen",
+        "hang", "hanging", "not responding", "unresponsive", "stopped working",
+        "high cpu", "high ram", "high memory", "100%", "overheating",
+        "fan", "uptime", "restart", "reboot", "crashed", "crash", "blue screen", "bsod",
+        "what happened", "froze up", "locked up",
     ],
     "windows_update": [
         "windows update", "update", "updates", "patch", "kb5", "feature update",
@@ -71,10 +97,11 @@ _DOMAIN_KEYWORDS: dict[str, list[str]] = {
     "mouse": [
         "mouse", "touchpad", "trackpad", "pointer", "cursor not", "pointing device",
         "mouse pointer", "left click", "right click", "double click", "scroll wheel",
+        "connected", "plugged in",
     ],
     "keyboard": [
         "keyboard", "keys not", "typing", "key not working", "keystrokes",
-        "numpad", "function key", "shortcut keys",
+        "numpad", "function key", "shortcut keys", "connected", "plugged in",
     ],
     "battery": [
         "battery", "charging", "not charging", "plugged in", "power", "drain",
@@ -267,6 +294,7 @@ def parse_issue(message: str, ocr_text: str | None = None) -> IssueProfile:
         confidence=round(confidence, 2),
         needs_clarification=needs_clarification,
         clarification_question=clarification,
+        target_drive=extract_target_drive(text),
     )
     logger.info(
         "Parsed issue -> domains=%s apps=%s symptoms=%s conf=%.2f",

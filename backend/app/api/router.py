@@ -9,8 +9,10 @@ from app.api.routes import (
     health,
     knowledge,
     machine_scans,
+    monitoring,
     screenshot,
     sessions,
+    storage,
     visual_guides,
     voice,
 )
@@ -24,4 +26,6 @@ api_router.include_router(screenshot.router)
 api_router.include_router(knowledge.router)
 api_router.include_router(sessions.router)
 api_router.include_router(machine_scans.router)
+api_router.include_router(monitoring.router)
+api_router.include_router(storage.router)
 api_router.include_router(visual_guides.router)

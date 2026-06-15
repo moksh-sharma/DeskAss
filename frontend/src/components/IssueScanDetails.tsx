@@ -43,8 +43,12 @@ export function IssueScanDetails({
   return (
     <div className="space-y-2">
       {heading && <h4 className="text-label px-1">{heading}</h4>}
-      <div className="glass-card rounded-xl px-3 py-3 text-xs leading-relaxed text-content-secondary">
-        {report.issue && <p className="font-medium text-content-primary">"{report.issue}"</p>}
+      <div className="glass-card overflow-visible rounded-xl px-3 py-3 text-xs leading-relaxed text-content-secondary">
+        {report.issue && (
+          <p className="whitespace-normal break-words font-medium text-content-primary">
+            &ldquo;{report.issue}&rdquo;
+          </p>
+        )}
 
         <div
           className={
@@ -60,20 +64,40 @@ export function IssueScanDetails({
         </div>
 
         {metaParts.length > 0 && (
-          <p className="mt-2 text-[10px] font-medium text-content-muted">{metaParts.join(" · ")}</p>
+          <p className="mt-2 whitespace-normal break-words text-[10px] font-medium text-content-muted">
+            {metaParts.join(" · ")}
+          </p>
         )}
 
-        <ul className={metaParts.length > 0 || report.issue ? "mt-2.5 space-y-1.5" : "space-y-1.5"}>
+        <ul className={metaParts.length > 0 || report.issue ? "mt-2.5 space-y-2" : "space-y-2"}>
           {issueProbes.flatMap((probe) =>
             probe.checks.map((c, i) => (
-              <li key={`${probe.domain}-${i}`} className="flex items-start justify-between gap-2">
-                <div className="flex min-w-0 items-start gap-2">
+              <li
+                key={`${probe.domain}-${i}`}
+                className="rounded-lg border border-white/45 bg-white/30 px-2.5 py-2"
+              >
+                <div className="flex items-start gap-2">
                   <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${statusDot(c.status)}`} />
-                  <span className="font-medium text-content-body">{c.label}</span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex flex-col gap-0.5">
+                      <span className="whitespace-normal break-words font-medium text-content-body">
+                        {c.label}
+                      </span>
+                      {c.value && (
+                        <span
+                          className={`whitespace-normal break-words font-bold ${severityColor(c.status)}`}
+                        >
+                          {c.value}
+                        </span>
+                      )}
+                    </div>
+                    {c.detail && (
+                      <p className="mt-1 whitespace-normal break-all font-mono text-[10px] leading-snug text-content-muted">
+                        {c.detail}
+                      </p>
+                    )}
+                  </div>
                 </div>
-                <span className={`shrink-0 text-right font-bold ${severityColor(c.status)}`}>
-                  {c.value}
-                </span>
               </li>
             )),
           )}

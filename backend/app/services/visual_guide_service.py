@@ -42,6 +42,7 @@ _BLOCKED_COMBOS: list[tuple[re.Pattern[str], re.Pattern[str]]] = [
     (re.compile(r"printer|printing", re.I), re.compile(r"bluetooth|wi-?fi|camera|microphone", re.I)),
     (re.compile(r"microphone|\bmic\b", re.I), re.compile(r"camera roll|speaker(?!.*mic)", re.I)),
     (re.compile(r"speaker|no sound|audio playback", re.I), re.compile(r"microphone problems(?!.*sound)", re.I)),
+    (re.compile(r"mouse|touchpad|trackpad|keyboard", re.I), re.compile(r"wi-?fi|wireless|network adapter", re.I)),
 ]
 
 _SYMPTOM_HINTS: dict[str, list[tuple[str, float]]] = {
@@ -463,45 +464,5 @@ class VisualGuideService:
         primary_domain: str | None = None,
         symptoms: list[str] | None = None,
     ) -> DiagnosisResult:
-        if result.is_conversational or not self.available:
-            return result
-
-        ctx = MatchContext(
-            message=message,
-            domains=domains,
-            primary_domain=primary_domain or (domains[0] if domains else None),
-            symptoms=tuple(symptoms or ()),
-            issue_summary=result.issue_summary or "",
-            root_cause=result.root_cause or "",
-        )
-
-        guide_id = self.match_guide_id(ctx)
-        if not guide_id:
-            logger.info("No visual guide matched issue domains=%s", domains)
-            return result
-
-        guide = self.load_guide(
-            guide_id,
-            match_query=_compose_query(ctx),
-            domains=domains,
-        )
-        if not guide:
-            return result
-
-        result.visual_guide = guide
-        if len(guide.steps) >= 4:
-            result.resolution_steps = supplemental_resolution_steps(
-                result.resolution_steps, max_items=3
-            )
-            result.prevention_tips = simplify_prevention_tips(
-                result.prevention_tips, max_items=3
-            )
-        logger.info(
-            "Attached visual guide %s for domain=%s — %s (%d steps, %d images)",
-            guide.id,
-            ctx.primary_domain,
-            guide.title[:60],
-            len(guide.steps),
-            sum(1 for s in guide.steps if s.image_url),
-        )
+        """Visual guides with screenshots are disabled — use finding resolution steps instead."""
         return result

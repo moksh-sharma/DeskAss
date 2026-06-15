@@ -292,6 +292,7 @@ class IssueProfile(BaseModel):
     confidence: float = 0.0
     needs_clarification: bool = False
     clarification_question: Optional[str] = None
+    target_drive: Optional[str] = None  # e.g. "D:" when user asks about a specific drive
 
 
 class ProbeCheck(BaseModel):
