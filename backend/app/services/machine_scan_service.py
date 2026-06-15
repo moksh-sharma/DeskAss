@@ -175,7 +175,7 @@ class MachineScanService:
             "network": (network.scan, ()),
             "security": (security.scan, ()),
             "crash_analysis": (crash.scan, ()),
-            # Fast storage intelligence (~12s) — recoverable space, cleanup targets, health.
+            # Fast storage intelligence (~12s) - recoverable space, cleanup targets, health.
             "storage_intelligence": (self._storage.quick_scan, ()),
         }
 
@@ -233,7 +233,7 @@ class MachineScanService:
         if deep_storage and not deep_storage.get("error"):
             software_bucket["storage_deep"] = deep_storage
             logger.info(
-                "Deep storage scan complete in %.1fs — %d top files, ~%.1f GB recoverable",
+                "Deep storage scan complete in %.1fs - %d top files, ~%.1f GB recoverable",
                 deep_storage.get("scan_duration_seconds") or 0,
                 len((deep_storage.get("tree") or {}).get("top_files") or []),
                 (deep_storage.get("cleanup") or {}).get("total_potential_gb") or 0,

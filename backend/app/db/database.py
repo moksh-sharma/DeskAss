@@ -62,7 +62,7 @@ def session_scope() -> Iterator[OrmSession]:
 
 
 def commit_with_retry(db: OrmSession, *, attempts: int = 5, base_delay_s: float = 0.05) -> None:
-    """Commit with short retries — helps when SQLite is briefly locked by another writer."""
+    """Commit with short retries - helps when SQLite is briefly locked by another writer."""
     import time
 
     from sqlalchemy.exc import OperationalError

@@ -138,7 +138,7 @@ def investigate(ctx: ProbeContext) -> ProbeOutcome:
     elif not findings:
         checks.append(ProbeCheck(
             label="Camera hardware status",
-            value="Devices OK — check app permissions if video still fails",
+            value="Devices OK - check app permissions if video still fails",
             status=Severity.info,
         ))
 

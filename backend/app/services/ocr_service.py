@@ -1,4 +1,4 @@
-"""Screenshot OCR — Windows built-in OCR (primary) with optional Tesseract fallback."""
+"""Screenshot OCR - Windows built-in OCR (primary) with optional Tesseract fallback."""
 from __future__ import annotations
 
 import asyncio
@@ -63,7 +63,7 @@ class OcrService:
             self._available = True
         else:
             logger.warning(
-                "OCR unavailable — install a Windows OCR language pack or Tesseract."
+                "OCR unavailable - install a Windows OCR language pack or Tesseract."
             )
             self._backend = None
             self._available = False
@@ -117,7 +117,7 @@ class OcrService:
         if image.mode not in ("RGB", "L"):
             image = image.convert("RGB")
 
-        # Error dialogs are often small crops — upscale for clearer text.
+        # Error dialogs are often small crops - upscale for clearer text.
         if max(image.size) < 900:
             scale = 2
             image = image.resize(

@@ -140,7 +140,7 @@ export function Toolbar() {
 
         <div
           className="flex shrink-0 items-center gap-0.5 rounded-xl border border-white/70 bg-white/40 p-0.5 backdrop-blur-md"
-          title="Voice language — Auto detects Hindi and English (Hinglish)"
+          title="Voice language - Auto detects Hindi and English (Hinglish)"
         >
           {(["multi", "en", "hi"] as const).map((lang) => (
             <button
@@ -165,10 +165,10 @@ export function Toolbar() {
             recorder.isRecording
               ? "Stop recording"
               : voiceLanguage === "multi"
-                ? "Voice input — Hindi & English (auto)"
+                ? "Voice input - Hindi & English (auto)"
                 : voiceLanguage === "hi"
-                  ? "Voice input — Hindi"
-                  : "Voice input — English"
+                  ? "Voice input - Hindi"
+                  : "Voice input - English"
           }
           className={`relative shrink-0 rounded-xl transition-all duration-200 ${
             recorder.isRecording

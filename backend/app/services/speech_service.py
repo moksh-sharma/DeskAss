@@ -1,4 +1,4 @@
-"""Speech-to-text facade — routes to ElevenLabs or Deepgram based on settings."""
+"""Speech-to-text facade - routes to ElevenLabs or Deepgram based on settings."""
 from __future__ import annotations
 
 from fastapi import WebSocket

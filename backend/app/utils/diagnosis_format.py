@@ -75,7 +75,7 @@ def format_diagnosis_plain_text(d: DiagnosisResult) -> str:
         lines.append("Grounded KB Documentation")
         lines.append("-" * 40)
         for ref in d.knowledge_references:
-            lines.append(f"  • {ref.title} ({ref.category}) — {ref.snippet}")
+            lines.append(f"  • {ref.title} ({ref.category}) - {ref.snippet}")
         lines.append("")
 
     if d.severity or d.confidence:

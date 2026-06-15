@@ -76,11 +76,11 @@ const MODE_LABEL: Record<LoadingMode, string> = {
 
 const MODE_HINT: Record<LoadingMode, string> = {
   diagnose: "Live probes + AI reasoning in progress…",
-  scan: "Deep-scanning every subsystem — hang tight.",
+  scan: "Deep-scanning every subsystem - hang tight.",
   summary: "Synthesizing insights from your scan…",
 };
 
-/** In-panel loading animation — place inside a `relative h-full` container. */
+/** In-panel loading animation - place inside a `relative h-full` container. */
 export function LoadingAnimation({ active, mode }: { active: boolean; mode: LoadingMode }) {
   const uid = useId();
   const gradId = `loadGrad${uid.replace(/:/g, "")}`;

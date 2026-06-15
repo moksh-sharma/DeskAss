@@ -174,7 +174,7 @@ function Timeline({ points }: { points: NonNullable<StorageReport["timeline"]> }
 }
 
 // ───────────────────────────────────────────────────────────── body ──
-/** Deep storage analysis sections — embedded in Full System Scan. */
+/** Deep storage analysis sections - embedded in Full System Scan. */
 export function StorageReportSections({
   report,
   collapsible = false,
@@ -436,7 +436,7 @@ export function StorageReportSections({
         </div>
         {win.winsxs?.cleanup_recommended && (
           <p className="mt-3 text-xs font-semibold text-severity-warning">
-            Windows recommends a component store cleanup — run <code>Dism /Online /Cleanup-Image /StartComponentCleanup</code>.
+            Windows recommends a component store cleanup - run <code>Dism /Online /Cleanup-Image /StartComponentCleanup</code>.
           </p>
         )}
         <div className="mt-4 grid gap-3 md:grid-cols-3">
@@ -463,10 +463,10 @@ export function StorageReportSections({
         <div className="mb-4 grid gap-3 md:grid-cols-3">
           <Stat
             label="Days until disk full"
-            value={growth.days_until_full != null ? `${growth.days_until_full}` : "—"}
+            value={growth.days_until_full != null ? `${growth.days_until_full}` : "-"}
             tone={growth.days_until_full != null && growth.days_until_full < 30 ? "crit" : "default"}
           />
-          <Stat label="Growth rate" value={growth.growth_gb_per_day != null ? `${growth.growth_gb_per_day} GB/day` : "—"} />
+          <Stat label="Growth rate" value={growth.growth_gb_per_day != null ? `${growth.growth_gb_per_day} GB/day` : "-"} />
           <Stat label="History samples" value={growth.samples ?? 0} />
         </div>
         <Timeline points={report.timeline ?? []} />
@@ -482,7 +482,7 @@ export function StorageReportSections({
               <h4 className="mb-1 text-section-title text-rose-600">Removed applications</h4>
               {(changes.removed_applications ?? []).length === 0
                 ? <p className="text-xs italic text-content-muted">None since last scan.</p>
-                : <ul className="space-y-0.5 text-xs text-content-secondary">{changes.removed_applications.map((a: string, i: number) => <li key={i}>− {a}</li>)}</ul>}
+                : <ul className="space-y-0.5 text-xs text-content-secondary">{changes.removed_applications.map((a: string, i: number) => <li key={i}>- {a}</li>)}</ul>}
             </div>
           </div>
         )}

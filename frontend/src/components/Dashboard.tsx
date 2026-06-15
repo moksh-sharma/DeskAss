@@ -244,7 +244,7 @@ export function Dashboard() {
             <div className="rounded-xl border border-white/30 bg-white/30 px-4 py-3">
               <div className="text-[10px] font-bold uppercase tracking-wider text-content-muted">Uptime</div>
               <div className="mt-1 text-sm font-bold text-content-primary">
-                {monitorBoot?.uptime_hours != null ? `${monitorBoot.uptime_hours} h` : "—"}
+                {monitorBoot?.uptime_hours != null ? `${monitorBoot.uptime_hours} h` : "-"}
               </div>
               <div className="text-[10px] text-content-muted">
                 {monitorBoot?.boot_count ? `${monitorBoot.boot_count} boot(s) recorded` : "Boot history"}
@@ -252,8 +252,8 @@ export function Dashboard() {
             </div>
             <div className="rounded-xl border border-white/30 bg-white/30 px-4 py-3">
               <div className="text-[10px] font-bold uppercase tracking-wider text-content-muted">7d avg CPU</div>
-              <div className="mt-1 text-sm font-bold text-content-primary">{avg.cpu != null ? `${avg.cpu}%` : "—"}</div>
-              <div className="text-[10px] text-content-muted">peak {avg.cpu_max ?? "—"}%</div>
+              <div className="mt-1 text-sm font-bold text-content-primary">{avg.cpu != null ? `${avg.cpu}%` : "-"}</div>
+              <div className="text-[10px] text-content-muted">peak {avg.cpu_max ?? "-"}%</div>
             </div>
             <div className="rounded-xl border border-white/30 bg-white/30 px-4 py-3">
               <div className="text-[10px] font-bold uppercase tracking-wider text-content-muted">Disk forecast</div>
@@ -319,8 +319,8 @@ export function Dashboard() {
             <h3 className="mb-3 border-b border-white/40 pb-2 text-section-title">7-Day Resource Trend</h3>
             <TrendSparkline points={monitorTrends?.points ?? []} />
             <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
-              <MiniStat label="Avg CPU" value={`${avg.cpu ?? "—"}%`} sub={`max ${avg.cpu_max ?? "—"}%`} />
-              <MiniStat label="Avg RAM" value={`${avg.mem ?? "—"}%`} sub={`max ${avg.mem_max ?? "—"}%`} />
+              <MiniStat label="Avg CPU" value={`${avg.cpu ?? "-"}%`} sub={`max ${avg.cpu_max ?? "-"}%`} />
+              <MiniStat label="Avg RAM" value={`${avg.mem ?? "-"}%`} sub={`max ${avg.mem_max ?? "-"}%`} />
               <MiniStat label="Perf trend" value={perf.regression_detected ? "Regressed" : "Stable"} />
               <MiniStat label="Battery" value={monitorPredictions?.battery?.available ? `${monitorPredictions.battery.current_pct}%` : "N/A"} />
             </div>

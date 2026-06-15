@@ -21,8 +21,8 @@ _SKIP_PATTERNS: tuple[re.Pattern[str], ...] = (
     re.compile(r'^"?Discoverable as\b', re.I),
     re.compile(r"try the solutions listed below", re.I),
     re.compile(r"choose one of the following", re.I),
-    re.compile(r"^Advanced\s*[—–-]", re.I),
-    re.compile(r"^Default\s*[—–-]", re.I),
+    re.compile(r"^Advanced\s*-", re.I),
+    re.compile(r"^Default\s*-", re.I),
     re.compile(r"^Fix Bluetooth disappeared", re.I),
     re.compile(r"^Troubleshoot Bluetooth not connecting", re.I),
     re.compile(r"^Troubleshoot transferring files", re.I),
@@ -136,15 +136,15 @@ _PLAIN_STEPS: dict[str, str] = {
         "then Add device and follow the prompts."
     ),
     "mic_privacy": (
-        "Allow microphone access: Settings → Privacy & security → Microphone — turn access on for Windows "
+        "Allow microphone access: Settings → Privacy & security → Microphone - turn access on for Windows "
         "and your app."
     ),
     "mic_input": (
-        "Pick the right mic: Settings → System → Sound → Input — choose your microphone and speak to "
+        "Pick the right mic: Settings → System → Sound → Input - choose your microphone and speak to "
         "see the level bar move."
     ),
     "camera_privacy": (
-        "Allow camera access: Settings → Privacy & security → Camera — turn access on for Windows and "
+        "Allow camera access: Settings → Privacy & security → Camera - turn access on for Windows and "
         "your app."
     ),
     "restart_pc": "Restart your PC, then try again.",

@@ -62,7 +62,7 @@ class TicketService:
         if session_id is not None:
             subject_parts.append(f"session #{session_id}")
         subject_parts.append(hostname)
-        subject = " — ".join(subject_parts)
+        subject = " - ".join(subject_parts)
 
         body_lines = [
             f"A user raised a support ticket from {self.settings.app_name}.",

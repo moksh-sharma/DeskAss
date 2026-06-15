@@ -394,13 +394,13 @@ class TelemetryAnalyticsService:
             any("crash" in (l.get("source", "") + l.get("message", "")).lower() for l in logs)
         svc_fail = any(e.category == "service" for e in events)
         if bsod:
-            return "System crash (BSOD) — driver or hardware fault", 90
+            return "System crash (BSOD) - driver or hardware fault", 90
         if min_disk is not None and min_disk < 1:
-            return "Disk exhaustion — system drive ran out of space", 88
+            return "Disk exhaustion - system drive ran out of space", 88
         if peak_mem >= 95:
-            return "Memory exhaustion — RAM saturated, heavy paging likely caused the freeze", 92
+            return "Memory exhaustion - RAM saturated, heavy paging likely caused the freeze", 92
         if peak_cpu >= 95:
-            return "CPU saturation — a process pinned the CPU near 100%", 85
+            return "CPU saturation - a process pinned the CPU near 100%", 85
         if crash:
             return "Application crash during this window", 75
         if svc_fail:
@@ -434,7 +434,7 @@ class TelemetryAnalyticsService:
         # Sustained memory.
         mem_avg = self._avg([s.mem_used_pct for s in samples14])
         if mem_avg and mem_avg >= 80:
-            facts.append(f"Memory usage has averaged {mem_avg}% over the past 14 days — consistently high.")
+            facts.append(f"Memory usage has averaged {mem_avg}% over the past 14 days - consistently high.")
 
         # Top memory consumer over time (from detailed samples).
         top_app = self._frequent_top_mem(samples14)
@@ -535,7 +535,7 @@ class TelemetryAnalyticsService:
         if (avg.get("mem") or 0) > 85:
             recommendations.append("Close memory-heavy apps or add RAM; check the top memory consumer.")
         if not recommendations:
-            recommendations.append("No action needed — system is operating within normal ranges.")
+            recommendations.append("No action needed - system is operating within normal ranges.")
 
         return {
             "period": period, "generated_at": _utc_now().isoformat() + "Z",

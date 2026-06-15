@@ -22,7 +22,7 @@ export function VisualGuideSection({ guide }: { guide: VisualGuide }) {
       </div>
 
       <p className="text-xs text-content-muted">
-        Follow these steps in order — each one is short and easy to try.
+        Follow these steps in order - each one is short and easy to try.
       </p>
 
       <ol className="space-y-3">

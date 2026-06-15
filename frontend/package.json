@@ -1,7 +1,7 @@
 {
   "name": "cache-ai-assistant",
   "version": "1.0.0",
-  "description": "Enterprise AI Desktop Troubleshooting Assistant — Electron + React frontend",
+  "description": "Enterprise AI Desktop Troubleshooting Assistant - Electron + React frontend",
   "author": "Cache AI",
   "license": "UNLICENSED",
   "private": true,

@@ -218,7 +218,7 @@ export const api = {
 
   listMachineScans: () => request<MachineScanHistorySummary[]>("/api/machine-scans"),
 
-  /** Advanced Storage Intelligence — deep scan (heavy; up to several minutes). */
+  /** Advanced Storage Intelligence - deep scan (heavy; up to several minutes). */
   storageScan: () =>
     request<StorageReport>("/api/storage/scan", { method: "POST" }, 720_000, "Storage scan"),
 

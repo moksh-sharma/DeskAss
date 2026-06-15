@@ -251,7 +251,7 @@ class InvestigationService:
             except Exception as exc:  # pragma: no cover - never let the LLM break diagnosis
                 logger.warning("LLM diagnosis failed, using deterministic result: %s", exc)
 
-        # Visual guides disabled for investigation — findings supply accurate, domain-specific steps.
+        # Visual guides disabled for investigation - findings supply accurate, domain-specific steps.
         return result, report
 
     # ------------------------------------------------------------------ #
@@ -358,7 +358,7 @@ class InvestigationService:
             return [
                 "Settings > Privacy & security > Microphone: turn on access and allow your app.",
                 "Settings > System > Sound > Input: select the correct mic and watch the input meter while speaking.",
-                "Right-click speaker icon > Sound settings — ensure the mic is not muted.",
+                "Right-click speaker icon > Sound settings - ensure the mic is not muted.",
                 "Device Manager > Audio inputs and outputs: update the microphone driver.",
                 "Test in Windows Voice Recorder; close Teams/Zoom if they may be holding the mic.",
             ]
@@ -469,7 +469,7 @@ class InvestigationService:
         if not isinstance(data, dict):
             return result
 
-        # Merge — prose and guidance from the LLM, hard facts from the probes.
+        # Merge - prose and guidance from the LLM, hard facts from the probes.
         result.issue_summary = _clean_str(data.get("issue_summary")) or result.issue_summary
         result.root_cause = _clean_str(data.get("root_cause")) or result.root_cause
         result.reasoning = _clean_str(data.get("reasoning")) or result.reasoning

@@ -151,7 +151,7 @@ export function Sidebar() {
         }`}
       >
         {collapsed ? (
-          /* Collapsed rail — toggle stays inside sidebar */
+          /* Collapsed rail - toggle stays inside sidebar */
           <div className="flex w-full flex-col items-center gap-3 pt-4">
             <button
               type="button"

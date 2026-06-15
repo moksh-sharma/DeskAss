@@ -1,7 +1,7 @@
 """Turn a comprehensive machine scan into issue-focused probes and findings.
 
 The full machine scan always runs, but what we surface to the user and LLM is
-filtered to the reported problem (e.g. microphone only — not CPU, firewall, or
+filtered to the reported problem (e.g. microphone only - not CPU, firewall, or
 unrelated stopped services).
 """
 from __future__ import annotations
@@ -31,7 +31,7 @@ _AUDIO_DEVICE_PATTERNS = re.compile(
 )
 _MIC_NAME_PATTERNS = re.compile(r"microphone|mic array|headset|input|capture", re.I)
 
-# Services that matter for audio — NOT generic "critical" services like NLA.
+# Services that matter for audio - NOT generic "critical" services like NLA.
 _AUDIO_SERVICES = {
     "Audiosrv": "Windows Audio",
     "AudioEndpointBuilder": "Windows Audio Endpoint Builder",
@@ -121,7 +121,7 @@ def _no_fault_finding(profile: IssueProfile, message: str, subsystem: str) -> Tr
         steps = [
             "Settings > Privacy & security > Microphone: turn on access and allow your app.",
             "Settings > System > Sound > Input: select the correct microphone and test the input meter while speaking.",
-            "Right-click the speaker icon > Sound settings > Input volume — ensure the mic is not muted.",
+            "Right-click the speaker icon > Sound settings > Input volume - ensure the mic is not muted.",
             "Device Manager > Audio inputs and outputs: update or reinstall the microphone driver.",
             "Close other apps using the mic (Teams, Zoom, Discord) and test in Windows Voice Recorder.",
         ]
@@ -162,7 +162,7 @@ def _no_fault_finding(profile: IssueProfile, message: str, subsystem: str) -> Tr
 
 
 # ------------------------------------------------------------------ #
-#  Issue-specific findings (only these are returned — no generic dump)
+#  Issue-specific findings (only these are returned - no generic dump)
 # ------------------------------------------------------------------ #
 
 def _webcam_findings(hw: dict) -> list[TroubleshooterFinding]:
@@ -251,7 +251,7 @@ def _webcam_findings(hw: dict) -> list[TroubleshooterFinding]:
         virtual_note = ""
         if virtual:
             virtual_note = (
-                f" ({len(virtual)} virtual camera(s) also listed — e.g. {virtual[0].get('name')} — "
+                f" ({len(virtual)} virtual camera(s) also listed - e.g. {virtual[0].get('name')} - "
                 "not hardware.)"
             )
         findings.append(TroubleshooterFinding(
@@ -668,8 +668,8 @@ def _printer_findings(hw: dict) -> list[TroubleshooterFinding]:
         virtual_note = ""
         if virtual:
             virtual_note = (
-                f" ({len(virtual)} software printer(s) also installed — e.g. "
-                f"{virtual[0].get('name')} — these are not physical devices.)"
+                f" ({len(virtual)} software printer(s) also installed - e.g. "
+                f"{virtual[0].get('name')} - these are not physical devices.)"
             )
         findings.append(TroubleshooterFinding(
             id="no_fault_printer",
@@ -1135,7 +1135,7 @@ def build_findings_from_scan(
     profile: IssueProfile,
     message: str = "",
 ) -> list[TroubleshooterFinding]:
-    """Issue-focused findings only — never unrelated system health noise."""
+    """Issue-focused findings only - never unrelated system health noise."""
     hw = report.get("hardware") or {}
     sw = report.get("software") or {}
     domains = list(profile.domains)
@@ -1212,7 +1212,7 @@ def _audio_probe_checks(hw: dict, message: str, profile: IssueProfile) -> list[P
                 label="Virtual audio inputs",
                 value=str(len(virtual_mics)),
                 status=Severity.info,
-                detail="Software devices (e.g. Stereo Mix, Voicemeeter) — not hardware",
+                detail="Software devices (e.g. Stereo Mix, Voicemeeter) - not hardware",
             ))
         for ep in physical_mics[:3]:
             ok = ep.get("working")
@@ -1281,7 +1281,7 @@ def _webcam_probe_checks(hw: dict) -> list[ProbeCheck]:
             label="Virtual cameras",
             value=str(len(virtual)),
             status=Severity.info,
-            detail="Software cameras (e.g. OBS Virtual Camera) — not hardware",
+            detail="Software cameras (e.g. OBS Virtual Camera) - not hardware",
         ))
     for cam in physical[:3]:
         ok = cam.get("connected", cam.get("working"))
@@ -1314,7 +1314,7 @@ def _printer_probe_checks(hw: dict) -> list[ProbeCheck]:
             label="Software / virtual printers",
             value=str(len(virtual)),
             status=Severity.info,
-            detail="Built-in queues like Print to PDF and OneNote — not hardware",
+            detail="Built-in queues like Print to PDF and OneNote - not hardware",
         ))
     pnp_usb = section.get("pnp_usb_printers") or []
     if pnp_usb:
@@ -1613,7 +1613,7 @@ def build_issue_scoped_scan_context(
     profile: IssueProfile,
     message: str,
 ) -> dict[str, Any]:
-    """Compact facts for the LLM — only what relates to the reported issue."""
+    """Compact facts for the LLM - only what relates to the reported issue."""
     hw = report.get("hardware") or {}
     sw = report.get("software") or {}
     ctx: dict[str, Any] = {
@@ -1847,7 +1847,7 @@ def _storage_findings(
             likely_cause="These are the biggest individual files found during a deep disk walk. "
             "Removing or moving them frees the most space per file.",
             resolution_steps=[
-                f"Review the largest file: {top.get('path')} — move it to external storage or "
+                f"Review the largest file: {top.get('path')} - move it to external storage or "
                 "delete if you no longer need it.",
                 "Check your Downloads folder and old video/installer files.",
                 "Run Disk Cleanup for safe system caches after removing personal large files.",
@@ -2037,7 +2037,7 @@ def _incident_findings(inc: dict[str, Any]) -> list[TroubleshooterFinding]:
             "Check for background updates/scans running at the time.",
         ]
     elif "disk" in lc:
-        steps_by_cause = ["Free disk space (run Storage Analysis) — the drive was nearly full."]
+        steps_by_cause = ["Free disk space (run Storage Analysis) - the drive was nearly full."]
     elif "bsod" in lc or "crash" in lc:
         steps_by_cause = ["Update or roll back the driver involved.", "Check Reliability Monitor for the faulting module."]
     else:

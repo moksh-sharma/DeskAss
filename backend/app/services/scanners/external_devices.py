@@ -305,7 +305,7 @@ _PRINTER_STATUS = {
     6: "Stopped Printing", 7: "Offline",
 }
 
-# Software queues Windows always lists (PDF, OneNote, XPS, fax, etc.) — not hardware.
+# Software queues Windows always lists (PDF, OneNote, XPS, fax, etc.) - not hardware.
 # Classification lives in physical_device.py (is_virtual_printer).
 
 

@@ -66,7 +66,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
           Desktop Assistant
         </h1>
 
-        {/* Powered by + logo — single centered row below title */}
+        {/* Powered by + logo - single centered row below title */}
         <div
           className={`splash-powered mt-3 flex flex-row items-center justify-center gap-2.5 ${
             phase >= 3 ? "splash-powered--visible" : ""

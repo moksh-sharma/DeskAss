@@ -36,7 +36,7 @@ export default {
           warning: "#d97706",
           critical: "#dc2626",
         },
-        /* Legacy aliases — mapped to light theme in components */
+        /* Legacy aliases - mapped to light theme in components */
         base: {
           900: "rgba(255, 255, 255, 0.25)",
           850: "rgba(255, 255, 255, 0.45)",

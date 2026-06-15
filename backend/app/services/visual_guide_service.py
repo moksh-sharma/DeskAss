@@ -167,7 +167,7 @@ class VisualGuideService:
         entry_domains = {d.lower() for d in entry.get("domains", [])}
         if entry_domains:
             return bool(expanded & entry_domains)
-        # Manifest row missing domains — allow when the title matches the issue domain.
+        # Manifest row missing domains - allow when the title matches the issue domain.
         return bool(required and required.search(title))
 
     def _blocked_combo(self, query: str, title: str) -> bool:
@@ -464,5 +464,5 @@ class VisualGuideService:
         primary_domain: str | None = None,
         symptoms: list[str] | None = None,
     ) -> DiagnosisResult:
-        """Visual guides with screenshots are disabled — use finding resolution steps instead."""
+        """Visual guides with screenshots are disabled - use finding resolution steps instead."""
         return result

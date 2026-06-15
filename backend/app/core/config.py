@@ -39,11 +39,11 @@ class Settings(BaseSettings):
     # Speech-to-Text provider: elevenlabs | deepgram
     stt_provider: str = "elevenlabs"
 
-    # ElevenLabs Scribe (Speech-to-Text) — multilingual Hindi + English
+    # ElevenLabs Scribe (Speech-to-Text) - multilingual Hindi + English
     elevenlabs_api_key: str = ""
     # Batch uploads (/api/voice/transcribe)
     elevenlabs_stt_model: str = "scribe_v2"
-    # Live mic WebSocket — Scribe v2 Realtime
+    # Live mic WebSocket - Scribe v2 Realtime
     elevenlabs_stt_realtime_model: str = "scribe_v2_realtime"
     # vad = auto segment on pauses (recommended for Scribe v2 Realtime); manual = commit on stop
     elevenlabs_realtime_commit_strategy: str = "vad"
@@ -96,7 +96,7 @@ class Settings(BaseSettings):
 
     # Support tickets (email)
     ticket_email_to: str = ""
-    # auto | smtp | graph — auto uses Graph when Azure credentials are set.
+    # auto | smtp | graph - auto uses Graph when Azure credentials are set.
     ticket_email_transport: str = "auto"
     smtp_host: str = ""
     smtp_port: int = 587

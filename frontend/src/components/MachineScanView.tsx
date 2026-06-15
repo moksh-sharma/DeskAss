@@ -140,7 +140,7 @@ function StorageAnalysisSection({ report }: { report: StorageReport }) {
         <div className="rounded-xl border border-white/30 bg-white/30 px-4 py-3 text-center">
           <div className="text-[10px] font-bold uppercase tracking-wider text-content-muted">Days until full</div>
           <div className="mt-1 text-lg font-black text-content-primary">
-            {report.growth?.days_until_full != null ? report.growth.days_until_full : "—"}
+            {report.growth?.days_until_full != null ? report.growth.days_until_full : "-"}
           </div>
         </div>
       </div>
