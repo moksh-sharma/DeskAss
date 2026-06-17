@@ -49,7 +49,7 @@ async def diagnose(
 
     # Issue-scoped live investigation (no knowledge base in the answer path).
     if c.settings.investigation_enabled:
-        logger.info("Session %s - running full hardware/software scan + diagnosis...", session_id)
+        logger.info("Session %s - running issue-scoped scan + diagnosis...", session_id)
         diagnosis, report = await c.investigation.diagnose(
             payload.message, ocr_text=payload.ocr_text
         )

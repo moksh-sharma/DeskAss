@@ -71,11 +71,19 @@ class Settings(BaseSettings):
     # Chat troubleshooter scan scope: "domain" runs only the scanners the issue
     # needs (fast); "full" runs the entire machine scan for every chat message.
     investigation_scan_mode: str = "domain"
+    # Dedicated (usually smaller/faster) model for chat diagnosis. Blank = default_model.
+    investigation_model: str = ""
+    # Cap the diagnosis LLM output so it returns quickly (tokens).
+    investigation_max_tokens: int = 700
 
     # Deep storage scan (runs in parallel with every machine / investigation scan)
     storage_deep_enabled: bool = True
     storage_deep_tree_budget_seconds: float = 180.0
     storage_deep_duplicate_budget_seconds: float = 45.0
+    # Shorter budgets used for the chat troubleshooter so storage answers are fast.
+    # The Full System Scan page still uses the longer budgets above.
+    investigation_storage_tree_budget_seconds: float = 90.0
+    investigation_storage_duplicate_budget_seconds: float = 15.0
 
     # Continuous monitoring engine
     monitoring_enabled: bool = True

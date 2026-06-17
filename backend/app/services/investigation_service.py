@@ -144,9 +144,15 @@ class InvestigationService:
             scan_domains if scan_domains is not None else "ALL",
             profile.target_drive or "system",
         )
+        # Reuse the inventory snapshot we already took for app/process matching,
+        # and use shorter storage budgets for chat so storage answers come back
+        # faster than the Full System Scan page (which keeps the longer budgets).
         scan_report = await self._machine_scan.scan(
             target_drive=profile.target_drive,
             domains=scan_domains,
+            snapshot=snap,
+            storage_tree_budget=settings.investigation_storage_tree_budget_seconds,
+            storage_duplicate_budget=settings.investigation_storage_duplicate_budget_seconds,
         )
         probes, findings, scan_facts = build_investigation_from_scan(
             scan_report, profile, message or ""
@@ -241,15 +247,15 @@ class InvestigationService:
 
         # Only enrich real investigations (skip clarification prompts) and only
         # when a probe actually ran, so we never hallucinate over nothing.
+        # We call the LLM directly and fall back on any error - skipping the
+        # separate /api/tags health round-trip (a full extra RTT to a remote
+        # Ollama host) shaves latency off every diagnosis.
         scanned = any(p.available for p in report.probes)
         if self._use_llm and self._ollama and not report.profile.needs_clarification and scanned:
             try:
-                if await self._ollama.health():
-                    result = await self._llm_diagnose(result, report)
-                else:
-                    logger.info("Ollama offline - using deterministic diagnosis.")
+                result = await self._llm_diagnose(result, report)
             except Exception as exc:  # pragma: no cover - never let the LLM break diagnosis
-                logger.warning("LLM diagnosis failed, using deterministic result: %s", exc)
+                logger.info("LLM diagnosis unavailable, using deterministic result: %s", exc)
 
         # Visual guides disabled for investigation - findings supply accurate, domain-specific steps.
         return result, report
@@ -454,12 +460,15 @@ class InvestigationService:
                 "Do NOT blame unrelated services or system-wide health issues."
             )
 
+        settings = get_settings()
+        diag_model = settings.investigation_model or None
         raw = await self._ollama.generate(
             guidance,
             system=_DIAGNOSIS_SYSTEM,
+            model=diag_model,
             json_mode=True,
             temperature=0.15,
-            options={"num_ctx": 8192, "num_predict": 1100},
+            options={"num_ctx": 8192, "num_predict": settings.investigation_max_tokens},
         )
         try:
             data = json.loads(raw)
@@ -489,7 +498,7 @@ class InvestigationService:
             # Blend LLM confidence with the deterministic floor so it stays evidence-bound.
             result.confidence = max(40, min(96, int(conf)))
 
-        result.model = self._ollama.default_model
+        result.model = diag_model or self._ollama.default_model
         logger.info("LLM-enriched diagnosis (model=%s, steps=%d).",
                     result.model, len(result.resolution_steps))
         return result

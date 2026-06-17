@@ -115,6 +115,9 @@ class MachineScanService:
         target_drive: str | None = None,
         domains: Optional[list[str]] = None,
         run_deep_storage: Optional[bool] = None,
+        snapshot: Any = None,
+        storage_tree_budget: Optional[float] = None,
+        storage_duplicate_budget: Optional[float] = None,
     ) -> dict[str, Any]:
         """Run the machine scan.
 
@@ -122,6 +125,8 @@ class MachineScanService:
         troubleshooter). When ``None``, every scanner runs (Full System Scan).
         ``run_deep_storage`` overrides the heavy storage tree walk; when ``None``
         it defaults to True for a full scan and to storage-domain issues only.
+        ``snapshot`` lets a caller (the investigation service) reuse an inventory
+        snapshot it already collected, avoiding a second expensive enumeration.
         """
         start = time.perf_counter()
         settings = get_settings()
@@ -140,7 +145,24 @@ class MachineScanService:
             else:
                 run_deep_storage = True
 
-        snapshot = await asyncio.to_thread(self._inventory.snapshot)
+        tree_budget = (
+            storage_tree_budget
+            if storage_tree_budget is not None
+            else settings.storage_deep_tree_budget_seconds
+        )
+        dup_budget = (
+            storage_duplicate_budget
+            if storage_duplicate_budget is not None
+            else settings.storage_deep_duplicate_budget_seconds
+        )
+
+        # Reuse a caller-supplied snapshot when present; only enumerate inventory
+        # if a scanner that needs it will actually run.
+        needs_snapshot = selected_keys is None or bool(
+            selected_keys & {"installed_software", "services"}
+        )
+        if snapshot is None and needs_snapshot:
+            snapshot = await asyncio.to_thread(self._inventory.snapshot)
 
         async def _deep_storage() -> dict[str, Any] | None:
             if not (settings.storage_deep_enabled and run_deep_storage):
@@ -148,8 +170,8 @@ class MachineScanService:
             try:
                 return await asyncio.to_thread(
                     self._storage.deep_scan,
-                    tree_budget=settings.storage_deep_tree_budget_seconds,
-                    duplicate_budget=settings.storage_deep_duplicate_budget_seconds,
+                    tree_budget=tree_budget,
+                    duplicate_budget=dup_budget,
                     target_drive=target_drive,
                 )
             except Exception as exc:
