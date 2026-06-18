@@ -77,6 +77,9 @@ _DOMAIN_SCANNERS: dict[str, set[str]] = {
 # Domains whose answers benefit from the heavy deep storage tree walk.
 _DEEP_STORAGE_DOMAINS = {"storage"}
 
+# Short-lived cache for scoped chat investigation scans (domains -> report).
+_scoped_scan_cache: dict[tuple[Any, ...], tuple[float, dict[str, Any]]] = {}
+
 
 class MachineScanService:
     """Builds a full, structured snapshot of the machine for diagnosis."""
@@ -124,18 +127,34 @@ class MachineScanService:
         ``domains`` scopes the work to only the scanners an issue needs (chat
         troubleshooter). When ``None``, every scanner runs (Full System Scan).
         ``run_deep_storage`` overrides the heavy storage tree walk; when ``None``
-        it defaults to True for a full scan and to storage-domain issues only.
+        full scans follow ``storage_deep_on_full_scan``; scoped scans only run
+        deep storage for storage-domain issues.
         ``snapshot`` lets a caller (the investigation service) reuse an inventory
         snapshot it already collected, avoiding a second expensive enumeration.
         """
-        start = time.perf_counter()
         settings = get_settings()
+        scoped = domains is not None
+
+        # Reuse a recent scoped scan for back-to-back chat questions on the same topic.
+        cache_ttl = settings.investigation_scan_cache_seconds
+        cache_key: tuple[Any, ...] | None = None
+        if scoped and cache_ttl > 0:
+            cache_key = (
+                tuple(sorted(domains or [])),
+                target_drive or "",
+                bool(run_deep_storage) if run_deep_storage is not None else "auto",
+            )
+            cached = _scoped_scan_cache.get(cache_key)
+            if cached and (time.monotonic() - cached[0]) < cache_ttl:
+                logger.info("Reusing cached scoped scan (age %.1fs, domains=%s)", time.monotonic() - cached[0], domains)
+                return dict(cached[1])
+
+        start = time.perf_counter()
 
         # Decide the scanner subset for this run.
         selected_keys = self._select_scanners(domains)
-        scoped = domains is not None
 
-        # Deep storage: full scans always do it; scoped scans only when relevant.
+        # Deep storage: scoped scans only when storage-related; full scan follows setting.
         if run_deep_storage is None:
             if scoped:
                 run_deep_storage = bool(
@@ -143,7 +162,7 @@ class MachineScanService:
                     or any(d in _DEEP_STORAGE_DOMAINS for d in (domains or []))
                 )
             else:
-                run_deep_storage = True
+                run_deep_storage = settings.storage_deep_on_full_scan
 
         tree_budget = (
             storage_tree_budget
@@ -185,10 +204,11 @@ class MachineScanService:
             "installed_software": (software.scan, (snapshot,)),
             "services": (services_scan.scan, (snapshot,)),
         }
-        # Standalone scanners.
+        # Standalone scanners. Scoped chat investigations pass ``domains`` so
+        # hardware/external_devices only run the probes the issue needs.
         plain_scanners = {
-            "hardware": (hardware.scan, ()),
-            "external_devices": (external_devices.scan, ()),
+            "hardware": (lambda d=domains: hardware.scan(d), ()),
+            "external_devices": (lambda d=domains: external_devices.scan(d), ()),
             "operating_system": (operating_system.scan, ()),
             "performance": (performance.scan, ()),
             "processes": (processes.scan, ()),
@@ -291,6 +311,8 @@ class MachineScanService:
             report["health_report"]["overall_status"],
             report["health_report"]["overall_score"],
         )
+        if cache_key is not None and cache_ttl > 0:
+            _scoped_scan_cache[cache_key] = (time.monotonic(), dict(report))
         return report
 
     # ------------------------------------------------------------------ #

@@ -511,13 +511,27 @@ def _network_adapters() -> list[dict]:
     return out
 
 
-@safe_scan("hardware")
-def scan() -> dict:
-    # Each sub-probe makes its own (blocking) CIM/PowerShell calls; run them in
-    # parallel so total time is the slowest probe rather than their sum.
-    from concurrent.futures import ThreadPoolExecutor
+# Issue domains -> hardware sub-probes. Empty set = skip full hardware for that issue.
+_DOMAIN_HARDWARE_JOBS: dict[str, set[str]] = {
+    "bluetooth": set(),
+    "usb": set(),
+    "mouse": set(),
+    "keyboard": set(),
+    "printer": set(),
+    "webcam": {"devices", "peripherals"},
+    "audio": {"devices", "peripherals"},
+    "display": {"monitors", "gpu"},
+    "battery": {"battery"},
+    "performance": {"cpu", "ram", "storage", "gpu", "battery"},
+    "storage": {"storage", "disk_health"},
+    "network": {"network_adapters"},
+    "wifi": {"network_adapters"},
+}
 
-    jobs = {
+
+def _hardware_jobs_for_domains(domains: list[str] | None) -> dict | None:
+    """Return job dict for ``domains``, or None when hardware can be skipped entirely."""
+    all_jobs = {
         "system": _system_identity,
         "cpu": _cpu,
         "ram": _ram,
@@ -531,8 +545,28 @@ def scan() -> dict:
         "network_adapters": _network_adapters,
         "monitors": _monitors,
     }
+    if domains is None:
+        return all_jobs
+    selected: set[str] = set()
+    for domain in domains:
+        selected |= _DOMAIN_HARDWARE_JOBS.get(domain, {"battery"})
+    if not selected:
+        return None
+    return {key: fn for key, fn in all_jobs.items() if key in selected}
+
+
+@safe_scan("hardware")
+def scan(domains: list[str] | None = None) -> dict:
+    # Each sub-probe makes its own (blocking) CIM/PowerShell calls; run them in
+    # parallel so total time is the slowest probe rather than their sum.
+    from concurrent.futures import ThreadPoolExecutor
+
+    jobs = _hardware_jobs_for_domains(domains)
+    if jobs is None:
+        return {"available": True, "scoped": True}
+
     out: dict = {}
-    with ThreadPoolExecutor(max_workers=len(jobs)) as pool:
+    with ThreadPoolExecutor(max_workers=max(len(jobs), 1)) as pool:
         futures = {pool.submit(fn): key for key, fn in jobs.items()}
         for fut, key in futures.items():
             try:

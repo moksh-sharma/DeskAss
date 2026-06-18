@@ -1,6 +1,8 @@
 """Diagnostics, event-log and full-scan endpoints."""
 from __future__ import annotations
 
+import asyncio
+
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session as OrmSession
 
@@ -53,10 +55,12 @@ async def comprehensive_scan(
     c: Container = Depends(container),
     db: OrmSession = Depends(get_db),
 ) -> MachineScanReport:
-    report = await c.machine_scan.scan()
-    # Run the Windows troubleshooter analysis on live diagnostics + event logs.
-    diagnostics = c.diagnostics.collect(top_n=10)
-    event_logs = c.event_logs.collect()
+    # Run machine scan, dashboard diagnostics, and event logs in parallel.
+    report, diagnostics, event_logs = await asyncio.gather(
+        c.machine_scan.scan(),
+        asyncio.to_thread(c.diagnostics.collect, top_n=10),
+        asyncio.to_thread(c.event_logs.collect),
+    )
     findings = c.troubleshooter.analyze(diagnostics, event_logs)
     report["findings"] = [f.model_dump(mode="json") for f in findings]
     report["event_logs"] = event_logs.model_dump(mode="json")

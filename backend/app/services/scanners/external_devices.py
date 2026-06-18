@@ -570,48 +570,138 @@ def _cameras() -> dict:
 # --------------------------------------------------------------------------- #
 #  Bluetooth devices
 # --------------------------------------------------------------------------- #
-def _bluetooth() -> dict:
-    # Paired/known BT devices appear as BTHENUM child devices; the radio is class
-    # Bluetooth. -PresentOnly = currently connected/active.
+# Windows profile/service nodes that are not end-user peripherals.
+_BT_SERVICE_RE = re.compile(
+    r"(?i)\b("
+    r"avrcp\s*transport|object\s*push|phonebook\s*access|audio\s*gateway|"
+    r"personal\s*area\s*network|sim\s*access|hands-?free|headset\s*audio|"
+    r"nap\s*service|pse\s*service|bpp\s*service|dun\s*service|"
+    r"ftp\s*service|sync\s*service|obex|serial\s*port|"
+    r"low\s*energy\s*gatt|device\s*information\s*service|"
+    r"generic\s*attribute|generic\s*access"
+    r")\b",
+)
+
+_BT_NAME_SUFFIXES = (
+    " Avrcp Transport",
+    " Avrcp",
+    " Hands-Free AG",
+    " Hands-Free",
+    " Hands Free",
+    " Stereo",
+    " Headset",
+)
+
+
+def _bt_is_service_entry(name: str) -> bool:
+    return bool(_BT_SERVICE_RE.search(name or ""))
+
+
+def _bt_base_name(name: str) -> str:
+    """Normalize a Bluetooth friendly name for dedupe / connection matching."""
+    n = (name or "").strip()
+    for suffix in _BT_NAME_SUFFIXES:
+        if n.lower().endswith(suffix.lower()):
+            n = n[: -len(suffix)].strip()
+    return n.lower()
+
+
+def _bt_winrt_connected_bases() -> set[str] | None:
+    """Return normalized names of Bluetooth devices Windows reports as connected now."""
+    try:
+        import asyncio
+
+        from winrt.windows.devices.bluetooth import BluetoothConnectionStatus, BluetoothDevice
+        from winrt.windows.devices.enumeration import DeviceInformation
+
+        async def _query() -> set[str]:
+            selector = BluetoothDevice.get_device_selector_from_connection_status(
+                BluetoothConnectionStatus.CONNECTED
+            )
+            devices = await DeviceInformation.find_all_async_aqs_filter(selector)
+            return {_bt_base_name(d.name) for d in devices if d.name}
+
+        return asyncio.run(_query())
+    except Exception:
+        return None
+
+
+def _bt_pnp_connected_bases() -> set[str]:
+    """Fallback when WinRT is unavailable: BTHENUM PresentOnly base device names."""
     present = as_list(ps_json(
         "Get-PnpDevice -PresentOnly -ErrorAction SilentlyContinue | "
         "Where-Object { $_.Class -eq 'Bluetooth' -and $_.InstanceId -match 'BTHENUM' } | "
-        "Select-Object FriendlyName,Manufacturer,"
-        "@{N='Status';E={$_.Status.ToString()}} | ConvertTo-Json -Compress",
+        "Select-Object FriendlyName,@{N='Status';E={$_.Status.ToString()}} | ConvertTo-Json -Compress",
         timeout=20.0,
     ))
+    bases: set[str] = set()
+    for row in present:
+        if str(row.get("Status", "")).lower() != "ok":
+            continue
+        raw = row.get("FriendlyName") or ""
+        if _bt_is_service_entry(raw):
+            continue
+        base = _bt_base_name(raw)
+        if base:
+            bases.add(base)
+    return bases
+
+
+def _bt_connected_bases() -> set[str]:
+    connected = _bt_winrt_connected_bases()
+    if connected is not None:
+        return connected
+    return _bt_pnp_connected_bases()
+
+
+def _bluetooth_user_devices(paired_rows: list[dict], connected_bases: set[str]) -> list[dict]:
+    """Build a de-duplicated list of real peripherals (not Windows BT service nodes)."""
+    by_base: dict[str, dict] = {}
+    for row in paired_rows:
+        name = (row.get("FriendlyName") or "").strip()
+        if not name or _bt_is_service_entry(name):
+            continue
+        base = _bt_base_name(name)
+        if not base:
+            continue
+        connected = _bt_base_name(name) in connected_bases
+        entry = {
+            "name": name,
+            "device_type": _bt_type(name),
+            "paired": True,
+            "connected": connected,
+            "status": "Connected" if connected else "Not connected",
+            "is_physical": True,
+            "is_virtual": False,
+        }
+        prev = by_base.get(base)
+        if prev is None:
+            by_base[base] = entry
+            continue
+        # Prefer the shorter/cleaner display name and keep connected=True if any alias is active.
+        if connected:
+            prev["connected"] = True
+            prev["status"] = "Connected"
+        if len(name) < len(prev["name"]) and not _bt_is_service_entry(name):
+            prev["name"] = name
+            prev["device_type"] = _bt_type(name)
+
+    devices = list(by_base.values())
+    devices.sort(key=lambda d: (not d["connected"], d["name"].lower()))
+    return devices
+
+
+def _bluetooth() -> dict:
     paired = as_list(ps_json(
         "Get-PnpDevice -ErrorAction SilentlyContinue | "
         "Where-Object { $_.Class -eq 'Bluetooth' -and $_.InstanceId -match 'BTHENUM' } | "
         "Select-Object FriendlyName,@{N='Status';E={$_.Status.ToString()}} | ConvertTo-Json -Compress",
         timeout=20.0,
     ))
-    connected_names = {
-        (p.get("FriendlyName") or "").lower()
-        for p in present if str(p.get("Status", "")).lower() == "ok"
-    }
-    devices: list[dict] = []
-    seen: set[str] = set()
-    for r in paired:
-        name = r.get("FriendlyName")
-        if not name:
-            continue
-        key = name.lower()
-        # Skip generic profile child nodes (e.g. "...Hands-Free", "...Headset" duplicates).
-        if key in seen:
-            continue
-        seen.add(key)
-        is_connected = key in connected_names
-        devices.append({
-            "name": name,
-            "device_type": _bt_type(name),
-            "paired": True,
-            "connected": is_connected,
-            "status": "Connected" if is_connected else "Paired (not connected)",
-            "is_physical": True,
-            "is_virtual": False,
-        })
-    # Adapter present?
+    connected_bases = _bt_connected_bases()
+    devices = _bluetooth_user_devices(paired, connected_bases)
+    connected = [d for d in devices if d["connected"]]
+
     adapter = as_list(ps_json(
         "Get-PnpDevice -Class Bluetooth -PresentOnly -ErrorAction SilentlyContinue | "
         "Where-Object { $_.InstanceId -notmatch 'BTHENUM' } | "
@@ -623,8 +713,9 @@ def _bluetooth() -> dict:
         "adapters": [a.get("FriendlyName") for a in adapter if a.get("FriendlyName")],
         "devices": devices,
         "paired_count": len(devices),
-        "connected_count": sum(1 for d in devices if d["connected"]),
-        "has_connected_device": any(d["connected"] for d in devices),
+        "connected_count": len(connected),
+        "connected_devices": [d["name"] for d in connected],
+        "has_connected_device": bool(connected),
     }
 
 
@@ -966,15 +1057,22 @@ def _physical_inventory(report: dict) -> dict:
 # --------------------------------------------------------------------------- #
 #  Entry point
 # --------------------------------------------------------------------------- #
-@safe_scan("external_devices")
-def scan() -> dict:
-    if not IS_WINDOWS:
-        return {"available": False, "note": "External device discovery requires Windows."}
+# Map issue domains to the external-device sub-scanners they actually need.
+_DOMAIN_EXTERNAL_JOBS: dict[str, list[str]] = {
+    "bluetooth": ["bluetooth"],
+    "usb": ["usb", "external_storage"],
+    "mouse": ["usb", "bluetooth"],
+    "keyboard": ["usb", "bluetooth"],
+    "printer": ["printers", "scanners"],
+    "webcam": ["cameras"],
+    "audio": ["audio"],
+    "display": ["monitors"],
+}
 
-    drivers = _driver_map()
 
-    jobs = {
-        "usb": lambda: _usb_devices(drivers),
+def _external_jobs_for_domains(domains: list[str] | None) -> dict:
+    all_jobs = {
+        "usb": lambda drivers: _usb_devices(drivers),
         "monitors": _monitors,
         "printers": _printers,
         "scanners": _scanners,
@@ -986,9 +1084,50 @@ def scan() -> dict:
         "pci_devices": _pci_devices,
         "network_devices": _network_devices,
     }
+    if domains is None:
+        jobs: dict = {}
+        for key, fn in all_jobs.items():
+            if key == "usb":
+                jobs[key] = lambda drivers, fn=fn: fn(drivers)
+            else:
+                jobs[key] = fn
+        return jobs
+
+    keys: list[str] = []
+    for domain in domains:
+        for key in _DOMAIN_EXTERNAL_JOBS.get(domain, []):
+            if key not in keys:
+                keys.append(key)
+    if not keys:
+        keys = ["bluetooth", "usb"]
+
+    jobs: dict = {}
+    for key in keys:
+        fn = all_jobs[key]
+        if key == "usb":
+            jobs[key] = lambda drivers, fn=fn: fn(drivers)
+        else:
+            jobs[key] = fn
+    return jobs
+
+
+@safe_scan("external_devices")
+def scan(domains: list[str] | None = None) -> dict:
+    if not IS_WINDOWS:
+        return {"available": False, "note": "External device discovery requires Windows."}
+
+    jobs = _external_jobs_for_domains(domains)
+    needs_drivers = domains is None or "usb" in jobs
+    drivers = _driver_map() if needs_drivers else {}
+
     out: dict[str, Any] = {"available": True}
-    with ThreadPoolExecutor(max_workers=len(jobs)) as pool:
-        futures = {pool.submit(fn): key for key, fn in jobs.items()}
+    with ThreadPoolExecutor(max_workers=max(len(jobs), 1)) as pool:
+        futures: dict = {}
+        for key, fn in jobs.items():
+            if key == "usb":
+                futures[pool.submit(fn, drivers)] = key
+            else:
+                futures[pool.submit(fn)] = key
         for fut, key in futures.items():
             try:
                 out[key] = fut.result(timeout=45)

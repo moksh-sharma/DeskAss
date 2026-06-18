@@ -31,6 +31,7 @@ from app.services.machine_scan_service import MachineScanService
 from app.services.ollama_service import OllamaService
 from app.services.system_inventory import SystemInventory
 from app.services.visual_guide_service import VisualGuideService
+from app.services.scanners.physical_device import asks_physical_connection
 
 logger = get_logger(__name__)
 
@@ -76,6 +77,34 @@ _DIAGNOSIS_SYSTEM = (
     "disk-space questions.\n"
     "- Return ONLY the requested JSON object, nothing else."
 )
+
+
+_STATUS_DOMAINS = frozenset({
+    "bluetooth", "usb", "mouse", "keyboard", "printer", "webcam", "audio", "display",
+})
+
+
+def _is_simple_status_query(message: str, profile: IssueProfile) -> bool:
+    """Connection/status questions with a clear live answer do not need the LLM."""
+    if not asks_physical_connection(message):
+        return False
+    if not profile.domains:
+        return False
+    return set(profile.domains) <= _STATUS_DOMAINS
+
+
+def _should_skip_llm(message: str, report: InvestigationReport) -> bool:
+    """Skip slow Ollama rewrite when deterministic findings are already sufficient."""
+    if _is_simple_status_query(message, report.profile):
+        return True
+    actionable = [
+        f for f in report.findings
+        if f.severity not in (Severity.info, Severity.healthy)
+        and not str(f.id).startswith("no_fault_")
+    ]
+    if not actionable and report.overall_status in (Severity.healthy, Severity.info):
+        return True
+    return False
 
 
 class InvestigationService:
@@ -244,6 +273,10 @@ class InvestigationService:
         """
         report = await self.investigate(message, ocr_text)
         result = self.to_diagnosis(report)
+
+        if _should_skip_llm(message, report):
+            logger.info("Deterministic investigation sufficient - skipping LLM rewrite")
+            return result, report
 
         # Only enrich real investigations (skip clarification prompts) and only
         # when a probe actually ran, so we never hallucinate over nothing.

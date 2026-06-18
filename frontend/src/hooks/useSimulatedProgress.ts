@@ -34,12 +34,12 @@ const STAGES: Record<LoadingMode, string[]> = {
 };
 
 const DURATION: Record<LoadingMode, number> = {
-  diagnose: 45000,
-  scan: 180000,
-  summary: 22000,
+  diagnose: 35_000,
+  scan: 120_000,
+  summary: 18_000,
 };
 
-/** Simulated progress: eases toward ~94% while active, snaps to 100% on finish. */
+/** Progress eases quickly, then creeps toward 99% while waiting on the backend (never freezes at 94%). */
 export function useSimulatedProgress(active: boolean, mode: LoadingMode) {
   const [progress, setProgress] = useState(0);
   const [stageIndex, setStageIndex] = useState(0);
@@ -75,8 +75,7 @@ export function useSimulatedProgress(active: boolean, mode: LoadingMode) {
       const elapsed = now - startRef.current;
       const t = Math.min(1, elapsed / durationMs);
       const eased = 1 - Math.pow(1 - t, 3);
-      const cap = 94;
-      setProgress(Math.min(cap, eased * cap));
+      setProgress(Math.min(88, eased * 88));
       setStageIndex(Math.min(stages.length - 1, Math.floor(eased * stages.length)));
       if (t < 1) rafRef.current = requestAnimationFrame(tick);
     };
@@ -84,8 +83,12 @@ export function useSimulatedProgress(active: boolean, mode: LoadingMode) {
     rafRef.current = requestAnimationFrame(tick);
 
     creepRef.current = setInterval(() => {
-      setProgress((p) => (p >= 93 ? p : p + 0.2));
-    }, 700);
+      setProgress((p) => {
+        if (p >= 99) return p;
+        const bump = p < 88 ? 0.4 : p < 94 ? 0.15 : 0.05;
+        return Math.min(99, p + bump);
+      });
+    }, 450);
 
     return () => {
       cancelAnimationFrame(rafRef.current);

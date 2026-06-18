@@ -219,7 +219,7 @@ export const useStore = create<AppState>((set, get) => ({
       role: "assistant",
       content: isLikelyChat
         ? "One moment…"
-        : "Running a full hardware & software scan on your PC, then diagnosing your issue…",
+        : "Running live checks on your PC, then diagnosing your issue…",
       createdAt: new Date().toISOString(),
       pending: true,
     };

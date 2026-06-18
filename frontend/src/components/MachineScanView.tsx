@@ -519,16 +519,31 @@ function Body({ report }: { report: MachineScanReport }) {
           {(ext.bluetooth?.devices ?? []).length > 0 && (
             <div className="mt-4">
               <h4 className="mb-1 text-section-title">
-                Bluetooth ({ext.bluetooth.connected_count}/{ext.bluetooth.paired_count} connected)
+                Bluetooth
+                {ext.bluetooth.connected_count
+                  ? ` — ${ext.bluetooth.connected_count} connected`
+                  : " — none connected"}
+                {(ext.bluetooth.paired_count ?? 0) > (ext.bluetooth.connected_count ?? 0) && (
+                  <span className="text-content-secondary font-normal">
+                    {` (${ext.bluetooth.paired_count} paired)`}
+                  </span>
+                )}
               </h4>
               <Table
-                rows={ext.bluetooth.devices}
+                rows={(ext.bluetooth.devices ?? []).filter((d: { connected?: boolean }) => d.connected)}
                 columns={[
                   { key: "name", label: "Device" },
                   { key: "device_type", label: "Type" },
                   { key: "status", label: "Status" },
                 ]}
               />
+              {(ext.bluetooth.connected_count ?? 0) === 0 && (
+                <p className="mt-2 text-caption text-content-secondary">
+                  No Bluetooth device is active right now.
+                  {(ext.bluetooth.paired_count ?? 0) > 0 &&
+                    ` ${ext.bluetooth.paired_count} device(s) are paired but not connected.`}
+                </p>
+              )}
             </div>
           )}
 

@@ -749,28 +749,35 @@ def _display_external_findings(hw: dict, message: str) -> list[TroubleshooterFin
     return findings
 
 
-def _bluetooth_external_findings(hw: dict) -> list[TroubleshooterFinding]:
+def _bluetooth_external_findings(hw: dict, message: str = "") -> list[TroubleshooterFinding]:
     ext = _external(hw)
     bt = ext.get("bluetooth") or {}
     devices = bt.get("devices") or []
     findings: list[TroubleshooterFinding] = []
+    connection_question = asks_physical_connection(message)
 
     if bt.get("adapter_present") is False:
         return findings
 
     connected = [d for d in devices if d.get("connected")]
-    paired_not_connected = [d for d in devices if not d.get("connected")]
 
     if not connected:
-        if paired_not_connected:
-            names = ", ".join(d.get("name", "device") for d in paired_not_connected[:4])
+        if connection_question:
+            detected = "No Bluetooth device is connected right now."
+        elif devices:
+            detected = (
+                f"No Bluetooth device is connected right now "
+                f"({len(devices)} device(s) are paired on this PC)."
+            )
+        else:
+            detected = "The Bluetooth adapter is present but no devices are paired or connected."
+        if devices:
             findings.append(TroubleshooterFinding(
                 id="bluetooth_not_connected",
                 title="No Bluetooth Device Currently Connected",
                 area="Bluetooth",
                 severity=Severity.warning,
-                detected=f"{len(paired_not_connected)} Bluetooth device(s) are paired but not connected "
-                f"right now: {names}.",
+                detected=detected,
                 likely_cause="Paired devices are remembered but not actively connected. "
                 "The device may be off, out of range, or low on battery.",
                 resolution_steps=[
@@ -786,7 +793,7 @@ def _bluetooth_external_findings(hw: dict) -> list[TroubleshooterFinding]:
                 title="No Bluetooth Devices Paired",
                 area="Bluetooth",
                 severity=Severity.warning,
-                detected="The Bluetooth adapter is present but no devices are paired or connected.",
+                detected=detected,
                 likely_cause="No Bluetooth peripheral has been paired with this PC yet.",
                 resolution_steps=[
                     "Put your device in pairing mode.",
@@ -800,12 +807,16 @@ def _bluetooth_external_findings(hw: dict) -> list[TroubleshooterFinding]:
             f"{d.get('name')} ({d.get('device_type', 'device')})"
             for d in connected[:5]
         )
+        if connection_question:
+            detected = f"Yes — {len(connected)} Bluetooth device(s) connected now: {listing}."
+        else:
+            detected = f"{len(connected)} Bluetooth device(s) connected now: {listing}."
         findings.append(TroubleshooterFinding(
             id="no_fault_bluetooth",
             title=f"{len(connected)} Bluetooth Device(s) Connected",
             area="Bluetooth",
             severity=Severity.info,
-            detected=f"{bt.get('paired_count')} paired, {len(connected)} connected now: {listing}.",
+            detected=detected,
             likely_cause="Bluetooth device(s) are physically connected and active.",
             resolution_steps=[
                 "If audio, select the device in Settings > System > Sound.",
@@ -1112,7 +1123,7 @@ _DOMAIN_HANDLERS: dict[str, Any] = {
     "audio": lambda hw, sw, msg, prof: _audio_findings(hw, msg, prof),
     "printer": lambda hw, sw, msg, prof: _printer_findings(hw) + _scanner_findings(hw, msg),
     "display": lambda hw, sw, msg, prof: _display_external_findings(hw, msg),
-    "bluetooth": lambda hw, sw, msg, prof: _bluetooth_external_findings(hw),
+    "bluetooth": lambda hw, sw, msg, prof: _bluetooth_external_findings(hw, msg),
     "usb": lambda hw, sw, msg, prof: _usb_external_findings(hw),
     "mouse": lambda hw, sw, msg, prof: _mouse_findings(hw, msg),
     "keyboard": lambda hw, sw, msg, prof: _keyboard_findings(hw, msg),
@@ -1383,31 +1394,62 @@ def _display_probe_checks(hw: dict) -> list[ProbeCheck]:
     return checks
 
 
-def _bluetooth_probe_checks(hw: dict) -> list[ProbeCheck]:
+def _bluetooth_probe_checks(hw: dict, message: str = "") -> list[ProbeCheck]:
     bt = _external(hw).get("bluetooth") or {}
     devices = bt.get("devices") or []
     connected = [d for d in devices if d.get("connected")]
+    connection_question = asks_physical_connection(message)
     checks: list[ProbeCheck] = [ProbeCheck(
         label="Bluetooth adapter",
         value="Present" if bt.get("adapter_present") else "Not found",
         status=Severity.healthy if bt.get("adapter_present") else Severity.critical,
     )]
-    checks.append(ProbeCheck(
-        label="Physically connected",
-        value=f"{len(connected)} connected" if connected else "None connected",
-        status=Severity.healthy if connected else Severity.warning,
-    ))
-    checks.append(ProbeCheck(
-        label="Paired devices",
-        value=str(bt.get("paired_count", 0)),
-        status=Severity.info,
-    ))
-    for d in devices[:5]:
+    if connection_question:
         checks.append(ProbeCheck(
-            label=f"{d.get('device_type')}: {d.get('name')}",
-            value="Connected" if d.get("connected") else "Paired (not connected)",
-            status=Severity.healthy if d.get("connected") else Severity.info,
+            label="Device connected now",
+            value=(
+                f"Yes — {', '.join(d['name'] for d in connected[:4])}"
+                if connected else "No — nothing connected right now"
+            ),
+            status=Severity.healthy if connected else Severity.warning,
         ))
+        if connected:
+            for d in connected[:5]:
+                checks.append(ProbeCheck(
+                    label=f"{d.get('device_type')}: {d.get('name')}",
+                    value="Connected",
+                    status=Severity.healthy,
+                ))
+        elif devices:
+            checks.append(ProbeCheck(
+                label="Paired on this PC (not active)",
+                value=str(len(devices)),
+                status=Severity.info,
+            ))
+    else:
+        checks.append(ProbeCheck(
+            label="Connected now",
+            value=f"{len(connected)} connected" if connected else "None connected",
+            status=Severity.healthy if connected else Severity.warning,
+        ))
+        if devices:
+            checks.append(ProbeCheck(
+                label="Paired devices",
+                value=str(len(devices)),
+                status=Severity.info,
+            ))
+        for d in connected[:5]:
+            checks.append(ProbeCheck(
+                label=f"{d.get('device_type')}: {d.get('name')}",
+                value="Connected",
+                status=Severity.healthy,
+            ))
+        for d in [d for d in devices if not d.get("connected")][:3]:
+            checks.append(ProbeCheck(
+                label=f"{d.get('device_type')}: {d.get('name')}",
+                value="Not connected",
+                status=Severity.info,
+            ))
     return checks
 
 
@@ -1553,11 +1595,15 @@ def build_probes_from_scan(
     handled_external: set[str] = set()
     for domain, builder in _DOMAIN_PROBE_BUILDERS.items():
         if domain in domains:
+            if domain == "bluetooth":
+                checks = builder(hw, message)
+            else:
+                checks = builder(hw)
             probes.append(ProbeResult(
                 domain=domain,
                 title=_external_titles.get(domain, f"{domain.title()} (issue scan)"),
                 available=True,
-                checks=builder(hw),
+                checks=checks,
                 note=scan_note,
             ))
             handled_external.add(domain)
@@ -1721,12 +1767,23 @@ def build_issue_scoped_scan_context(
         ctx["focus"] = "bluetooth"
         bt = _external(hw).get("bluetooth") or {}
         ctx["adapter_present"] = bt.get("adapter_present")
-        ctx["connected_bluetooth_count"] = bt.get("connected_count", 0)
-        ctx["has_connected_bluetooth_device"] = bt.get("has_connected_device", False)
-        ctx["bluetooth_devices"] = [
-            {"name": d.get("name"), "type": d.get("device_type"), "connected": d.get("connected")}
-            for d in (bt.get("devices") or [])[:8]
+        connected_devices = [d for d in (bt.get("devices") or []) if d.get("connected")]
+        ctx["connected_bluetooth_count"] = len(connected_devices)
+        ctx["has_connected_bluetooth_device"] = bool(connected_devices)
+        ctx["bluetooth_connected_now"] = bt.get("connected_devices") or [
+            d.get("name") for d in connected_devices if d.get("name")
         ]
+        if asks_physical_connection(message):
+            ctx["bluetooth_devices"] = [
+                {"name": d.get("name"), "type": d.get("device_type"), "connected": True}
+                for d in connected_devices[:8]
+            ]
+            ctx["paired_bluetooth_count"] = len(bt.get("devices") or [])
+        else:
+            ctx["bluetooth_devices"] = [
+                {"name": d.get("name"), "type": d.get("device_type"), "connected": d.get("connected")}
+                for d in (bt.get("devices") or [])[:8]
+            ]
 
     elif "usb" in profile.domains:
         ctx["focus"] = "usb"

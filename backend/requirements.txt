@@ -31,6 +31,12 @@ pytesseract==0.3.13
 Pillow==11.0.0
 winsdk>=1.0.0b10 ; sys_platform == "win32"
 
+# --- Windows Bluetooth connection status (WinRT) ---
+winrt-Windows.Devices.Bluetooth==3.2.1 ; sys_platform == "win32"
+winrt-Windows.Devices.Enumeration==3.2.1 ; sys_platform == "win32"
+winrt-Windows.Foundation==3.2.1 ; sys_platform == "win32"
+winrt-Windows.Foundation.Collections==3.2.1 ; sys_platform == "win32"
+
 # --- Export ---
 reportlab==4.2.5
 

@@ -33,7 +33,7 @@ class Settings(BaseSettings):
     default_model: str = "qwen2.5:latest"
     # Faster model for scan summaries (falls back to default_model when blank).
     summary_model: str = "llama3.2:3b"
-    ollama_timeout_seconds: float = 360.0
+    ollama_timeout_seconds: float = 120.0
     ollama_temperature: float = 0.2
 
     # Speech-to-Text provider: elevenlabs | deepgram
@@ -65,8 +65,8 @@ class Settings(BaseSettings):
 
     # Investigation engine (issue-scoped live probes)
     investigation_enabled: bool = True
-    investigation_use_llm: bool = True   # LLM generates a grounded diagnosis over live facts
-    machine_scan_use_llm: bool = True    # LLM writes a grounded health summary for the full scan
+    investigation_use_llm: bool = False  # LLM rewrites chat diagnosis (slow on remote Ollama)
+    machine_scan_use_llm: bool = False # LLM executive summary for full scan (on-demand via API)
     use_kb_in_diagnosis: bool = False     # legacy KB-based diagnosis path
     # Chat troubleshooter scan scope: "domain" runs only the scanners the issue
     # needs (fast); "full" runs the entire machine scan for every chat message.
@@ -74,16 +74,19 @@ class Settings(BaseSettings):
     # Dedicated (usually smaller/faster) model for chat diagnosis. Blank = default_model.
     investigation_model: str = ""
     # Cap the diagnosis LLM output so it returns quickly (tokens).
-    investigation_max_tokens: int = 700
+    investigation_max_tokens: int = 400
+    # Reuse a recent scoped investigation scan when the same domains are queried again.
+    investigation_scan_cache_seconds: float = 45.0
 
-    # Deep storage scan (runs in parallel with every machine / investigation scan)
+    # Deep storage scan (heavy filesystem tree walk + duplicate detection)
     storage_deep_enabled: bool = True
-    storage_deep_tree_budget_seconds: float = 180.0
-    storage_deep_duplicate_budget_seconds: float = 45.0
+    # When false, Full System Scan uses quick storage only; deep walk via /api/storage/scan.
+    storage_deep_on_full_scan: bool = False
+    storage_deep_tree_budget_seconds: float = 60.0
+    storage_deep_duplicate_budget_seconds: float = 15.0
     # Shorter budgets used for the chat troubleshooter so storage answers are fast.
-    # The Full System Scan page still uses the longer budgets above.
-    investigation_storage_tree_budget_seconds: float = 90.0
-    investigation_storage_duplicate_budget_seconds: float = 15.0
+    investigation_storage_tree_budget_seconds: float = 30.0
+    investigation_storage_duplicate_budget_seconds: float = 5.0
 
     # Continuous monitoring engine
     monitoring_enabled: bool = True
