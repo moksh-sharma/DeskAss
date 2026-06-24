@@ -57,7 +57,7 @@ async def comprehensive_scan(
 ) -> MachineScanReport:
     # Run machine scan, dashboard diagnostics, and event logs in parallel.
     report, diagnostics, event_logs = await asyncio.gather(
-        c.machine_scan.scan(),
+        c.machine_scan.scan(run_deep_storage=True),
         asyncio.to_thread(c.diagnostics.collect, top_n=10),
         asyncio.to_thread(c.event_logs.collect),
     )

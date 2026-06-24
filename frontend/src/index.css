@@ -437,8 +437,8 @@ body {
     animation: load-stage-fade 0.45s ease-out;
   }
 
-  .load-number-pop {
-    animation: load-number-pop 2s ease-in-out infinite;
+  .load-robot-pulse {
+    animation: load-robot-pulse 2.4s ease-in-out infinite;
   }
 }
 
@@ -467,9 +467,9 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes load-number-pop {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.02); }
+@keyframes load-robot-pulse {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.04) translateY(-2px); }
 }
 
 /* ── Startup splash ── */

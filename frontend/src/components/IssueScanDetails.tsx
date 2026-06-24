@@ -1,5 +1,6 @@
 import type { InvestigationReport, ProbeCheck } from "@/types";
 import { SeverityBadge } from "@/components/common/SeverityBadge";
+import { formatIntentLabel, formatQueryIntent } from "@/lib/diagnosis";
 import { severityColor } from "@/lib/format";
 
 function statusDot(status: ProbeCheck["status"]): string {
@@ -36,6 +37,19 @@ export function IssueScanDetails({
   if (report.scan_duration_seconds != null && report.scan_duration_seconds > 0) {
     metaParts.push(`${Math.round(report.scan_duration_seconds)}s`);
   }
+  if (report.scan_health_score != null) {
+    metaParts.push(`health ${report.scan_health_score}/100`);
+  }
+
+  const orchestrationTags: string[] = [];
+  const queryLabel = formatQueryIntent(profile.query_intent);
+  if (queryLabel) orchestrationTags.push(queryLabel);
+  if (profile.scan_depth) orchestrationTags.push(`${profile.scan_depth} scan`);
+  for (const intent of profile.enterprise_intents ?? []) {
+    if (orchestrationTags.length < 4) {
+      orchestrationTags.push(formatIntentLabel(intent));
+    }
+  }
 
   const heading =
     scanIndex != null ? `Issue ${scanIndex}` : showHeading ? "Scans for this issue" : undefined;
@@ -61,6 +75,14 @@ export function IssueScanDetails({
             </span>
           )}
           <SeverityBadge severity={report.overall_status} />
+          {orchestrationTags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-white/55 bg-white/40 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-content-muted"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
 
         {metaParts.length > 0 && (

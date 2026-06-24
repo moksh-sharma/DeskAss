@@ -29,6 +29,17 @@ function Orb({ delay, radius, size, color }: { delay: number; radius: number; si
   );
 }
 
+function ScanIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 64 64" fill="none" aria-hidden="true">
+      <circle cx="32" cy="32" r="22" stroke="#6366f1" strokeWidth="2.5" fill="#eef2ff" />
+      <path d="M32 18v28M18 32h28" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="32" cy="32" r="6" fill="#6366f1" />
+      <path d="M44 44l8 8" stroke="#6366f1" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 function ProgressRing({ progress, gradId, glowId }: { progress: number; gradId: string; glowId: string }) {
   const r = 68;
   const circ = 2 * Math.PI * r;
@@ -69,15 +80,13 @@ function ProgressRing({ progress, gradId, glowId }: { progress: number; gradId: 
 }
 
 const MODE_LABEL: Record<LoadingMode, string> = {
-  diagnose: "AI Diagnosis",
+  diagnose: "System Diagnosis",
   scan: "Full System Scan",
-  summary: "AI Summary",
 };
 
 const MODE_HINT: Record<LoadingMode, string> = {
-  diagnose: "Live probes + AI reasoning in progress…",
+  diagnose: "Live probes and scan evidence in progress…",
   scan: "Deep-scanning every subsystem - hang tight.",
-  summary: "Synthesizing insights from your scan…",
 };
 
 /** In-panel loading animation - place inside a `relative h-full` container. */
@@ -96,7 +105,7 @@ export function LoadingAnimation({ active, mode }: { active: boolean; mode: Load
       }`}
       role="status"
       aria-live="polite"
-      aria-label={`${MODE_LABEL[mode]} in progress, ${progress} percent`}
+      aria-label={`${MODE_LABEL[mode]} in progress`}
     >
       <div className="moving-gradient-bg absolute inset-0 opacity-90 backdrop-blur-sm" />
 
@@ -120,23 +129,15 @@ export function LoadingAnimation({ active, mode }: { active: boolean; mode: Load
           </div>
 
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="load-number-pop font-mono text-4xl font-black tabular-nums tracking-tighter text-content-primary">
-              {progress}
-              <span className="text-xl text-accent">%</span>
-            </span>
+            <div className="load-robot-pulse flex h-16 w-16 items-center justify-center rounded-2xl bg-white/50 shadow-glass-sm backdrop-blur-sm">
+              <ScanIcon className="h-12 w-12" />
+            </div>
           </div>
         </div>
 
         <p className="load-stage-fade min-h-[1.25rem] text-sm font-semibold text-content-secondary" key={stage}>
           {stage}
         </p>
-
-        <div className="mx-auto mt-4 h-1.5 max-w-[220px] overflow-hidden rounded-full border border-white/60 bg-white/40">
-          <div
-            className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-indigo-400 to-indigo-300 transition-all duration-300 ease-out"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
 
         <p className="mt-3 text-[11px] text-content-faint">{MODE_HINT[mode]}</p>
       </div>

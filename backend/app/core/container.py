@@ -14,13 +14,13 @@ from app.services.diagnostics_service import DiagnosticsService
 from app.services.eventlog_service import EventLogService
 from app.services.health_service import HealthService
 from app.services.investigation_service import InvestigationService
+from app.services.machine_cache_service import MachineCacheService
 from app.services.machine_scan_history_service import MachineScanHistoryService
 from app.services.machine_scan_service import MachineScanService
 from app.services.monitoring_service import MonitoringService
 from app.services.telemetry_analytics_service import TelemetryAnalyticsService
 from app.services.ocr_service import OcrService
 from app.services.system_inventory import SystemInventory
-from app.services.ollama_service import OllamaService
 from app.services.rag_service import RagService
 from app.services.session_service import SessionService
 from app.services.ticket_service import TicketService
@@ -52,34 +52,35 @@ class Container:
         self.visual_guides = VisualGuideService()
 
         # Continuous monitoring (background sampler) + read-side analytics.
-        self.monitoring = MonitoringService(self.settings)
         self.telemetry = TelemetryAnalyticsService()
+        # Instant-read summary cache (Layer: Local Cache Engine), refreshed by the
+        # monitoring loop so chat/UI can answer common questions in milliseconds.
+        self.machine_cache = MachineCacheService(
+            cache_dir=self.settings.sqlite_path.parent / "cache",
+            telemetry=self.telemetry,
+        )
+        self.monitoring = MonitoringService(self.settings, cache=self.machine_cache)
 
         # External clients.
         self.audio = AudioService()
-        self.ollama = OllamaService(self.settings)
         self.speech = SpeechService(self.settings)
         self.ocr = OcrService(self.settings)
 
         # Heavy / lazy services.
         self.rag = RagService(self.settings)
 
-        # Composite services.
-        self.diagnosis = DiagnosisService(self.ollama, self.rag, self.visual_guides)
+        # Composite services (fully deterministic - no AI model in the answer path).
+        self.diagnosis = DiagnosisService()
         self.troubleshooter = TroubleshooterService(self.rag)
         self.machine_scan = MachineScanService(
             inventory=self.inventory,
-            ollama=self.ollama,
-            use_llm=self.settings.machine_scan_use_llm,
-            summary_model=self.settings.summary_model or self.settings.default_model,
             storage=self.storage,
         )
         self.investigation = InvestigationService(
-            self.ollama,
-            use_llm=self.settings.investigation_use_llm,
             inventory=self.inventory,
             machine_scan=self.machine_scan,
             visual_guides=self.visual_guides,
+            telemetry=self.telemetry,
         )
 
         logger.info("Service container initialised.")

@@ -162,6 +162,15 @@ class RecommendedFix(BaseModel):
     safe_action: Optional[str] = None
 
 
+class InventoryItem(BaseModel):
+    """Structured row for list/inventory answers (drivers, devices, apps, etc.)."""
+
+    name: str
+    version: str = ""
+    category: str = ""
+    detail: str = ""
+
+
 class VisualGuideStep(BaseModel):
     step: int
     text: str
@@ -192,6 +201,8 @@ class DiagnosisResult(BaseModel):
     visual_guide: Optional[VisualGuide] = None
     prevention_tips: list[str] = Field(default_factory=list)
     knowledge_references: list[KnowledgeReference] = Field(default_factory=list)
+    inventory_items: list[InventoryItem] = Field(default_factory=list)
+    detail_lines: list[str] = Field(default_factory=list)
     model: str = ""
     raw_response: Optional[str] = None
 
@@ -263,6 +274,7 @@ class TroubleshooterFinding(BaseModel):
     likely_cause: str = ""
     resolution_steps: list[str] = Field(default_factory=list)
     references: list[KnowledgeReference] = Field(default_factory=list)
+    inventory_items: list[InventoryItem] = Field(default_factory=list)
     ask_ai_prompt: str = ""  # sent to the assistant for a deeper, tailored fix
 
 
@@ -293,6 +305,21 @@ class IssueProfile(BaseModel):
     needs_clarification: bool = False
     clarification_question: Optional[str] = None
     target_drive: Optional[str] = None  # e.g. "D:" when user asks about a specific drive
+    # Holistic analysis intent for forensic / cross-cutting questions:
+    # None (normal issue) | "forensic" | "predictive" | "reasoning" | "executive".
+    analysis_mode: Optional[str] = None
+    # Classified query intent: troubleshooting | informational | inventory | holistic.
+    query_intent: Optional[str] = None
+    # For executive mode: the requested audience ("user", "helpdesk", "sysadmin", "cio").
+    audience: Optional[str] = None
+    # Optional time reference detected in the question (e.g. "today", "this week").
+    time_scope: Optional[str] = None
+    # Enterprise intent labels driving scan selection (see scan_orchestrator.py).
+    enterprise_intents: list[str] = Field(default_factory=list)
+    # Extracted entities (apps, services, error codes, etc.).
+    entities: dict[str, list[str]] = Field(default_factory=dict)
+    # Scan depth: quick | deep | forensic.
+    scan_depth: Optional[str] = None
 
 
 class ProbeCheck(BaseModel):

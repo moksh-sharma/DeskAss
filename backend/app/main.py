@@ -16,6 +16,7 @@ from app.core.exceptions import register_exception_handlers
 from app.core.logging import configure_logging, get_logger
 from app.db.database import init_db
 
+configure_logging()
 logger = get_logger(__name__)
 
 
@@ -28,12 +29,12 @@ async def lifespan(app: FastAPI):  # type: ignore[no-untyped-def]
     settings.upload_path.mkdir(parents=True, exist_ok=True)
     init_db()
     init_container()
-    asyncio.create_task(get_container().ollama.warmup())
     # Start the continuous monitoring engine (background telemetry sampler).
     get_container().monitoring.start()
+    # Warm the instant-read summary cache in the background (non-blocking).
+    asyncio.create_task(asyncio.to_thread(get_container().machine_cache.refresh))
     logger.info(
-        "Startup complete. Ollama=%s  STT=%s",
-        settings.ollama_base_url,
+        "Startup complete (deterministic engine, no AI model). STT=%s",
         get_container().speech.provider_label()
         if get_container().speech.is_configured
         else "not configured",

@@ -1,9 +1,12 @@
 import { create } from "zustand";
 import { api, type DiagnosePayload } from "@/api/client";
+import { normalizeDiagnosis } from "@/lib/diagnosis";
 import type {
   BootHistory,
   ChatMessage,
+  DiagnosisResult,
   IncidentReport,
+  InvestigationReport,
   MachineMemory,
   MachineScanHistorySummary,
   MachineScanReport,
@@ -56,13 +59,15 @@ function storageFromMachineReport(report: MachineScanReport): StorageReport | nu
 
 function storageNeedsDedicatedScan(report: StorageReport | null): boolean {
   if (!report) return true;
+  // Full system scan should always include deep storage (largest files/folders, duplicates).
+  if (report.mode !== "deep") return true;
   const tree = report.tree ?? {};
   const hasTree =
     (tree.top_files?.length ?? 0) > 0 ||
     (tree.top_folders?.length ?? 0) > 0 ||
     (tree.total_files_scanned ?? 0) > 0;
   const hasDrives = (report.drives?.length ?? 0) > 0;
-  return !hasDrives || (!hasTree && report.mode === "deep");
+  return !hasDrives || !hasTree;
 }
 
 type View = "chat" | "dashboard" | "machine-scan";
@@ -103,9 +108,7 @@ interface AppState {
   currentMachineScanId: number | null;
   machineScanHistory: MachineScanHistorySummary[];
   isMachineScanning: boolean;
-  isGeneratingMachineSummary: boolean;
   runMachineScan: () => Promise<void>;
-  generateMachineSummary: () => Promise<void>;
   refreshMachineScanHistory: () => Promise<void>;
   loadMachineScan: (id: number) => Promise<void>;
   removeMachineScan: (id: number) => Promise<void>;
@@ -176,14 +179,23 @@ export const useStore = create<AppState>((set, get) => ({
   loadSession: async (id) => {
     try {
       const detail = await api.getSession(id);
-      const messages: ChatMessage[] = detail.messages.map((m) => ({
-        id: String(m.id),
-        role: m.role,
-        content: m.content,
-        createdAt: m.created_at,
-        diagnosis: m.metadata?.diagnosis?.is_conversational ? undefined : m.metadata?.diagnosis,
-        investigation: m.metadata?.diagnosis?.is_conversational ? undefined : m.metadata?.investigation,
-      }));
+      const messages: ChatMessage[] = detail.messages.map((m) => {
+        const rawDiagnosis = m.metadata?.diagnosis;
+        const investigation = m.metadata?.investigation as InvestigationReport | undefined;
+        const conversational = rawDiagnosis?.is_conversational === true;
+        let diagnosis: DiagnosisResult | undefined;
+        if (rawDiagnosis && !conversational) {
+          diagnosis = normalizeDiagnosis(rawDiagnosis, investigation);
+        }
+        return {
+          id: String(m.id),
+          role: m.role,
+          content: m.content,
+          createdAt: m.created_at,
+          diagnosis,
+          investigation: conversational ? undefined : investigation,
+        };
+      });
       set({ currentSessionId: id, messages, view: "chat" });
     } catch (e) {
       get().notify("error", (e as Error).message);
@@ -250,13 +262,17 @@ export const useStore = create<AppState>((set, get) => ({
         }
       }
       const conversational = resp.diagnosis.is_conversational === true;
+      const investigation = conversational ? undefined : resp.investigation ?? undefined;
+      const diagnosis = conversational
+        ? undefined
+        : normalizeDiagnosis(resp.diagnosis, investigation);
       const assistantMsg: ChatMessage = {
         id: uid(),
         role: "assistant",
-        content: resp.diagnosis.issue_summary || resp.diagnosis.root_cause || "Diagnosis complete.",
+        content: diagnosis?.issue_summary || resp.diagnosis.issue_summary || resp.diagnosis.root_cause || "Diagnosis complete.",
         createdAt: new Date().toISOString(),
-        diagnosis: conversational ? undefined : resp.diagnosis,
-        investigation: conversational ? undefined : resp.investigation ?? undefined,
+        diagnosis,
+        investigation,
       };
       const msgs = get().messages.filter((m) => m.id !== pendingMsg.id);
       set({
@@ -314,7 +330,6 @@ export const useStore = create<AppState>((set, get) => ({
   currentMachineScanId: null,
   machineScanHistory: [],
   isMachineScanning: false,
-  isGeneratingMachineSummary: false,
   refreshMachineScanHistory: async () => {
     try {
       set({ machineScanHistory: await api.listMachineScans() });
@@ -375,31 +390,6 @@ export const useStore = create<AppState>((set, get) => ({
       await get().refreshMachineScanHistory();
     } catch (e) {
       get().notify("error", (e as Error).message);
-    }
-  },
-  generateMachineSummary: async () => {
-    const report = get().machineReport;
-    if (!report) return;
-    set({ isGeneratingMachineSummary: true });
-    try {
-      const ai_summary = await api.machineScanSummary(report);
-      const scanId = report.scan_id ?? get().currentMachineScanId;
-      if (scanId != null) {
-        const machineReport = await api.getMachineScan(scanId);
-        set({
-          machineReport,
-          currentMachineScanId: scanId,
-          storageReport: storageFromMachineReport(machineReport),
-        });
-      } else {
-        set({ machineReport: { ...report, ai_summary } });
-      }
-      await get().refreshMachineScanHistory();
-      get().notify("success", "AI summary ready.");
-    } catch (e) {
-      get().notify("error", `Summary failed: ${(e as Error).message}`);
-    } finally {
-      set({ isGeneratingMachineSummary: false });
     }
   },
 

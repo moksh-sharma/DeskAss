@@ -1,6 +1,8 @@
 """Plain-text formatting for diagnosis results (e.g. support tickets)."""
 from __future__ import annotations
 
+import re
+
 from app.models.schemas import DiagnosisResult
 
 
@@ -58,11 +60,16 @@ def format_diagnosis_plain_text(d: DiagnosisResult) -> str:
                 lines.append(f"     ({step.caption})")
         lines.append("")
     elif d.resolution_steps:
-        lines.append("Step-by-Step Resolution Guide")
-        lines.append("-" * 40)
-        for i, step in enumerate(d.resolution_steps, start=1):
-            lines.append(f"  {i}. {step}")
-        lines.append("")
+        actionable = [
+            s for s in d.resolution_steps
+            if s.strip() and not re.match(r"^\s*(this is informational|no action needed)\b", s, re.I)
+        ]
+        if actionable:
+            lines.append("Step-by-Step Resolution Guide")
+            lines.append("-" * 40)
+            for i, step in enumerate(actionable, start=1):
+                lines.append(f"  {i}. {step}")
+            lines.append("")
 
     if d.prevention_tips:
         lines.append("Prevention & Best Practices")

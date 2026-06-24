@@ -41,6 +41,20 @@ async def alerts(hours: int = Query(48, ge=1, le=720), c: Container = Depends(co
     return await asyncio.to_thread(lambda: c.telemetry.alerts(hours=hours))
 
 
+@router.get("/cache", summary="Instant-read cached machine summaries (no scan)")
+async def cache(c: Container = Depends(container)) -> dict[str, Any]:
+    """Return the pre-computed summary JSON files for millisecond reads.
+
+    These are refreshed in the background by the monitoring loop, so the UI can
+    render current usage, health and machine memory without scanning.
+    """
+    return {
+        "current": c.machine_cache.current_snapshot(),
+        "health": c.machine_cache.health_summary(),
+        "machine": c.machine_cache.machine_summary(),
+    }
+
+
 @router.get("/changes", summary="Change / device / driver / security timeline")
 async def changes(days: int = Query(30, ge=1, le=365), c: Container = Depends(container)) -> list[dict[str, Any]]:
     return await asyncio.to_thread(lambda: c.telemetry.change_timeline(days=days))

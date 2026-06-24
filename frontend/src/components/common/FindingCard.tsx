@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { severityColor } from "@/lib/format";
+import { isDenseInventoryText } from "@/lib/diagnosis";
+import { InventoryTable } from "@/components/common/InventoryTable";
 import type { TroubleshooterFinding } from "@/types";
 
 function ShieldAlertIcon({ className }: { className?: string }) {
@@ -18,24 +20,12 @@ function ListIcon({ className }: { className?: string }) {
   );
 }
 
-function AskIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-    </svg>
-  );
-}
-
-export function FindingCard({
-  finding,
-  onAskAi,
-  busy,
-}: {
-  finding: TroubleshooterFinding;
-  onAskAi: (prompt: string) => void;
-  busy: boolean;
-}) {
+export function FindingCard({ finding }: { finding: TroubleshooterFinding }) {
   const [open, setOpen] = useState(false);
+  const inventory = finding.inventory_items ?? [];
+  const detectedText = isDenseInventoryText(finding.detected) && inventory.length
+    ? `${inventory.length} item(s) found.`
+    : finding.detected;
   const accentBorder =
     finding.severity === "Critical"
       ? "border-red-200/60 bg-gradient-to-r from-red-50/60 to-white/30"
@@ -59,7 +49,8 @@ export function FindingCard({
               {finding.area}
             </span>
           </div>
-          <p className="mt-1.5 whitespace-normal break-words text-caption">{finding.detected}</p>
+          <p className="mt-1.5 whitespace-normal break-words text-caption">{detectedText}</p>
+          {inventory.length > 0 && <InventoryTable items={inventory} />}
         </div>
         <span
           className={`mt-1 shrink-0 text-[10px] font-extrabold text-content-faint transition-transform duration-200 ${
@@ -114,17 +105,6 @@ export function FindingCard({
               ))}
             </div>
           )}
-
-          <div className="pt-1">
-            <button
-              onClick={() => onAskAi(finding.ask_ai_prompt)}
-              disabled={busy || !finding.ask_ai_prompt}
-              className="btn-primary flex items-center gap-2 px-4 py-2 text-xs disabled:pointer-events-none"
-            >
-              <AskIcon className="h-4 w-4" />
-              Ask AI for Detailed Fix
-            </button>
-          </div>
         </div>
       )}
     </div>

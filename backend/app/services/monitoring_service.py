@@ -49,8 +49,9 @@ def _utc_now() -> datetime:
 class MonitoringService:
     """Background telemetry sampler + change/anomaly/alert detector."""
 
-    def __init__(self, settings: Settings) -> None:
+    def __init__(self, settings: Settings, cache: Any = None) -> None:
         self._s = settings
+        self._cache = cache  # MachineCacheService | None - instant-read summaries
         self._task: asyncio.Task | None = None
         self._stop = asyncio.Event()
 
@@ -71,6 +72,8 @@ class MonitoringService:
         self._last_deep = 0.0
         self._last_daily = 0.0
         self._last_prune = 0.0
+        self._last_cache = 0.0
+        self._last_process = 0.0
         self._boot_time = psutil.boot_time()
 
     # ================================================================== #
@@ -85,9 +88,10 @@ class MonitoringService:
         psutil.cpu_percent(None)  # prime the CPU counter
         self._task = asyncio.create_task(self._run(), name="monitoring-loop")
         logger.info(
-            "Continuous monitoring started (sample=%ss detailed=%smin deep=%smin).",
-            self._s.monitoring_sample_seconds,
-            self._s.monitoring_detailed_minutes,
+            "Continuous monitoring started (cpu/ram=%ss disk/net=%ss processes=%ss deep=%smin).",
+            self._s.monitoring_cpu_ram_seconds,
+            self._s.monitoring_disk_net_seconds,
+            self._s.monitoring_process_seconds,
             self._s.monitoring_deep_minutes,
         )
 
@@ -105,7 +109,7 @@ class MonitoringService:
     async def _run(self) -> None:
         # Record a boot event on startup so history always has an anchor.
         await asyncio.to_thread(self._record_boot, startup=True)
-        interval = max(10, int(self._s.monitoring_sample_seconds))
+        interval = max(5, int(self._s.monitoring_sample_seconds))
         while not self._stop.is_set():
             try:
                 await asyncio.to_thread(self._tick)
@@ -120,13 +124,16 @@ class MonitoringService:
         now = time.monotonic()
         detailed_due = (now - self._last_detailed) >= self._s.monitoring_detailed_minutes * 60
         deep_due = (now - self._last_deep) >= self._s.monitoring_deep_minutes * 60
+        process_due = (now - self._last_process) >= self._s.monitoring_process_seconds
         daily_due = (now - self._last_daily) >= 86400
         prune_due = (now - self._last_prune) >= 3600
 
-        sample = self._collect(detailed=detailed_due)
+        sample = self._collect(detailed=detailed_due, processes=process_due)
         tier = "detailed" if detailed_due else "critical"
         if detailed_due:
             self._last_detailed = now
+        if process_due:
+            self._last_process = now
         self._persist_sample(sample, tier)
         self._check_thresholds(sample)
         self._check_anomalies(sample)
@@ -147,10 +154,16 @@ class MonitoringService:
             with contextlib.suppress(Exception):
                 self._prune()
 
+        cache_due = (now - self._last_cache) >= max(15, self._s.cache_refresh_seconds)
+        if cache_due and self._cache is not None:
+            self._last_cache = now
+            with contextlib.suppress(Exception):
+                self._cache.refresh()
+
     # ================================================================== #
     #  Telemetry collection
     # ================================================================== #
-    def _collect(self, *, detailed: bool) -> dict[str, Any]:
+    def _collect(self, *, detailed: bool, processes: bool = False) -> dict[str, Any]:
         now_t = time.time()
         elapsed = (now_t - self._prev_t) if self._prev_t else None
         self._prev_t = now_t
@@ -203,6 +216,7 @@ class MonitoringService:
                 gpu = self._gpu()
                 if gpu:
                     s.update(gpu)
+        if detailed or processes:
             with contextlib.suppress(Exception):
                 s["top_json"] = json.dumps(self._top_processes())
         return s
@@ -254,14 +268,23 @@ class MonitoringService:
 
     @staticmethod
     def _top_processes(top_n: int = 5) -> dict[str, Any]:
+        # Prime per-process CPU counters, briefly wait, then read deltas so the
+        # cache/history can answer "which app used the most CPU", not just memory.
+        ncpu = psutil.cpu_count(logical=True) or 1
+        for p in psutil.process_iter():
+            with contextlib.suppress(psutil.NoSuchProcess, psutil.AccessDenied):
+                p.cpu_percent(None)
+        time.sleep(0.3)
         procs: list[dict] = []
         for p in psutil.process_iter(["pid", "name", "memory_info"]):
             with contextlib.suppress(psutil.NoSuchProcess, psutil.AccessDenied):
                 mem = p.info["memory_info"].rss / MB if p.info.get("memory_info") else 0.0
+                cpu = p.cpu_percent(None) / ncpu
                 procs.append({"pid": p.info["pid"], "name": p.info.get("name") or "?",
-                              "mem_mb": round(mem, 1)})
+                              "mem_mb": round(mem, 1), "cpu_pct": round(cpu, 1)})
         by_mem = sorted(procs, key=lambda x: x["mem_mb"], reverse=True)[:top_n]
-        return {"top_mem": by_mem}
+        by_cpu = sorted(procs, key=lambda x: x["cpu_pct"], reverse=True)[:top_n]
+        return {"top_mem": by_mem, "top_cpu": by_cpu}
 
     # ================================================================== #
     #  Persistence

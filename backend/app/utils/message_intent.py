@@ -25,10 +25,16 @@ _PROBLEM_HINT = re.compile(
     r"outlook|teams|vpn|wifi|wi-?fi|bluetooth|printer|scanner|audio|sound|speaker|mic(?:rophone)?|"
     r"monitor|display|screen|usb|webcam|camera|update|install|battery|charging|"
     r"event\s+id|\.net\s+runtime|out\s+of\s+memory|disk\s+full|"
+    r"cpu|ram|memory|processor|resource|task\s+manager|"
+    r"(?:cpu|ram|memory|system|resource)\s+usage|using\s+the\s+most|"
+    r"which\s+app|which\s+process|hogging|"
     r"disk\s+space|low\s+space|most\s+space|more\s+space|taking\s+\S+\s+space|"
     r"which\s+file|what\s+file|largest\s+file|biggest\s+file|largest\s+folder|"
     r"free\s+up|cleanup|clean\s+up|[a-z]\s*:?\s*drive|"
     r"password|login|network|internet|driver|boot|restart|reboot|"
+    r"what\s+changed|root\s+cause|most\s+likely|risk\s+assessment|"
+    r"machine\s+health|incident\s+report|gradually\s+degrad|"
+    r"crash|bsod|defender|antivirus|firewall|forensic|"
     r"pc|computer|laptop|machine|device|adapter|service"
     r")\b",
     re.IGNORECASE,
@@ -60,7 +66,7 @@ def classify_message(text: str) -> Intent:
         from app.services.issue_parser import parse_issue
 
         profile = parse_issue(msg)
-        if profile.domains or profile.apps or profile.symptoms:
+        if profile.domains or profile.apps or profile.symptoms or profile.analysis_mode:
             return "troubleshooting"
     except Exception:
         pass

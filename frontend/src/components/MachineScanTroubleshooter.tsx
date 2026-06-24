@@ -43,7 +43,7 @@ export function MachineScanTroubleshooter({ report }: { report: MachineScanRepor
         ) : (
           <div className="space-y-3">
             {findings.map((f, idx) => (
-              <FindingCard key={`${f.id}-${idx}`} finding={f} onAskAi={resolveIssue} busy={isDiagnosing} />
+              <FindingCard key={`${f.id}-${idx}`} finding={f} />
             ))}
           </div>
         )}

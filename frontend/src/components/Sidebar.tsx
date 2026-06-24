@@ -170,7 +170,7 @@ export function Sidebar() {
                 setView("chat");
               }}
               className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent-shine text-sm font-black text-white shadow-glow-sm"
-              title="HelpDesk Assistant"
+              title="Desktop Assistant"
             >
               H
             </button>
@@ -202,7 +202,7 @@ export function Sidebar() {
           </div>
           <div className="min-w-0">
             <div className="truncate text-sm font-extrabold tracking-tight text-content-primary">
-              HelpDesk Assistant
+              Desktop Assistant
             </div>
             <div className="mt-0.5 flex items-center gap-1.5 text-[11px] font-medium text-indigo-600/80">
               <span className="relative flex h-2 w-2">
@@ -346,11 +346,6 @@ export function Sidebar() {
                 <div className="flex items-center justify-between gap-2">
                   <span className="truncate text-xs font-semibold">{s.title}</span>
                   <div className="flex shrink-0 items-center gap-1">
-                    {s.has_ai_summary && (
-                      <span className="rounded-full border border-emerald-300/40 bg-emerald-100/60 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider text-emerald-700">
-                        AI
-                      </span>
-                    )}
                     <button
                       onClick={(e) => {
                         e.stopPropagation();

@@ -50,7 +50,7 @@ export function MessageBubble({
       <div className={`flex max-w-[85%] flex-col ${isUser ? "items-end" : "items-start"}`}>
         {message.diagnosis ? (
           <div className="w-full max-w-3xl space-y-3">
-            <DiagnosisCard d={message.diagnosis} />
+            <DiagnosisCard d={message.diagnosis} investigation={message.investigation} />
             {userIssue && !message.pending && (
               <RaiseTicketButton userIssue={userIssue} message={message} />
             )}

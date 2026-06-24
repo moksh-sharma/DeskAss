@@ -143,6 +143,75 @@ class TelemetryAnalyticsService:
                 },
             }
 
+    def latest_resource_snapshot(self, max_age_seconds: float = 120.0) -> dict[str, Any] | None:
+        """Return the most recent telemetry sample as a resource snapshot, plus
+        the freshest top-CPU / top-memory process lists, for instant answers.
+
+        Returns ``None`` when monitoring has no sample fresh enough to trust
+        (so the caller can fall back to a live read). The numeric metrics come
+        from the latest sample (any tier); the process lists come from the most
+        recent sample that captured them (detailed tier, up to a few minutes old).
+        """
+        now = _utc_now()
+        with session_scope() as db:
+            latest = db.execute(
+                select(TelemetrySample).where(TelemetrySample.tier != "daily")
+                .order_by(TelemetrySample.ts.desc()).limit(1)
+            ).scalars().first()
+            if not latest:
+                return None
+            age = (now - latest.ts).total_seconds()
+            if age > max_age_seconds:
+                return None
+            top_cpu: list[dict] = []
+            top_mem: list[dict] = []
+            proc_age: float | None = None
+            with contextlib.suppress(Exception):
+                if latest.top_json:
+                    parsed = json.loads(latest.top_json)
+                    top_cpu = parsed.get("top_cpu") or []
+                    top_mem = parsed.get("top_mem") or []
+                    proc_age = age
+                else:
+                    recent = db.execute(
+                        select(TelemetrySample)
+                        .where(TelemetrySample.tier != "daily")
+                        .where(TelemetrySample.top_json.is_not(None))
+                        .order_by(TelemetrySample.ts.desc()).limit(1)
+                    ).scalars().first()
+                    if recent and recent.top_json:
+                        parsed = json.loads(recent.top_json)
+                        top_cpu = parsed.get("top_cpu") or []
+                        top_mem = parsed.get("top_mem") or []
+                        proc_age = (now - recent.ts).total_seconds()
+        # Derive total RAM from available + used% (not stored directly).
+        total_gb = None
+        used_gb = None
+        if latest.mem_available_gb and latest.mem_used_pct and latest.mem_used_pct < 100:
+            total_gb = round(latest.mem_available_gb / (1 - latest.mem_used_pct / 100), 1)
+            used_gb = round(total_gb - latest.mem_available_gb, 1)
+        return {
+            "ts": latest.ts.isoformat() + "Z",
+            "age_seconds": round(age, 1),
+            "process_age_seconds": round(proc_age, 1) if proc_age is not None else None,
+            "cpu_pct": latest.cpu_pct,
+            "cpu_freq_mhz": latest.cpu_freq_mhz,
+            "cpu_temp_c": latest.cpu_temp_c,
+            "mem_used_pct": latest.mem_used_pct,
+            "mem_available_gb": latest.mem_available_gb,
+            "mem_total_gb": total_gb,
+            "mem_used_gb": used_gb,
+            "pagefile_pct": latest.pagefile_pct,
+            "disk_free_gb": latest.disk_free_gb,
+            "disk_used_pct": latest.disk_used_pct,
+            "gpu_pct": latest.gpu_pct,
+            "gpu_mem_pct": latest.gpu_mem_pct,
+            "battery_pct": latest.battery_pct,
+            "process_count": latest.process_count,
+            "top_cpu": top_cpu,
+            "top_mem": top_mem,
+        }
+
     # ================================================================== #
     #  Trends
     # ================================================================== #

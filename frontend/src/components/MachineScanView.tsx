@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { useStore } from "@/store/useStore";
 import { CollapsibleSection } from "@/components/common/CollapsibleSection";
 import { LoadingAnimation } from "@/components/LoadingAnimation";
@@ -5,7 +6,7 @@ import { LenisScroll } from "@/components/LenisScroll";
 import { MachineScanTroubleshooter } from "@/components/MachineScanTroubleshooter";
 import { StorageReportSections } from "@/components/StorageView";
 import { formatDateTime } from "@/lib/format";
-import type { MachineScanReport, StorageReport } from "@/types";
+import type { MachineHealthReport, MachineScanReport, StorageReport } from "@/types";
 
 function statusColor(status: string): string {
   const s = (status || "").toLowerCase();
@@ -156,6 +157,251 @@ function StorageAnalysisSection({ report }: { report: StorageReport }) {
       )}
       <StorageReportSections report={report} collapsible={false} />
     </CollapsibleSection>
+  );
+}
+
+type PillTone = "critical" | "warning" | "healthy" | "muted";
+
+const PILL_TONES: Record<PillTone, string> = {
+  critical: "bg-severity-critical/10 text-severity-critical border-severity-critical/30",
+  warning: "bg-severity-warning/10 text-severity-warning border-severity-warning/30",
+  healthy: "bg-severity-healthy/10 text-severity-healthy border-severity-healthy/30",
+  muted: "bg-white/30 text-content-muted border-white/40",
+};
+
+function StatusPill({ tone, children }: { tone: PillTone; children: ReactNode }) {
+  return (
+    <span
+      className={`shrink-0 rounded-full border px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider ${PILL_TONES[tone]}`}
+    >
+      {children}
+    </span>
+  );
+}
+
+function riskTone(level: string | undefined): PillTone {
+  const l = (level || "").toLowerCase();
+  if (l === "critical" || l === "high") return "critical";
+  if (l === "medium" || l === "elevated") return "warning";
+  if (l === "low") return "healthy";
+  return "muted";
+}
+
+const PREDICTION_LABELS: Record<string, string> = {
+  ssd_failure: "Disk / SSD failure",
+  battery_failure: "Battery failure",
+  crash_probability: "Crash probability",
+  resource_exhaustion: "Resource exhaustion",
+  disk_full: "Disk full",
+};
+
+function PredictiveSection({ predictive }: { predictive: any }) {
+  const predictions = predictive?.predictions ?? {};
+  const entries = Object.entries(predictions) as [string, any][];
+  if (entries.length === 0) return null;
+  const highCount = (predictive?.high_risk_areas ?? []).length;
+  // Worst-first ordering.
+  const order: Record<string, number> = { critical: 0, high: 1, medium: 2, elevated: 2, low: 3, "n/a": 4 };
+  entries.sort((a, b) => (order[(a[1]?.risk || "").toLowerCase()] ?? 5) - (order[(b[1]?.risk || "").toLowerCase()] ?? 5));
+  return (
+    <CollapsibleSection
+      title="Predictive Risk Analysis"
+      subtitle={highCount > 0 ? `${highCount} high-risk area${highCount === 1 ? "" : "s"}` : "No high-risk areas"}
+      accent={highCount > 0 ? "warning" : undefined}
+    >
+      <div className="space-y-2.5">
+        {entries.map(([key, p]) => (
+          <div
+            key={key}
+            className="rounded-xl border border-white/40/20 bg-white/30/10 p-3"
+          >
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-xs font-bold text-content-primary">{PREDICTION_LABELS[key] ?? key}</span>
+              <StatusPill tone={riskTone(p?.risk)}>{p?.risk || "n/a"}</StatusPill>
+            </div>
+            {p?.detail && <p className="mt-1 text-caption text-content-secondary leading-relaxed">{p.detail}</p>}
+            {(p?.evidence ?? []).length > 0 && (
+              <ul className="mt-1.5 space-y-0.5">
+                {(p.evidence as string[]).map((e, i) => (
+                  <li key={i} className="flex gap-1.5 text-[11px] text-content-muted">
+                    <span className="text-accent select-none">•</span>
+                    <span>{e}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+    </CollapsibleSection>
+  );
+}
+
+function complianceTone(c: any): PillTone {
+  if (c?.status === "pass") return "healthy";
+  if (c?.status === "fail") return (c?.severity === "critical" || c?.severity === "high") ? "critical" : "warning";
+  return "muted";
+}
+
+function ComplianceSection({ compliance }: { compliance: any }) {
+  const controls = (compliance?.controls ?? []) as any[];
+  if (controls.length === 0) return null;
+  const score = compliance?.score;
+  const status = compliance?.status ?? "Unknown";
+  const passed = compliance?.passed_count ?? 0;
+  const evaluated = compliance?.evaluated_count ?? 0;
+  const tone: PillTone =
+    typeof score === "number" ? (score >= 80 ? "healthy" : score >= 50 ? "warning" : "critical") : "muted";
+  // Failing controls first, then by severity.
+  const sevOrder: Record<string, number> = { critical: 0, high: 1, medium: 2, low: 3 };
+  const sorted = [...controls].sort((a, b) => {
+    const fa = a.status === "fail" ? 0 : a.status === "not_evaluated" ? 2 : 1;
+    const fb = b.status === "fail" ? 0 : b.status === "not_evaluated" ? 2 : 1;
+    if (fa !== fb) return fa - fb;
+    return (sevOrder[a.severity] ?? 9) - (sevOrder[b.severity] ?? 9);
+  });
+  return (
+    <CollapsibleSection
+      title="Security Compliance"
+      subtitle={`${score ?? "?"}/100 · ${status} · ${passed}/${evaluated} controls passed`}
+      accent={tone === "critical" ? "warning" : undefined}
+    >
+      <div className="space-y-1.5">
+        {sorted.map((c, i) => (
+          <div
+            key={i}
+            className="flex items-start justify-between gap-3 rounded-xl border border-white/40/20 bg-white/30/10 px-3 py-2.5"
+          >
+            <div className="min-w-0">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold text-content-primary">{c.name}</span>
+                <span className="text-[9px] font-bold uppercase tracking-wider text-content-muted">{c.severity}</span>
+              </div>
+              {c.detail && <p className="mt-0.5 text-[11px] text-content-secondary leading-relaxed">{c.detail}</p>}
+            </div>
+            <StatusPill tone={complianceTone(c)}>
+              {c.status === "not_evaluated" ? "n/a" : c.status}
+            </StatusPill>
+          </div>
+        ))}
+      </div>
+    </CollapsibleSection>
+  );
+}
+
+function KnowledgeGraphSection({ graph }: { graph: any }) {
+  const correlations = (graph?.correlations ?? []) as string[];
+  const edges = (graph?.edges ?? []) as any[];
+  const nodes = (graph?.nodes ?? []) as any[];
+  if (correlations.length === 0 && edges.length === 0 && nodes.length === 0) return null;
+  // Count nodes by type for a quick entity overview.
+  const typeCounts: Record<string, number> = {};
+  for (const n of nodes) typeCounts[n.type] = (typeCounts[n.type] ?? 0) + 1;
+  return (
+    <CollapsibleSection
+      title="Knowledge Graph & Correlations"
+      subtitle={`${graph?.node_count ?? nodes.length} entities · ${graph?.edge_count ?? edges.length} links`}
+    >
+      {Object.keys(typeCounts).length > 0 && (
+        <div className="mb-3 flex flex-wrap gap-2">
+          {Object.entries(typeCounts).map(([t, n]) => (
+            <span
+              key={t}
+              className="rounded-lg border border-white/40/30 bg-white/35/30 px-2.5 py-1 text-[10px] font-bold text-content-secondary"
+            >
+              {t} · {n}
+            </span>
+          ))}
+        </div>
+      )}
+      {correlations.length > 0 && (
+        <div className="mb-3">
+          <h4 className="mb-1 text-section-title">Correlations</h4>
+          <ul className="space-y-1.5">
+            {correlations.map((c, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-2 rounded-xl border border-white/40/10 bg-white/30/10 p-2.5 text-caption text-content-secondary"
+              >
+                <span className="select-none text-sm font-bold leading-none text-accent">•</span>
+                <span className="leading-relaxed">{c}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {edges.length > 0 && (
+        <div>
+          <h4 className="mb-1 text-section-title">Relationships ({edges.length})</h4>
+          <Table
+            rows={edges.slice(0, 25).map((e) => ({
+              source: e.source,
+              relation: (e.relation || "").replace(/_/g, " "),
+              target: e.target,
+            }))}
+            columns={[
+              { key: "source", label: "From" },
+              { key: "relation", label: "Relation" },
+              { key: "target", label: "To" },
+            ]}
+          />
+        </div>
+      )}
+    </CollapsibleSection>
+  );
+}
+
+function ScorecardSection({ health }: { health: MachineHealthReport }) {
+  const cats = Object.entries(health.categories ?? {});
+  if (cats.length === 0) return null;
+  const tone = (status: string): PillTone => {
+    const s = (status || "").toLowerCase();
+    if (s.includes("critical")) return "critical";
+    if (s.includes("warn")) return "warning";
+    if (s.includes("healthy") || s === "ok") return "healthy";
+    return "muted";
+  };
+  return (
+    <CollapsibleSection
+      title="Executive Scorecard"
+      subtitle={`${health.overall_score}/100 overall · ${cats.length} dimensions`}
+    >
+      <div className="grid gap-2.5 sm:grid-cols-2">
+        {cats.map(([name, cat]) => (
+          <div key={name} className="rounded-xl border border-white/40/20 bg-white/30/10 p-3">
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-xs font-bold capitalize text-content-primary">{name}</span>
+              <div className="flex items-center gap-2">
+                <span className={`text-base font-extrabold ${statusColor(cat.status)}`}>{cat.score}</span>
+                <StatusPill tone={tone(cat.status)}>{cat.status}</StatusPill>
+              </div>
+            </div>
+            {(cat.notes ?? []).length > 0 && (
+              <ul className="mt-1.5 space-y-0.5">
+                {(cat.notes as string[]).slice(0, 4).map((n, i) => (
+                  <li key={i} className="flex gap-1.5 text-[11px] text-content-muted">
+                    <span className="text-accent select-none">•</span>
+                    <span>{n}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+    </CollapsibleSection>
+  );
+}
+
+function IntelligenceSections({ report }: { report: MachineScanReport }) {
+  const sw = report.software ?? {};
+  return (
+    <>
+      <ScorecardSection health={report.health_report} />
+      <PredictiveSection predictive={sw.predictive} />
+      <ComplianceSection compliance={sw.compliance} />
+      <KnowledgeGraphSection graph={sw.knowledge_graph} />
+    </>
   );
 }
 
@@ -931,10 +1177,7 @@ export function MachineScanView() {
   const report = useStore((s) => s.machineReport);
   const storageReport = useStore((s) => s.storageReport);
   const isScanning = useStore((s) => s.isMachineScanning);
-  const isGeneratingSummary = useStore((s) => s.isGeneratingMachineSummary);
   const runMachineScan = useStore((s) => s.runMachineScan);
-  const generateMachineSummary = useStore((s) => s.generateMachineSummary);
-  const resolveIssue = useStore((s) => s.resolveIssue);
 
   if (isScanning) {
     return (
@@ -949,8 +1192,8 @@ export function MachineScanView() {
       <div className="flex h-full flex-col items-center justify-center gap-4 px-6 text-center">
         <h1 className="text-2xl font-semibold text-content-primary">Full System Scan</h1>
         <p className="max-w-lg text-body text-content-body">
-          Scans all hardware and software, runs storage analysis, Windows troubleshooter fixes, and
-          computes an overall health score. Generate an AI summary afterward for a full narrative.
+          Scans all hardware and software, runs deep storage analysis in parallel, Windows
+          troubleshooter checks, and computes an overall health score with prioritized fix actions.
         </p>
         <button onClick={runMachineScan} className="btn-primary">
           Run Full System Scan
@@ -960,8 +1203,6 @@ export function MachineScanView() {
   }
 
   const health = report.health_report;
-  const ai = report.ai_summary;
-  const hasAiSummary = Boolean(ai?.summary?.trim());
 
   return (
     <div className="relative h-full min-h-0">
@@ -980,20 +1221,8 @@ export function MachineScanView() {
               </div>
               <div className="flex flex-wrap gap-2">
                 <button
-                  onClick={generateMachineSummary}
-                  disabled={isGeneratingSummary}
-                  className="btn-primary text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl shadow-md shadow-accent/15 hover:shadow-accent/25 hover:-translate-y-px active:translate-y-0 transition-all duration-150 disabled:opacity-60 disabled:pointer-events-none"
-                >
-                  {isGeneratingSummary
-                    ? "Generating Summary…"
-                    : hasAiSummary
-                      ? "Regenerate AI Summary"
-                      : "Generate AI Summary"}
-                </button>
-                <button
                   onClick={runMachineScan}
-                  className="btn-ghost text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all active:scale-95 duration-100"
-                  disabled={isGeneratingSummary}
+                  className="btn-primary text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl shadow-md shadow-accent/15 hover:shadow-accent/25 hover:-translate-y-px active:translate-y-0 transition-all duration-150"
                 >
                   Re-scan System
                 </button>
@@ -1010,34 +1239,7 @@ export function MachineScanView() {
           </div>
         </div>
 
-        {/* AI summary (on demand) */}
-        {hasAiSummary && !isGeneratingSummary && (
-          <div className="card mt-4 border border-accent/20 bg-gradient-to-br from-accent/5 to-transparent p-6 shadow-lg relative overflow-hidden">
-            <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-accent to-blue-400" />
-            <div className="mb-3 flex items-center gap-2">
-              <span className="rounded-full bg-accent/15 border border-accent/20 px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-widest text-accent flex items-center gap-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-                AI Summary{ai.model ? ` · ${ai.model}` : ""}
-              </span>
-            </div>
-            <p className="text-body text-content-primary">{ai.summary}</p>
-            {(ai.prioritized_actions?.length ?? 0) > 0 && (
-              <ol className="mt-4 space-y-2 text-caption text-content-secondary">
-                {(ai.prioritized_actions ?? []).map((a, i) => (
-                  <li key={i} className="flex gap-3 items-start bg-white/30/10 border border-white/40/10 p-2.5 rounded-xl">
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-accent text-[10px] font-black text-content-primary shadow-sm shadow-accent/10 select-none">
-                      {i + 1}
-                    </span>
-                    <span className="pt-0.5 leading-relaxed font-semibold">{a}</span>
-                  </li>
-                ))}
-              </ol>
-            )}
-          </div>
-        )}
-
-        {/* Recommended actions (deterministic) - hidden when the AI summary already covers them */}
-        {!hasAiSummary && health.recommended_actions.length > 0 && (
+        {health.recommended_actions.length > 0 && (
           <CollapsibleSection
             title="Recommended Actions"
             subtitle={`${health.recommended_actions.length} prioritized item${health.recommended_actions.length === 1 ? "" : "s"}`}
@@ -1052,25 +1254,15 @@ export function MachineScanView() {
                 </li>
               ))}
             </ul>
-            <button
-              onClick={() =>
-                resolveIssue(
-                  `Here is my machine health report (score ${health.overall_score}/100, ${health.overall_status}). ` +
-                  `Key issues: ${health.recommended_actions.join("; ")}. ` +
-                  `What should I prioritise and how do I fix these?`,
-                )
-              }
-              className="mt-4 flex items-center gap-1.5 rounded-xl bg-accent px-4 py-2 text-xs font-bold uppercase tracking-wider text-content-primary shadow-md shadow-accent/10 transition-all duration-100 hover:-translate-y-px hover:shadow-accent/20"
-            >
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
-              Ask AI to help fix these
-            </button>
           </CollapsibleSection>
         )}
 
         <MachineScanTroubleshooter report={report} />
+
+        {/* Intelligence: executive scorecard, predictive risk, compliance, knowledge graph */}
+        <div className="mt-4 space-y-3">
+          <IntelligenceSections report={report} />
+        </div>
 
         {storageReport && (
           <div className="mt-4">
@@ -1084,8 +1276,6 @@ export function MachineScanView() {
         </div>
       </div>
       </LenisScroll>
-
-      <LoadingAnimation active={isGeneratingSummary} mode="summary" />
     </div>
   );
 }

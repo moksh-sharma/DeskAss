@@ -5,7 +5,6 @@ import type {
   EventLogSummary,
   HealthReport,
   IncidentReport,
-  MachineAiSummary,
   MachineMemory,
   MachineScanHistorySummary,
   MachineScanReport,
@@ -52,11 +51,8 @@ export function voiceStreamUrl(language: VoiceLanguage = "multi"): string {
   return url.href;
 }
 
-/** Diagnosis can take several minutes (diagnostics + event logs + remote Ollama). */
-/** Full machine scan (~1 min) + remote Ollama diagnosis. */
+/** A full machine scan can run for a minute or two on slower PCs. */
 const DIAGNOSE_TIMEOUT_MS = 480_000;
-/** Scan summary uses a faster model but remote Ollama can still take a few minutes. */
-const SUMMARY_TIMEOUT_MS = 480_000;
 
 class ApiError extends Error {
   status: number;
@@ -69,7 +65,7 @@ class ApiError extends Error {
 function timeoutError(label: string, timeoutMs: number): Error {
   const mins = Math.round(timeoutMs / 60_000);
   return new Error(
-    `${label} timed out (waited over ${mins} minutes). The AI server may still be processing - try again in a moment.`,
+    `${label} timed out (waited over ${mins} minutes). The backend may still be processing - try again in a moment.`,
   );
 }
 
@@ -153,54 +149,6 @@ export interface RaiseTicketResponse {
   message: string;
 }
 
-/** Strip bulky lists before sending a scan to the summary endpoint. */
-function slimScanForSummary(report: MachineScanReport) {
-  const hw = report.hardware ?? {};
-  const sw = report.software ?? {};
-  return {
-    scan_id: report.scan_id ?? null,
-    generated_at: report.generated_at,
-    scan_duration_seconds: report.scan_duration_seconds,
-    health_report: report.health_report,
-    hardware: {
-      cpu: hw.cpu,
-      ram: hw.ram,
-      performance: hw.performance,
-      storage: hw.storage,
-      disk_health: hw.disk_health,
-      devices: {
-        total_count: hw.devices?.total_count,
-        problem_count: hw.devices?.problem_count,
-        problem_devices: hw.devices?.problem_devices,
-      },
-    },
-    software: {
-      operating_system: sw.operating_system,
-      installed_count: sw.installed_count,
-      running_processes: {
-        top_cpu: sw.running_processes?.top_cpu?.slice(0, 8),
-      },
-      services: {
-        failed_critical: sw.services?.failed_critical,
-      },
-      startup_programs: {
-        high_impact_count: sw.startup_programs?.high_impact_count,
-      },
-      security: sw.security,
-      network: sw.network,
-      crash_analysis: sw.crash_analysis,
-      event_logs: { summary: sw.event_logs?.summary },
-      storage_intelligence: sw.storage_intelligence
-        ? {
-            health: sw.storage_intelligence.health,
-            recoverable_gb: sw.storage_intelligence.cleanup?.total_potential_gb,
-            quick_wins: sw.storage_intelligence.cleanup?.quick_wins?.slice(0, 4),
-          }
-        : undefined,
-    },
-  };
-}
-
 export const api = {
   baseUrl: BASE_URL,
 
@@ -266,18 +214,6 @@ export const api = {
 
   deleteMachineScan: (id: number) =>
     request<{ deleted: boolean }>(`/api/machine-scans/${id}`, { method: "DELETE" }),
-
-  /** LLM summary of a completed machine scan (on demand). */
-  machineScanSummary: (report: MachineScanReport) =>
-    request<MachineAiSummary>(
-      "/api/diagnostics/full-scan/summary",
-      {
-        method: "POST",
-        body: JSON.stringify(slimScanForSummary(report)),
-      },
-      SUMMARY_TIMEOUT_MS,
-      "Summary",
-    ),
 
   diagnose: (payload: DiagnosePayload) =>
     request<DiagnoseResponse>(

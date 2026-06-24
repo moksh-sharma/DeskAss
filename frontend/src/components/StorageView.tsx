@@ -189,7 +189,7 @@ export function StorageReportSections({
   const fileTypes = report.file_type_distribution ?? tree.file_type_distribution ?? [];
   const footprint = report.application_footprint ?? {};
   const dev = report.developer_storage ?? {};
-  const ai = report.ai_models ?? {};
+  const mlModels = report.ai_models ?? {};
   const downloads = report.downloads ?? {};
   const media = report.media ?? {};
   const archives = report.archives ?? {};
@@ -345,19 +345,19 @@ export function StorageReportSections({
         )}
       </Section>
 
-      {/* AI / ML MODELS */}
-      <Section title="AI / ML Models" subtitle={`~${fmtGB(ai.total_gb)} total`} collapsible={collapsible}>
+      {/* LOCAL ML MODEL CACHES */}
+      <Section title="Local ML Model Caches" subtitle={`~${fmtGB(mlModels.total_gb)} total`} collapsible={collapsible}>
         <div className="grid gap-4 md:grid-cols-2">
-          <Stat label="Ollama" value={fmtGB(ai.ollama?.total_gb)} />
-          <Stat label="LM Studio" value={fmtGB(ai.lm_studio?.size_gb)} />
-          <Stat label="HuggingFace" value={fmtGB(ai.huggingface?.size_gb)} />
-          <Stat label="PyTorch cache" value={fmtGB(ai.torch?.size_gb)} />
+          <Stat label="Ollama" value={fmtGB(mlModels.ollama?.total_gb)} />
+          <Stat label="LM Studio" value={fmtGB(mlModels.lm_studio?.size_gb)} />
+          <Stat label="HuggingFace" value={fmtGB(mlModels.huggingface?.size_gb)} />
+          <Stat label="PyTorch cache" value={fmtGB(mlModels.torch?.size_gb)} />
         </div>
-        {(ai.ollama?.models ?? []).length > 0 && (
+        {(mlModels.ollama?.models ?? []).length > 0 && (
           <div className="mt-4">
-            <h4 className="mb-1 text-section-title">Ollama models ({ai.ollama.model_count})</h4>
+            <h4 className="mb-1 text-section-title">Ollama models ({mlModels.ollama.model_count})</h4>
             <div className="flex flex-wrap gap-1.5">
-              {ai.ollama.models.map((m: any, i: number) => (
+              {mlModels.ollama.models.map((m: any, i: number) => (
                 <span key={i} className="rounded-lg border border-white/40 bg-white/40 px-2 py-1 text-[11px] font-medium text-content-secondary">{m.name}</span>
               ))}
             </div>

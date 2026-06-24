@@ -1,8 +1,8 @@
 {
   "name": "cache-ai-assistant",
   "version": "1.0.0",
-  "description": "Enterprise AI Desktop Troubleshooting Assistant - Electron + React frontend",
-  "author": "Cache AI",
+  "description": "Enterprise desktop troubleshooting assistant - Electron + React frontend",
+  "author": "Cache Digitech",
   "license": "UNLICENSED",
   "private": true,
   "main": "dist-electron/main.js",

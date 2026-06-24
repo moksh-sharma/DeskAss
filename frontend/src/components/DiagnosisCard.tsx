@@ -1,5 +1,7 @@
-import type { DiagnosisResult } from "@/types";
+import type { DiagnosisResult, InvestigationReport } from "@/types";
+import { InventoryTable } from "@/components/common/InventoryTable";
 import { SeverityBadge } from "@/components/common/SeverityBadge";
+import { isDenseInventoryText, resolveDetailLines, resolveInventoryItems } from "@/lib/diagnosis";
 
 function WrenchIcon({ className }: { className?: string }) {
   return (
@@ -46,19 +48,48 @@ function Section({
   );
 }
 
-function issueDetailsText(d: DiagnosisResult): string {
+function issueDetailsText(d: DiagnosisResult, inventoryCount: number, detailLines: string[]): string {
+  if (detailLines.length > 1) {
+    return "";
+  }
+  if (detailLines.length === 1) {
+    return detailLines[0];
+  }
+  if (inventoryCount > 0) {
+    const short = d.issue_summary?.trim();
+    if (short && !isDenseInventoryText(short)) {
+      return short;
+    }
+    return `${inventoryCount} item(s) found.`;
+  }
   const parts: string[] = [];
   if (d.issue_summary?.trim()) parts.push(d.issue_summary.trim());
-  if (d.root_cause?.trim() && d.root_cause.trim() !== d.issue_summary?.trim()) {
-    parts.push(d.root_cause.trim());
+  const root = d.root_cause?.trim();
+  const summary = d.issue_summary?.trim();
+  if (root && root !== summary && !summary?.toLowerCase().includes(root.toLowerCase())) {
+    parts.push(root);
   }
   if (parts.length === 0 && d.reasoning?.trim()) parts.push(d.reasoning.trim());
   return parts.join(" ");
 }
 
-export function DiagnosisCard({ d }: { d: DiagnosisResult }) {
+function hasActionableSteps(steps: string[]): boolean {
+  return steps.some(
+    (s) => s.trim() && !/^\s*(this is informational|no action needed)\b/i.test(s.trim()),
+  );
+}
+
+export function DiagnosisCard({
+  d,
+  investigation,
+}: {
+  d: DiagnosisResult;
+  investigation?: InvestigationReport | null;
+}) {
   const isConversational = d.is_conversational;
-  const issueText = issueDetailsText(d);
+  const inventoryItems = resolveInventoryItems(d, investigation);
+  const detailLines = resolveDetailLines(d, investigation);
+  const issueText = issueDetailsText(d, inventoryItems.length, detailLines);
 
   return (
     <div className="glass-card mt-1 w-full max-w-3xl p-6">
@@ -66,12 +97,24 @@ export function DiagnosisCard({ d }: { d: DiagnosisResult }) {
         <SeverityBadge severity={d.severity} />
       </div>
 
-      {issueText && !isConversational && (
+      {(issueText || detailLines.length > 0) && !isConversational && (
         <div className="mt-4">
           <h4 className="text-label">Issue Details</h4>
-          <p className="mt-2.5 rounded-xl border border-white/60 bg-white/45 px-4 py-3 text-sm font-medium leading-relaxed text-content-primary backdrop-blur-sm">
-            {issueText}
-          </p>
+          <div className="mt-2.5 rounded-xl border border-white/60 bg-white/45 px-4 py-3 text-sm font-medium leading-relaxed text-content-primary backdrop-blur-sm">
+            {detailLines.length > 1 ? (
+              <ul className="space-y-2.5">
+                {detailLines.map((line, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent/80" aria-hidden />
+                    <span className="min-w-0 flex-1 leading-relaxed">{line}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>{issueText || detailLines[0]}</p>
+            )}
+          </div>
+          <InventoryTable items={inventoryItems} />
         </div>
       )}
 
@@ -111,7 +154,7 @@ export function DiagnosisCard({ d }: { d: DiagnosisResult }) {
         </Section>
       )}
 
-      {d.resolution_steps.length > 0 && (
+      {hasActionableSteps(d.resolution_steps) && (
         <Section title="Step-by-Step Resolution Guide" icon={ListIcon}>
           <ol className="space-y-2.5 text-caption">
             {d.resolution_steps.map((s, i) => (

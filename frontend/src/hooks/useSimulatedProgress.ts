@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-export type LoadingMode = "diagnose" | "scan" | "summary";
+export type LoadingMode = "diagnose" | "scan";
 
 const STAGES: Record<LoadingMode, string[]> = {
   diagnose: [
@@ -9,8 +9,8 @@ const STAGES: Record<LoadingMode, string[]> = {
     "Running focused live checks…",
     "Probing related drivers & services…",
     "Reviewing recent system events…",
-    "Consulting the AI engine…",
-    "Crafting your diagnosis…",
+    "Correlating scan evidence…",
+    "Building your diagnosis…",
   ],
   scan: [
     "Booting full system scan…",
@@ -24,19 +24,11 @@ const STAGES: Record<LoadingMode, string[]> = {
     "Scoring machine health…",
     "Packaging your report…",
   ],
-  summary: [
-    "Ingesting scan results…",
-    "Ranking critical findings…",
-    "Drafting executive summary…",
-    "Prioritizing fix actions…",
-    "Polishing AI narrative…",
-  ],
 };
 
 const DURATION: Record<LoadingMode, number> = {
   diagnose: 35_000,
   scan: 120_000,
-  summary: 18_000,
 };
 
 /** Progress eases quickly, then creeps toward 99% while waiting on the backend (never freezes at 94%). */

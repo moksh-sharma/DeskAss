@@ -28,14 +28,6 @@ class Settings(BaseSettings):
     api_port: int = 8000
     cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173,app://-"
 
-    # Ollama
-    ollama_base_url: str = "http://172.16.200.26:11434"
-    default_model: str = "qwen2.5:latest"
-    # Faster model for scan summaries (falls back to default_model when blank).
-    summary_model: str = "llama3.2:3b"
-    ollama_timeout_seconds: float = 120.0
-    ollama_temperature: float = 0.2
-
     # Speech-to-Text provider: elevenlabs | deepgram
     stt_provider: str = "elevenlabs"
 
@@ -63,38 +55,41 @@ class Settings(BaseSettings):
     kb_collection: str = "troubleshooting_kb"
     rag_top_k: int = 4
 
-    # Investigation engine (issue-scoped live probes)
+    # Investigation engine (issue-scoped live probes) - fully deterministic.
     investigation_enabled: bool = True
-    investigation_use_llm: bool = False  # LLM rewrites chat diagnosis (slow on remote Ollama)
-    machine_scan_use_llm: bool = False # LLM executive summary for full scan (on-demand via API)
-    use_kb_in_diagnosis: bool = False     # legacy KB-based diagnosis path
     # Chat troubleshooter scan scope: "domain" runs only the scanners the issue
     # needs (fast); "full" runs the entire machine scan for every chat message.
     investigation_scan_mode: str = "domain"
-    # Dedicated (usually smaller/faster) model for chat diagnosis. Blank = default_model.
-    investigation_model: str = ""
-    # Cap the diagnosis LLM output so it returns quickly (tokens).
-    investigation_max_tokens: int = 400
     # Reuse a recent scoped investigation scan when the same domains are queried again.
     investigation_scan_cache_seconds: float = 45.0
+    # Query-first fast path: answer resource/usage questions from cached telemetry
+    # or a fast psutil-only read instead of a heavier scoped machine scan.
+    investigation_fast_path: bool = True
+    # Treat a cached telemetry snapshot as usable for instant answers up to this age.
+    investigation_telemetry_max_age_seconds: float = 120.0
 
     # Deep storage scan (heavy filesystem tree walk + duplicate detection)
     storage_deep_enabled: bool = True
-    # When false, Full System Scan uses quick storage only; deep walk via /api/storage/scan.
-    storage_deep_on_full_scan: bool = False
+    # When true, Full System Scan runs the deep storage walk in parallel with other scanners.
+    storage_deep_on_full_scan: bool = True
     storage_deep_tree_budget_seconds: float = 60.0
     storage_deep_duplicate_budget_seconds: float = 15.0
     # Shorter budgets used for the chat troubleshooter so storage answers are fast.
     investigation_storage_tree_budget_seconds: float = 30.0
     investigation_storage_duplicate_budget_seconds: float = 5.0
 
-    # Continuous monitoring engine
+    # Continuous monitoring engine (enterprise telemetry tiers)
     monitoring_enabled: bool = True
-    monitoring_sample_seconds: int = 30        # finest telemetry cadence
+    monitoring_cpu_ram_seconds: int = 5       # CPU + RAM sample cadence
+    monitoring_disk_net_seconds: int = 10     # disk I/O + network throughput
+    monitoring_process_seconds: int = 15      # top-process enrichment cadence
+    monitoring_sample_seconds: int = 5        # master loop tick (min tier)
     monitoring_detailed_minutes: int = 5       # enrich with top processes / GPU / latency
     monitoring_deep_minutes: int = 30          # inventory snapshots + change detection
     monitoring_retention_fine_days: int = 7    # keep 30s samples this long
     monitoring_retention_detailed_days: int = 90  # keep 5-min samples this long
+    # How often the background loop refreshes the instant-read summary JSON cache.
+    cache_refresh_seconds: float = 60.0
 
     # OCR
     tesseract_cmd: str = ""

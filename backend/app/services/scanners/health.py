@@ -210,6 +210,33 @@ def _app_health(crash: dict, services: dict, startup: dict) -> tuple[int, list[s
     return _clamp(score), notes
 
 
+def _reliability_health(crash: dict, services: dict, hardware: dict) -> tuple[int, list[str]]:
+    """Stability: blue screens, app crashes/hangs, service + driver failures."""
+    notes: list[str] = []
+    score = 100
+    summary = (crash or {}).get("summary") or {}
+    bsod = summary.get("bsod_count") or 0
+    if bsod:
+        score -= min(45, 20 + 10 * bsod)
+        notes.append(f"{bsod} blue-screen/unexpected-shutdown event(s) recently.")
+    crashes = summary.get("crash_count") or 0
+    if crashes >= 5:
+        score -= 20; notes.append(f"{crashes} application crashes in the last 7 days.")
+    elif crashes >= 1:
+        score -= 8; notes.append(f"{crashes} application crash(es) in the last 7 days.")
+    hangs = summary.get("hang_count") or 0
+    if hangs >= 3:
+        score -= 10; notes.append(f"{hangs} application hang(s) recently.")
+    failed = (services or {}).get("failed_critical") or []
+    if failed:
+        score -= 15; notes.append(f"{len(failed)} critical service(s) not running.")
+    problems = (hardware.get("devices") or {}).get("problem_devices") or []
+    if problems:
+        score -= min(20, 8 * len(problems))
+        notes.append(f"{len(problems)} device/driver(s) reporting errors.")
+    return _clamp(score), notes
+
+
 def _combine(scores: list[int]) -> int:
     """Average the sub-scores but let the worst one drag the result down."""
     if not scores:
@@ -218,8 +245,19 @@ def _combine(scores: list[int]) -> int:
     return _clamp(min(avg, min(scores) + 10))
 
 
+def _cat(score: int, notes: list[str]) -> dict:
+    return {"score": score, "status": _status(score), "notes": notes}
+
+
 def build_health_report(sections: dict[str, Any]) -> dict:
-    """Reduce all scanner sections into two top-level scores: hardware + software."""
+    """Reduce all scanner sections into an executive scorecard.
+
+    Exposes the two roll-up scores (``hardware``, ``software``) for back-compat
+    PLUS distinct executive dimensions (performance, security, reliability,
+    storage, network, application, compliance) so the UI can show a full
+    scorecard. ``categories`` is a flexible dict, so adding dimensions never
+    breaks the API contract.
+    """
     hardware = sections.get("hardware") or {}
     performance = sections.get("performance") or {}
     network = sections.get("network") or {}
@@ -230,28 +268,50 @@ def build_health_report(sections: dict[str, Any]) -> dict:
     operating_system = sections.get("operating_system") or {}
     external = sections.get("external_devices") or {}
     storage_intel = sections.get("storage_intelligence") or {}
+    compliance = sections.get("compliance") or {}
 
-    # Hardware = CPU, memory, disks/SMART, physical devices.
+    # Sub-scores (each 0-100).
     cpu_s, cpu_n = _cpu_health(hardware, performance)
     mem_s, mem_n = _memory_health(performance)
     disk_s, disk_n = _disk_health(hardware, storage_intel)
     dev_s, dev_n = _device_health(hardware)
     ext_s, ext_n = _external_device_health(external)
-    hw_score = _combine([cpu_s, mem_s, disk_s, dev_s, ext_s])
-    hw_notes = cpu_n + mem_n + disk_n + dev_n + ext_n
-
-    # Software = security posture, OS state, app/system stability, networking.
     sec_s, sec_n = _security_health(security)
     os_s, os_n = _os_health(operating_system)
     app_s, app_n = _app_health(crash, services, startup)
     net_s, net_n = _network_health(network)
+    rel_s, rel_n = _reliability_health(crash, services, hardware)
+
+    # Roll-up aggregates (back-compat with the original two-category report).
+    hw_score = _combine([cpu_s, mem_s, disk_s, dev_s, ext_s])
+    hw_notes = cpu_n + mem_n + disk_n + dev_n + ext_n
     sw_score = _combine([sec_s, os_s, app_s, net_s])
     sw_notes = sec_n + os_n + app_n + net_n
 
+    # Performance dimension (CPU + memory + any thermal note).
+    perf_score = _combine([cpu_s, mem_s])
+    perf_notes = cpu_n + mem_n
+
     categories = {
-        "hardware": {"score": hw_score, "status": _status(hw_score), "notes": hw_notes},
-        "software": {"score": sw_score, "status": _status(sw_score), "notes": sw_notes},
+        "hardware": _cat(hw_score, hw_notes),
+        "software": _cat(sw_score, sw_notes),
+        "performance": _cat(perf_score, perf_notes),
+        "security": _cat(sec_s, sec_n),
+        "reliability": _cat(rel_s, rel_n),
+        "storage": _cat(disk_s, disk_n),
+        "network": _cat(net_s, net_n),
+        "application": _cat(app_s, app_n),
     }
+
+    # Compliance score comes from the dedicated evaluator when present.
+    comp_score = compliance.get("score")
+    if isinstance(comp_score, (int, float)):
+        comp_notes = [
+            f"{c.get('name')}: {c.get('detail')}"
+            for c in (compliance.get("controls") or [])
+            if c.get("status") == "fail"
+        ][:4]
+        categories["compliance"] = _cat(_clamp(int(comp_score)), comp_notes)
 
     overall = _combine([hw_score, sw_score])
     recommendations = (hw_notes + sw_notes)[:10] or [

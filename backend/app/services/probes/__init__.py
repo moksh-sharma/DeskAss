@@ -12,6 +12,7 @@ from app.services.probes import (
     audio,
     bluetooth,
     display,
+    drivers,
     input_devices,
     network,
     performance,
@@ -39,6 +40,7 @@ REGISTRY = {
     "mouse": input_devices.investigate,
     "keyboard": input_devices.investigate,
     "webcam": webcam.investigate,
+    "driver": drivers.investigate,
 }
 
 __all__ = ["REGISTRY", "ProbeContext", "ProbeOutcome"]

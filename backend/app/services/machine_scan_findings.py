@@ -17,6 +17,15 @@ from app.models.schemas import (
     Severity,
     TroubleshooterFinding,
 )
+from app.services.machine_scan_info import (
+    build_info_findings,
+    build_scan_only_findings,
+    is_printer_inventory_question,
+    pick_top_cpu_processes,
+    pick_top_memory_processes,
+    _driver_problems,
+)
+from app.services.question_intent import is_scan_only_intent
 from app.services.probes.base import as_list, get_service, ps_json, run_powershell
 from app.services.scanners.physical_device import (
     asks_physical_connection,
@@ -58,6 +67,9 @@ def _is_mic_issue(message: str, profile: IssueProfile) -> bool:
 def _is_speaker_issue(message: str, profile: IssueProfile) -> bool:
     text = (message or "").lower()
     if _is_mic_issue(message, profile):
+        return False
+    from app.services.machine_scan_info import is_list_audio_devices_question
+    if is_list_audio_devices_question(message):
         return False
     return bool(
         profile.domains and "audio" in profile.domains
@@ -273,6 +285,12 @@ def _webcam_findings(hw: dict) -> list[TroubleshooterFinding]:
 
 
 def _audio_findings(hw: dict, message: str, profile: IssueProfile) -> list[TroubleshooterFinding]:
+    from app.services.machine_scan_info import is_list_audio_devices_question, _list_audio_devices
+
+    if is_list_audio_devices_question(message):
+        listed = _list_audio_devices(hw, {}, message)
+        return [listed] if listed else []
+
     findings: list[TroubleshooterFinding] = []
     mic_focus = _is_mic_issue(message, profile)
 
@@ -556,7 +574,12 @@ def _peripherals_matching(hw: dict, pattern: re.Pattern[str]) -> list[dict]:
     ]
 
 
-def _printer_findings(hw: dict) -> list[TroubleshooterFinding]:
+def _printer_findings(hw: dict, msg: str = "") -> list[TroubleshooterFinding]:
+    # Inventory questions ("how many printers on my network?") are answered by
+    # the informational fact layer - never the "no printer connected" fault path.
+    if is_printer_inventory_question(msg):
+        return []
+
     ext = _external(hw)
     section = ext.get("printers") or {}
     printers = section.get("printers") or []
@@ -749,17 +772,148 @@ def _display_external_findings(hw: dict, message: str) -> list[TroubleshooterFin
     return findings
 
 
+def _bluetooth_stack_findings(hw: dict) -> list[TroubleshooterFinding]:
+    """Adapter and service faults - must be checked before connection status."""
+    bt = _external(hw).get("bluetooth") or {}
+    findings: list[TroubleshooterFinding] = []
+
+    if bt.get("adapter_present") is False:
+        findings.append(TroubleshooterFinding(
+            id="bluetooth_no_adapter",
+            title="No Bluetooth Adapter Detected",
+            area="Bluetooth",
+            severity=Severity.critical,
+            detected="Windows reports no Bluetooth adapter on this PC.",
+            likely_cause="The Bluetooth driver is missing, the adapter is disabled in BIOS/UEFI, "
+            "or the hardware is absent or faulty.",
+            resolution_steps=[
+                "Open Device Manager (`devmgmt.msc`) > View > Show hidden devices.",
+                "Look under Bluetooth and Other devices for a missing or unknown adapter.",
+                "Install the wireless/Bluetooth driver from your PC maker's support site.",
+                "Check BIOS/UEFI that the wireless/Bluetooth radio is enabled.",
+                "Turn off Airplane mode: Settings > Network & internet > Airplane mode.",
+                "Restart the PC after installing the driver.",
+            ],
+            ask_ai_prompt="Windows shows no Bluetooth adapter. How do I get Bluetooth working?",
+        ))
+        return findings
+
+    for a in bt.get("adapter_faults") or []:
+        name = a.get("name") or "Bluetooth adapter"
+        status = a.get("status") or "Error"
+        code = a.get("problem_code")
+        findings.append(TroubleshooterFinding(
+            id="bluetooth_adapter_error",
+            title=f"Bluetooth Adapter Problem: {name}",
+            area="Bluetooth",
+            severity=Severity.critical,
+            detected=f"Adapter '{name}' reports status '{status}'"
+            + (f" (problem code {code})" if code not in (None, 0) else "") + ".",
+            likely_cause="The Bluetooth driver failed to start or is corrupt/incompatible "
+            "(often after a Windows or driver update).",
+            resolution_steps=[
+                f"Device Manager > Bluetooth > '{name}' > right-click > Update driver.",
+                "If it broke after an update, Driver tab > Roll Back Driver.",
+                "If that fails: Uninstall device (tick delete driver), then Action > Scan for hardware changes.",
+                "Reinstall the latest wireless/Bluetooth driver from your PC maker and restart.",
+            ],
+            ask_ai_prompt=f"My Bluetooth adapter '{name}' has a driver error. How do I fix it?",
+        ))
+
+    svc = get_service("bthserv")
+    if svc and str(svc.get("Status", "")).lower() != "running":
+        findings.append(TroubleshooterFinding(
+            id="bluetooth_service_stopped",
+            title="Bluetooth Support Service Is Not Running",
+            area="Bluetooth",
+            severity=Severity.warning,
+            detected=f"Bluetooth Support Service (bthserv) is {svc.get('Status', 'stopped')}.",
+            likely_cause="Without this service, Bluetooth cannot discover or connect to devices.",
+            resolution_steps=[
+                "Open Services (`services.msc`) > Bluetooth Support Service.",
+                "Set Startup type to Manual (Trigger Start) or Automatic.",
+                "Click Start, then OK.",
+                "Settings > Bluetooth & devices: turn Bluetooth on and retry.",
+            ],
+            ask_ai_prompt="My Bluetooth Support Service is stopped. How do I start it?",
+        ))
+
+    return findings
+
+
 def _bluetooth_external_findings(hw: dict, message: str = "") -> list[TroubleshooterFinding]:
+    stack = _bluetooth_stack_findings(hw)
+    if stack:
+        return stack
+
     ext = _external(hw)
     bt = ext.get("bluetooth") or {}
     devices = bt.get("devices") or []
     findings: list[TroubleshooterFinding] = []
     connection_question = asks_physical_connection(message)
-
-    if bt.get("adapter_present") is False:
-        return findings
-
+    not_working = _device_not_working(message)
     connected = [d for d in devices if d.get("connected")]
+
+    if not_working:
+        if connected:
+            listing = "; ".join(
+                f"{d.get('name')} ({d.get('device_type', 'device')})"
+                for d in connected[:5]
+            )
+            findings.append(TroubleshooterFinding(
+                id="bluetooth_connected_not_working",
+                title="Bluetooth Device Connected but Not Working",
+                area="Bluetooth",
+                severity=Severity.warning,
+                detected=f"Bluetooth device(s) are connected ({listing}) but you reported Bluetooth is not working.",
+                likely_cause="The PC sees the device, but audio/profile/driver or app settings may be blocking it.",
+                resolution_steps=[
+                    "Settings > Bluetooth & devices: remove the device, put it in pairing mode, and add it again.",
+                    "For audio: Settings > System > Sound > choose the Bluetooth output/input device.",
+                    "Close other apps that may be using Bluetooth (Teams, Zoom, Spotify).",
+                    "Device Manager > Bluetooth: update the adapter driver and restart the PC.",
+                    "Run Settings > System > Troubleshoot > Other troubleshooters > Bluetooth.",
+                ],
+                ask_ai_prompt="My Bluetooth device is connected but not working. How do I fix it?",
+            ))
+        elif devices:
+            findings.append(TroubleshooterFinding(
+                id="bluetooth_not_working_no_connection",
+                title="Bluetooth Adapter OK but No Device Connected",
+                area="Bluetooth",
+                severity=Severity.warning,
+                detected=(
+                    f"The Bluetooth adapter and support service look normal, but no device is connected "
+                    f"({len(devices)} paired device(s) are remembered on this PC)."
+                ),
+                likely_cause="Bluetooth on the PC may be enabled, but your device is off, out of range, "
+                "needs reconnecting, or the Bluetooth toggle in Settings is off.",
+                resolution_steps=[
+                    "Settings > Bluetooth & devices: make sure the Bluetooth toggle is ON.",
+                    "Turn your device on, bring it within range, and click Connect on a paired device.",
+                    "If it won't connect: Remove device, put it in pairing mode, Add device > Bluetooth.",
+                    "Device Manager > Bluetooth: update the adapter driver if the toggle won't enable.",
+                    "Run Settings > System > Troubleshoot > Other troubleshooters > Bluetooth.",
+                ],
+                ask_ai_prompt="Bluetooth on my PC is not working even though devices are paired. What should I try?",
+            ))
+        else:
+            findings.append(TroubleshooterFinding(
+                id="bluetooth_not_working_no_devices",
+                title="Bluetooth Adapter OK but Nothing Paired",
+                area="Bluetooth",
+                severity=Severity.warning,
+                detected="The Bluetooth adapter appears normal, but no Bluetooth devices are paired on this PC.",
+                likely_cause="Bluetooth may be enabled but no peripheral has been paired yet, or pairing failed.",
+                resolution_steps=[
+                    "Settings > Bluetooth & devices: turn Bluetooth ON.",
+                    "Put your device in pairing mode.",
+                    "Click Add device > Bluetooth and follow the pairing steps.",
+                    "If pairing fails, update the Bluetooth driver in Device Manager and restart.",
+                ],
+                ask_ai_prompt="Bluetooth is not working and I have no paired devices. How do I set it up?",
+            ))
+        return findings
 
     if not connected:
         if connection_question:
@@ -808,7 +962,7 @@ def _bluetooth_external_findings(hw: dict, message: str = "") -> list[Troublesho
             for d in connected[:5]
         )
         if connection_question:
-            detected = f"Yes — {len(connected)} Bluetooth device(s) connected now: {listing}."
+            detected = f"Yes - {len(connected)} Bluetooth device(s) connected now: {listing}."
         else:
             detected = f"{len(connected)} Bluetooth device(s) connected now: {listing}."
         findings.append(TroubleshooterFinding(
@@ -910,7 +1064,11 @@ def _usb_external_findings(hw: dict) -> list[TroubleshooterFinding]:
     return findings
 
 
-_MOUSE_USB_RE = re.compile(r"mouse|touchpad|trackpad|pointing", re.I)
+_MOUSE_USB_RE = re.compile(r"mouse|touch\s*pad|trackpad|track\s*pad|pointing", re.I)
+_POINTING_NAME_RE = re.compile(
+    r"mouse|touch\s*pad|trackpad|track\s*pad|pointing|precision|synaptics|elan|clickpad|ps/2",
+    re.I,
+)
 _KEYBOARD_USB_RE = re.compile(r"keyboard", re.I)
 _DEVICE_NOT_WORKING_RE = re.compile(
     r"not working|won'?t work|wont work|doesn'?t work|doesnt work|"
@@ -924,12 +1082,59 @@ def _device_not_working(message: str) -> bool:
 
 
 def _hw_pointing_devices(hw: dict) -> list[dict]:
-    return [
-        d for d in ((hw.get("devices") or {}).get("all") or [])
-        if d.get("class") in ("Mouse", "HIDClass")
-        and re.search(r"mouse|touchpad|trackpad|pointing|precision", d.get("name", ""), re.I)
-        and d.get("working")
+    """Built-in and HID pointing devices from the hardware scan (includes touchpads)."""
+    out: list[dict] = []
+    for d in (hw.get("devices") or {}).get("all") or []:
+        name = d.get("name") or ""
+        cls = d.get("class") or ""
+        if cls == "Mouse" or (cls == "HIDClass" and _POINTING_NAME_RE.search(name)):
+            out.append(d)
+    return out
+
+
+def _live_pointing_devices() -> list[dict]:
+    """Direct PnP query when the scoped hardware scan did not collect devices."""
+    rows = as_list(ps_json(
+        "Get-PnpDevice -PresentOnly -ErrorAction SilentlyContinue | "
+        "Where-Object { $_.Class -eq 'Mouse' -or "
+        "($_.Class -eq 'HIDClass' -and $_.FriendlyName -match "
+        "'mouse|touch\\s*pad|trackpad|track\\s*pad|pointing|precision|synaptics|elan|clickpad|ps/2') } | "
+        "Select-Object FriendlyName,Class,"
+        "@{N='Status';E={$_.Status.ToString()}},"
+        "@{N='Problem';E={[int]$_.Problem}} | ConvertTo-Json -Compress",
+        timeout=20.0,
+    ))
+    out: list[dict] = []
+    for r in rows:
+        name = r.get("FriendlyName") or ""
+        cls = r.get("class") or r.get("Class") or ""
+        if cls == "Mouse" or (cls == "HIDClass" and _POINTING_NAME_RE.search(name)):
+            status = r.get("Status") or "Unknown"
+            problem = r.get("Problem")
+            out.append({
+                "name": name,
+                "class": cls,
+                "status": status,
+                "working": status not in ("Error",) and problem in (0, 45, None),
+            })
+    return out
+
+
+def _collect_pointing_devices(hw: dict) -> tuple[list[dict], list[dict], list[dict]]:
+    usb_mice = _peripherals_matching(hw, _MOUSE_USB_RE)
+    bt = (_external(hw).get("bluetooth") or {}).get("devices") or []
+    bt_mice = [
+        d for d in bt
+        if d.get("connected") and re.search(r"mouse|touch\s*pad|trackpad", d.get("name", ""), re.I)
     ]
+    built_in = _hw_pointing_devices(hw)
+    if not built_in and not usb_mice:
+        built_in = _live_pointing_devices()
+    return usb_mice, bt_mice, built_in
+
+
+def _is_touchpad_device(name: str) -> bool:
+    return bool(re.search(r"touch\s*pad|trackpad|track\s*pad|clickpad|synaptics|elan", name or "", re.I))
 
 
 def _hw_keyboards(hw: dict) -> list[dict]:
@@ -940,13 +1145,7 @@ def _hw_keyboards(hw: dict) -> list[dict]:
 
 
 def _mouse_findings(hw: dict, message: str) -> list[TroubleshooterFinding]:
-    usb_mice = _peripherals_matching(hw, _MOUSE_USB_RE)
-    bt = (_external(hw).get("bluetooth") or {}).get("devices") or []
-    bt_mice = [
-        d for d in bt
-        if d.get("connected") and re.search(r"mouse|trackpad|touchpad", d.get("name", ""), re.I)
-    ]
-    built_in = _hw_pointing_devices(hw)
+    usb_mice, bt_mice, built_in = _collect_pointing_devices(hw)
     connected = usb_mice + bt_mice + built_in
     findings: list[TroubleshooterFinding] = []
     if not connected:
@@ -966,28 +1165,43 @@ def _mouse_findings(hw: dict, message: str) -> list[TroubleshooterFinding]:
         ))
     elif _device_not_working(message):
         names = ", ".join(
-            (d.get("name") or "Mouse")
+            (d.get("name") or "Pointing device")
             for d in (usb_mice[:2] + bt_mice[:2] + built_in[:2])
         )
+        touchpad_names = [d for d in built_in if _is_touchpad_device(d.get("name") or "")]
+        has_touchpad = bool(touchpad_names)
+        if has_touchpad and not usb_mice and not bt_mice:
+            title = "Touchpad Connected but Not Working"
+        elif has_touchpad:
+            title = "Touchpad Detected but Not Working"
+        else:
+            title = "Mouse / Pointing Device Connected but Not Working"
         findings.append(TroubleshooterFinding(
             id="mouse_not_working",
-            title="Mouse Connected but Not Working",
+            title=title,
             area="Mouse",
             severity=Severity.warning,
-            detected=f"Pointing device detected ({names}) but you reported the mouse or touchpad is not working.",
-            likely_cause="Touchpad may be disabled (Fn key), driver fault, USB power issue, "
-            "or pointer settings blocking movement.",
+            detected=f"Pointing device detected on this PC ({names}) but you reported the mouse or touchpad is not working.",
+            likely_cause=(
+                "The touchpad is present in Windows but may be disabled (Fn key), turned off in Settings, "
+                "or has a driver fault."
+                if has_touchpad
+                else "Touchpad may be disabled (Fn key), driver fault, USB power issue, "
+                "or pointer settings blocking movement."
+            ),
             resolution_steps=[
                 "Press Fn + the touchpad key on your keyboard, or double-tap the top-left "
                 "corner of the touchpad to turn it back on.",
-                "Settings > Bluetooth & devices > Mouse: check pointer speed and that the "
-                "correct device is selected.",
-                "Device Manager > Mice and other pointing devices: right-click your device > "
+                "Settings > Bluetooth & devices > Touchpad (or Mouse): ensure the touchpad is enabled "
+                "and pointer speed is not set to zero.",
+                "Device Manager > Mice and other pointing devices: right-click your touchpad/mouse > "
                 "Update driver, or Uninstall device and restart the PC.",
                 "For a USB mouse: unplug it, try another USB port, or replace wireless batteries.",
                 "Restart the PC and test the pointer in Notepad or on the desktop.",
             ],
-            ask_ai_prompt="My mouse or touchpad is connected but not working. How do I fix it?",
+            ask_ai_prompt="My touchpad is connected but not working. How do I fix it?"
+            if has_touchpad
+            else "My mouse or touchpad is connected but not working. How do I fix it?",
         ))
     else:
         names = ", ".join(
@@ -1118,15 +1332,610 @@ def _scanner_findings(hw: dict, message: str) -> list[TroubleshooterFinding]:
     return []
 
 
+# ------------------------------------------------------------------ #
+#  System resource usage (CPU / RAM / disk + top apps)
+# ------------------------------------------------------------------ #
+def _friendly_proc(p: dict[str, Any]) -> str:
+    """Human-friendly process name (strip the .exe, keep it readable)."""
+    name = (p.get("name") or "process").strip()
+    if name.lower().endswith(".exe"):
+        name = name[:-4]
+    return name or "process"
+
+
+def _fmt_mem(mb: float | int | None) -> str:
+    """Format a memory amount given in MB as MB or GB."""
+    mb = mb or 0
+    if mb >= 1024:
+        return f"{round(mb / 1024, 2)} GB"
+    return f"{round(mb, 1)} MB"
+
+
+def _cpu_severity(pct: float) -> Severity:
+    return Severity.critical if pct >= 90 else Severity.warning if pct >= 75 else Severity.healthy
+
+
+def _ram_severity(pct: float) -> Severity:
+    return Severity.critical if pct >= 90 else Severity.warning if pct >= 80 else Severity.healthy
+
+
+def _performance_probe_checks(hw: dict, sw: dict) -> list[ProbeCheck]:
+    """Live CPU / RAM / disk usage plus the apps consuming the most of each."""
+    checks: list[ProbeCheck] = []
+    cpu = hw.get("cpu") or {}
+    ram = hw.get("ram") or {}
+    proc = sw.get("running_processes") or {}
+
+    cpu_now = cpu.get("current_usage_pct")
+    if cpu_now is not None:
+        checks.append(ProbeCheck(
+            label="CPU usage now",
+            value=f"{cpu_now}%",
+            status=_cpu_severity(cpu_now),
+            detail=cpu.get("processor_name"),
+        ))
+    ram_pct = ram.get("utilization_pct")
+    if ram_pct is not None:
+        total = ram.get("total_gb")
+        used = ram.get("used_gb")
+        detail = f"{used} GB used of {total} GB" if total else None
+        checks.append(ProbeCheck(
+            label="RAM usage now",
+            value=f"{ram_pct}%",
+            status=_ram_severity(ram_pct),
+            detail=detail,
+        ))
+
+    for d in ((hw.get("storage") or {}).get("logical_drives") or [])[:4]:
+        used_pct = d.get("usage_pct")
+        if used_pct is None:
+            continue
+        checks.append(ProbeCheck(
+            label=f"Disk {d.get('drive')} usage",
+            value=f"{used_pct}%",
+            status=Severity.warning if used_pct >= 85 else Severity.healthy,
+            detail=f"{d.get('free_gb')} GB free of {d.get('total_gb')} GB",
+        ))
+
+    for p in pick_top_cpu_processes(proc, limit=5):
+        checks.append(ProbeCheck(
+            label=f"Top CPU: {_friendly_proc(p)}",
+            value=f"{p.get('cpu_pct')}% CPU",
+            status=Severity.warning if (p.get("cpu_pct") or 0) >= 50 else Severity.info,
+            detail=f"{_fmt_mem(p.get('memory_mb'))} RAM" if p.get("memory_mb") else None,
+        ))
+
+    for p in pick_top_memory_processes(proc, limit=5):
+        mb = p.get("memory_mb") or 0
+        checks.append(ProbeCheck(
+            label=f"Top RAM: {_friendly_proc(p)}",
+            value=f"{_fmt_mem(mb)} RAM",
+            status=Severity.warning if mb >= 1500 else Severity.info,
+            detail=f"{p.get('cpu_pct')}% CPU" if p.get("cpu_pct") else None,
+        ))
+
+    if not checks:
+        checks.append(ProbeCheck(
+            label="Resource usage",
+            value="No live CPU/RAM/process data available",
+            status=Severity.info,
+        ))
+    return checks
+
+
+def _performance_findings(hw: dict, sw: dict, message: str, profile: IssueProfile) -> list[TroubleshooterFinding]:
+    """Surface the apps using the most CPU and memory, with live totals."""
+    from app.services.machine_scan_info import (
+        is_top_cpu_question,
+        is_top_ram_question,
+        pick_top_cpu_processes,
+        pick_top_memory_processes,
+        _friendly_proc_name,
+    )
+
+    if is_top_ram_question(message):
+        from app.services.machine_scan_info import _top_ram_application
+        finding = _top_ram_application(hw, sw, message)
+        return [finding] if finding else []
+
+    if is_top_cpu_question(message):
+        from app.services.machine_scan_info import _top_cpu_application
+        finding = _top_cpu_application(hw, sw, message)
+        return [finding] if finding else []
+
+    cpu = hw.get("cpu") or {}
+    ram = hw.get("ram") or {}
+    proc = sw.get("running_processes") or {}
+    findings: list[TroubleshooterFinding] = []
+
+    top_cpu = pick_top_cpu_processes(proc, limit=5)
+    top_mem = pick_top_memory_processes(proc, limit=5)
+    cpu_now = cpu.get("current_usage_pct") or 0
+    ram_pct = ram.get("utilization_pct") or 0
+
+    if not (top_cpu or top_mem or cpu_now or ram_pct):
+        return findings
+
+    cpu_list = ", ".join(
+        f"{_friendly_proc(p)} ({p.get('cpu_pct')}% CPU)" for p in top_cpu
+    ) or "no single app is dominating the CPU"
+    mem_list = ", ".join(
+        f"{_friendly_proc(p)} ({_fmt_mem(p.get('memory_mb'))})" for p in top_mem
+    ) or "no single app is dominating memory"
+
+    heaviest = _friendly_proc(top_cpu[0]) if top_cpu else (
+        _friendly_proc(top_mem[0]) if top_mem else "the top process"
+    )
+    sev = Severity.warning if (cpu_now >= 85 or ram_pct >= 85) else Severity.info
+    findings.append(TroubleshooterFinding(
+        id="resource_top_consumers",
+        title="Apps Using the Most CPU & Memory",
+        area="Performance",
+        severity=sev,
+        detected=(
+            f"Right now CPU is at {cpu_now}% and RAM at {ram_pct}%. "
+            f"Top CPU apps: {cpu_list}. Top memory apps: {mem_list}."
+        ),
+        likely_cause="These are the live processes consuming the most processor time and memory "
+        "on this PC at the moment of the scan.",
+        resolution_steps=[
+            "Open Task Manager (Ctrl+Shift+Esc) > Processes and sort by CPU or Memory to confirm.",
+            f"Close the heaviest app you are not actively using (e.g. {heaviest}).",
+            "If an app is stuck, right-click it in Task Manager and choose 'End task'.",
+            "Restart apps that creep up over time - browsers with many tabs are a common cause.",
+        ],
+        ask_ai_prompt="Which apps are using the most CPU and RAM, and which are safe to close?",
+    ))
+    return findings
+
+
+def _drivers_section(hw: dict) -> dict:
+    return hw.get("drivers") or {}
+
+
+_ASK_FAILING_DRIVERS_RE = re.compile(
+    r"\b(?:driver|drivers).{0,40}?(?:fail(?:ing|ed)|broken|error|problem)|"
+    r"(?:fail(?:ing|ed)|broken|error|problem).{0,40}?(?:driver|drivers)|"
+    r"\bwhich\s+drivers?\s+(?:are\s+)?(?:fail|broken|error|problem)|"
+    r"\bwhat\s+drivers?\s+(?:are\s+)?(?:fail|broken|error|problem)",
+    re.I,
+)
+_ASK_DRIVER_UPDATES_RE = re.compile(
+    r"\b(up\s*to\s*date|need\s+update|outdated|out\s+of\s*date|driver\s+update)\b",
+    re.I,
+)
+
+
+def _driver_probe_checks(hw: dict) -> list:
+    from app.models.schemas import ProbeCheck, Severity
+
+    sec = _drivers_section(hw)
+    if not sec.get("available", True) and sec.get("error"):
+        return [ProbeCheck(label="Driver scan", value="Unavailable", status=Severity.info, detail=sec.get("note") or sec.get("error"))]
+
+    checks: list[ProbeCheck] = []
+    updates = sec.get("available_updates") or []
+    problems = sec.get("problem_devices") or []
+    installed = sec.get("installed_count") or 0
+    stale = sec.get("potentially_outdated") or []
+    wu_err = sec.get("windows_update_error")
+
+    if wu_err:
+        checks.append(ProbeCheck(
+            label="Windows Update driver check",
+            value="Could not query",
+            status=Severity.warning,
+            detail=str(wu_err)[:160],
+        ))
+    else:
+        status = Severity.warning if updates else Severity.healthy
+        checks.append(ProbeCheck(
+            label="Driver updates available (Windows Update)",
+            value=str(len(updates)),
+            status=status,
+            detail="; ".join((u.get("title") or "?") for u in updates[:3]) or "None pending",
+        ))
+
+    prob_status = Severity.critical if problems else Severity.healthy
+    checks.append(ProbeCheck(
+        label="Devices with driver problems",
+        value=str(len(problems)),
+        status=prob_status,
+        detail="; ".join(
+            f"{p.get('name')} ({p.get('problem')})" for p in problems[:3]
+        ) or "None detected",
+    ))
+
+    checks.append(ProbeCheck(
+        label="Installed drivers scanned",
+        value=str(installed),
+        status=Severity.info,
+    ))
+
+    if stale:
+        checks.append(ProbeCheck(
+            label="Potentially outdated drivers (old date)",
+            value=str(len(stale)),
+            status=Severity.info,
+            detail="; ".join(
+                f"{d.get('name')} ({d.get('date') or 'unknown date'})" for d in stale[:3]
+            ),
+        ))
+
+    return checks
+
+
+def _driver_findings(hw: dict, sw: dict, message: str, profile) -> list:
+    from app.models.schemas import Severity, TroubleshooterFinding
+
+    sec = _drivers_section(hw)
+    if not sec or (not sec.get("available") and not sec.get("installed_count")):
+        return []
+
+    msg = message or ""
+    problems = _driver_problems(hw)
+
+    from app.services.machine_scan_info import is_list_drivers_question, _list_drivers
+    if is_list_drivers_question(msg):
+        listed = _list_drivers(hw, sw, msg)
+        return [listed] if listed else []
+
+    # "Which drivers are failing?" — answer about Device Manager errors only.
+    if _ASK_FAILING_DRIVERS_RE.search(msg):
+        if problems:
+            names = ", ".join(
+                f"{p.get('name')} ({p.get('problem')})" for p in problems[:8]
+            )
+            return [TroubleshooterFinding(
+                id="driver_problem_devices",
+                title=f"{len(problems)} Failing Driver(s) / Device(s)",
+                area="Drivers",
+                severity=Severity.critical if any(p.get("problem_code") == 28 for p in problems) else Severity.warning,
+                detected=f"Device Manager reports driver problems: {names}.",
+                likely_cause="A driver is missing, failed to start, or is incompatible with this version of Windows.",
+                resolution_steps=[
+                    "Open Device Manager (`devmgmt.msc`) and expand the category with warning icons.",
+                    "Right-click the device > Update driver > Search automatically for drivers.",
+                    "If that fails, download the driver from the device or PC manufacturer's support site.",
+                ],
+                ask_ai_prompt="Which drivers are failing on my PC and how do I fix them?",
+            )]
+        return [TroubleshooterFinding(
+            id="info_no_failing_drivers",
+            title="No Failing Drivers",
+            area="Drivers",
+            severity=Severity.info,
+            detected="No drivers are currently failing. Device Manager reports no devices with driver errors.",
+            likely_cause="No drivers are currently failing. Device Manager reports no devices with driver errors.",
+            resolution_steps=[],
+            ask_ai_prompt="Which drivers are failing?",
+        )]
+
+    findings: list[TroubleshooterFinding] = []
+    updates = sec.get("available_updates") or []
+    stale = sec.get("potentially_outdated") or []
+    wu_err = sec.get("windows_update_error")
+
+    if updates:
+        titles = ", ".join((u.get("title") or u.get("driver_model") or "Driver update") for u in updates[:5])
+        more = len(updates) - 5
+        detected = f"{len(updates)} driver update(s) available from Windows Update: {titles}"
+        if more > 0:
+            detected += f" (+{more} more)"
+        findings.append(TroubleshooterFinding(
+            id="driver_updates_available",
+            title=f"{len(updates)} Driver Update(s) Available",
+            area="Drivers",
+            severity=Severity.warning if len(updates) > 2 else Severity.info,
+            detected=detected + ".",
+            likely_cause="Windows Update has newer signed drivers for one or more devices on this PC.",
+            resolution_steps=[
+                "Open Settings > Windows Update > Check for updates.",
+                "Go to Advanced options > Optional updates > Driver updates and install listed drivers.",
+                "Restart the PC if prompted after installing drivers.",
+            ],
+            ask_ai_prompt="Which of my drivers need updates and how do I install them safely?",
+        ))
+
+    if problems:
+        names = ", ".join(f"{p.get('name')} ({p.get('problem')})" for p in problems[:4])
+        findings.append(TroubleshooterFinding(
+            id="driver_problem_devices",
+            title=f"{len(problems)} Device(s) Need a Driver",
+            area="Drivers",
+            severity=Severity.critical if any(p.get("problem_code") == 28 for p in problems) else Severity.warning,
+            detected=f"Device Manager reports driver problems: {names}.",
+            likely_cause="A driver is missing, failed to start, or is incompatible with this version of Windows.",
+            resolution_steps=[
+                "Open Device Manager (`devmgmt.msc`) and expand the category with warning icons.",
+                "Right-click the device > Update driver > Search automatically for drivers.",
+                "If that fails, download the driver from the device or PC manufacturer's support site.",
+                "As a last resort: Uninstall device (tick delete driver), then Action > Scan for hardware changes.",
+            ],
+            ask_ai_prompt="I have devices with driver errors in Device Manager. How do I fix them?",
+        ))
+
+    if stale and not updates and re.search(r"out\s*of\s*date|outdated|old|update", message or "", re.I):
+        sample = ", ".join(f"{d.get('name')} ({d.get('date')})" for d in stale[:4])
+        findings.append(TroubleshooterFinding(
+            id="driver_potentially_stale",
+            title="Some Drivers Have Not Been Updated Recently",
+            area="Drivers",
+            severity=Severity.info,
+            detected=f"{len(stale)} driver(s) have an install date older than 3 years: {sample}.",
+            likely_cause="The driver may still work, but the manufacturer or Windows Update may offer a newer version.",
+            resolution_steps=[
+                "Check Settings > Windows Update > Advanced options > Optional updates > Driver updates.",
+                "For GPU/chipset/Wi-Fi, also check your PC or component maker's support/download page.",
+                "Only update drivers you recognize - avoid third-party 'driver booster' tools.",
+            ],
+            ask_ai_prompt="Some of my drivers look old. Which ones should I update and where do I get them?",
+        ))
+
+    if not findings and wu_err:
+        findings.append(TroubleshooterFinding(
+            id="driver_wu_check_failed",
+            title="Could Not Check Windows Update for Drivers",
+            area="Drivers",
+            severity=Severity.warning,
+            detected=f"Windows Update driver search failed: {wu_err}",
+            likely_cause="The Windows Update service may be stopped, or the PC may be offline.",
+            resolution_steps=[
+                "Ensure the PC is online and the Windows Update service is running.",
+                "Open Settings > Windows Update and click Check for updates.",
+                "Try Device Manager to update individual drivers manually.",
+            ],
+            ask_ai_prompt="I can't check for driver updates. How do I fix Windows Update?",
+        ))
+    elif not findings and not wu_err and _ASK_DRIVER_UPDATES_RE.search(msg):
+        findings.append(TroubleshooterFinding(
+            id="driver_up_to_date",
+            title="No Pending Driver Updates from Windows Update",
+            area="Drivers",
+            severity=Severity.healthy,
+            detected=(
+                f"Scanned {sec.get('installed_count', 0)} installed drivers. "
+                "Windows Update reports no pending driver updates, and no devices show a driver error."
+            ),
+            likely_cause=(
+                "Drivers delivered through Windows Update appear current. "
+                "Some vendors (NVIDIA, AMD, Intel, PC maker) may still offer newer packages on their own sites."
+            ),
+            resolution_steps=[
+                "Optional: Settings > Windows Update > Advanced options > Optional updates > Driver updates.",
+                "For graphics or chipset, check your GPU/PC manufacturer's support site if you want the latest vendor package.",
+            ],
+            ask_ai_prompt="Are my drivers up to date? How can I double-check for manufacturer driver updates?",
+        ))
+
+    return findings
+
+
+def _compliance_findings(sw: dict) -> list[TroubleshooterFinding]:
+    comp = sw.get("compliance") or {}
+    if not comp or comp.get("available") is False:
+        return []
+    controls = comp.get("controls") or []
+    failed = [c for c in controls if c.get("status") == "fail"]
+    score = comp.get("score") or 0
+    status_label = comp.get("status") or "Unknown"
+    sev = Severity.healthy if score >= 80 else (Severity.warning if score >= 50 else Severity.critical)
+    if failed:
+        detail = "Failing controls: " + "; ".join(
+            f"{c.get('name')} - {c.get('detail')}" for c in failed[:6]
+        )
+    else:
+        detail = "All evaluated security controls passed."
+    steps = [f"{c.get('name')}: {c.get('detail')}" for c in failed[:6]] or [
+        "Maintain current configuration; re-check after any security changes."
+    ]
+    return [TroubleshooterFinding(
+        id="compliance_posture",
+        title=f"Security Compliance: {status_label} ({score}/100)",
+        area="Compliance",
+        severity=sev,
+        detected=(
+            f"{comp.get('passed_count', 0)}/{comp.get('evaluated_count', 0)} controls passed. {detail}"
+        ),
+        likely_cause="Compliance is evaluated against common Windows endpoint hardening controls "
+        "(disk encryption, antivirus, firewall, updates, account passwords, UAC, Secure Boot, USB policy).",
+        resolution_steps=steps,
+        ask_ai_prompt="How do I fix the failing security compliance controls on this PC?",
+    )]
+
+
+def _windows_health_findings(sw: dict) -> list[TroubleshooterFinding]:
+    wh = sw.get("windows_health") or {}
+    if not wh or wh.get("available") is False:
+        return []
+    image = wh.get("image_health") or {}
+    state = image.get("state")
+    corruption = wh.get("corruption_detected")
+    recovery = (wh.get("recovery") or {}).get("recovery_enabled")
+    if corruption:
+        sev = Severity.critical
+        detected = f"Windows system image reports corruption (DISM CheckHealth: {state})."
+    elif image.get("requires_admin") or state in (None, "unknown"):
+        sev = Severity.info
+        detected = ("System image health could not be fully verified - run as Administrator "
+                    "for a complete DISM/SFC integrity check.")
+    else:
+        sev = Severity.healthy
+        detected = "No system-file corruption detected by DISM CheckHealth."
+    if recovery is False:
+        detected += " Windows Recovery Environment (WinRE) is disabled."
+    steps = [
+        "Open an elevated terminal (Win+X > Terminal (Admin)).",
+        "Run 'DISM /Online /Cleanup-Image /RestoreHealth' to repair the component store.",
+        "Then run 'sfc /scannow' to repair protected system files.",
+    ]
+    if recovery is False:
+        steps.append("Re-enable recovery with 'reagentc /enable' (as Administrator).")
+    return [TroubleshooterFinding(
+        id="windows_health",
+        title="Windows System File & Image Health",
+        area="Windows Health",
+        severity=sev,
+        detected=detected,
+        likely_cause="System-file integrity is checked via DISM (component store) and SFC (protected files).",
+        resolution_steps=steps,
+        ask_ai_prompt="How do I repair Windows system file corruption?",
+    )]
+
+
+def _user_activity_findings(sw: dict) -> list[TroubleshooterFinding]:
+    ua = sw.get("user_activity") or {}
+    if not ua or ua.get("available") is False:
+        return []
+    most = ua.get("most_used_apps") or []
+    logons = ua.get("account_logons") or []
+    if not most and not logons:
+        return []
+    top_list = ", ".join(
+        f"{a.get('app')} ({a.get('run_count')}x)" for a in most[:8]
+    ) or "no UserAssist usage data available"
+    detected = f"Most-used applications by launch count: {top_list}."
+    logon_list = ", ".join(
+        f"{l.get('account')}: {l.get('logon_count')} logons" for l in logons[:4]
+        if l.get("logon_count") is not None
+    )
+    if logon_list:
+        detected += f" Account logon history: {logon_list}."
+    return [TroubleshooterFinding(
+        id="user_activity",
+        title="User Activity & Most-Used Applications",
+        area="User Activity",
+        severity=Severity.info,
+        detected=detected,
+        likely_cause="Usage is derived from the per-user UserAssist registry (launch counts + last-used) "
+        "and Windows logon profiles.",
+        resolution_steps=[],
+        ask_ai_prompt="What are my most and least used applications?",
+    )]
+
+
+def _service_intel_findings(sw: dict) -> list[TroubleshooterFinding]:
+    svc = sw.get("services") or {}
+    if not svc:
+        return []
+    failed = svc.get("failed_critical") or []
+    running = svc.get("running_count")
+    stopped = svc.get("stopped_count")
+    disabled = svc.get("disabled_count")
+    if failed:
+        detail = "; ".join(f"{m.get('name')} ({m.get('status')})" for m in failed[:5])
+        steps = ["Open Services (services.msc) as Administrator."]
+        for m in failed[:4]:
+            steps.append(f"Start '{m.get('name')}' and set its startup type to Automatic.")
+        return [TroubleshooterFinding(
+            id="services_failed_critical",
+            title=f"{len(failed)} Critical Service(s) Not Running",
+            area="Services",
+            severity=Severity.warning,
+            detected=(f"Critical services not running: {detail}. "
+                      f"(Running: {running}, Stopped: {stopped}, Disabled: {disabled}.)"),
+            likely_cause="Critical Windows services that should be running are stopped, "
+            "which can break dependent features.",
+            resolution_steps=steps,
+            ask_ai_prompt="Which critical Windows services are stopped and how do I start them?",
+        )]
+    return [TroubleshooterFinding(
+        id="services_overview",
+        title="Windows Services Overview",
+        area="Services",
+        severity=Severity.healthy,
+        detected=f"{running} running, {stopped} stopped, {disabled} disabled. Critical services are running.",
+        likely_cause="Service inventory from Win32_Service including start mode and dependencies.",
+        resolution_steps=["No action needed - critical services are healthy."],
+        ask_ai_prompt="Show me the full Windows services inventory and any dependency issues.",
+    )]
+
+
+def _process_intel_findings(hw: dict, sw: dict) -> list[TroubleshooterFinding]:
+    proc = sw.get("running_processes") or {}
+    if not proc:
+        return []
+    total = proc.get("total_processes")
+    top_mem = (proc.get("top_memory") or [])[:5]
+    susp = proc.get("suspicious") or []
+    mem_list = ", ".join(f"{_friendly_proc(p)} ({_fmt_mem(p.get('memory_mb'))})" for p in top_mem)
+    sev = Severity.warning if susp else Severity.info
+    detected = f"{total} processes running. Heaviest by memory: {mem_list}."
+    steps = ["Open Task Manager (Ctrl+Shift+Esc) to inspect or end processes."]
+    if susp:
+        detected += " Flagged: " + "; ".join(
+            f"{p.get('name')} - {p.get('reason')}" for p in susp[:3]
+        ) + "."
+        steps += [f"Investigate flagged process: {p.get('name')}" for p in susp[:3]]
+    else:
+        steps.append("No suspicious processes detected - no action needed.")
+    return [TroubleshooterFinding(
+        id="process_intelligence",
+        title="Running Processes",
+        area="Processes",
+        severity=sev,
+        detected=detected,
+        likely_cause="Full process table with parent/child relationships, CPU, memory and disk I/O.",
+        resolution_steps=steps,
+        ask_ai_prompt="Show the process tree and any suspicious processes.",
+    )]
+
+
+def _battery_findings(hw: dict, sw: dict, msg: str) -> list[TroubleshooterFinding]:
+    bat = hw.get("battery") or {}
+    if not bat or bat.get("present") is False:
+        return []
+    health = bat.get("battery_health_pct")
+    pct = bat.get("percentage")
+    charging = bat.get("charging")
+    detected = f"Battery at {pct}% ({'charging' if charging else 'on battery'})."
+    if health is not None:
+        detected += f" Health {health}% (≈{round(100 - health, 1)}% wear)."
+    if bat.get("estimated_remaining"):
+        detected += f" ~{bat['estimated_remaining']} left at the current draw."
+    sev = Severity.info
+    steps = [
+        "Lower screen brightness and enable Battery saver (Settings > Power & battery).",
+        "Close background apps; check Settings > Power & battery > Battery usage for top drainers.",
+    ]
+    proc = sw.get("running_processes") or {}
+    top_cpu = (proc.get("top_cpu") or [])[:3]
+    if top_cpu:
+        detected += " Top CPU users (likely battery drainers): " + ", ".join(
+            f"{_friendly_proc(p)} ({round(p.get('cpu_pct') or 0)}%)" for p in top_cpu) + "."
+    if isinstance(health, (int, float)) and health < 70:
+        sev = Severity.warning
+        steps.insert(0, f"Battery health is {health}% - capacity has degraded; consider a replacement.")
+    return [TroubleshooterFinding(
+        id="battery_status",
+        title="Battery Health & Drain",
+        area="Hardware",
+        severity=sev,
+        detected=detected,
+        likely_cause="Battery wear plus high-draw apps and display brightness drive runtime.",
+        resolution_steps=steps,
+        ask_ai_prompt="Analyse my battery health and what is draining it.",
+    )]
+
+
 _DOMAIN_HANDLERS: dict[str, Any] = {
     "webcam": lambda hw, sw, msg, prof: _webcam_findings(hw),
     "audio": lambda hw, sw, msg, prof: _audio_findings(hw, msg, prof),
-    "printer": lambda hw, sw, msg, prof: _printer_findings(hw) + _scanner_findings(hw, msg),
+    "printer": lambda hw, sw, msg, prof: _printer_findings(hw, msg) + _scanner_findings(hw, msg),
     "display": lambda hw, sw, msg, prof: _display_external_findings(hw, msg),
     "bluetooth": lambda hw, sw, msg, prof: _bluetooth_external_findings(hw, msg),
     "usb": lambda hw, sw, msg, prof: _usb_external_findings(hw),
     "mouse": lambda hw, sw, msg, prof: _mouse_findings(hw, msg),
     "keyboard": lambda hw, sw, msg, prof: _keyboard_findings(hw, msg),
+    "performance": lambda hw, sw, msg, prof: _performance_findings(hw, sw, msg, prof),
+    "driver": lambda hw, sw, msg, prof: _driver_findings(hw, sw, msg, prof),
+    "compliance": lambda hw, sw, msg, prof: _compliance_findings(sw),
+    "windows_health": lambda hw, sw, msg, prof: _windows_health_findings(sw),
+    "windows": lambda hw, sw, msg, prof: _windows_health_findings(sw),
+    "user_activity": lambda hw, sw, msg, prof: _user_activity_findings(sw),
+    "service": lambda hw, sw, msg, prof: _service_intel_findings(sw),
+    "process": lambda hw, sw, msg, prof: _process_intel_findings(hw, sw),
+    "battery": lambda hw, sw, msg, prof: _battery_findings(hw, sw, msg),
 }
 
 _DOMAIN_DEVICE_PATTERNS: dict[str, list[str]] = {
@@ -1148,7 +1957,15 @@ def build_findings_from_scan(
 ) -> list[TroubleshooterFinding]:
     """Issue-focused findings only - never unrelated system health noise."""
     hw = report.get("hardware") or {}
-    sw = report.get("software") or {}
+    sw = dict(report.get("software") or {})
+    if report.get("health_report"):
+        sw["health_report"] = report["health_report"]
+
+    # Informational / inventory questions: scan facts only — never fault handlers
+    # or the generic "no fault detected" troubleshooting template.
+    if is_scan_only_intent(profile.query_intent) and not profile.analysis_mode:
+        return build_scan_only_findings(hw, sw, message, profile, report)
+
     domains = list(profile.domains)
     findings: list[TroubleshooterFinding] = []
     handled: set[str] = set()
@@ -1165,6 +1982,17 @@ def build_findings_from_scan(
             if part:
                 findings.extend(part)
                 handled.add(domain)
+
+    # Informational fact layer: answer factual questions ("What CPU?", "Is
+    # antivirus on?", "What's my IP?") directly from scan data, even when nothing
+    # is wrong. Gated to plain info questions so it never clutters a "why is X
+    # broken" troubleshooting answer.
+    if not profile.analysis_mode:
+        info = build_info_findings(hw, sw, message, profile)
+        existing = {f.title for f in findings}
+        for f in info:
+            if f.title not in existing:
+                findings.append(f)
 
     if not findings and domains:
         findings.append(_no_fault_finding(profile, message, domains[0]))
@@ -1399,17 +2227,44 @@ def _bluetooth_probe_checks(hw: dict, message: str = "") -> list[ProbeCheck]:
     devices = bt.get("devices") or []
     connected = [d for d in devices if d.get("connected")]
     connection_question = asks_physical_connection(message)
-    checks: list[ProbeCheck] = [ProbeCheck(
-        label="Bluetooth adapter",
-        value="Present" if bt.get("adapter_present") else "Not found",
-        status=Severity.healthy if bt.get("adapter_present") else Severity.critical,
-    )]
-    if connection_question:
+    not_working = _device_not_working(message)
+    checks: list[ProbeCheck] = []
+
+    if not bt.get("adapter_present"):
+        checks.append(ProbeCheck(
+            label="Bluetooth adapter",
+            value="Not found",
+            status=Severity.critical,
+        ))
+        return checks
+
+    for a in bt.get("adapters") or []:
+        name = a.get("name") or "Bluetooth adapter"
+        status = a.get("status") or "Unknown"
+        code = a.get("problem_code")
+        fault = status == "Error" or (code not in (None, 0, 45))
+        val = status if not fault else f"{status}" + (f" (code {code})" if code else "")
+        checks.append(ProbeCheck(
+            label=f"Adapter: {name}",
+            value=val,
+            status=Severity.critical if fault else Severity.healthy,
+        ))
+
+    svc = get_service("bthserv")
+    if svc:
+        running = str(svc.get("Status", "")).lower() == "running"
+        checks.append(ProbeCheck(
+            label="Bluetooth Support Service",
+            value=f"{svc.get('Status')} (start: {svc.get('StartType')})",
+            status=Severity.healthy if running else Severity.warning,
+        ))
+
+    if not_working or connection_question:
         checks.append(ProbeCheck(
             label="Device connected now",
             value=(
-                f"Yes — {', '.join(d['name'] for d in connected[:4])}"
-                if connected else "No — nothing connected right now"
+                f"Yes - {', '.join(d['name'] for d in connected[:4])}"
+                if connected else "No - nothing connected right now"
             ),
             status=Severity.healthy if connected else Severity.warning,
         ))
@@ -1430,24 +2285,12 @@ def _bluetooth_probe_checks(hw: dict, message: str = "") -> list[ProbeCheck]:
         checks.append(ProbeCheck(
             label="Connected now",
             value=f"{len(connected)} connected" if connected else "None connected",
-            status=Severity.healthy if connected else Severity.warning,
+            status=Severity.healthy if connected else Severity.info,
         ))
         if devices:
             checks.append(ProbeCheck(
                 label="Paired devices",
                 value=str(len(devices)),
-                status=Severity.info,
-            ))
-        for d in connected[:5]:
-            checks.append(ProbeCheck(
-                label=f"{d.get('device_type')}: {d.get('name')}",
-                value="Connected",
-                status=Severity.healthy,
-            ))
-        for d in [d for d in devices if not d.get("connected")][:3]:
-            checks.append(ProbeCheck(
-                label=f"{d.get('device_type')}: {d.get('name')}",
-                value="Not connected",
                 status=Severity.info,
             ))
     return checks
@@ -1484,24 +2327,18 @@ def _usb_probe_checks(hw: dict) -> list[ProbeCheck]:
 
 
 def _mouse_probe_checks(hw: dict) -> list[ProbeCheck]:
-    usb_mice = _peripherals_matching(hw, _MOUSE_USB_RE)
-    built_in = _hw_pointing_devices(hw)
-    bt = (_external(hw).get("bluetooth") or {}).get("devices") or []
-    bt_mice = [
-        d for d in bt
-        if d.get("connected") and re.search(r"mouse|trackpad|touchpad", d.get("name", ""), re.I)
-    ]
+    usb_mice, bt_mice, built_in = _collect_pointing_devices(hw)
     total = usb_mice + built_in + bt_mice
     checks = [ProbeCheck(
         label="Physical pointing devices",
-        value=str(len(total)) if total else "None connected",
+        value=str(len(total)) if total else "None detected",
         status=Severity.healthy if total else Severity.warning,
     )]
     for d in (usb_mice + built_in)[:4]:
         checks.append(ProbeCheck(
-            label=d.get("name") or "Mouse",
-            value=d.get("health") or d.get("status") or "Connected",
-            status=Severity.healthy,
+            label=d.get("name") or "Pointing device",
+            value=d.get("health") or d.get("status") or "Present",
+            status=Severity.healthy if d.get("working", True) else Severity.warning,
         ))
     for d in bt_mice[:2]:
         checks.append(ProbeCheck(
@@ -1580,6 +2417,24 @@ def build_probes_from_scan(
             title="Webcam / Camera (issue scan)",
             available=True,
             checks=_webcam_probe_checks(hw),
+            note=scan_note,
+        ))
+
+    if "performance" in domains:
+        probes.append(ProbeResult(
+            domain="performance",
+            title="System Resource Usage (issue scan)",
+            available=True,
+            checks=_performance_probe_checks(hw, report.get("software") or {}),
+            note=scan_note,
+        ))
+
+    if "driver" in domains:
+        probes.append(ProbeResult(
+            domain="driver",
+            title="Drivers & Updates (issue scan)",
+            available=True,
+            checks=_driver_probe_checks(hw),
             note=scan_note,
         ))
 
@@ -1767,23 +2622,33 @@ def build_issue_scoped_scan_context(
         ctx["focus"] = "bluetooth"
         bt = _external(hw).get("bluetooth") or {}
         ctx["adapter_present"] = bt.get("adapter_present")
+        ctx["adapter_faults"] = bt.get("adapter_faults") or []
+        svc = get_service("bthserv")
+        if svc:
+            ctx["bluetooth_support_service"] = {
+                "status": svc.get("Status"),
+                "start_type": svc.get("StartType"),
+            }
         connected_devices = [d for d in (bt.get("devices") or []) if d.get("connected")]
         ctx["connected_bluetooth_count"] = len(connected_devices)
         ctx["has_connected_bluetooth_device"] = bool(connected_devices)
         ctx["bluetooth_connected_now"] = bt.get("connected_devices") or [
             d.get("name") for d in connected_devices if d.get("name")
         ]
-        if asks_physical_connection(message):
-            ctx["bluetooth_devices"] = [
-                {"name": d.get("name"), "type": d.get("device_type"), "connected": True}
-                for d in connected_devices[:8]
-            ]
-            ctx["paired_bluetooth_count"] = len(bt.get("devices") or [])
-        else:
-            ctx["bluetooth_devices"] = [
-                {"name": d.get("name"), "type": d.get("device_type"), "connected": d.get("connected")}
-                for d in (bt.get("devices") or [])[:8]
-            ]
+        ctx["bluetooth_devices"] = [
+            {"name": d.get("name"), "type": d.get("device_type"), "connected": d.get("connected")}
+            for d in (bt.get("devices") or [])[:8]
+        ]
+        ctx["paired_bluetooth_count"] = len(bt.get("devices") or [])
+        if _device_not_working(message):
+            ctx["bluetooth_note"] = (
+                "The user says Bluetooth is NOT WORKING - diagnose adapter, driver, and "
+                "Bluetooth Support Service first. Do NOT answer as if the only issue is that "
+                "a paired device is disconnected unless the adapter and service are healthy "
+                "and you have ruled out driver/radio problems."
+            )
+        elif asks_physical_connection(message):
+            ctx["bluetooth_note"] = "Answer whether a Bluetooth device is physically connected right now."
 
     elif "usb" in profile.domains:
         ctx["focus"] = "usb"
@@ -1803,6 +2668,62 @@ def build_issue_scoped_scan_context(
             {"name": s.get("name"), "health": s.get("health"), "free_gb": s.get("free_gb")}
             for s in (_external(hw).get("external_storage") or {}).get("devices", [])[:4]
         ]
+
+    elif "performance" in profile.domains:
+        ctx["focus"] = "performance"
+        sw = report.get("software") or {}
+        cpu = hw.get("cpu") or {}
+        ram = hw.get("ram") or {}
+        proc = sw.get("running_processes") or {}
+        ctx["cpu_usage"] = {
+            "processor": cpu.get("processor_name"),
+            "current_pct": cpu.get("current_usage_pct"),
+            "average_pct": (hw.get("performance") or {}).get("cpu", {}).get("average_pct"),
+        }
+        ctx["memory_usage"] = {
+            "total_gb": ram.get("total_gb"),
+            "used_gb": ram.get("used_gb"),
+            "available_gb": ram.get("available_gb"),
+            "used_pct": ram.get("utilization_pct"),
+        }
+        ctx["disk_usage"] = [
+            {
+                "drive": d.get("drive"),
+                "used_pct": d.get("usage_pct"),
+                "free_gb": d.get("free_gb"),
+                "total_gb": d.get("total_gb"),
+            }
+            for d in ((hw.get("storage") or {}).get("logical_drives") or [])[:6]
+        ]
+        ctx["top_cpu_processes"] = [
+            {"app": _friendly_proc(p), "cpu_pct": p.get("cpu_pct"), "memory_mb": p.get("memory_mb")}
+            for p in (proc.get("top_cpu") or [])[:6]
+        ]
+        ctx["top_memory_processes"] = [
+            {"app": _friendly_proc(p), "memory_mb": p.get("memory_mb"), "cpu_pct": p.get("cpu_pct")}
+            for p in (proc.get("top_memory") or [])[:6]
+        ]
+        ctx["total_processes"] = proc.get("total_processes")
+        ctx["resource_note"] = (
+            "Per-process CPU is normalised across all cores (0-100% of the whole CPU). "
+            "Answer the user's resource question using these exact live numbers; name the "
+            "specific apps. Do not invent processes that are not in the lists."
+        )
+
+    elif "driver" in profile.domains:
+        ctx["focus"] = "driver"
+        drv = _drivers_section(hw)
+        ctx["driver_updates_available"] = drv.get("available_updates") or []
+        ctx["driver_update_count"] = drv.get("available_update_count") or 0
+        ctx["driver_problem_devices"] = drv.get("problem_devices") or []
+        ctx["potentially_outdated_drivers"] = (drv.get("potentially_outdated") or [])[:15]
+        ctx["installed_driver_count"] = drv.get("installed_count")
+        ctx["windows_update_driver_error"] = drv.get("windows_update_error")
+        ctx["driver_note"] = (
+            "List drivers that need updates from driver_updates_available and "
+            "driver_problem_devices. If both are empty, state that Windows Update shows "
+            "no pending driver updates. Mention optional manufacturer sites for GPU/chipset only."
+        )
 
     else:
         ctx["focus"] = profile.primary_domain or "general"
@@ -2169,6 +3090,295 @@ def _telemetry_probe_checks(ctx: dict[str, Any]) -> list[ProbeCheck]:
     return checks or [ProbeCheck(label="Telemetry", value="Monitoring active, no recent alerts", status=Severity.healthy)]
 
 
+# ------------------------------------------------------------------ #
+#  Forensic / holistic evidence pack (cross-cutting analytical questions)
+# ------------------------------------------------------------------ #
+def _event_id_frequency(logs: dict[str, Any], limit: int = 8) -> list[dict[str, Any]]:
+    """Roll up the most frequent error/warning event IDs across app + system logs."""
+    from collections import Counter
+
+    counter: Counter[tuple[Any, str, str]] = Counter()
+    samples: dict[tuple[Any, str, str], str] = {}
+    for bucket in ("application", "system"):
+        for row in logs.get(bucket) or []:
+            level = (row.get("level") or "").lower()
+            if level not in ("error", "critical", "warning"):
+                continue
+            key = (row.get("event_id"), row.get("source") or "", level)
+            counter[key] += 1
+            if key not in samples:
+                samples[key] = (row.get("description") or "")[:160]
+    out: list[dict[str, Any]] = []
+    for (eid, source, level), count in counter.most_common(limit):
+        out.append({
+            "event_id": eid,
+            "source": source,
+            "level": level,
+            "count": count,
+            "example": samples.get((eid, source, level)),
+        })
+    return out
+
+
+def build_forensic_context(
+    report: dict[str, Any],
+    profile: IssueProfile,
+    message: str,
+) -> dict[str, Any]:
+    """Assemble a broad, grounded evidence pack for cross-cutting analytical
+    questions (change analysis, root cause, predictive, executive, reasoning).
+
+    Unlike ``build_issue_scoped_scan_context`` (which deliberately narrows to one
+    subsystem), this surfaces the whole machine's notable facts plus continuous
+    telemetry, so the LLM can reason holistically while staying grounded.
+    """
+    hw = report.get("hardware") or {}
+    sw = report.get("software") or {}
+    cpu = hw.get("cpu") or {}
+    ram = hw.get("ram") or {}
+    proc = sw.get("running_processes") or {}
+    os_ = sw.get("operating_system") or {}
+    win = os_.get("windows") or {}
+    sec = sw.get("security") or {}
+    net = sw.get("network") or {}
+    crash = sw.get("crash_analysis") or {}
+    logs = sw.get("event_logs") or {}
+    svc = sw.get("services") or {}
+    startup = sw.get("startup_programs") or {}
+    health = report.get("health_report") or {}
+
+    ctx: dict[str, Any] = {
+        "user_question": message,
+        "analysis_mode": profile.analysis_mode,
+        "time_scope": profile.time_scope,
+        "focus_domains": profile.domains,
+    }
+    if profile.audience:
+        ctx["audience"] = profile.audience
+
+    # Overall health verdict + the deterministic recommended actions.
+    ctx["health"] = {
+        "score": health.get("overall_score"),
+        "status": health.get("overall_status"),
+        "hardware": (health.get("categories") or {}).get("hardware", {}),
+        "software": (health.get("categories") or {}).get("software", {}),
+        "recommended_actions": (health.get("recommended_actions") or [])[:8],
+    }
+
+    # Live resource snapshot + heaviest processes.
+    ctx["resource_usage"] = {
+        "cpu_pct": cpu.get("current_usage_pct"),
+        "ram_used_pct": ram.get("utilization_pct"),
+        "ram_total_gb": ram.get("total_gb"),
+        "pagefile_used_pct": (ram.get("virtual_memory") or {}).get("used_pct"),
+        "top_cpu": [
+            {"app": _friendly_proc(p), "cpu_pct": p.get("cpu_pct"), "memory_mb": p.get("memory_mb")}
+            for p in (proc.get("top_cpu") or [])[:6]
+        ],
+        "top_memory": [
+            {"app": _friendly_proc(p), "memory_mb": p.get("memory_mb"), "cpu_pct": p.get("cpu_pct")}
+            for p in (proc.get("top_memory") or [])[:6]
+        ],
+        "suspicious_processes": [
+            {"name": p.get("name"), "reason": p.get("reason"), "exe": p.get("exe")}
+            for p in (proc.get("suspicious") or [])[:6]
+        ],
+    }
+
+    # Storage: drives + recoverable + largest items if a deep walk ran.
+    storage_data = _best_storage_data(report)
+    if storage_data and not storage_data.get("error"):
+        tree = storage_data.get("tree") or {}
+        ctx["storage"] = {
+            "drives": [
+                {"drive": d.get("drive"), "used_pct": d.get("used_pct") or d.get("usage_pct"),
+                 "free_gb": d.get("free_gb"), "total_gb": d.get("total_gb")}
+                for d in (storage_data.get("drives") or [])[:6]
+            ],
+            "recoverable_gb": (storage_data.get("cleanup") or {}).get("total_potential_gb"),
+            "largest_files": [
+                {"path": f.get("path"), "size_gb": f.get("size_gb")}
+                for f in (tree.get("top_files") or [])[:6]
+            ],
+            "largest_folders": [
+                {"path": f.get("path"), "size_gb": f.get("size_gb")}
+                for f in (tree.get("top_folders") or [])[:6]
+            ],
+            "change_tracking": storage_data.get("change_tracking"),
+            "growth": storage_data.get("growth"),
+        }
+
+    # Operating system + updates + boot.
+    ctx["operating_system"] = {
+        "edition": win.get("edition"),
+        "uptime": win.get("uptime_readable"),
+        "last_boot_time": win.get("last_boot_time"),
+        "pending_reboot": (os_.get("pending_reboot") or {}).get("required"),
+        "pending_reboot_reasons": (os_.get("pending_reboot") or {}).get("reasons"),
+        "updates_pending": (os_.get("updates") or {}).get("pending_count"),
+        "updates_recent": [
+            {"id": u.get("id"), "installed_on": u.get("installed_on"),
+             "description": (u.get("description") or "")[:80]}
+            for u in ((os_.get("updates") or {}).get("recent_installed") or [])[:8]
+        ],
+    }
+
+    # Security posture.
+    defender = sec.get("windows_defender") or {}
+    ctx["security"] = {
+        "protection_active": sec.get("protection_active"),
+        "defender_realtime": defender.get("realtime_protection"),
+        "defender_antivirus_enabled": defender.get("antivirus_enabled"),
+        "tamper_protection": defender.get("tamper_protection"),
+        "signature_age_days": defender.get("signature_age_days"),
+        "firewall_all_enabled": (sec.get("firewall") or {}).get("all_enabled"),
+        "remote_access": sec.get("remote_access"),
+        "remote_access_tools": (sw.get("remote_access_tools") or [])[:6],
+    }
+
+    # Network: connectivity + listening ports + notable connections.
+    conn = net.get("connectivity") or {}
+    connections = net.get("connections") or {}
+    ctx["network"] = {
+        "internet": conn.get("internet"),
+        "dns_ok": conn.get("dns_resolution"),
+        "latency_ms": conn.get("internet_latency_ms") or conn.get("dns_response_ms"),
+        "proxy_enabled": (net.get("proxy") or {}).get("proxy_enabled"),
+        "wifi_ssid": (net.get("wifi") or {}).get("ssid"),
+        "wifi_signal_pct": (net.get("wifi") or {}).get("signal_pct"),
+        "established_count": connections.get("established_count"),
+        "listening_ports": [
+            {"port": p.get("port"), "service": p.get("service"), "process": p.get("process")}
+            for p in (connections.get("notable_listening") or [])[:10]
+        ],
+    }
+
+    # Crashes + BSODs + dumps.
+    ctx["crashes"] = {
+        "summary": crash.get("summary"),
+        "application_crashes": [
+            {"app": c.get("app") or c.get("name"), "time": c.get("timestamp") or c.get("time"),
+             "event_id": c.get("event_id")}
+            for c in (crash.get("application_crashes") or [])[:8]
+        ],
+        "bsod_events": [
+            {"label": b.get("label") or b.get("description"), "time": b.get("timestamp") or b.get("time"),
+             "event_id": b.get("event_id")}
+            for b in (crash.get("bsod_events") or [])[:6]
+        ],
+        "minidumps": [
+            {"file": d.get("file"), "created": d.get("created"), "size_kb": d.get("size_kb")}
+            for d in (crash.get("minidumps") or [])[:6]
+        ],
+    }
+
+    # Event-log error/warning frequency rollup (most repeated IDs).
+    ctx["event_log"] = {
+        "summary": logs.get("summary"),
+        "top_event_ids": _event_id_frequency(logs),
+    }
+
+    # Services + startup + scheduled tasks.
+    ctx["services"] = {
+        "failed_critical": [s.get("name") for s in (svc.get("failed_critical") or [])][:10],
+        "stopped_automatic": [s.get("name") for s in (svc.get("stopped_automatic") or [])][:10],
+    }
+    tasks = startup.get("scheduled_tasks") or {}
+    ctx["startup"] = {
+        "high_impact": [
+            {"name": s.get("name"), "impact": s.get("impact")}
+            for s in (startup.get("high_impact") or startup.get("programs") or [])[:10]
+        ],
+        "high_impact_count": startup.get("high_impact_count"),
+        "third_party_logon_tasks": [
+            t.get("name") if isinstance(t, dict) else t
+            for t in (tasks.get("third_party_logon_tasks") or [])[:10]
+        ],
+    }
+
+    # Drivers + problem devices + SMART health.
+    devices = hw.get("devices") or {}
+    ctx["devices_drivers"] = {
+        "problem_devices": [
+            {"name": d.get("name"), "status": d.get("status"), "problem_code": d.get("problem_code")}
+            for d in (devices.get("problem_devices") or [])[:10]
+        ],
+        "gpu_drivers": [
+            {"name": g.get("name"), "driver_version": g.get("driver_version"), "driver_date": g.get("driver_date")}
+            for g in ((hw.get("gpu") or {}).get("gpus") or [])[:4]
+        ],
+        "disk_smart": [
+            {"name": d.get("name"), "smart_health": d.get("smart_health"),
+             "temperature_c": d.get("temperature_c"), "wear_pct": d.get("wear_pct"),
+             "power_on_hours": d.get("power_on_hours")}
+            for d in ((hw.get("disk_health") or {}).get("disks") or [])[:6]
+        ],
+    }
+
+    # Recently installed software (change analysis / unwanted apps).
+    ctx["software_changes"] = {
+        "recently_installed_30d": [
+            {"name": a.get("name") if isinstance(a, dict) else a,
+             "installed_on": a.get("installed_on") if isinstance(a, dict) else None}
+            for a in (sw.get("recently_installed_30d") or [])[:12]
+        ],
+        "installed_count": sw.get("installed_count"),
+    }
+
+    # Synthesis layers: deterministic predictions, entity correlations, compliance
+    # verdicts and the per-dimension executive scorecard. These power the advanced
+    # forensic / predictive / correlation / executive answers.
+    pred = sw.get("predictive") or {}
+    ctx["predictive"] = {
+        "predictions": pred.get("predictions") or {},
+        "high_risk_areas": pred.get("high_risk_areas") or [],
+    }
+    kg = sw.get("knowledge_graph") or {}
+    ctx["correlations"] = (kg.get("correlations") or [])[:12]
+    comp = sw.get("compliance") or {}
+    ctx["compliance"] = {
+        "score": comp.get("score"),
+        "status": comp.get("status"),
+        "failed_controls": [
+            {"name": c.get("name"), "severity": c.get("severity"), "detail": c.get("detail")}
+            for c in (comp.get("controls") or []) if c.get("status") == "fail"
+        ][:8],
+    }
+    ctx["category_scores"] = health.get("categories") or {}
+
+    # Continuous telemetry: trends, baselines, predictions, change timeline,
+    # boot history, machine memory, and (if a time is named) incident replay.
+    try:
+        from app.services.telemetry_analytics_service import (
+            TelemetryAnalyticsService,
+            looks_like_incident,
+            parse_incident_time,
+        )
+
+        telem = TelemetryAnalyticsService()
+        ctx["telemetry"] = telem.diagnosis_context()
+        try:
+            ctx["trends_7d"] = telem.trends(days=7).get("averages")
+            ctx["trends_30d"] = telem.trends(days=30).get("averages")
+        except Exception:
+            pass
+        try:
+            ctx["change_timeline"] = telem.change_timeline(days=30, limit=20)
+        except Exception:
+            pass
+        try:
+            ctx["boot_history"] = telem.boot_history(limit=10)
+        except Exception:
+            pass
+        if looks_like_incident(message):
+            anchor, window = parse_incident_time(message)
+            ctx["incident_reconstruction"] = telem.incident(anchor, window)
+    except Exception:  # pragma: no cover - telemetry must never break diagnosis
+        pass
+
+    return ctx
+
+
 def build_investigation_from_scan(
     report: dict[str, Any],
     profile: IssueProfile,
@@ -2176,6 +3386,22 @@ def build_investigation_from_scan(
 ) -> tuple[list[ProbeResult], list[TroubleshooterFinding], dict[str, Any]]:
     probes = build_probes_from_scan(report, profile, message)
     findings = build_findings_from_scan(report, profile, message)
+
+    from app.services.rules_engine import evaluate_rules
+    rule_findings = evaluate_rules(report, profile, message)
+    if rule_findings:
+        seen_titles = {f.title for f in findings}
+        for rf in rule_findings:
+            if rf.title not in seen_titles:
+                findings.append(rf)
+                seen_titles.add(rf.title)
+        findings.sort(
+            key=lambda f: {"Critical": 3, "Warning": 2, "Info": 1, "Healthy": 0}.get(
+                f.severity.value if hasattr(f.severity, "value") else str(f.severity), 0
+            ),
+            reverse=True,
+        )
+
     scan_facts = build_issue_scoped_scan_context(report, profile, message)
 
     # Continuous-monitoring: incident reconstruction + trend context for
@@ -2217,6 +3443,9 @@ def build_investigation_from_scan(
             raw_deep = (report.get("software") or {}).get("storage_deep") or {}
             deep = raw_deep if raw_deep and not raw_deep.get("error") else None
         include_files = _storage_relevant(profile, message, storage_data)
+        if is_scan_only_intent(profile.query_intent):
+            if profile.primary_domain != "storage" and not _LARGEST_FILE_RE.search(message or ""):
+                include_files = False
         show_file_details = bool(
             include_files
             and ("storage" in profile.domains or _LARGEST_FILE_RE.search(message or ""))
@@ -2234,7 +3463,11 @@ def build_investigation_from_scan(
                 deep=deep,
                 show_file_details=show_file_details,
             )
-            findings = [f for f in findings if not f.id.startswith("no_fault_")] + storage_findings
+            if storage_findings:
+                findings = [
+                    f for f in findings
+                    if f.id not in ("info_unavailable",) and not f.id.startswith("no_fault_")
+                ] + storage_findings
             probes = [p for p in probes if p.domain != "storage"]
             mode_label = "deep" if deep else "quick"
             probes.insert(0, ProbeResult(
@@ -2244,4 +3477,10 @@ def build_investigation_from_scan(
                 checks=_storage_probe_checks(storage_data, deep=deep),
                 note=f"Storage analysis ({mode_label}, {storage_data.get('scan_duration_seconds')}s)",
             ))
+
+    # Holistic / forensic questions get the broad evidence pack so the LLM can
+    # reason across the whole machine + continuous telemetry.
+    if profile.analysis_mode:
+        scan_facts["forensic_evidence"] = build_forensic_context(report, profile, message)
+
     return probes, findings, scan_facts

@@ -3,76 +3,47 @@
 Runs every independent scanner concurrently (each on a worker thread so the
 blocking PowerShell/psutil calls don't stall the event loop), assembles the
 structured report matching the requested data structure, and computes a health
-score. Optionally folds in OCR text and RAG context for the AI layer.
+score. The executive summary is generated deterministically from the scan facts.
 """
 from __future__ import annotations
 
 import asyncio
-import json
 import time
 from datetime import datetime, timezone
 from typing import Any, Optional
 
 from app.core.config import get_settings
 from app.core.logging import get_logger
-from app.services.ollama_service import OllamaService
 from app.services.storage_intelligence_service import StorageIntelligenceService
+from app.services.scan_framework import scanners_for_domains
 from app.services.scanners import (
+    ai_environment,
+    app_health,
+    compliance,
     crash,
+    dev_environment,
+    drivers,
     event_logs,
     external_devices,
     hardware,
     health,
+    knowledge_graph,
     network,
     operating_system,
     performance,
+    predictive,
     processes,
     security,
     services_scan,
     software,
     startup,
+    store_apps,
+    user_activity,
+    windows_health,
 )
 from app.services.system_inventory import SystemInventory
 
 logger = get_logger(__name__)
-
-_HEALTH_SYSTEM = (
-    "You are a senior Windows IT support engineer writing an enterprise health and compliance "
-    "report for a managed PC. You are given a JSON snapshot collected live from THIS machine "
-    "(health scores, hardware identity, storage/SMART, storage intelligence recoverable space, security posture - antivirus, firewall, "
-    "BitLocker, TPM, Secure Boot, UAC, SMBv1, local admins - OS activation, pending reboots, "
-    "domain/Azure AD join, network exposure, crashes, services, and connected EXTERNAL hardware - "
-    "printers (online/offline), monitors, USB devices, Bluetooth peripherals, external storage). "
-    "Cover, in order of impact: "
-    "(1) overall condition, (2) performance/resource pressure, (3) security & compliance risks, "
-    "(4) stability problems, (5) anything an IT admin should remediate. STRICT RULES: use ONLY "
-    "the data provided; never invent numbers, devices, or issues; cite the actual figures. "
-    "Return ONLY the requested JSON."
-)
-
-
-# Which scanner keys each issue domain needs. Used to run a fast, scoped scan
-# for the chat troubleshooter instead of the whole machine every time.
-_DOMAIN_SCANNERS: dict[str, set[str]] = {
-    "audio": {"hardware", "external_devices"},
-    "webcam": {"hardware", "external_devices"},
-    "printer": {"hardware", "external_devices"},
-    "display": {"hardware", "external_devices"},
-    "bluetooth": {"hardware", "external_devices"},
-    "usb": {"hardware", "external_devices"},
-    "mouse": {"hardware", "external_devices"},
-    "keyboard": {"hardware", "external_devices"},
-    "storage": {"storage_intelligence"},
-    "performance": {"hardware", "performance", "processes", "event_logs"},
-    "application": {"installed_software", "processes", "services"},
-    "windows_update": {"operating_system", "services"},
-    "network": {"network"},
-    "wifi": {"network"},
-    "security": {"security", "operating_system"},
-    "account": {"security", "operating_system"},
-    "boot": {"performance", "operating_system", "crash_analysis"},
-    "battery": {"hardware", "performance"},
-}
 
 # Domains whose answers benefit from the heavy deep storage tree walk.
 _DEEP_STORAGE_DOMAINS = {"storage"}
@@ -87,28 +58,15 @@ class MachineScanService:
     def __init__(
         self,
         inventory: Optional[SystemInventory] = None,
-        ollama: Optional[OllamaService] = None,
-        use_llm: bool = False,
-        summary_model: str = "",
         storage: Optional[StorageIntelligenceService] = None,
     ) -> None:
         self._inventory = inventory or SystemInventory()
-        self._ollama = ollama
-        self._use_llm = use_llm
-        self._summary_model = summary_model
         self._storage = storage or StorageIntelligenceService()
 
     @staticmethod
     def _select_scanners(domains: Optional[list[str]]) -> Optional[set[str]]:
         """Return the scanner keys needed for ``domains`` (None = run all)."""
-        if domains is None:
-            return None
-        selected: set[str] = set()
-        for d in domains:
-            selected |= _DOMAIN_SCANNERS.get(d, set())
-        # Unknown/unmapped domains still get a sensible, cheap default so we
-        # never run zero scanners (which would yield an empty report).
-        return selected or {"hardware", "external_devices"}
+        return scanners_for_domains(domains)
 
     async def scan(
         self,
@@ -117,10 +75,12 @@ class MachineScanService:
         rag_context: Optional[dict] = None,
         target_drive: str | None = None,
         domains: Optional[list[str]] = None,
+        scanner_keys: Optional[set[str]] = None,
         run_deep_storage: Optional[bool] = None,
         snapshot: Any = None,
         storage_tree_budget: Optional[float] = None,
         storage_duplicate_budget: Optional[float] = None,
+        scan_depth: str | None = None,
     ) -> dict[str, Any]:
         """Run the machine scan.
 
@@ -133,7 +93,7 @@ class MachineScanService:
         snapshot it already collected, avoiding a second expensive enumeration.
         """
         settings = get_settings()
-        scoped = domains is not None
+        scoped = domains is not None or scanner_keys is not None
 
         # Reuse a recent scoped scan for back-to-back chat questions on the same topic.
         cache_ttl = settings.investigation_scan_cache_seconds
@@ -141,6 +101,7 @@ class MachineScanService:
         if scoped and cache_ttl > 0:
             cache_key = (
                 tuple(sorted(domains or [])),
+                tuple(sorted(scanner_keys or [])),
                 target_drive or "",
                 bool(run_deep_storage) if run_deep_storage is not None else "auto",
             )
@@ -152,7 +113,10 @@ class MachineScanService:
         start = time.perf_counter()
 
         # Decide the scanner subset for this run.
-        selected_keys = self._select_scanners(domains)
+        if scanner_keys is not None:
+            selected_keys = set(scanner_keys)
+        else:
+            selected_keys = self._select_scanners(domains)
 
         # Deep storage: scoped scans only when storage-related; full scan follows setting.
         if run_deep_storage is None:
@@ -178,7 +142,7 @@ class MachineScanService:
         # Reuse a caller-supplied snapshot when present; only enumerate inventory
         # if a scanner that needs it will actually run.
         needs_snapshot = selected_keys is None or bool(
-            selected_keys & {"installed_software", "services"}
+            selected_keys & {"installed_software", "services", "app_health"}
         )
         if snapshot is None and needs_snapshot:
             snapshot = await asyncio.to_thread(self._inventory.snapshot)
@@ -203,12 +167,14 @@ class MachineScanService:
         inv_scanners = {
             "installed_software": (software.scan, (snapshot,)),
             "services": (services_scan.scan, (snapshot,)),
+            "app_health": (lambda inv=snapshot: app_health.scan(inv), (snapshot,)),
         }
         # Standalone scanners. Scoped chat investigations pass ``domains`` so
         # hardware/external_devices only run the probes the issue needs.
         plain_scanners = {
             "hardware": (lambda d=domains: hardware.scan(d), ()),
             "external_devices": (lambda d=domains: external_devices.scan(d), ()),
+            "drivers": (drivers.scan, ()),
             "operating_system": (operating_system.scan, ()),
             "performance": (performance.scan, ()),
             "processes": (processes.scan, ()),
@@ -217,6 +183,11 @@ class MachineScanService:
             "network": (network.scan, ()),
             "security": (security.scan, ()),
             "crash_analysis": (crash.scan, ()),
+            "windows_health": (windows_health.scan, ()),
+            "user_activity": (user_activity.scan, ()),
+            "store_apps": (store_apps.scan, ()),
+            "dev_environment": (dev_environment.scan, ()),
+            "ai_environment": (ai_environment.scan, ()),
             # Fast storage intelligence (~12s) - recoverable space, cleanup targets, health.
             "storage_intelligence": (self._storage.quick_scan, ()),
         }
@@ -227,8 +198,8 @@ class MachineScanService:
         keys = list(all_scanners.keys())
         if scoped:
             logger.info(
-                "Scoped scan for domains=%s -> scanners=%s deep_storage=%s",
-                domains, keys, run_deep_storage,
+                "Scoped scan domains=%s scanners=%s deep_storage=%s",
+                domains, sorted(selected_keys or []), run_deep_storage,
             )
         results = await asyncio.gather(
             *(asyncio.to_thread(fn, *args) for fn, args in all_scanners.values()),
@@ -249,6 +220,7 @@ class MachineScanService:
             **hardware_section,
             "performance": sections.get("performance", {}),
             "external_devices": sections.get("external_devices", {}),
+            "drivers": sections.get("drivers", {}),
         }
 
         installed = sections.get("installed_software", {}) or {}
@@ -270,6 +242,21 @@ class MachineScanService:
             "network": sections.get("network", {}),
             "storage_intelligence": sections.get("storage_intelligence", {}),
         }
+        # New enterprise sections (only present when their scanner ran).
+        if "windows_health" in sections:
+            software_bucket["windows_health"] = sections.get("windows_health", {})
+        if "user_activity" in sections:
+            software_bucket["user_activity"] = sections.get("user_activity", {})
+        if "store_apps" in sections:
+            store = sections.get("store_apps", {}) or {}
+            software_bucket["store_applications"] = store.get("applications", [])
+            software_bucket["store_application_count"] = store.get("total_count", 0)
+        if "dev_environment" in sections:
+            software_bucket["dev_environment"] = sections.get("dev_environment", {})
+        if "ai_environment" in sections:
+            software_bucket["ai_environment"] = sections.get("ai_environment", {})
+        if "app_health" in sections:
+            software_bucket["app_health"] = sections.get("app_health", {})
 
         deep_storage = await deep_task
         if deep_storage and not deep_storage.get("error"):
@@ -282,6 +269,23 @@ class MachineScanService:
             )
         elif deep_storage and deep_storage.get("error"):
             software_bucket["storage_deep"] = deep_storage
+
+        # --- Synthesis layers (deterministic analysis over the collected facts) ---
+        # Compliance must be computed before the health report so its score can
+        # feed the executive scorecard. Each runs only when its inputs are present.
+        synth_input = dict(sections)
+        synth_input["_hardware_bucket"] = hardware_bucket
+        synth_input["_software_bucket"] = software_bucket
+
+        if {"security", "operating_system"} & set(sections):
+            comp = compliance.build(synth_input)
+            sections["compliance"] = comp
+            software_bucket["compliance"] = comp
+        if not scoped or {"processes", "services", "drivers", "crash_analysis"} & set(sections):
+            kg = knowledge_graph.build(synth_input)
+            software_bucket["knowledge_graph"] = kg
+        if not scoped or {"crash_analysis", "hardware", "storage_intelligence"} & set(sections):
+            software_bucket["predictive"] = predictive.build(synth_input)
 
         report: dict[str, Any] = {
             "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -304,6 +308,10 @@ class MachineScanService:
         elapsed = time.perf_counter() - start
         report["scan_duration_seconds"] = round(elapsed, 1)
         report["scan_scope"] = "scoped" if scoped else "full"
+        if scan_depth:
+            from app.services.scan_orchestrator import SCAN_DEPTH_BUDGET_SECONDS
+            report["scan_depth"] = scan_depth
+            report["scan_depth_budget_seconds"] = SCAN_DEPTH_BUDGET_SECONDS.get(scan_depth)  # type: ignore[arg-type]
         logger.info(
             "%s machine scan complete in %.1fs - health %s (%d/100)",
             "Scoped" if scoped else "Full",
@@ -315,73 +323,102 @@ class MachineScanService:
             _scoped_scan_cache[cache_key] = (time.monotonic(), dict(report))
         return report
 
+    @staticmethod
+    def merge_reports(base: dict[str, Any], extra: dict[str, Any]) -> dict[str, Any]:
+        """Merge a follow-up scoped scan into an earlier report (correlation escalation)."""
+        if not extra:
+            return base
+        merged = dict(base)
+        for key in ("hardware", "software"):
+            bucket = dict(merged.get(key) or {})
+            add = extra.get(key) or {}
+            for sub_key, value in add.items():
+                if value and (sub_key not in bucket or not bucket.get(sub_key)):
+                    bucket[sub_key] = value
+            merged[key] = bucket
+        if extra.get("health_report") and not merged.get("health_report"):
+            merged["health_report"] = extra["health_report"]
+        merged["scan_duration_seconds"] = round(
+            float(merged.get("scan_duration_seconds") or 0)
+            + float(extra.get("scan_duration_seconds") or 0),
+            1,
+        )
+        return merged
+
     # ------------------------------------------------------------------ #
-    #  On-demand LLM summary
+    #  On-demand executive summary (deterministic, no AI model)
     # ------------------------------------------------------------------ #
     async def generate_summary(self, report: dict[str, Any]) -> dict[str, Any]:
-        """Generate a grounded LLM narrative from a completed scan report."""
-        return await self._ai_summary(report)
+        """Build a grounded executive summary directly from the scan facts."""
+        return self._deterministic_summary(report)
 
-    async def _ai_summary(self, report: dict[str, Any]) -> dict[str, Any]:
-        health = report.get("health_report", {})
-        fallback = {
-            "summary": (
-                f"Overall health {health.get('overall_score', 0)}/100 "
-                f"({health.get('overall_status', 'Unknown')}). "
-                + (" ".join(health.get("recommended_actions", [])[:3]) or "No major issues detected.")
-            ),
-            "prioritized_actions": health.get("recommended_actions", [])[:6],
+    @staticmethod
+    def _deterministic_summary(report: dict[str, Any]) -> dict[str, Any]:
+        """Assemble a multi-sentence health summary + prioritised actions from facts."""
+        health = report.get("health_report", {}) or {}
+        hw = report.get("hardware", {}) or {}
+        sw = report.get("software", {}) or {}
+        cpu = hw.get("cpu") or {}
+        ram = hw.get("ram") or {}
+        sec = sw.get("security") or {}
+        crash = sw.get("crash_analysis") or {}
+        os_ = sw.get("operating_system") or {}
+
+        score = health.get("overall_score", 0)
+        status = health.get("overall_status", "Unknown")
+        sentences: list[str] = [f"Overall health is {score}/100 ({status})."]
+
+        cpu_pct = cpu.get("current_usage_pct")
+        ram_pct = ram.get("utilization_pct")
+        if cpu_pct is not None or ram_pct is not None:
+            parts = []
+            if cpu_pct is not None:
+                parts.append(f"CPU at {cpu_pct}%")
+            if ram_pct is not None:
+                parts.append(f"RAM at {ram_pct}% of {ram.get('total_gb', '?')} GB")
+            sentences.append("Resource use: " + ", ".join(parts) + ".")
+
+        drives = (hw.get("storage") or {}).get("logical_drives", []) or []
+        tight = [d for d in drives if (d.get("usage_pct") or 0) >= 85]
+        if tight:
+            d = tight[0]
+            sentences.append(
+                f"Drive {d.get('drive')} is {d.get('usage_pct')}% full "
+                f"({d.get('free_gb')} GB free)."
+            )
+
+        if sec:
+            protected = sec.get("protection_active")
+            fw = (sec.get("firewall") or {}).get("all_enabled")
+            posture = "active" if protected else "needs attention"
+            fw_txt = "on" if fw else "partially off"
+            sentences.append(f"Security protection is {posture}; firewall is {fw_txt}.")
+
+        crash_sum = crash.get("summary") or {}
+        bsod = crash_sum.get("bsod_count") or len(crash.get("bsod_events") or [])
+        app_c = crash_sum.get("app_crash_count") or len(crash.get("application_crashes") or [])
+        if bsod or app_c:
+            sentences.append(
+                f"Stability: {bsod} blue-screen and {app_c} app-crash event(s) recorded."
+            )
+        if (os_.get("pending_reboot") or {}).get("required"):
+            sentences.append("A system reboot is pending.")
+
+        actions = list(health.get("recommended_actions", []) or [])
+        if not actions:
+            actions = ["No critical actions required - keep Windows and drivers up to date."]
+
+        return {
+            "summary": " ".join(sentences) if len(sentences) > 1
+            else sentences[0] + " No major issues detected.",
+            "prioritized_actions": actions[:8],
             "generated_by_llm": False,
             "model": "",
         }
-        if not (self._use_llm and self._ollama):
-            return fallback
-        try:
-            if not await self._ollama.health():
-                logger.info("Ollama offline - using deterministic scan summary.")
-                return fallback
-            context = self._build_summary_context(report)
-            payload = json.dumps(context, default=str, separators=(",", ":"))
-            logger.info("Summary LLM context size: %d chars (model=%s)", len(payload),
-                        self._summary_model or self._ollama.default_model)
-            prompt = (
-                "Machine scan facts (live from this Windows PC):\n"
-                + payload
-                + '\n\nReturn ONLY JSON: {"summary": string (5-8 sentences covering condition, '
-                "performance, security/compliance posture and stability - cite numbers from the "
-                "facts), \"prioritized_actions\": array of 4-8 concrete remediation steps ordered "
-                "by urgency, each naming the exact component/setting to fix}."
-            )
-            used_model = self._summary_model or self._ollama.default_model
-            raw = await self._ollama.generate(
-                prompt,
-                system=_HEALTH_SYSTEM,
-                model=used_model,
-                json_mode=True,
-                temperature=0.15,
-                options={"num_ctx": 6144, "num_predict": 800},
-            )
-            data = json.loads(raw)
-            if isinstance(data, dict):
-                summary = str(data.get("summary") or "").strip()
-                actions = [
-                    str(a).strip() for a in data.get("prioritized_actions", [])
-                    if isinstance(a, (str, int, float)) and str(a).strip()
-                ]
-                if summary:
-                    return {
-                        "summary": summary,
-                        "prioritized_actions": actions[:8] or fallback["prioritized_actions"],
-                        "generated_by_llm": True,
-                        "model": used_model,
-                    }
-        except Exception as exc:  # pragma: no cover - never break the scan
-            logger.warning("AI scan summary failed, using deterministic: %s", exc)
-        return fallback
 
     @staticmethod
     def _build_summary_context(report: dict[str, Any]) -> dict[str, Any]:
-        """Compact facts for the LLM - small prompt = fast inference on remote Ollama."""
+        """Compact facts used by the deterministic summary / diagnostics views."""
         hw = report.get("hardware", {}) or {}
         sw = report.get("software", {}) or {}
         cpu = hw.get("cpu") or {}

@@ -515,8 +515,8 @@ def _network_adapters() -> list[dict]:
 _DOMAIN_HARDWARE_JOBS: dict[str, set[str]] = {
     "bluetooth": set(),
     "usb": set(),
-    "mouse": set(),
-    "keyboard": set(),
+    "mouse": {"devices"},
+    "keyboard": {"devices"},
     "printer": set(),
     "webcam": {"devices", "peripherals"},
     "audio": {"devices", "peripherals"},
@@ -526,6 +526,7 @@ _DOMAIN_HARDWARE_JOBS: dict[str, set[str]] = {
     "storage": {"storage", "disk_health"},
     "network": {"network_adapters"},
     "wifi": {"network_adapters"},
+    "driver": {"devices", "gpu", "network_adapters"},
 }
 
 

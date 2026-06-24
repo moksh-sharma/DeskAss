@@ -335,6 +335,73 @@ def _pnp_printers() -> list[dict]:
     ]
 
 
+def _discover_lan_printers() -> list[dict]:
+    """Probe reachable LAN neighbours for printers and resolve a display name.
+
+    Uses TCP ports (RAW/IPP/LPD), reverse DNS, and HTTP/IPP page titles.
+    """
+    rows = as_list(ps_json(
+        "function Resolve-PrinterName([string]$ip) { "
+        "  $name = $null; "
+        "  try { "
+        "    $entry = [System.Net.Dns]::GetHostEntry($ip); "
+        "    if ($entry.HostName -and $entry.HostName -ne $ip) { "
+        "      $name = ($entry.HostName -split '\\.')[0] "
+        "    } "
+        "  } catch {} "
+        "  if (-not $name) { "
+        "    foreach ($port in @(631, 80)) { "
+        "      try { "
+        "        $r = Invoke-WebRequest -Uri \"http://${ip}:${port}/\" -TimeoutSec 2 "
+        "          -UseBasicParsing -ErrorAction Stop; "
+        "        if ($r.Content -match '<title>\\s*([^<]+)\\s*</title>') { "
+        "          $t = $matches[1].Trim(); "
+        "          if ($t -and $t -notmatch '^(Index|Home|Login|Printer)$') { $name = $t; break } "
+        "        } "
+        "      } catch {} "
+        "    } "
+        "  } "
+        "  if (-not $name) { $name = \"Printer at $ip\" }; "
+        "  return $name "
+        "} "
+        "$neighbors = @(Get-NetNeighbor -AddressFamily IPv4 -ErrorAction SilentlyContinue | "
+        "Where-Object { $_.State -eq 'Reachable' -and $_.IPAddress -and "
+        "$_.IPAddress -notmatch '^169\\.254\\.' -and $_.IPAddress -ne '127.0.0.1' } | "
+        "Select-Object -ExpandProperty IPAddress -Unique | Select-Object -First 40); "
+        "$ports = @(9100, 631, 515); $found = @(); "
+        "foreach ($ip in $neighbors) { "
+        "  foreach ($port in $ports) { "
+        "    $client = New-Object System.Net.Sockets.TcpClient; "
+        "    try { "
+        "      $iar = $client.BeginConnect($ip, $port, $null, $null); "
+        "      $ok = $iar.AsyncWaitHandle.WaitOne(300, $false); "
+        "      if ($ok -and $client.Connected) { "
+        "        $svc = switch ($port) { 9100 { 'RAW' } 631 { 'IPP' } 515 { 'LPD' } default { 'Printer' } }; "
+        "        $found += [PSCustomObject]@{ name=(Resolve-PrinterName $ip); ip_address=$ip; "
+        "          port=$port; service=$svc }; "
+        "        $client.Close(); break "
+        "      } "
+        "    } catch {} finally { $client.Dispose() } "
+        "  } "
+        "} "
+        "$found | ConvertTo-Json -Compress",
+        timeout=60.0,
+    ))
+    out: list[dict] = []
+    for r in rows:
+        ip = r.get("ip_address")
+        if not ip:
+            continue
+        out.append({
+            "name": r.get("name") or f"Printer at {ip}",
+            "ip_address": ip,
+            "port": r.get("port"),
+            "service": r.get("service") or "Printer",
+            "source": "lan_port_scan",
+        })
+    return out
+
+
 def _printers() -> dict:
     rows = as_list(ps_json(
         "Get-Printer -ErrorAction SilentlyContinue | "
@@ -426,6 +493,32 @@ def _printers() -> dict:
         p for p in physical
         if p.get("health") in ("Ready", "Idle / Ready") and not p.get("offline")
     ]
+    network_installed = [p for p in physical if p.get("connection") == "Network"]
+    local_installed = [p for p in physical if p.get("connection") == "Local / USB"]
+    installed_net_ips = {
+        str(p.get("network_address") or "").strip()
+        for p in network_installed
+        if p.get("network_address")
+    }
+    discovered = _discover_lan_printers()
+    discovered_new = [
+        d for d in discovered
+        if str(d.get("ip_address") or "").strip() not in installed_net_ips
+    ]
+    network_available = list(network_installed) + [
+        {
+            "name": d.get("name") or f"Printer at {d.get('ip_address')}",
+            "connection": "Network (discovered, not installed)",
+            "network_address": d.get("ip_address"),
+            "port": d.get("port"),
+            "service": d.get("service"),
+            "health": "Reachable",
+            "is_physical": True,
+            "is_virtual": False,
+            "is_discovered": True,
+        }
+        for d in discovered_new
+    ]
     return {
         "printers": printers,
         "count": len(printers),
@@ -438,6 +531,13 @@ def _printers() -> dict:
         "offline_count": sum(1 for p in physical if p["health"] == "Offline"),
         "spooler_running": spooler_running,
         "queued_jobs": to_int(queued) or 0,
+        "network_installed_count": len(network_installed),
+        "network_discovered_count": len(discovered_new),
+        "network_available_count": len(network_available),
+        "local_installed_count": len(local_installed),
+        "network_installed": network_installed,
+        "network_discovered": discovered_new,
+        "network_available": network_available,
     }
 
 
@@ -705,12 +805,32 @@ def _bluetooth() -> dict:
     adapter = as_list(ps_json(
         "Get-PnpDevice -Class Bluetooth -PresentOnly -ErrorAction SilentlyContinue | "
         "Where-Object { $_.InstanceId -notmatch 'BTHENUM' } | "
-        "Select-Object FriendlyName,@{N='Status';E={$_.Status.ToString()}} | ConvertTo-Json -Compress",
+        "Select-Object FriendlyName,InstanceId,"
+        "@{N='Status';E={$_.Status.ToString()}},"
+        "@{N='Problem';E={[int]$_.Problem}} | ConvertTo-Json -Compress",
         timeout=20.0,
     ))
+    adapters: list[dict] = []
+    adapter_faults: list[dict] = []
+    for a in adapter:
+        name = a.get("FriendlyName")
+        if not name:
+            continue
+        status = a.get("Status")
+        problem = a.get("Problem")
+        entry = {
+            "name": name,
+            "status": status,
+            "problem_code": problem,
+        }
+        adapters.append(entry)
+        if status == "Error" or (problem not in (0, 45, None)):
+            adapter_faults.append(entry)
     return {
-        "adapter_present": bool(adapter),
-        "adapters": [a.get("FriendlyName") for a in adapter if a.get("FriendlyName")],
+        "adapter_present": bool(adapters),
+        "adapters": adapters,
+        "adapter_faults": adapter_faults,
+        "adapter_names": [a.get("name") for a in adapters if a.get("name")],
         "devices": devices,
         "paired_count": len(devices),
         "connected_count": len(connected),

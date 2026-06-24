@@ -143,6 +143,13 @@ export interface VisualGuide {
   steps: VisualGuideStep[];
 }
 
+export interface InventoryItem {
+  name: string;
+  version: string;
+  category: string;
+  detail: string;
+}
+
 export interface DiagnosisResult {
   issue_summary: string;
   is_conversational?: boolean;
@@ -157,6 +164,8 @@ export interface DiagnosisResult {
   visual_guide?: VisualGuide | null;
   prevention_tips: string[];
   knowledge_references: KnowledgeReference[];
+  inventory_items?: InventoryItem[];
+  detail_lines?: string[];
   model: string;
   raw_response: string | null;
 }
@@ -169,6 +178,14 @@ export interface IssueProfile {
   confidence: number;
   needs_clarification: boolean;
   clarification_question: string | null;
+  target_drive?: string | null;
+  analysis_mode?: string | null;
+  query_intent?: string | null;
+  audience?: string | null;
+  time_scope?: string | null;
+  enterprise_intents?: string[];
+  entities?: Record<string, string[]>;
+  scan_depth?: string | null;
 }
 
 export interface ProbeCheck {
@@ -221,6 +238,7 @@ export interface TroubleshooterFinding {
   likely_cause: string;
   resolution_steps: string[];
   references: KnowledgeReference[];
+  inventory_items?: InventoryItem[];
   ask_ai_prompt: string;
 }
 
@@ -267,7 +285,7 @@ export interface MachineScanReport {
   ocr_results: Record<string, any>;
   rag_context: Record<string, any>;
   health_report: MachineHealthReport;
-  ai_summary: MachineAiSummary;
+  ai_summary?: MachineAiSummary;
   findings?: TroubleshooterFinding[];
   event_logs?: EventLogSummary | null;
 }
